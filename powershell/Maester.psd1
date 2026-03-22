@@ -76,7 +76,7 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport    = 'Add-MtTestResultDetail',
+    FunctionsToExport    = 'Add-MtTestResultDetail', 'Clear-MtAdCache', 'Invoke-MtAdControlRegistry', 'Get-MtAdAnalysis',
     'Clear-MtDnsCache', 'Clear-MtExoCache', 'Clear-MtGraphCache',
     'Compare-MtJsonObject', 'Compare-MtTestResult',
     'Connect-Maester',
