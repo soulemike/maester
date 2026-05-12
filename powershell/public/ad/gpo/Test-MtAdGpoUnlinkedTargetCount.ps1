@@ -165,20 +165,20 @@
         $sampleText += " (showing first $sampleLimit)"
     }
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total OUs | $totalOus |`n"
-    $result += "| Unlinked OUs | $unlinkedCountOus |`n"
-    $result += "| Total Domains | $totalDomains |`n"
-    $result += "| Unlinked Domains | $unlinkedCountDomains |`n"
-    $result += "| Total Sites (siteLink) | $totalSites |`n"
-    $result += "| Unlinked Sites (siteLink) | $unlinkedCountSites |`n"
-    $result += "| Total Unlinked Targets | $totalUnlinkedTargets |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total OUs | $totalOus |" + "`n"
+    $result += "| Unlinked OUs | $unlinkedCountOus |" + "`n"
+    $result += "| Total Domains | $totalDomains |" + "`n"
+    $result += "| Unlinked Domains | $unlinkedCountDomains |" + "`n"
+    $result += "| Total Sites (siteLink) | $totalSites |" + "`n"
+    $result += "| Unlinked Sites (siteLink) | $unlinkedCountSites |" + "`n"
+    $result += "| Total Unlinked Targets | $totalUnlinkedTargets |" + "`n"
     if ($sampleText) {
         # Avoid breaking markdown tables when DNs contain pipes
         # Use [regex]::Escape to properly escape the pipe character for regex replacement
         $safeSampleText = $sampleText -replace '\|', '&#124;'
-        $result += "| Sample Unlinked Targets | $safeSampleText |`n"
+        $result += "| Sample Unlinked Targets | $safeSampleText |" + "`n"
     }
 
     if ($testResult) {

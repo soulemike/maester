@@ -39,17 +39,17 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Domains | $domainCount |`n"
-        $result += "| Forest Name | $($forest.Name) |`n"
-        $result += "| Root Domain | $($forest.RootDomain) |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Domains | $domainCount |" + "`n"
+        $result += "| Forest Name | $($forest.Name) |" + "`n"
+        $result += "| Root Domain | $($forest.RootDomain) |" + "`n" + "`n"
 
-        $result += "### Domain List`n`n"
-        $result += "| Domain Name |`n"
-        $result += "| --- |`n"
+        $result += "### Domain List" + "`n" + "`n"
+        $result += "| Domain Name |" + "`n"
+        $result += "| --- |" + "`n"
         foreach ($domain in ($domains | Sort-Object)) {
-            $result += "| $domain |`n"
+            $result += "| $domain |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory forest domains have been counted. There are $domainCount domain(s) in the forest.`n`n%TestResult%"

@@ -91,8 +91,8 @@
 
     $testResult = $true
 
-    $table = "| Object Name | Object Class | ACE Count | Distinct Identities | Privileged Rights | Object DN |`n"
-    $table += "| --- | --- | --- | --- | --- | --- |`n"
+    $table = "| Object Name | Object Class | ACE Count | Distinct Identities | Privileged Rights | Object DN |" + "`n"
+    $table += "| --- | --- | --- | --- | --- | --- |" + "`n"
 
     foreach ($item in $objectBreakdown) {
         $objectName = [string]$item.ObjectName
@@ -110,11 +110,11 @@
         $objectDn = [string]$item.ObjectDN
         $objectDn = $objectDn -replace '\|', '\\&#124;'
 
-        $table += "| $objectName | $objectClass | $($item.AceCount) | $($item.IdentityCount) | $rights | $objectDn |`n"
+        $table += "| $objectName | $objectClass | $($item.AceCount) | $($item.IdentityCount) | $rights | $objectDn |" + "`n"
     }
 
     if ($objectBreakdown.Count -eq 0) {
-        $table += "| No privileged allow ACEs found |  | 0 | 0 |  |  |`n"
+        $table += "| No privileged allow ACEs found |  | 0 | 0 |  |  |" + "`n"
     }
     Write-Verbose "Counts computed"
 

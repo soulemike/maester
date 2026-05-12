@@ -38,9 +38,9 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| KDS Root Keys (gMSA) | $kdsRootKeysCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| KDS Root Keys (gMSA) | $kdsRootKeysCount |" + "`n"
 
         $testResultMarkdown = "Active Directory KDS root keys have been analyzed. Found $kdsRootKeysCount KDS root key(s) for gMSA.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

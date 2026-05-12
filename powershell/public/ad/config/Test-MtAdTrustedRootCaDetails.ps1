@@ -39,17 +39,17 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Root CA | Certificate Present |`n"
-        $result += "| --- | --- |`n"
+        $result = "| Root CA | Certificate Present |" + "`n"
+        $result += "| --- | --- |" + "`n"
 
         foreach ($ca in $rootCAs | Select-Object -First 10) {
             $caName = $ca.Name
             $hasCert = if ($ca.cACertificate) { "Yes" } else { "No" }
-            $result += "| $caName | $hasCert |`n"
+            $result += "| $caName | $hasCert |" + "`n"
         }
 
         if ($caCount -gt 10) {
-            $result += "| ... ($($caCount - 10) more) | ... |`n"
+            $result += "| ... ($($caCount - 10) more) | ... |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory trusted root CA details have been analyzed. $caCount trusted root CA(s) found.`n`n%TestResult%"

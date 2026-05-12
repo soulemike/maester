@@ -66,18 +66,18 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Unique Members Analyzed | $totalUniqueMembers |`n"
-        $result += "| Distinct Account Types | $distinctTypeCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Unique Members Analyzed | $totalUniqueMembers |" + "`n"
+        $result += "| Distinct Account Types | $distinctTypeCount |" + "`n"
 
         if ($groupsToCheck.Count -lt ($groups | Measure-Object).Count) {
-            $result += "| Groups Analyzed | $($groupsToCheck.Count) of $(($groups | Measure-Object).Count) |`n"
+            $result += "| Groups Analyzed | $($groupsToCheck.Count) of $(($groups | Measure-Object).Count) |" + "`n"
         }
 
-        $result += "`n**Account Type Breakdown:**`n`n"
-        $result += "| Account Type | Count | Percentage |`n"
-        $result += "| --- | --- | --- |`n"
+        $result += "`n**Account Type Breakdown:**" + "`n" + "`n"
+        $result += "| Account Type | Count | Percentage |" + "`n"
+        $result += "| --- | --- | --- |" + "`n"
 
         foreach ($type in $typeBreakdown) {
             $percentage = if ($totalUniqueMembers -gt 0) {
@@ -85,7 +85,7 @@
             } else {
                 0
             }
-            $result += "| $($type.Name) | $($type.Count) | $percentage% |`n"
+            $result += "| $($type.Name) | $($type.Count) | $percentage% |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory group member account types have been analyzed. Found $distinctTypeCount distinct account types across $totalUniqueMembers unique members.`n`n%TestResult%"

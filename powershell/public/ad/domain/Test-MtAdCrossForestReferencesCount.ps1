@@ -41,16 +41,16 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Cross-Forest Reference Count | $referenceCount |`n"
-        $result += "| Forest Name | $($forest.Name) |`n"
-        $result += "| Root Domain | $($forest.RootDomain) |`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Cross-Forest Reference Count | $referenceCount |" + "`n"
+        $result += "| Forest Name | $($forest.Name) |" + "`n"
+        $result += "| Root Domain | $($forest.RootDomain) |" + "`n"
 
         if ($referenceCount -gt 0) {
-            $result += "`n**Note:** Cross-forest references exist. Review these references to ensure they represent legitimate trust relationships.`n"
+            $result += "`n**Note:** Cross-forest references exist. Review these references to ensure they represent legitimate trust relationships." + "`n"
         } else {
-            $result += "`n**Note:** No cross-forest references found. This is expected in single-forest environments.`n"
+            $result += "`n**Note:** No cross-forest references found. This is expected in single-forest environments." + "`n"
         }
 
         $testResultMarkdown = "The Active Directory forest cross-forest references have been analyzed successfully.`n`n%TestResult%"

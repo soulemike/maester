@@ -51,11 +51,11 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Groups | $totalCount |`n"
-        $result += "| Universal Groups | $universalCount |`n"
-        $result += "| Universal Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Groups | $totalCount |" + "`n"
+        $result += "| Universal Groups | $universalCount |" + "`n"
+        $result += "| Universal Percentage | $percentage% |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory group objects have been analyzed. $universalCount out of $totalCount groups ($percentage%) are universal groups (forest-wide, stored in Global Catalog).`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

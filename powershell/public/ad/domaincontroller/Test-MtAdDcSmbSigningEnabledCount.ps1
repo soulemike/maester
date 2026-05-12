@@ -49,18 +49,18 @@
     $testResult = $signingEnabledCount -eq $smbConfigs.Count
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total DCs Checked | $($smbConfigs.Count) |`n"
-    $result += "| DCs with Signing Enabled | $signingEnabledCount |`n"
-    $result += "| DCs with Signing Required | $signingRequiredCount |`n"
-    $result += "| DCs without Signing | $notEnabledCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total DCs Checked | $($smbConfigs.Count) |" + "`n"
+    $result += "| DCs with Signing Enabled | $signingEnabledCount |" + "`n"
+    $result += "| DCs with Signing Required | $signingRequiredCount |" + "`n"
+    $result += "| DCs without Signing | $notEnabledCount |" + "`n"
 
     if ($signingEnabledCount -eq $smbConfigs.Count) {
         $testResultMarkdown = "✅ **Secure Configuration**: SMB signing is enabled on all $($smbConfigs.Count) domain controller(s).`n`n%TestResult%"
     } else {
         $notEnabledDCs = $smbConfigs | Where-Object { $_.EnableSecuritySignature -eq $false }
-        $result += "| DCs without Signing | $($notEnabledDCs.DCName -join ', ') |`n"
+        $result += "| DCs without Signing | $($notEnabledDCs.DCName -join ', ') |" + "`n"
         $testResultMarkdown = "⚠️ **Security Warning**: SMB signing is not enabled on $notEnabledCount domain controller(s). SMB signing should be enabled on all DCs to prevent man-in-the-middle attacks.`n`n%TestResult%"
     }
 

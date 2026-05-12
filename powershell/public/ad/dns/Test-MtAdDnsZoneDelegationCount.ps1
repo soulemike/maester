@@ -53,11 +53,11 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total NS Records | $totalNsRecords |`n"
-        $result += "| Zone Delegations | $delegationCount |`n"
-        $result += "| Standard NS Records | $($totalNsRecords - $delegationCount) |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total NS Records | $totalNsRecords |" + "`n"
+        $result += "| Zone Delegations | $delegationCount |" + "`n"
+        $result += "| Standard NS Records | $($totalNsRecords - $delegationCount) |" + "`n"
 
         $testResultMarkdown = "Active Directory DNS zone delegations have been analyzed. $delegationCount zone delegations were found.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

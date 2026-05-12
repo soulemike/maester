@@ -57,16 +57,16 @@
     $testResult = $dcCount -gt 0
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Domain Controllers | $dcCount |`n"
-    $result += "| Unique FSMO Role Holders | $uniqueFsmoCount |`n"
-    $result += "| DCs with All 5 FSMO Roles | $allRolesCount |`n`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Domain Controllers | $dcCount |" + "`n"
+    $result += "| Unique FSMO Role Holders | $uniqueFsmoCount |" + "`n"
+    $result += "| DCs with All 5 FSMO Roles | $allRolesCount |" + "`n" + "`n"
 
-    $result += "| FSMO Role | Current Holder |`n"
-    $result += "| --- | --- |`n"
+    $result += "| FSMO Role | Current Holder |" + "`n"
+    $result += "| --- | --- |" + "`n"
     foreach ($role in $fsmoRoles.Keys) {
-        $result += "| $role | $($fsmoRoles[$role]) |`n"
+        $result += "| $role | $($fsmoRoles[$role]) |" + "`n"
     }
 
     if ($allRolesCount -gt 0) {

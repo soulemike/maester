@@ -73,22 +73,22 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Computers | $totalCount |`n"
-        $result += "| Enabled Computers | $enabledCount |`n"
-        $result += "| Distinct OUs/Containers | $distinctOUCount |`n"
-        $result += "| Average Computers per OU | $averagePerOU |`n"
-        $result += "| Minimum Computers in OU | $minCount |`n"
-        $result += "| Maximum Computers in OU | $maxCount |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Computers | $totalCount |" + "`n"
+        $result += "| Enabled Computers | $enabledCount |" + "`n"
+        $result += "| Distinct OUs/Containers | $distinctOUCount |" + "`n"
+        $result += "| Average Computers per OU | $averagePerOU |" + "`n"
+        $result += "| Minimum Computers in OU | $minCount |" + "`n"
+        $result += "| Maximum Computers in OU | $maxCount |" + "`n" + "`n"
 
         if ($distinctOUCount -gt 0) {
-            $result += "**Top 5 Containers by Computer Count:**`n`n"
+            $result += "**Top 5 Containers by Computer Count:**" + "`n" + "`n"
             $computersByContainer |
                 Sort-Object -Property Count -Descending |
                 Select-Object -First 5 |
                 ForEach-Object {
-                    $result += "| $($_.Name) | $($_.Count) |`n"
+                    $result += "| $($_.Name) | $($_.Count) |" + "`n"
                 }
         }
 

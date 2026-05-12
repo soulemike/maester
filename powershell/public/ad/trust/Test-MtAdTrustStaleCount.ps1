@@ -52,12 +52,12 @@
     $testResult = $true
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Trusts | $totalCount |`n"
-    $result += "| Stale Trusts (>60 days) | $staleCount |`n"
-    $result += "| Unknown Validation Status | $unknownCount |`n"
-    $result += "| Valid Trusts | $($totalCount - $staleCount - $unknownCount) |`n`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Trusts | $totalCount |" + "`n"
+    $result += "| Stale Trusts (>60 days) | $staleCount |" + "`n"
+    $result += "| Unknown Validation Status | $unknownCount |" + "`n"
+    $result += "| Valid Trusts | $($totalCount - $staleCount - $unknownCount) |" + "`n" + "`n"
 
     if ($totalCount -eq 0) {
         $testResultMarkdown = "No trusts are configured in this domain.`n`n%TestResult%"

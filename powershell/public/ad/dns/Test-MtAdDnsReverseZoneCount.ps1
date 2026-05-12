@@ -56,13 +56,13 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total DNS Zones | $totalZoneCount |`n"
-        $result += "| Reverse Lookup Zones | $reverseZoneCount |`n"
-        $result += "| IPv4 Reverse Zones (.in-addr.arpa) | $(($ipv4ReverseZones | Measure-Object).Count) |`n"
-        $result += "| IPv6 Reverse Zones (.ip6.arpa) | $(($ipv6ReverseZones | Measure-Object).Count) |`n"
-        $result += "| Forward Lookup Zones | $($totalZoneCount - $reverseZoneCount) |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total DNS Zones | $totalZoneCount |" + "`n"
+        $result += "| Reverse Lookup Zones | $reverseZoneCount |" + "`n"
+        $result += "| IPv4 Reverse Zones (.in-addr.arpa) | $(($ipv4ReverseZones | Measure-Object).Count) |" + "`n"
+        $result += "| IPv6 Reverse Zones (.ip6.arpa) | $(($ipv6ReverseZones | Measure-Object).Count) |" + "`n"
+        $result += "| Forward Lookup Zones | $($totalZoneCount - $reverseZoneCount) |" + "`n"
 
         $testResultMarkdown = "Active Directory DNS zones have been analyzed. $reverseZoneCount reverse lookup zones were found.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

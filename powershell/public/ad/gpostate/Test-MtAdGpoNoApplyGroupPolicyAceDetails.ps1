@@ -41,13 +41,13 @@ function Test-MtAdGpoNoApplyGroupPolicyAceDetails {
     $gpoReportsArray = @($gpoReports | Where-Object { $null -ne $_ })
     $noApplyAceReports = @($gpoReportsArray | Where-Object { -not [bool]$_.HasApplyGroupPolicyAce })
 
-    $table = "| GPO Name | HasApplyGroupPolicyAce |`n"
+    $table = "| GPO Name | HasApplyGroupPolicyAce |" + "`n"
     $table += '| --- | --- |' + "`n"
 
     foreach ($report in ($noApplyAceReports | Sort-Object -Property Name)) {
         $name = [string]$report.Name
         $name = $name -replace '\|', '\\&#124;'
-        $table += "| $name | $([bool]$report.HasApplyGroupPolicyAce) |`n"
+        $table += "| $name | $([bool]$report.HasApplyGroupPolicyAce) |" + "`n"
     }
 
     $testResult = $true

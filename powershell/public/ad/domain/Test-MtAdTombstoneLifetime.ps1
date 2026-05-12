@@ -59,15 +59,15 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Tombstone Lifetime | $tombstoneLifetime days |`n"
-        $result += "| Default Value | $defaultValue days |`n"
-        $result += "| Using Default | $isDefault |`n"
-        $result += "| Forest Name | $($adState.Forest.Name) |`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Tombstone Lifetime | $tombstoneLifetime days |" + "`n"
+        $result += "| Default Value | $defaultValue days |" + "`n"
+        $result += "| Using Default | $isDefault |" + "`n"
+        $result += "| Forest Name | $($adState.Forest.Name) |" + "`n"
 
         $recommendation = if ($tombstoneLifetime -ge 180) { "✅ Meets recommendation (180+ days)" } else { "⚠️ Below recommendation (180 days)" }
-        $result += "| Recommendation | $recommendation |`n"
+        $result += "| Recommendation | $recommendation |" + "`n"
 
         $testResultMarkdown = "The Active Directory tombstone lifetime has been retrieved. Deleted objects are retained for $tombstoneLifetime days before permanent removal.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

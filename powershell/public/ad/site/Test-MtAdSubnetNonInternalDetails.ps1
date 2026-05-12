@@ -74,27 +74,27 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Subnets | $totalSubnets |`n"
-        $result += "| Non-Internal (Public IP) Subnets | $nonInternalCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Subnets | $totalSubnets |" + "`n"
+        $result += "| Non-Internal (Public IP) Subnets | $nonInternalCount |" + "`n"
 
         if ($nonInternalCount -gt 0) {
-            $result += "`n### Non-Internal (Public IP) Subnets`n`n"
-            $result += "| Subnet | Site | Description |`n"
-            $result += "| --- | --- | --- |`n"
+            $result += "`n### Non-Internal (Public IP) Subnets" + "`n" + "`n"
+            $result += "| Subnet | Site | Description |" + "`n"
+            $result += "| --- | --- | --- |" + "`n"
 
             foreach ($subnet in ($nonInternalSubnets | Sort-Object Name)) {
                 $siteName = if ($subnet.SiteObject) {
                     ($subnet.SiteObject -split ',')[0] -replace '^CN=', ''
                 } else { "Unassigned" }
                 $description = if ($subnet.Description) { $subnet.Description } else { "N/A" }
-                $result += "| $($subnet.Name) | $siteName | $description |`n"
+                $result += "| $($subnet.Name) | $siteName | $description |" + "`n"
             }
 
-            $result += "`n> **Note:** Non-RFC1918 subnets use public IP addresses. Ensure these are properly isolated and do not conflict with internet-routable addresses.`n"
+            $result += "`n> **Note:** Non-RFC1918 subnets use public IP addresses. Ensure these are properly isolated and do not conflict with internet-routable addresses." + "`n"
         } else {
-            $result += "`n✅ All subnets use RFC1918 private IP ranges.`n"
+            $result += "`n✅ All subnets use RFC1918 private IP ranges." + "`n"
         }
 
         $testResultMarkdown = "Active Directory non-internal subnet analysis has been performed.`n`n%TestResult%"

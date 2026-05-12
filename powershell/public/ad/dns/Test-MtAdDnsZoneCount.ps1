@@ -49,11 +49,11 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total DNS Zones | $totalZoneCount |`n"
-        $result += "| Zones with Records | $zonesWithRecordsCount |`n"
-        $result += "| Empty Zones | $($totalZoneCount - $zonesWithRecordsCount) |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total DNS Zones | $totalZoneCount |" + "`n"
+        $result += "| Zones with Records | $zonesWithRecordsCount |" + "`n"
+        $result += "| Empty Zones | $($totalZoneCount - $zonesWithRecordsCount) |" + "`n"
 
         $testResultMarkdown = "Active Directory DNS zones have been analyzed. $zonesWithRecordsCount out of $totalZoneCount zones contain resource records.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

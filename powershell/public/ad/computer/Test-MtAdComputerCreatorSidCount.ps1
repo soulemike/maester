@@ -55,12 +55,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Computers | $totalCount |`n"
-        $result += "| Enabled Computers | $enabledCount |`n"
-        $result += "| Computers with CreatorSid | $creatorSidCount |`n"
-        $result += "| CreatorSid Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Computers | $totalCount |" + "`n"
+        $result += "| Enabled Computers | $enabledCount |" + "`n"
+        $result += "| Computers with CreatorSid | $creatorSidCount |" + "`n"
+        $result += "| CreatorSid Percentage | $percentage% |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory computer objects have been analyzed. $creatorSidCount out of $enabledCount enabled computers ($percentage%) have the CreatorSid attribute set.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

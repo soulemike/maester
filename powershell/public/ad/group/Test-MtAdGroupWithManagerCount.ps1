@@ -55,12 +55,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Groups | $totalCount |`n"
-        $result += "| Groups with Manager | $managerCount |`n"
-        $result += "| Groups without Manager | $noManagerCount |`n"
-        $result += "| Managed Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Groups | $totalCount |" + "`n"
+        $result += "| Groups with Manager | $managerCount |" + "`n"
+        $result += "| Groups without Manager | $noManagerCount |" + "`n"
+        $result += "| Managed Percentage | $percentage% |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory groups have been analyzed. $managerCount out of $totalCount groups ($percentage%) have a manager assigned.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

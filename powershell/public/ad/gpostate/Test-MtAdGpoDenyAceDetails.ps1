@@ -79,7 +79,7 @@ function Test-MtAdGpoDenyAceDetails {
     $denyAceCount = ($reportsWithDenyAce | Measure-Object).Count
     $testResult = $denyAceCount -eq 0
 
-    $table = "| GPO Name | HasDenyAce |`n"
+    $table = "| GPO Name | HasDenyAce |" + "`n"
     $table += '| --- | --- |' + "`n"
 
     foreach ($report in @($reportsWithDenyAce | Sort-Object Name)) {
@@ -88,7 +88,7 @@ function Test-MtAdGpoDenyAceDetails {
 
         $hasDenyAce = $report.HasDenyAce
         if ($null -eq $hasDenyAce) { $hasDenyAce = '' }
-        $table += "| $name | $hasDenyAce |`n"
+        $table += "| $name | $hasDenyAce |" + "`n"
     }
 
     $recommendation = if ($testResult) {

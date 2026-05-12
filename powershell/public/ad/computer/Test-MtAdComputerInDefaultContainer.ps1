@@ -58,12 +58,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Computers | $totalCount |`n"
-        $result += "| Enabled Computers | $enabledCount |`n"
-        $result += "| In Default Computers Container | $defaultContainerCount |`n"
-        $result += "| Default Container Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Computers | $totalCount |" + "`n"
+        $result += "| Enabled Computers | $enabledCount |" + "`n"
+        $result += "| In Default Computers Container | $defaultContainerCount |" + "`n"
+        $result += "| Default Container Percentage | $percentage% |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory computer objects have been analyzed. $defaultContainerCount out of $enabledCount enabled computers ($percentage%) are located in the default Computers container.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

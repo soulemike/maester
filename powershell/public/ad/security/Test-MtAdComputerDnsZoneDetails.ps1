@@ -62,21 +62,21 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Computers | $totalComputers |`n"
-    $result += "| Computers with DNS Host Name | $computersWithDns |`n"
-    $result += "| Unique DNS Zones | $zoneCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Computers | $totalComputers |" + "`n"
+    $result += "| Computers with DNS Host Name | $computersWithDns |" + "`n"
+    $result += "| Unique DNS Zones | $zoneCount |" + "`n"
 
     if ($zoneCount -gt 0) {
-        $result += "`n**Computers by DNS Zone:**`n`n"
-        $result += "| DNS Zone | Computer Count | Percentage |`n"
-        $result += "| --- | --- | --- |`n"
+        $result += "`n**Computers by DNS Zone:**" + "`n" + "`n"
+        $result += "| DNS Zone | Computer Count | Percentage |" + "`n"
+        $result += "| --- | --- | --- |" + "`n"
 
         $sortedGroups = $zoneGroups | Sort-Object -Property Count -Descending
         foreach ($group in $sortedGroups) {
             $percentage = if ($computersWithDns -gt 0) { [Math]::Round(($group.Count / $computersWithDns) * 100, 2) } else { 0 }
-            $result += "| $($group.Name) | $($group.Count) | $percentage% |`n"
+            $result += "| $($group.Name) | $($group.Count) | $percentage% |" + "`n"
         }
     }
 
@@ -85,16 +85,16 @@
     $withoutDnsCount = ($computersWithoutDns | Measure-Object).Count
 
     if ($withoutDnsCount -gt 0) {
-        $result += "`n**Computers without DNS Host Name:** $withoutDnsCount**`n`n"
-        $result += "| Computer Name | Operating System |`n"
-        $result += "| --- | --- |`n"
+        $result += "`n**Computers without DNS Host Name:** $withoutDnsCount**" + "`n" + "`n"
+        $result += "| Computer Name | Operating System |" + "`n"
+        $result += "| --- | --- |" + "`n"
 
         foreach ($comp in $computersWithoutDns | Select-Object -First 10) {
-            $result += "| $($comp.Name) | $($comp.operatingSystem) |`n"
+            $result += "| $($comp.Name) | $($comp.operatingSystem) |" + "`n"
         }
 
         if ($withoutDnsCount -gt 10) {
-            $result += "| ... and $($withoutDnsCount - 10) more | |`n"
+            $result += "| ... and $($withoutDnsCount - 10) more | |" + "`n"
         }
     }
     Write-Verbose "Counts computed"

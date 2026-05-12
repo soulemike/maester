@@ -65,18 +65,18 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total DNS Zones | $totalZoneCount |`n"
-        $result += "| Zones with Only SOA/NS | $zonesWithOnlySoaNsCount |`n"
-        $result += "| Percentage | $percentage% |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total DNS Zones | $totalZoneCount |" + "`n"
+        $result += "| Zones with Only SOA/NS | $zonesWithOnlySoaNsCount |" + "`n"
+        $result += "| Percentage | $percentage% |" + "`n"
 
         if ($zonesWithOnlySoaNsCount -gt 0) {
-            $result += "`n### Zones with Only SOA/NS Records`n`n"
-            $result += "| Zone Name | Zone Type |`n"
-            $result += "| --- | --- |`n"
+            $result += "`n### Zones with Only SOA/NS Records" + "`n" + "`n"
+            $result += "| Zone Name | Zone Type |" + "`n"
+            $result += "| --- | --- |" + "`n"
             foreach ($zone in $zonesWithOnlySoaNs | Select-Object -First 10) {
-                $result += "| $($zone.ZoneName) | $($zone.ZoneType) |`n"
+                $result += "| $($zone.ZoneName) | $($zone.ZoneType) |" + "`n"
             }
         }
 

@@ -41,15 +41,15 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Sites with Domain Controllers | $siteCount |`n"
-        $result += "| Total Sites in Domain | $totalSites |`n"
-        $result += "| Total Domain Controllers | $dcCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Sites with Domain Controllers | $siteCount |" + "`n"
+        $result += "| Total Sites in Domain | $totalSites |" + "`n"
+        $result += "| Total Domain Controllers | $dcCount |" + "`n"
 
         if ($siteCount -gt 0) {
             $siteNames = $sitesWithDCs | Sort-Object
-            $result += "| Site Names | $($siteNames -join ', ') |`n"
+            $result += "| Site Names | $($siteNames -join ', ') |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory site coverage has been analyzed. Domain controllers are present in $siteCount out of $totalSites site(s).`n`n%TestResult%"

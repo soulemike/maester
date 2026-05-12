@@ -38,9 +38,9 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Intermediate CAs | $caCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Intermediate CAs | $caCount |" + "`n"
 
         $testResultMarkdown = "Active Directory intermediate CAs have been analyzed. $caCount intermediate CA(s) found.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

@@ -62,19 +62,19 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total OUs | $totalCount |`n"
-        $result += "| Stale OUs (pre-2020) | $staleCount |`n"
-        $result += "| Stale Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total OUs | $totalCount |" + "`n"
+        $result += "| Stale OUs (pre-2020) | $staleCount |" + "`n"
+        $result += "| Stale Percentage | $percentage% |" + "`n" + "`n"
 
         if ($staleCount -gt 0) {
-            $result += "**Stale OUs (not modified since before 2020):**`n`n"
-            $result += "| OU Name | Last Modified | Distinguished Name |`n"
-            $result += "| --- | --- | --- |`n"
+            $result += "**Stale OUs (not modified since before 2020):**" + "`n" + "`n"
+            $result += "| OU Name | Last Modified | Distinguished Name |" + "`n"
+            $result += "| --- | --- | --- |" + "`n"
             foreach ($ou in ($staleOUs | Sort-Object modifyTimeStamp)) {
                 $lastMod = if ($ou.modifyTimeStamp) { $ou.modifyTimeStamp.ToString("yyyy-MM-dd") } else { "Unknown" }
-                $result += "| $($ou.Name) | $lastMod | $($ou.DistinguishedName) |`n"
+                $result += "| $($ou.Name) | $lastMod | $($ou.DistinguishedName) |" + "`n"
             }
         }
 

@@ -39,9 +39,9 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| SMTP Site Links Count | $smtpSiteLinksCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| SMTP Site Links Count | $smtpSiteLinksCount |" + "`n"
 
         $testResultMarkdown = "Active Directory SMTP site links have been analyzed. Found $smtpSiteLinksCount SMTP site link(s).`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

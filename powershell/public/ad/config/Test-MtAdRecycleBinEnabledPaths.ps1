@@ -45,13 +45,13 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Recycle Bin Feature Matches | $($recycleBinFeatures.Count) |`n"
-        $result += "| Recycle Bin Enabled Path Count | $enabledPathCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Recycle Bin Feature Matches | $($recycleBinFeatures.Count) |" + "`n"
+        $result += "| Recycle Bin Enabled Path Count | $enabledPathCount |" + "`n"
 
         if ($enabledPathCount -gt 0) {
-            $result += "| Enabled Scopes | $($enabledScopes -join ', ') |`n"
+            $result += "| Enabled Scopes | $($enabledScopes -join ', ') |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory Recycle Bin enabled paths have been analyzed. Found $enabledPathCount enabled scope(s).`n`n%TestResult%"

@@ -46,14 +46,14 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Enabled Users | $enabledCount |`n"
-        $result += "| Users with Any Delegation | $delegatedCount |`n"
-        $result += "| Trusted for Delegation | $unconstrainedCount |`n"
-        $result += "| Trusted to Auth for Delegation | $protocolTransitionCount |`n"
-        $result += "| Delegation Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Enabled Users | $enabledCount |" + "`n"
+        $result += "| Users with Any Delegation | $delegatedCount |" + "`n"
+        $result += "| Trusted for Delegation | $unconstrainedCount |" + "`n"
+        $result += "| Trusted to Auth for Delegation | $protocolTransitionCount |" + "`n"
+        $result += "| Delegation Percentage | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory user objects have been analyzed. $delegatedCount out of $totalCount users ($percentage%) are configured for Kerberos delegation.`n`n%TestResult%"

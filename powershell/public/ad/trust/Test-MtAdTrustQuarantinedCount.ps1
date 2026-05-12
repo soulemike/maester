@@ -42,11 +42,11 @@
     $testResult = $true
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Trusts | $totalCount |`n"
-    $result += "| Quarantined Trusts | $quarantinedCount |`n"
-    $result += "| Non-Quarantined Trusts | $($totalCount - $quarantinedCount) |`n`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Trusts | $totalCount |" + "`n"
+    $result += "| Quarantined Trusts | $quarantinedCount |" + "`n"
+    $result += "| Non-Quarantined Trusts | $($totalCount - $quarantinedCount) |" + "`n" + "`n"
 
     if ($totalCount -eq 0) {
         $testResultMarkdown = "No trusts are configured in this domain.`n`n%TestResult%"

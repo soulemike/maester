@@ -49,9 +49,9 @@ function Test-MtAdGpoOwnerDistinctCount {
     $distinctOwnerCount = @($owners).Count
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Distinct GPO owner count | $distinctOwnerCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Distinct GPO owner count | $distinctOwnerCount |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory GPO owners have been analyzed. There are $distinctOwnerCount distinct owner(s).`n`n%TestResult%"

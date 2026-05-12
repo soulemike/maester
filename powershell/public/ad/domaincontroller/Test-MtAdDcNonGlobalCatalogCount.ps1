@@ -48,16 +48,16 @@
     $testResult = $dcCount -gt 0
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Domain Controllers | $dcCount |`n"
-    $result += "| Global Catalog Servers | $gcCount |`n"
-    $result += "| Non-Global Catalog DCs | $nonGcCount |`n"
-    $result += "| Forest Domain Count | $forestDomainCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Domain Controllers | $dcCount |" + "`n"
+    $result += "| Global Catalog Servers | $gcCount |" + "`n"
+    $result += "| Non-Global Catalog DCs | $nonGcCount |" + "`n"
+    $result += "| Forest Domain Count | $forestDomainCount |" + "`n"
 
     if ($nonGcCount -gt 0) {
         $nonGcDCs = $domainControllers | Where-Object { $_.IsGlobalCatalog -eq $false }
-        $result += "| Non-GC DC Names | $($nonGcDCs.Name -join ', ') |`n"
+        $result += "| Non-GC DC Names | $($nonGcDCs.Name -join ', ') |" + "`n"
 
         if ($isMultiDomain) {
             $testResultMarkdown = "ℹ️ **Multi-Domain Forest**: $nonGcCount domain controller(s) are not Global Catalogs. In multi-domain environments, proper GC placement is critical. Ensure each site has at least one GC for optimal authentication performance.`n`n%TestResult%"

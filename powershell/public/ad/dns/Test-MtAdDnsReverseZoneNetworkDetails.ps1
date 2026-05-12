@@ -71,17 +71,17 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Networks with Reverse Zones | $networkCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Networks with Reverse Zones | $networkCount |" + "`n"
 
         if ($networkCount -gt 0) {
-            $result += "`n### Network Details`n`n"
-            $result += "| Network | CIDR | Reverse Zone | Zone Type |`n"
-            $result += "| --- | --- | --- | --- |`n"
+            $result += "`n### Network Details" + "`n" + "`n"
+            $result += "| Network | CIDR | Reverse Zone | Zone Type |" + "`n"
+            $result += "| --- | --- | --- | --- |" + "`n"
 
             foreach ($network in $networks | Sort-Object NetworkAddress) {
-                $result += "| $($network.NetworkAddress).0 | /$($network.CIDR) | $($network.ZoneName) | $($network.ZoneType) |`n"
+                $result += "| $($network.NetworkAddress).0 | /$($network.CIDR) | $($network.ZoneName) | $($network.ZoneType) |" + "`n"
             }
         }
 

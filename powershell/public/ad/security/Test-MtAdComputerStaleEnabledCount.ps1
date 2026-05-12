@@ -52,31 +52,31 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Enabled Computers | $totalEnabled |`n"
-    $result += "| Stale Enabled Computers (180+ days) | $staleCount |`n"
-    $result += "| Never Logged On | $neverLoggedOn |`n"
-    $result += "| Not Logged On in 180+ Days | $notLoggedIn180Days |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Enabled Computers | $totalEnabled |" + "`n"
+    $result += "| Stale Enabled Computers (180+ days) | $staleCount |" + "`n"
+    $result += "| Never Logged On | $neverLoggedOn |" + "`n"
+    $result += "| Not Logged On in 180+ Days | $notLoggedIn180Days |" + "`n"
 
     if ($totalEnabled -gt 0) {
         $percentage = [Math]::Round(($staleCount / $totalEnabled) * 100, 2)
-        $result += "| Stale Percentage | $percentage% |`n"
+        $result += "| Stale Percentage | $percentage% |" + "`n"
     }
 
     if ($staleCount -gt 0) {
-        $result += "`n**Stale Enabled Computers (Top 10):**`n`n"
-        $result += "| Computer Name | Last Logon | Operating System |`n"
-        $result += "| --- | --- | --- |`n"
+        $result += "`n**Stale Enabled Computers (Top 10):**" + "`n" + "`n"
+        $result += "| Computer Name | Last Logon | Operating System |" + "`n"
+        $result += "| --- | --- | --- |" + "`n"
 
         $sortedStale = $staleEnabledComputers | Sort-Object -Property lastLogonDate | Select-Object -First 10
         foreach ($comp in $sortedStale) {
             $lastLogon = if ($comp.lastLogonDate) { $comp.lastLogonDate.ToString('yyyy-MM-dd') } else { 'Never' }
-            $result += "| $($comp.Name) | $lastLogon | $($comp.operatingSystem) |`n"
+            $result += "| $($comp.Name) | $lastLogon | $($comp.operatingSystem) |" + "`n"
         }
 
         if ($staleCount -gt 10) {
-            $result += "| ... and $($staleCount - 10) more | | |`n"
+            $result += "| ... and $($staleCount - 10) more | | |" + "`n"
         }
     }
     Write-Verbose "Counts computed"

@@ -52,12 +52,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Enabled Users | $enabledCount |`n"
-        $result += "| Users with Reversible Encryption | $reversibleEncryptionCount |`n"
-        $result += "| Reversible Encryption Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Enabled Users | $enabledCount |" + "`n"
+        $result += "| Users with Reversible Encryption | $reversibleEncryptionCount |" + "`n"
+        $result += "| Reversible Encryption Percentage | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory user objects have been analyzed. $reversibleEncryptionCount out of $totalCount users ($percentage%) are configured for reversible password encryption behavior.`n`n%TestResult%"

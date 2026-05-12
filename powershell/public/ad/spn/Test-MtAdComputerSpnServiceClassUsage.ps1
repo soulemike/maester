@@ -57,19 +57,19 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total SPNs | $totalSpnCount |`n"
-        $result += "| Distinct Service Classes | $serviceClassCount |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total SPNs | $totalSpnCount |" + "`n"
+        $result += "| Distinct Service Classes | $serviceClassCount |" + "`n" + "`n"
 
         if ($serviceClassCount -gt 0) {
-            $result += "### Service Class Breakdown`n`n"
-            $result += "| Service Class | Count | Percentage |`n"
-            $result += "| --- | --- | --- |`n"
+            $result += "### Service Class Breakdown" + "`n" + "`n"
+            $result += "| Service Class | Count | Percentage |" + "`n"
+            $result += "| --- | --- | --- |" + "`n"
 
             foreach ($group in $serviceClassGroups) {
                 $percentage = [Math]::Round(($group.Count / $totalSpnCount) * 100, 2)
-                $result += "| $($group.Name) | $($group.Count) | $percentage% |`n"
+                $result += "| $($group.Name) | $($group.Count) | $percentage% |" + "`n"
             }
         }
 

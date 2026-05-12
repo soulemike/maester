@@ -53,12 +53,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Users in CN=Users | $defaultUsersContainerCount |`n"
-        $result += "| Users in Container Paths | $containerCount |`n"
-        $result += "| Container Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Users in CN=Users | $defaultUsersContainerCount |" + "`n"
+        $result += "| Users in Container Paths | $containerCount |" + "`n"
+        $result += "| Container Percentage | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory users have been analyzed. $containerCount out of $totalCount users ($percentage%) are located in container paths such as CN=Users instead of OUs.`n`n%TestResult%"

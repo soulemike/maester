@@ -36,9 +36,9 @@
 
     # Generate markdown results
     if ($hasData) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Registered DHCP Servers Count | $dhcpServersCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Registered DHCP Servers Count | $dhcpServersCount |" + "`n"
         $testResultMarkdown = "Active Directory registered DHCP servers have been counted. $dhcpServersCount DHCP server(s) were found.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result
     } else {

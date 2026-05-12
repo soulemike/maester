@@ -87,13 +87,13 @@
         $sampleNamesText += " (showing first $sampleLimit)"
     }
 
-    $resultTable = "| Metric | Value |`n"
-    $resultTable += "| --- | --- |`n"
-    $resultTable += "| Total OUs | $ouCount |`n"
-    $resultTable += "| OUs Blocking Inheritance | $blockedCount |`n"
-    $resultTable += "| Blocked Ratio | $blockedPercentage% |`n"
+    $resultTable = "| Metric | Value |" + "`n"
+    $resultTable += "| --- | --- |" + "`n"
+    $resultTable += "| Total OUs | $ouCount |" + "`n"
+    $resultTable += "| OUs Blocking Inheritance | $blockedCount |" + "`n"
+    $resultTable += "| Blocked Ratio | $blockedPercentage% |" + "`n"
     if ($blockedCount -gt 0 -and $sampleNamesText) {
-        $resultTable += "| Sample Blocked OUs | $sampleNamesText |`n"
+        $resultTable += "| Sample Blocked OUs | $sampleNamesText |" + "`n"
     }
 
     if ($testResult) {

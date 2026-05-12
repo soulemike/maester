@@ -43,10 +43,10 @@ function Test-MtAdGpoNoApplyGroupPolicyAceCount {
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total GPOs | $gpoCount |`n"
-    $result += "| GPOs missing Apply Group Policy ACE | $noApplyAceCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total GPOs | $gpoCount |" + "`n"
+    $result += "| GPOs missing Apply Group Policy ACE | $noApplyAceCount |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory GPOs have been analyzed for Apply Group Policy permissions. $noApplyAceCount out of $gpoCount GPO(s) are missing the required ACE.`n`n%TestResult%"

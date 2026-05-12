@@ -38,9 +38,9 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Trusted Root CAs | $caCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Trusted Root CAs | $caCount |" + "`n"
 
         $testResultMarkdown = "Active Directory trusted root CAs have been analyzed. $caCount trusted root CA(s) found.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

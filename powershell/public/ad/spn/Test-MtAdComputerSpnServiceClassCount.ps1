@@ -50,13 +50,13 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total SPNs | $totalSpnCount |`n"
-        $result += "| Distinct Service Classes | $serviceClassCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total SPNs | $totalSpnCount |" + "`n"
+        $result += "| Distinct Service Classes | $serviceClassCount |" + "`n"
 
         if ($serviceClassCount -gt 0) {
-            $result += "| Computers with SPNs | $(($computers | Where-Object { $null -ne $_.servicePrincipalName } | Measure-Object).Count) |`n"
+            $result += "| Computers with SPNs | $(($computers | Where-Object { $null -ne $_.servicePrincipalName } | Measure-Object).Count) |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory computer SPNs have been analyzed. $serviceClassCount distinct service classes found across $totalSpnCount SPNs.`n`n%TestResult%"

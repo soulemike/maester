@@ -67,23 +67,23 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Potential Honey Pot Users | $(($potentialHoneyPots | Measure-Object).Count) |`n`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Potential Honey Pot Users | $(($potentialHoneyPots | Measure-Object).Count) |" + "`n" + "`n"
 
     if ($potentialHoneyPots.Count -gt 0) {
-        $result += "### Potential Honey Pot User Details`n`n"
-        $result += "| SamAccountName | Display Name | Enabled | Match Types | Last Logon | Password Never Expires |`n"
-        $result += "| --- | --- | --- | --- | --- | --- |`n"
+        $result += "### Potential Honey Pot User Details" + "`n" + "`n"
+        $result += "| SamAccountName | Display Name | Enabled | Match Types | Last Logon | Password Never Expires |" + "`n"
+        $result += "| --- | --- | --- | --- | --- | --- |" + "`n"
         foreach ($user in ($potentialHoneyPots | Select-Object -First 25)) {
-            $result += "| $($user.SamAccountName) | $($user.Name) | $($user.Enabled) | $($user.MatchTypes) | $($user.LastLogonDate) | $($user.PasswordNeverExpires) |`n"
+            $result += "| $($user.SamAccountName) | $($user.Name) | $($user.Enabled) | $($user.MatchTypes) | $($user.LastLogonDate) | $($user.PasswordNeverExpires) |" + "`n"
         }
 
         if ($potentialHoneyPots.Count -gt 25) {
-            $result += "| ... | ... | ... | ... | ... | ... ($($potentialHoneyPots.Count - 25) more) |`n"
+            $result += "| ... | ... | ... | ... | ... | ... ($($potentialHoneyPots.Count - 25) more) |" + "`n"
         }
     } else {
-        $result += "No potential honey pot users were identified using the configured naming rules.`n"
+        $result += "No potential honey pot users were identified using the configured naming rules." + "`n"
     }
     Write-Verbose "Counts computed"
 

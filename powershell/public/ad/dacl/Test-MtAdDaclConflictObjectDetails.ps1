@@ -38,23 +38,23 @@
     $conflictAceCount = ($conflictEntries | Measure-Object).Count
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Conflict Objects | $conflictObjectCount |`n"
-    $result += "| DACL Entries On Conflict Objects | $conflictAceCount |`n`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Conflict Objects | $conflictObjectCount |" + "`n"
+    $result += "| DACL Entries On Conflict Objects | $conflictAceCount |" + "`n" + "`n"
 
     if ($conflictObjectCount -gt 0) {
-        $result += "| Object DN | Object Class | ACE Count |`n"
-        $result += "| --- | --- | --- |`n"
+        $result += "| Object DN | Object Class | ACE Count |" + "`n"
+        $result += "| --- | --- | --- |" + "`n"
 
         foreach ($group in $conflictGroups) {
             $sample = $group.Group | Select-Object -First 1
             $objectDn = if ($null -ne $sample.ObjectDN) { ([string]$sample.ObjectDN) -replace '\|', '\\&#124;' } else { '' }
             $objectClass = if ($null -ne $sample.ObjectClass) { ([string]$sample.ObjectClass) -replace '\|', '\\&#124;' } else { '' }
-            $result += "| $objectDn | $objectClass | $($group.Count) |`n"
+            $result += "| $objectDn | $objectClass | $($group.Count) |" + "`n"
         }
     } else {
-        $result += "**No conflict objects were identified in the collected DACL data.**`n"
+        $result += "**No conflict objects were identified in the collected DACL data.**" + "`n"
     }
     Write-Verbose "Counts computed"
 

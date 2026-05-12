@@ -43,12 +43,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Enabled Users | $enabledCount |`n"
-        $result += "| Disabled Users | $disabledCount |`n"
-        $result += "| Disabled Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Enabled Users | $enabledCount |" + "`n"
+        $result += "| Disabled Users | $disabledCount |" + "`n"
+        $result += "| Disabled Percentage | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory user objects have been analyzed. $disabledCount out of $totalCount users ($percentage%) are disabled.`n`n%TestResult%"

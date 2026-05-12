@@ -32,9 +32,9 @@
     $testResult = $null -ne $config
 
     if ($testResult) {
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Tombstone Lifetime (days) | $tombstoneLifetime |`n`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Tombstone Lifetime (days) | $tombstoneLifetime |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory tombstone lifetime configuration has been retrieved.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

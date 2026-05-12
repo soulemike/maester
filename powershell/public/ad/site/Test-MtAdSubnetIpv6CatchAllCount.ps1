@@ -54,24 +54,24 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total IPv6 Subnets | $totalIpv6Count |`n"
-        $result += "| IPv6 Catch-All Subnets | $ipv6CatchAllCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total IPv6 Subnets | $totalIpv6Count |" + "`n"
+        $result += "| IPv6 Catch-All Subnets | $ipv6CatchAllCount |" + "`n"
 
         if ($ipv6CatchAllCount -gt 0) {
-            $result += "`n### IPv6 Catch-All Subnets`n`n"
-            $result += "| Subnet | Site |`n"
-            $result += "| --- | --- |`n"
+            $result += "`n### IPv6 Catch-All Subnets" + "`n" + "`n"
+            $result += "| Subnet | Site |" + "`n"
+            $result += "| --- | --- |" + "`n"
 
             foreach ($subnet in ($ipv6CatchAllSubnets | Sort-Object Name)) {
                 $siteName = if ($subnet.SiteObject) {
                     ($subnet.SiteObject -split ',')[0] -replace '^CN=', ''
                 } else { "Unassigned" }
-                $result += "| $($subnet.Name) | $siteName |`n"
+                $result += "| $($subnet.Name) | $siteName |" + "`n"
             }
 
-            $result += "`n> **Warning:** IPv6 catch-all subnets (prefix /48 or smaller) may cause clients to authenticate to distant domain controllers.`n"
+            $result += "`n> **Warning:** IPv6 catch-all subnets (prefix /48 or smaller) may cause clients to authenticate to distant domain controllers." + "`n"
         }
 
         $testResultMarkdown = "Active Directory IPv6 catch-all subnet analysis has been performed. $ipv6CatchAllCount IPv6 catch-all subnet(s) were found.`n`n%TestResult%"

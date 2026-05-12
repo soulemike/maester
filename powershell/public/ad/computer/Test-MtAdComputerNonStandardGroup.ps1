@@ -62,13 +62,13 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Computers | $totalCount |`n"
-        $result += "| Enabled Computers | $enabledCount |`n"
-        $result += "| Non-Standard Primary Group | $nonStandardCount |`n"
-        $result += "| Non-Standard Percentage | $percentage% |`n`n"
-        $result += "**Standard Primary Group IDs:** 515 (Domain Computers), 516 (Domain Controllers), 521 (Read-only Domain Controllers)`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Computers | $totalCount |" + "`n"
+        $result += "| Enabled Computers | $enabledCount |" + "`n"
+        $result += "| Non-Standard Primary Group | $nonStandardCount |" + "`n"
+        $result += "| Non-Standard Percentage | $percentage% |" + "`n" + "`n"
+        $result += "**Standard Primary Group IDs:** 515 (Domain Computers), 516 (Domain Controllers), 521 (Read-only Domain Controllers)" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory computer objects have been analyzed. $nonStandardCount out of $enabledCount enabled computers ($percentage%) have non-standard primary group IDs.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

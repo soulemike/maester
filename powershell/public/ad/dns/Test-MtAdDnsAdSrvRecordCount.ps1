@@ -59,11 +59,11 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total SRV Records | $totalSrvRecords |`n"
-        $result += "| AD DS SRV Records | $adSrvCount |`n"
-        $result += "| Non-AD SRV Records | $($totalSrvRecords - $adSrvCount) |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total SRV Records | $totalSrvRecords |" + "`n"
+        $result += "| AD DS SRV Records | $adSrvCount |" + "`n"
+        $result += "| Non-AD SRV Records | $($totalSrvRecords - $adSrvCount) |" + "`n"
 
         # Count by service type
         $srvByService = $adSrvRecords | ForEach-Object {
@@ -71,11 +71,11 @@
         } | Group-Object | Sort-Object Count -Descending
 
         if ($srvByService.Count -gt 0) {
-            $result += "`n### AD DS SRV Records by Service`n`n"
-            $result += "| Service | Count |`n"
-            $result += "| --- | --- |`n"
+            $result += "`n### AD DS SRV Records by Service" + "`n" + "`n"
+            $result += "| Service | Count |" + "`n"
+            $result += "| --- | --- |" + "`n"
             foreach ($service in $srvByService) {
-                $result += "| $($service.Name) | $($service.Count) |`n"
+                $result += "| $($service.Name) | $($service.Count) |" + "`n"
             }
         }
 

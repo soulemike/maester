@@ -38,12 +38,12 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Forest Functional Level | $functionalLevel |`n"
-        $result += "| Forest Name | $($forest.Name) |`n"
-        $result += "| Root Domain | $($forest.RootDomain) |`n"
-        $result += "| Domain Count | $($forest.Domains.Count) |`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Forest Functional Level | $functionalLevel |" + "`n"
+        $result += "| Forest Name | $($forest.Name) |" + "`n"
+        $result += "| Root Domain | $($forest.RootDomain) |" + "`n"
+        $result += "| Domain Count | $($forest.Domains.Count) |" + "`n"
 
         $testResultMarkdown = "The Active Directory forest functional level has been retrieved successfully.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

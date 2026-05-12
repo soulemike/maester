@@ -41,10 +41,10 @@
 
     # Generate markdown results
     if ($hasData) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| WellKnownSecurityPrincipals Count | $wellKnownPrincipalsCount |`n"
-        $result += "| Expected Count | $expectedCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| WellKnownSecurityPrincipals Count | $wellKnownPrincipalsCount |" + "`n"
+        $result += "| Expected Count | $expectedCount |" + "`n"
         $result += "| Matches Expected Count | $meetsExpectedCount |`n\n"
 
         $testResultMarkdown = "Active Directory well-known security principals have been counted. $wellKnownPrincipalsCount well-known security principal(s) were found (expected: $expectedCount).`n`n%TestResult%"

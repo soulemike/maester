@@ -64,15 +64,15 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Groups | $totalGroupCount |`n"
-        $result += "| Groups with Members | $groupsWithMembersCount |`n"
-        $result += "| Empty Groups | $emptyGroupsCount |`n"
-        $result += "| Groups with Members % | $percentage% |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Groups | $totalGroupCount |" + "`n"
+        $result += "| Groups with Members | $groupsWithMembersCount |" + "`n"
+        $result += "| Empty Groups | $emptyGroupsCount |" + "`n"
+        $result += "| Groups with Members % | $percentage% |" + "`n"
 
         if ($groupsToCheck.Count -lt $totalGroupCount) {
-            $result += "| Note | Analyzed first $($groupsToCheck.Count) groups for performance |`n"
+            $result += "| Note | Analyzed first $($groupsToCheck.Count) groups for performance |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory groups have been analyzed. $groupsWithMembersCount out of $totalGroupCount groups ($percentage%) have at least one member.`n`n%TestResult%"

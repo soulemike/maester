@@ -63,10 +63,10 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Reverse Lookup Zones | $reverseZoneCount |`n"
-        $result += "| Distinct Networks | $networkCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Reverse Lookup Zones | $reverseZoneCount |" + "`n"
+        $result += "| Distinct Networks | $networkCount |" + "`n"
 
         $testResultMarkdown = "Active Directory DNS reverse zones have been analyzed. $networkCount distinct networks have reverse lookup zones.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

@@ -37,18 +37,18 @@
 
     $testResult = $true
 
-    $result = "### Built-In Administrator Last Logon Details`n`n"
-    $result += "| SamAccountName | Display Name | Enabled | Last Logon | Days Since Last Logon |`n"
-    $result += "| --- | --- | --- | --- | --- |`n"
+    $result = "### Built-In Administrator Last Logon Details" + "`n" + "`n"
+    $result += "| SamAccountName | Display Name | Enabled | Last Logon | Days Since Last Logon |" + "`n"
+    $result += "| --- | --- | --- | --- | --- |" + "`n"
 
     if ($builtInAdminUsers.Count -gt 0) {
         foreach ($user in $builtInAdminUsers) {
             $lastLogonText = if ($null -ne $user.LastLogonDate) { Get-Date $user.LastLogonDate -Format 'yyyy-MM-dd HH:mm:ss' } else { 'Never/Unknown' }
             $daysSinceLogon = if ($null -ne $user.LastLogonDate) { [int](((Get-Date) - $user.LastLogonDate).TotalDays) } else { 'N/A' }
-            $result += "| $($user.SamAccountName) | $($user.Name) | $($user.Enabled) | $lastLogonText | $daysSinceLogon |`n"
+            $result += "| $($user.SamAccountName) | $($user.Name) | $($user.Enabled) | $lastLogonText | $daysSinceLogon |" + "`n"
         }
     } else {
-        $result += "| No built-in administrator style accounts found | - | - | - | - |`n"
+        $result += "| No built-in administrator style accounts found | - | - | - | - |" + "`n"
     }
     Write-Verbose "Counts computed"
 

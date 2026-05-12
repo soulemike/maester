@@ -68,27 +68,27 @@
         # Calculate object class distribution
         $classDistribution = $schemaObjects | Group-Object objectClass | Select-Object Name, Count | Sort-Object Count -Descending
 
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Schema Version | $schemaVersion |`n"
-        $result += "| Corresponding OS | $osVersion |`n"
-        $result += "| Schema Naming Context | $($schemaContainer.DistinguishedName) |`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Schema Version | $schemaVersion |" + "`n"
+        $result += "| Corresponding OS | $osVersion |" + "`n"
+        $result += "| Schema Naming Context | $($schemaContainer.DistinguishedName) |" + "`n"
         if ($schemaContainer.whenCreated) {
-            $result += "| Schema Created | $($schemaContainer.whenCreated) |`n"
+            $result += "| Schema Created | $($schemaContainer.whenCreated) |" + "`n"
         }
         if ($schemaContainer.whenChanged) {
-            $result += "| Last Modified | $($schemaContainer.whenChanged) |`n"
+            $result += "| Last Modified | $($schemaContainer.whenChanged) |" + "`n"
         }
         if ($schemaContainer.ObjectGUID) {
-            $result += "| Object GUID | $($schemaContainer.ObjectGUID) |`n"
+            $result += "| Object GUID | $($schemaContainer.ObjectGUID) |" + "`n"
         }
-        $result += "| Total Schema Objects | $(($schemaObjects | Measure-Object).Count) |`n`n"
+        $result += "| Total Schema Objects | $(($schemaObjects | Measure-Object).Count) |" + "`n" + "`n"
 
-        $result += "**Schema Object Classes:**`n`n"
-        $result += "| Object Class | Count |`n"
-        $result += "| --- | --- |`n"
+        $result += "**Schema Object Classes:**" + "`n" + "`n"
+        $result += "| Object Class | Count |" + "`n"
+        $result += "| --- | --- |" + "`n"
         foreach ($class in ($classDistribution | Select-Object -First 10)) {
-            $result += "| $($class.Name) | $($class.Count) |`n"
+            $result += "| $($class.Name) | $($class.Count) |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory schema version details. The directory is running schema version $schemaVersion ($osVersion).`n`n%TestResult%"

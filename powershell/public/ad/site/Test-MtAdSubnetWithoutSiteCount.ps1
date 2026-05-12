@@ -43,19 +43,19 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Subnets | $totalSubnets |`n"
-        $result += "| Subnets with Site | $subnetsWithSiteCount |`n"
-        $result += "| Subnets without Site | $subnetsWithoutSiteCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Subnets | $totalSubnets |" + "`n"
+        $result += "| Subnets with Site | $subnetsWithSiteCount |" + "`n"
+        $result += "| Subnets without Site | $subnetsWithoutSiteCount |" + "`n"
 
         if ($subnetsWithoutSiteCount -gt 0) {
             $percentage = [Math]::Round(($subnetsWithoutSiteCount / $totalSubnets) * 100, 2)
-            $result += "| Orphaned Subnets % | $percentage% |`n"
+            $result += "| Orphaned Subnets % | $percentage% |" + "`n"
 
             $orphanedNames = $subnetsWithoutSite | Select-Object -ExpandProperty Name | Sort-Object
-            $result += "| Orphaned Subnets | $($orphanedNames -join ', ') |`n"
-            $result += "`n> **Warning:** Subnets without site associations cannot be used for client site assignment. Consider assigning them to appropriate sites or removing them.`n"
+            $result += "| Orphaned Subnets | $($orphanedNames -join ', ') |" + "`n"
+            $result += "`n> **Warning:** Subnets without site associations cannot be used for client site assignment. Consider assigning them to appropriate sites or removing them." + "`n"
         }
 
         $testResultMarkdown = "Active Directory subnet site associations have been analyzed. $subnetsWithoutSiteCount subnet(s) are not associated with any site.`n`n%TestResult%"

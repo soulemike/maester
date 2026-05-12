@@ -35,18 +35,18 @@
     $testResult = $null -ne $config
 
     if ($testResult) {
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| SPN Mappings Count | $spnMappingsCount |`n`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| SPN Mappings Count | $spnMappingsCount |" + "`n" + "`n"
 
-        $result += "**SPN Mappings:**`n"
+        $result += "**SPN Mappings:**" + "`n"
         if ($spnMappingsCount -gt 0) {
             foreach ($mapping in $spnMappingsSafe) {
-                $escapedMapping = if ($null -eq $mapping) { '' } else { ($mapping -replace "`r", '' -replace "`n", ' ') }
-                $result += "- $escapedMapping`n"
+                $escapedMapping = if ($null -eq $mapping) { '' } else { ($mapping -replace "`r", '' -replace "" + "`n", ' ') }
+                $result += "- $escapedMapping" + "`n"
             }
         } else {
-            $result += "- (none)`n"
+            $result += "- (none)" + "`n"
         }
 
         $testResultMarkdown = "Active Directory SPN mappings have been retrieved.`n`n%TestResult%"

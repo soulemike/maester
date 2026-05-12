@@ -51,17 +51,17 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| DNSSEC Trust Anchors | $dnssecCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| DNSSEC Trust Anchors | $dnssecCount |" + "`n"
 
         if ($dnssecCount -gt 0) {
-            $result += "`n### DNSSEC Trust Anchor Details`n`n"
-            $result += "| Record Name | Zone | Record Type |`n"
-            $result += "| --- | --- | --- |`n"
+            $result += "`n### DNSSEC Trust Anchor Details" + "`n" + "`n"
+            $result += "| Record Name | Zone | Record Type |" + "`n"
+            $result += "| --- | --- | --- |" + "`n"
 
             foreach ($record in $dnssecRecords | Sort-Object ZoneName, HostName) {
-                $result += "| $($record.HostName) | $($record.ZoneName) | $($record.RecordType) |`n"
+                $result += "| $($record.HostName) | $($record.ZoneName) | $($record.RecordType) |" + "`n"
             }
         }
 

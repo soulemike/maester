@@ -59,19 +59,19 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Computers | $totalComputers |`n"
-    $result += "| Computers with DNS Host Name | $computersWithDns |`n"
-    $result += "| Unique DNS Zones | $zoneCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Computers | $totalComputers |" + "`n"
+    $result += "| Computers with DNS Host Name | $computersWithDns |" + "`n"
+    $result += "| Unique DNS Zones | $zoneCount |" + "`n"
 
     if ($zoneCount -gt 0) {
-        $result += "`n**DNS Zones in Use:**`n`n"
-        $result += "| DNS Zone |`n"
-        $result += "| --- |`n"
+        $result += "`n**DNS Zones in Use:**" + "`n" + "`n"
+        $result += "| DNS Zone |" + "`n"
+        $result += "| --- |" + "`n"
 
         foreach ($zone in ($dnsZones | Sort-Object)) {
-            $result += "| $zone |`n"
+            $result += "| $zone |" + "`n"
         }
     }
     Write-Verbose "Counts computed"

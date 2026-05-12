@@ -43,11 +43,11 @@ function Test-MtAdGpoCpasswordFoundCount {
     $testResult = $true
     $cpasswordPercentage = if ($totalCount -gt 0) { [Math]::Round(($cpasswordCount / $totalCount) * 100, 2) } else { 0 }
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total GPOs | $totalCount |`n"
-    $result += "| GPOs with cpassword | $cpasswordCount |`n"
-    $result += "| cpassword ratio | $cpasswordPercentage% |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total GPOs | $totalCount |" + "`n"
+    $result += "| GPOs with cpassword | $cpasswordCount |" + "`n"
+    $result += "| cpassword ratio | $cpasswordPercentage% |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory GPOs have been analyzed for cpassword usage. $cpasswordCount out of $totalCount GPO(s) contain a cpassword.`n`n%TestResult%"

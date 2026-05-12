@@ -72,11 +72,11 @@ function Test-MtAdGpoSettingsDisabledCount {
 
     $disabledPercentage = if ($totalCount -gt 0) { [Math]::Round(($disabledCount / $totalCount) * 100, 2) } else { 0 }
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total GPOs (state) | $totalCount |`n"
-    $result += "| GPOs with disabled settings | $disabledCount |`n"
-    $result += "| Disabled ratio | $disabledPercentage% |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total GPOs (state) | $totalCount |" + "`n"
+    $result += "| GPOs with disabled settings | $disabledCount |" + "`n"
+    $result += "| Disabled ratio | $disabledPercentage% |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory GPOs have been analyzed for disabled settings. $disabledCount out of $totalCount GPO(s) have disabled settings (GpoStatus 0, 1, or 2).`n`n%TestResult%"

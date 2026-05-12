@@ -34,10 +34,10 @@
     $testResult = $null -ne $config
 
     if ($testResult) {
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| dSHeuristics | $dsHeuristics |`n"
-        $result += "| dSHeuristics Count (length/2) | $dsHeuristicsCount |`n`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| dSHeuristics | $dsHeuristics |" + "`n"
+        $result += "| dSHeuristics Count (length/2) | $dsHeuristicsCount |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory dSHeuristics configuration has been analyzed.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

@@ -47,13 +47,13 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total IPv4 Subnets | $totalSubnets |`n"
-        $result += "| Distinct First Octets | $distinctCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total IPv4 Subnets | $totalSubnets |" + "`n"
+        $result += "| Distinct First Octets | $distinctCount |" + "`n"
 
         if ($distinctCount -gt 0) {
-            $result += "| First Octets Used | $($firstOctets -join ', ') |`n"
+            $result += "| First Octets Used | $($firstOctets -join ', ') |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory subnet first octet analysis has been performed. $distinctCount distinct first octet(s) are in use.`n`n%TestResult%"

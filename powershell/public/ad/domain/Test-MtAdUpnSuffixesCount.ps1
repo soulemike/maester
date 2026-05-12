@@ -40,15 +40,15 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| UPN Suffix Count | $suffixCount |`n"
-        $result += "| Forest Name | $($forest.Name) |`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| UPN Suffix Count | $suffixCount |" + "`n"
+        $result += "| Forest Name | $($forest.Name) |" + "`n"
 
         if ($suffixCount -gt 0) {
-            $result += "| UPN Suffixes | $($upnSuffixes -join ', ') |`n"
+            $result += "| UPN Suffixes | $($upnSuffixes -join ', ') |" + "`n"
         } else {
-            $result += "| UPN Suffixes | (none configured - using default forest domain) |`n"
+            $result += "| UPN Suffixes | (none configured - using default forest domain) |" + "`n"
         }
 
         $testResultMarkdown = "The Active Directory forest UPN suffixes have been analyzed successfully.`n`n%TestResult%"

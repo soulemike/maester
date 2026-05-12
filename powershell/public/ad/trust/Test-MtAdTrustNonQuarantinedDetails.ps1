@@ -43,15 +43,15 @@
     $testResult = $true
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Trusts | $totalCount |`n"
-    $result += "| Non-Quarantined Trusts | $nonQuarantinedCount |`n`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Trusts | $totalCount |" + "`n"
+    $result += "| Non-Quarantined Trusts | $nonQuarantinedCount |" + "`n" + "`n"
 
     if ($nonQuarantinedCount -gt 0) {
-        $result += "### Non-Quarantined Trust Details`n`n"
-        $result += "| Target | Direction | Intra-Forest | Trust Type |`n"
-        $result += "| --- | --- | --- | --- |`n"
+        $result += "### Non-Quarantined Trust Details" + "`n" + "`n"
+        $result += "| Target | Direction | Intra-Forest | Trust Type |" + "`n"
+        $result += "| --- | --- | --- | --- |" + "`n"
 
         foreach ($trust in $nonQuarantinedTrusts) {
             $target = $trust.Target
@@ -63,7 +63,7 @@
                 "Kerberos" { "Kerberos" }
                 default { $trust.TrustType }
             }
-            $result += "| $target | $direction | $intraForest | $trustType |`n"
+            $result += "| $target | $direction | $intraForest | $trustType |" + "`n"
         }
     }
 

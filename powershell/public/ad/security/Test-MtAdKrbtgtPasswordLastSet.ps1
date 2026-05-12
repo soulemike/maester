@@ -48,14 +48,14 @@
 
     $testResult = $true
 
-    $result = "| Property | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Account Name | $($krbtgt.SamAccountName) |`n"
-    $result += "| Password Last Set | $(if ($passwordLastSet) { $passwordLastSet.ToString('yyyy-MM-dd HH:mm:ss') } else { 'Never' }) |`n"
+    $result = "| Property | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Account Name | $($krbtgt.SamAccountName) |" + "`n"
+    $result += "| Password Last Set | $(if ($passwordLastSet) { $passwordLastSet.ToString('yyyy-MM-dd HH:mm:ss') } else { 'Never' }) |" + "`n"
     if ($daysSinceChange) {
-        $result += "| Days Since Change | $([Math]::Round($daysSinceChange.TotalDays, 0)) |`n"
+        $result += "| Days Since Change | $([Math]::Round($daysSinceChange.TotalDays, 0)) |" + "`n"
     }
-    $result += "| Account Enabled | $($krbtgt.Enabled) |`n"
+    $result += "| Account Enabled | $($krbtgt.Enabled) |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "KRBTGT account password information retrieved. This account is used for Kerberos ticket encryption.`n`n%TestResult%"

@@ -47,22 +47,22 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Computers | $totalComputers |`n"
-    $result += "| Distinct Operating Systems | $osCount |`n"
-    $result += "| Computers with OS Data | $computersWithOs |`n"
-    $result += "| Computers without OS Data | $computersWithoutOs |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Computers | $totalComputers |" + "`n"
+    $result += "| Distinct Operating Systems | $osCount |" + "`n"
+    $result += "| Computers with OS Data | $computersWithOs |" + "`n"
+    $result += "| Computers without OS Data | $computersWithoutOs |" + "`n"
 
     if ($osCount -gt 0) {
-        $result += "`n**Operating Systems in Use:**`n`n"
-        $result += "| Operating System | Count | Percentage |`n"
-        $result += "| --- | --- | --- |`n"
+        $result += "`n**Operating Systems in Use:**" + "`n" + "`n"
+        $result += "| Operating System | Count | Percentage |" + "`n"
+        $result += "| --- | --- | --- |" + "`n"
 
         $sortedGroups = $osGroups | Sort-Object -Property Count -Descending
         foreach ($group in $sortedGroups) {
             $percentage = if ($computersWithOs -gt 0) { [Math]::Round(($group.Count / $computersWithOs) * 100, 2) } else { 0 }
-            $result += "| $($group.Name) | $($group.Count) | $percentage% |`n"
+            $result += "| $($group.Name) | $($group.Count) | $percentage% |" + "`n"
         }
     }
     Write-Verbose "Counts computed"

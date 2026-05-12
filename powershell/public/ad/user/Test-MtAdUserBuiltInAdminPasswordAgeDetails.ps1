@@ -37,18 +37,18 @@
 
     $testResult = $true
 
-    $result = "### Built-In Administrator Password Age Details`n`n"
-    $result += "| SamAccountName | Display Name | Enabled | Password Last Set | Password Age (Days) | Password Never Expires |`n"
-    $result += "| --- | --- | --- | --- | --- | --- |`n"
+    $result = "### Built-In Administrator Password Age Details" + "`n" + "`n"
+    $result += "| SamAccountName | Display Name | Enabled | Password Last Set | Password Age (Days) | Password Never Expires |" + "`n"
+    $result += "| --- | --- | --- | --- | --- | --- |" + "`n"
 
     if ($builtInAdminUsers.Count -gt 0) {
         foreach ($user in $builtInAdminUsers) {
             $passwordLastSetText = if ($null -ne $user.PasswordLastSet) { Get-Date $user.PasswordLastSet -Format 'yyyy-MM-dd HH:mm:ss' } else { 'Never/Unknown' }
             $passwordAgeDays = if ($null -ne $user.PasswordLastSet) { [int](((Get-Date) - $user.PasswordLastSet).TotalDays) } else { 'N/A' }
-            $result += "| $($user.SamAccountName) | $($user.Name) | $($user.Enabled) | $passwordLastSetText | $passwordAgeDays | $($user.PasswordNeverExpires) |`n"
+            $result += "| $($user.SamAccountName) | $($user.Name) | $($user.Enabled) | $passwordLastSetText | $passwordAgeDays | $($user.PasswordNeverExpires) |" + "`n"
         }
     } else {
-        $result += "| No built-in administrator style accounts found | - | - | - | - | - |`n"
+        $result += "| No built-in administrator style accounts found | - | - | - | - | - |" + "`n"
     }
     Write-Verbose "Counts computed"
 

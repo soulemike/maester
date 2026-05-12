@@ -50,8 +50,8 @@
         Sort-Object @{ Expression = 'Count'; Descending = $true }, @{ Expression = 'Name'; Descending = $false }
     )
 
-    $result = '| InheritedObjectType | ACE Count | Distinct ObjectDN Count |`n'
-    $result += '| --- | --- | --- |`n'
+    $result = '| InheritedObjectType | ACE Count | Distinct ObjectDN Count |' + "`n"
+    $result += '| --- | --- | --- |' + "`n"
 
     foreach ($group in $groups) {
         $inheritedObjectType = [string]$group.Name
@@ -62,7 +62,7 @@
             Group-Object -Property ObjectDN
         ).Count
 
-        $result += "| $inheritedObjectType | $($group.Count) | $distinctObjectCount |`n"
+        $result += "| $inheritedObjectType | $($group.Count) | $distinctObjectCount |" + "`n"
     }
 
     $testResult = $true

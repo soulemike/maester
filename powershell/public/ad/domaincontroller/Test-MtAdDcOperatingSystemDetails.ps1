@@ -40,20 +40,20 @@
     $testResult = $dcCount -gt 0
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Domain Controllers | $dcCount |`n"
-    $result += "| Distinct Operating Systems | $($osGroups.Count) |`n`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Domain Controllers | $dcCount |" + "`n"
+    $result += "| Distinct Operating Systems | $($osGroups.Count) |" + "`n" + "`n"
 
-    $result += "| Operating System | DC Count | Percentage | Domain Controllers |`n"
-    $result += "| --- | --- | --- | --- |`n"
+    $result += "| Operating System | DC Count | Percentage | Domain Controllers |" + "`n"
+    $result += "| --- | --- | --- | --- |" + "`n"
 
     foreach ($osGroup in ($osGroups | Sort-Object -Property Count -Descending)) {
         $osName = $osGroup.Name
         $count = $osGroup.Count
         $percentage = [Math]::Round(($count / $dcCount) * 100, 2)
         $dcNames = ($osGroup.Group | Select-Object -ExpandProperty Name | Sort-Object) -join ', '
-        $result += "| $osName | $count | $percentage% | $dcNames |`n"
+        $result += "| $osName | $count | $percentage% | $dcNames |" + "`n"
     }
 
     # Add DCs with unknown/missing OS info
@@ -61,7 +61,7 @@
     $unknownCount = ($unknownOS | Measure-Object).Count
     if ($unknownCount -gt 0) {
         $unknownNames = ($unknownOS | Select-Object -ExpandProperty Name | Sort-Object) -join ', '
-        $result += "| Unknown/Missing | $unknownCount | - | $unknownNames |`n"
+        $result += "| Unknown/Missing | $unknownCount | - | $unknownNames |" + "`n"
     }
 
     $testResultMarkdown = "Domain controller operating system distribution has been analyzed across $dcCount DC(s).`n`n%TestResult%"

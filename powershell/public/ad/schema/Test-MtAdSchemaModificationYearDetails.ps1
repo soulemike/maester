@@ -47,14 +47,14 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Schema Objects | $(($schemaObjects | Measure-Object).Count) |`n"
-        $result += "| Years with Modifications | $yearCount |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Schema Objects | $(($schemaObjects | Measure-Object).Count) |" + "`n"
+        $result += "| Years with Modifications | $yearCount |" + "`n" + "`n"
 
-        $result += "**Schema Modifications by Year:**`n`n"
-        $result += "| Year | Object Count | Percentage |`n"
-        $result += "| --- | --- | --- |`n"
+        $result += "**Schema Modifications by Year:**" + "`n" + "`n"
+        $result += "| Year | Object Count | Percentage |" + "`n"
+        $result += "| --- | --- | --- |" + "`n"
 
         $totalObjects = ($schemaObjects | Measure-Object).Count
         foreach ($yearData in $modificationsByYear) {
@@ -63,7 +63,7 @@
             } else {
                 0
             }
-            $result += "| $($yearData.Name) | $($yearData.Count) | $percentage% |`n"
+            $result += "| $($yearData.Name) | $($yearData.Count) | $percentage% |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory schema modification details by year. Schema changes occurred across $yearCount different years.`n`n%TestResult%"

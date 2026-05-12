@@ -1,4 +1,4 @@
-﻿function Test-MtAdDaclUnresolvedSidDetails {
+function Test-MtAdDaclUnresolvedSidDetails {
     <#
     .SYNOPSIS
     Returns unresolved SID details from Active Directory DACL entries.
@@ -46,8 +46,8 @@
         Sort-Object @{ Expression = 'Count'; Descending = $true }, @{ Expression = 'Name'; Descending = $false }
     )
 
-    $result = '| ObjectDN | Distinct Unresolved SID Count | Unresolved SIDs |`n'
-    $result += '| --- | --- | --- |`n'
+    $result = '| ObjectDN | Distinct Unresolved SID Count | Unresolved SIDs |' + "`n"
+    $result += '| --- | --- | --- |' + "`n"
 
     foreach ($group in $objectGroups) {
         $objectDn = [string]$group.Name
@@ -65,7 +65,7 @@
         )
 
         $sidListJoined = ($sidList | ForEach-Object { $_ -replace '\|', '\\&#124;' }) -join ', '
-        $result += "| $objectDn | $($sidList.Count) | $sidListJoined |`n"
+        $result += "| $objectDn | $($sidList.Count) | $sidListJoined |" + "`n"
     }
 
     $testResult = $true

@@ -63,29 +63,29 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Domain Admin Accounts | $totalDomainAdmins |`n"
-        $result += "| Domain Admins with SPNs | $adminsWithSpns |`n"
-        $result += "| Total SPNs on Domain Admins | $totalAdminSpns |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Domain Admin Accounts | $totalDomainAdmins |" + "`n"
+        $result += "| Domain Admins with SPNs | $adminsWithSpns |" + "`n"
+        $result += "| Total SPNs on Domain Admins | $totalAdminSpns |" + "`n"
 
         if ($totalDomainAdmins -gt 0) {
             $percentage = [Math]::Round(($adminsWithSpns / $totalDomainAdmins) * 100, 2)
-            $result += "| Percentage with SPNs | $percentage% |`n"
+            $result += "| Percentage with SPNs | $percentage% |" + "`n"
         }
 
         if ($totalAdminSpns -gt 0) {
-            $result += "`n**⚠️ Warning**: Domain administrator accounts have SPNs configured. This is a critical security risk for Kerberoasting attacks.`n`n"
-            $result += "### Domain Admin Accounts with SPNs`n`n"
-            $result += "| Account | SPN Count |`n"
-            $result += "| --- | --- |`n"
+            $result += "`n**⚠️ Warning**: Domain administrator accounts have SPNs configured. This is a critical security risk for Kerberoasting attacks." + "`n" + "`n"
+            $result += "### Domain Admin Accounts with SPNs" + "`n" + "`n"
+            $result += "| Account | SPN Count |" + "`n"
+            $result += "| --- | --- |" + "`n"
 
             $adminGroups = $adminSpns | Group-Object AdminAccount
             foreach ($group in $adminGroups) {
-                $result += "| $($group.Name) | $($group.Count) |`n"
+                $result += "| $($group.Name) | $($group.Count) |" + "`n"
             }
         } else {
-            $result += "`n**✅ Good**: No domain administrator accounts have SPNs configured.`n"
+            $result += "`n**✅ Good**: No domain administrator accounts have SPNs configured." + "`n"
         }
 
         $testResultMarkdown = "Active Directory domain administrator SPN analysis.`n`n%TestResult%"

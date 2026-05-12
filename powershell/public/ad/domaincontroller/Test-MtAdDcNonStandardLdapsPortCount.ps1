@@ -43,15 +43,15 @@
     $testResult = $dcCount -gt 0
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Domain Controllers | $dcCount |`n"
-    $result += "| DCs Using Standard LDAPS Port (636) | $standardCount |`n"
-    $result += "| DCs Using Non-Standard LDAPS Port | $nonStandardCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Domain Controllers | $dcCount |" + "`n"
+    $result += "| DCs Using Standard LDAPS Port (636) | $standardCount |" + "`n"
+    $result += "| DCs Using Non-Standard LDAPS Port | $nonStandardCount |" + "`n"
 
     if ($nonStandardCount -gt 0) {
-        $result += "| Non-Standard Port DCs | $($nonStandardLdapsDCs.Name -join ', ') |`n"
-        $result += "| Non-Standard Ports | $($nonStandardLdapsDCs.SslPort -join ', ') |`n"
+        $result += "| Non-Standard Port DCs | $($nonStandardLdapsDCs.Name -join ', ') |" + "`n"
+        $result += "| Non-Standard Ports | $($nonStandardLdapsDCs.SslPort -join ', ') |" + "`n"
         $testResultMarkdown = "⚠️ **Configuration Notice**: $nonStandardCount domain controller(s) are using non-standard LDAPS ports. While this may be intentional for specific scenarios, it can affect compatibility with secure LDAP clients.`n`n%TestResult%"
     } else {
         $testResultMarkdown = "✅ **Standard Configuration**: All $dcCount domain controller(s) are using the standard LDAPS port (636).`n`n%TestResult%"

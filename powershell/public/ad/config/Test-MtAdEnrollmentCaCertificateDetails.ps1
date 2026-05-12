@@ -87,10 +87,10 @@
 
     # Generate markdown results
     if ($hasData) {
-        $result = "| CA Name | Valid From | Valid To | Parsed |`n"
-        $result += "| --- | --- | --- | --- |`n"
+        $result = "| CA Name | Valid From | Valid To | Parsed |" + "`n"
+        $result += "| --- | --- | --- | --- |" + "`n"
         foreach ($row in $rows) {
-            $result += "| $($row.'CA Name') | $($row.'Certificate Valid From') | $($row.'Certificate Valid To') | $($row.'Certificate Parsed') |`n"
+            $result += "| $($row.'CA Name') | $($row.'Certificate Valid From') | $($row.'Certificate Valid To') | $($row.'Certificate Parsed') |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory enrollment Enterprise CAs have been analyzed for certificate validity dates.`n`n%TestResult%"

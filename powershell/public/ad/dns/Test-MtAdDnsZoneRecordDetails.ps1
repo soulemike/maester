@@ -66,21 +66,21 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total DNS Zones | $totalZones |`n"
-        $result += "| Total DNS Records | $totalRecords |`n"
-        $result += "| Average Records per Zone | $averageRecordsPerZone |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total DNS Zones | $totalZones |" + "`n"
+        $result += "| Total DNS Records | $totalRecords |" + "`n"
+        $result += "| Average Records per Zone | $averageRecordsPerZone |" + "`n"
 
         if ($zoneRecordCounts.Count -gt 0) {
-            $result += "`n### Record Count by Zone (Top 15)`n`n"
-            $result += "| Zone Name | Zone Type | Record Count | Top Record Types |`n"
-            $result += "| --- | --- | --- | --- |`n"
+            $result += "`n### Record Count by Zone (Top 15)" + "`n" + "`n"
+            $result += "| Zone Name | Zone Type | Record Count | Top Record Types |" + "`n"
+            $result += "| --- | --- | --- | --- |" + "`n"
 
             $sortedZones = $zoneRecordCounts | Sort-Object RecordCount -Descending | Select-Object -First 15
             foreach ($zoneInfo in $sortedZones) {
                 $topTypes = ($zoneInfo.RecordTypes | Select-Object -First 3 | ForEach-Object { "$($_.Name):$($_.Count)" }) -join ", "
-                $result += "| $($zoneInfo.ZoneName) | $($zoneInfo.ZoneType) | $($zoneInfo.RecordCount) | $topTypes |`n"
+                $result += "| $($zoneInfo.ZoneName) | $($zoneInfo.ZoneType) | $($zoneInfo.RecordCount) | $topTypes |" + "`n"
             }
         }
 

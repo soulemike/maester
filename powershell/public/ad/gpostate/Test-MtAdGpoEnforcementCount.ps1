@@ -43,11 +43,11 @@ function Test-MtAdGpoEnforcementCount {
     $testResult = $true
     $enforcedPercentage = if ($totalCount -gt 0) { [Math]::Round(($enforcedCount / $totalCount) * 100, 2) } else { 0 }
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total GPOs | $totalCount |`n"
-    $result += "| GPOs with enforced links | $enforcedCount |`n"
-    $result += "| Enforced ratio | $enforcedPercentage% |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total GPOs | $totalCount |" + "`n"
+    $result += "| GPOs with enforced links | $enforcedCount |" + "`n"
+    $result += "| Enforced ratio | $enforcedPercentage% |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory GPOs have been analyzed for enforced links. $enforcedCount out of $totalCount GPO(s) have enforced link(s).`n`n%TestResult%"

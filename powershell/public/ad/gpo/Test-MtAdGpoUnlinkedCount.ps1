@@ -93,13 +93,13 @@
     # Security intent: pass only when no unlinked/orphaned GPOs exist.
     $testResult = $unlinkedCount -eq 0
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total GPOs | $totalCount |`n"
-    $result += "| Linked GPOs | $linkedCount |`n"
-    $result += "| Unlinked GPOs | $unlinkedCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total GPOs | $totalCount |" + "`n"
+    $result += "| Linked GPOs | $linkedCount |" + "`n"
+    $result += "| Unlinked GPOs | $unlinkedCount |" + "`n"
     if ($unlinkedCount -gt 0 -and $sampleNamesText) {
-        $result += "| Sample Unlinked GPOs | $sampleNamesText |`n"
+        $result += "| Sample Unlinked GPOs | $sampleNamesText |" + "`n"
     }
 
     if ($testResult) {

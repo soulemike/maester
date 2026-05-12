@@ -44,22 +44,22 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Subnets | $totalSubnets |`n"
-        $result += "| IPv4 Subnets | $ipv4Count |`n"
-        $result += "| IPv6 Subnets | $ipv6Count |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Subnets | $totalSubnets |" + "`n"
+        $result += "| IPv4 Subnets | $ipv4Count |" + "`n"
+        $result += "| IPv6 Subnets | $ipv6Count |" + "`n"
 
         if ($ipv6Count -gt 0) {
-            $result += "`n### IPv6 Subnets`n`n"
-            $result += "| Subnet | Site |`n"
-            $result += "| --- | --- |`n"
+            $result += "`n### IPv6 Subnets" + "`n" + "`n"
+            $result += "| Subnet | Site |" + "`n"
+            $result += "| --- | --- |" + "`n"
 
             foreach ($subnet in ($ipv6Subnets | Sort-Object Name)) {
                 $siteName = if ($subnet.SiteObject) {
                     ($subnet.SiteObject -split ',')[0] -replace '^CN=', ''
                 } else { "Unassigned" }
-                $result += "| $($subnet.Name) | $siteName |`n"
+                $result += "| $($subnet.Name) | $siteName |" + "`n"
             }
         }
 

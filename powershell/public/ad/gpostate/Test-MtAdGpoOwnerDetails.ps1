@@ -55,7 +55,7 @@ function Test-MtAdGpoOwnerDetails {
     $ownerGroupCount = $ownerGroups.Count
     $testResult = $true
 
-    $table = "| Owner | GPO Count | GPO DisplayNames |`n"
+    $table = "| Owner | GPO Count | GPO DisplayNames |" + "`n"
     $table += '| --- | --- | --- |' + "`n"
 
     foreach ($group in ($ownerGroups | Sort-Object -Property Count -Descending)) {
@@ -65,7 +65,7 @@ function Test-MtAdGpoOwnerDetails {
         $displayNames = @($group.Group | ForEach-Object { [string]$_.DisplayName } | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
         $displayNamesJoined = ($displayNames | Sort-Object | ForEach-Object { $_ -replace '\|', '\\&#124;' }) -join ', '
 
-        $table += "| $owner | $($group.Count) | $displayNamesJoined |`n"
+        $table += "| $owner | $($group.Count) | $displayNamesJoined |" + "`n"
     }
 
     $recommendation = if ($ownerGroupCount -gt 0) {

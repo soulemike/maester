@@ -40,15 +40,15 @@
 
     $testResult = $true
 
-    $result = "| Property | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Replication Connections | $totalConnections |`n"
-    $result += "| Disabled Connections | $disabledCount |`n"
-    $result += "| Enabled Connections | $($totalConnections - $disabledCount) |`n"
+    $result = "| Property | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Replication Connections | $totalConnections |" + "`n"
+    $result += "| Disabled Connections | $disabledCount |" + "`n"
+    $result += "| Enabled Connections | $($totalConnections - $disabledCount) |" + "`n"
 
     if ($totalConnections -gt 0) {
         $percentage = [Math]::Round(($disabledCount / $totalConnections) * 100, 2)
-        $result += "| Disabled Percentage | $percentage% |`n"
+        $result += "| Disabled Percentage | $percentage% |" + "`n"
     }
 
     $testResultMarkdown = "Active Directory replication connections have been analyzed. Disabled connections may indicate replication issues.`n`n%TestResult%"

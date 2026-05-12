@@ -83,36 +83,36 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Groups with Trust Members | $groupsWithTrustCount |`n"
-        $result += "| Total Trust Members | $totalTrustMembers |`n"
-        $result += "| Groups Analyzed | $($groupsToCheck.Count) |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Groups with Trust Members | $groupsWithTrustCount |" + "`n"
+        $result += "| Total Trust Members | $totalTrustMembers |" + "`n"
+        $result += "| Groups Analyzed | $($groupsToCheck.Count) |" + "`n"
 
         if ($groupsToCheck.Count -lt ($groups | Measure-Object).Count) {
-            $result += "| Note | Analyzed first $($groupsToCheck.Count) of $(($groups | Measure-Object).Count) groups |`n"
+            $result += "| Note | Analyzed first $($groupsToCheck.Count) of $(($groups | Measure-Object).Count) groups |" + "`n"
         }
 
         if ($groupsWithTrustCount -gt 0) {
-            $result += "`n**Groups Containing Trust Members:**`n`n"
+            $result += "`n**Groups Containing Trust Members:**" + "`n" + "`n"
 
             foreach ($groupName in ($groupsWithTrustMembers.Keys | Sort-Object)) {
                 $trustMembers = $groupsWithTrustMembers[$groupName]
-                $result += "**$groupName** ($($trustMembers.Count) trust members)`n`n"
-                $result += "| Name | SID | Type |`n"
-                $result += "| --- | --- | --- |`n"
+                $result += "**$groupName** ($($trustMembers.Count) trust members)" + "`n" + "`n"
+                $result += "| Name | SID | Type |" + "`n"
+                $result += "| --- | --- | --- |" + "`n"
 
                 foreach ($member in $trustMembers | Select-Object -First 10) {
-                    $result += "| $($member.Name) | $($member.SID) | $($member.ObjectClass) |`n"
+                    $result += "| $($member.Name) | $($member.SID) | $($member.ObjectClass) |" + "`n"
                 }
 
                 if ($trustMembers.Count -gt 10) {
-                    $result += "| ... | ... | ... ($($trustMembers.Count - 10) more) |`n"
+                    $result += "| ... | ... | ... ($($trustMembers.Count - 10) more) |" + "`n"
                 }
-                $result += "`n"
+                $result += "" + "`n"
             }
         } else {
-            $result += "`nNo groups with trust members found in analyzed groups.`n"
+            $result += "`nNo groups with trust members found in analyzed groups." + "`n"
         }
 
         $testResultMarkdown = "Active Directory group trust membership details have been analyzed. Found $totalTrustMembers trust members across $groupsWithTrustCount groups.`n`n%TestResult%"

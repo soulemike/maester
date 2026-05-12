@@ -77,17 +77,17 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total NetBIOS Names | $totalNames |`n"
-        $result += "| Non-Compliant Names | $nonCompliantCount |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total NetBIOS Names | $totalNames |" + "`n"
+        $result += "| Non-Compliant Names | $nonCompliantCount |" + "`n" + "`n"
 
         if ($nonCompliantCount -gt 0) {
-            $result += "### Non-Compliant NetBIOS Name Details`n`n"
-            $result += "| NetBIOS Name | Length | Issues |`n"
-            $result += "| --- | --- | --- |`n"
+            $result += "### Non-Compliant NetBIOS Name Details" + "`n" + "`n"
+            $result += "| NetBIOS Name | Length | Issues |" + "`n"
+            $result += "| --- | --- | --- |" + "`n"
             foreach ($detail in $nonCompliantDetails) {
-                $result += "| $($detail.NetBIOSName) | $($detail.Length) | $($detail.Issues) |`n"
+                $result += "| $($detail.NetBIOSName) | $($detail.Length) | $($detail.Issues) |" + "`n"
             }
         } else {
             $result += "All NetBIOS names comply with naming standards."

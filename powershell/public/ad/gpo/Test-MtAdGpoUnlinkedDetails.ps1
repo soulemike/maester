@@ -89,7 +89,7 @@
     $testResult = $unlinkedGpoCount -eq 0
 
     # Build the markdown table with details of unlinked GPOs
-    $table = "| GPO DisplayName | CreationTime | ModificationTime |`n"
+    $table = "| GPO DisplayName | CreationTime | ModificationTime |" + "`n"
     $table += '| --- | --- | --- |' + "`n"
 
     foreach ($gpo in @($unlinkedGpos | Sort-Object DisplayName)) {
@@ -110,7 +110,7 @@
             $modificationTime = ''
         }
 
-        $table += "| $displayName | $creationTime | $modificationTime |`n"
+        $table += "| $displayName | $creationTime | $modificationTime |" + "`n"
     }
 
     $recommendation = if ($testResult) {

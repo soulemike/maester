@@ -81,22 +81,22 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Trust Members Found | $trustMemberCount |`n"
-        $result += "| Groups Analyzed | $($groupsToCheck.Count) |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Trust Members Found | $trustMemberCount |" + "`n"
+        $result += "| Groups Analyzed | $($groupsToCheck.Count) |" + "`n"
 
         if ($groupsToCheck.Count -lt ($groups | Measure-Object).Count) {
-            $result += "| Note | Analyzed first $($groupsToCheck.Count) of $(($groups | Measure-Object).Count) groups |`n"
+            $result += "| Note | Analyzed first $($groupsToCheck.Count) of $(($groups | Measure-Object).Count) groups |" + "`n"
         }
 
         if ($trustMemberCount -gt 0) {
-            $result += "`n**Trust members indicate cross-domain access configurations.** These may represent:`n"
-            $result += "- Users or groups from trusted external domains`n"
-            $result += "- Foreign security principals from forest trusts`n"
-            $result += "- SID history from domain migrations`n"
+            $result += "`n**Trust members indicate cross-domain access configurations.** These may represent:" + "`n"
+            $result += "- Users or groups from trusted external domains" + "`n"
+            $result += "- Foreign security principals from forest trusts" + "`n"
+            $result += "- SID history from domain migrations" + "`n"
         } else {
-            $result += "`nNo trust members found in analyzed groups.`n"
+            $result += "`nNo trust members found in analyzed groups." + "`n"
         }
 
         $testResultMarkdown = "Active Directory group trust membership has been analyzed. Found $trustMemberCount trust members from external domains.`n`n%TestResult%"

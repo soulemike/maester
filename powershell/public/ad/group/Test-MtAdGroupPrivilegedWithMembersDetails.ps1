@@ -82,45 +82,45 @@
     $testResult = $true
 
     if ($testResult) {
-        $result = "### Privileged Groups with Members`n`n"
+        $result = "### Privileged Groups with Members" + "`n" + "`n"
 
         if ($privilegedGroups.Count -eq 0) {
-            $result += "> No privileged groups found.`n`n"
+            $result += "> No privileged groups found." + "`n" + "`n"
         } else {
             # Sort by member count descending
             $sortedGroups = $privilegedGroups | Sort-Object MemberCount -Descending
 
-            $result += "**Total Privileged Groups:** $($privilegedGroups.Count)`n"
+            $result += "**Total Privileged Groups:** $($privilegedGroups.Count)" + "`n"
             $totalMembers = ($privilegedGroups | Measure-Object -Property MemberCount -Sum).Sum
-            $result += "**Total Members in Privileged Groups:** $totalMembers`n`n"
+            $result += "**Total Members in Privileged Groups:** $totalMembers" + "`n" + "`n"
 
             # Well-known groups section
-            $result += "#### Well-Known Privileged Groups`n`n"
-            $result += "| Group Name | RID | Well-Known Name | Members |`n"
-            $result += "| --- | --- | --- | --- |`n"
+            $result += "#### Well-Known Privileged Groups" + "`n" + "`n"
+            $result += "| Group Name | RID | Well-Known Name | Members |" + "`n"
+            $result += "| --- | --- | --- | --- |" + "`n"
 
             $wellKnownGroups = $sortedGroups | Where-Object { $_.IsWellKnown }
 
             foreach ($group in $wellKnownGroups) {
-                $result += "| **$($group.Name)** | $($group.RID) | $($group.WellKnownName) | $($group.MemberCount) |`n"
+                $result += "| **$($group.Name)** | $($group.RID) | $($group.WellKnownName) | $($group.MemberCount) |" + "`n"
             }
 
             # AdminSDHolder protected groups section
-            $result += "`n#### AdminSDHolder Protected Groups (adminCount = 1)`n`n"
-            $result += "| Group Name | Members | Scope |`n"
-            $result += "| --- | --- | --- |`n"
+            $result += "`n#### AdminSDHolder Protected Groups (adminCount = 1)" + "`n" + "`n"
+            $result += "| Group Name | Members | Scope |" + "`n"
+            $result += "| --- | --- | --- |" + "`n"
 
             $adminSdHolderGroups = $sortedGroups | Where-Object { $_.AdminCount -eq 1 -and -not $_.IsWellKnown }
 
             if ($adminSdHolderGroups.Count -eq 0) {
-                $result += "| No additional AdminSDHolder groups found | - | - |`n"
+                $result += "| No additional AdminSDHolder groups found | - | - |" + "`n"
             } else {
                 foreach ($group in ($adminSdHolderGroups | Select-Object -First 20)) {
-                    $result += "| $($group.Name) | $($group.MemberCount) | $($group.GroupScope) |`n"
+                    $result += "| $($group.Name) | $($group.MemberCount) | $($group.GroupScope) |" + "`n"
                 }
 
                 if ($adminSdHolderGroups.Count -gt 20) {
-                    $result += "| ... and $($adminSdHolderGroups.Count - 20) more | - | - |`n"
+                    $result += "| ... and $($adminSdHolderGroups.Count - 20) more | - | - |" + "`n"
                 }
             }
         }

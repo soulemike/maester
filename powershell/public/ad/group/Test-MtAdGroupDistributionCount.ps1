@@ -49,11 +49,11 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Groups | $totalCount |`n"
-        $result += "| Distribution Groups | $distributionCount |`n"
-        $result += "| Distribution Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Groups | $totalCount |" + "`n"
+        $result += "| Distribution Groups | $distributionCount |" + "`n"
+        $result += "| Distribution Percentage | $percentage% |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory group objects have been analyzed. $distributionCount out of $totalCount groups ($percentage%) are distribution groups (email-only).`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

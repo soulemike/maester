@@ -42,11 +42,11 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total DACL Entries | $totalDaclEntryCount |`n"
-    $result += "| Deny ACEs | $denyAceCount |`n"
-    $result += "| Objects With Deny ACEs | $affectedObjects |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total DACL Entries | $totalDaclEntryCount |" + "`n"
+    $result += "| Deny ACEs | $denyAceCount |" + "`n"
+    $result += "| Objects With Deny ACEs | $affectedObjects |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory DACL data has been reviewed for deny authorizations. $denyAceCount deny ACE(s) were identified across $affectedObjects object(s).`n`n%TestResult%"

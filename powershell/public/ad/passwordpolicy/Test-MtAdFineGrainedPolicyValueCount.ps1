@@ -52,20 +52,20 @@
             $distinctComplexity = ($fgppPolicies | Select-Object -ExpandProperty ComplexityEnabled -Unique | Measure-Object).Count
             $distinctLockoutThreshold = ($fgppPolicies | Select-Object -ExpandProperty LockoutThreshold -Unique | Measure-Object).Count
 
-            $result = "| Metric | Distinct Values |`n"
-            $result += "| --- | --- |`n"
-            $result += "| Total FGPPs | $policyCount |`n"
-            $result += "| Min Password Length Values | $distinctMinLength |`n"
-            $result += "| Max Password Age Values | $distinctMaxAge |`n"
-            $result += "| Password History Values | $distinctHistory |`n"
-            $result += "| Complexity Settings | $distinctComplexity |`n"
-            $result += "| Lockout Threshold Values | $distinctLockoutThreshold |`n"
+            $result = "| Metric | Distinct Values |" + "`n"
+            $result += "| --- | --- |" + "`n"
+            $result += "| Total FGPPs | $policyCount |" + "`n"
+            $result += "| Min Password Length Values | $distinctMinLength |" + "`n"
+            $result += "| Max Password Age Values | $distinctMaxAge |" + "`n"
+            $result += "| Password History Values | $distinctHistory |" + "`n"
+            $result += "| Complexity Settings | $distinctComplexity |" + "`n"
+            $result += "| Lockout Threshold Values | $distinctLockoutThreshold |" + "`n"
 
             $recommendation = "Fine-grained password policies show variation across $policyCount policies. Review these settings to ensure appropriate security levels for different user populations."
         } else {
-            $result = "| Metric | Value |`n"
-            $result += "| --- | --- |`n"
-            $result += "| Fine-Grained Password Policies | 0 |`n"
+            $result = "| Metric | Value |" + "`n"
+            $result += "| --- | --- |" + "`n"
+            $result += "| Fine-Grained Password Policies | 0 |" + "`n"
 
             $recommendation = "No fine-grained password policies are configured. The domain uses only the default domain password policy."
         }

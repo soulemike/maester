@@ -80,7 +80,7 @@ function Test-MtAdGpoNoPermissionsDetails {
     $noPermissionsCount = ($reportsWithNoPermissions | Measure-Object).Count
     $testResult = $noPermissionsCount -eq 0
 
-    $table = "| GPO Name | PermissionsPresent |`n"
+    $table = "| GPO Name | PermissionsPresent |" + "`n"
     $table += '| --- | --- |' + "`n"
 
     foreach ($report in @($reportsWithNoPermissions | Sort-Object Name)) {
@@ -89,7 +89,7 @@ function Test-MtAdGpoNoPermissionsDetails {
 
         $permissionsPresent = $report.PermissionsPresent
         if ($null -eq $permissionsPresent) { $permissionsPresent = '' }
-        $table += "| $name | $permissionsPresent |`n"
+        $table += "| $name | $permissionsPresent |" + "`n"
     }
 
     $recommendation = if ($testResult) {

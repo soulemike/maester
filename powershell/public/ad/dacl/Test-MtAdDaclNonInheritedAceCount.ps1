@@ -1,4 +1,4 @@
-﻿function Test-MtAdDaclNonInheritedAceCount {
+function Test-MtAdDaclNonInheritedAceCount {
     <#
     .SYNOPSIS
     Counts non-inherited ACEs in Active Directory DACLs.
@@ -43,10 +43,10 @@
 
     $testResult = $true
 
-    $result = '| Metric | Value |`n'
-    $result += '| --- | --- |`n'
-    $result += "| Total DACL Entries | $($daclEntries.Count) |`n"
-    $result += "| Non-Inherited ACEs | $($nonInheritedEntries.Count) |`n"
+    $result = '| Metric | Value |' + "`n"
+    $result += '| --- | --- |' + "`n"
+    $result += "| Total DACL Entries | $($daclEntries.Count) |" + "`n"
+    $result += "| Non-Inherited ACEs | $($nonInheritedEntries.Count) |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory DACL inheritance was analyzed. $($nonInheritedEntries.Count) ACE(s) are explicitly assigned and not inherited.`n`n%TestResult%"

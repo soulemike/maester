@@ -59,18 +59,18 @@
     $testResult = $dcCount -gt 0
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Domain Controllers | $dcCount |`n"
-    $result += "| DCs Holding FSMO Roles | $fsmoHolderCount |`n"
-    $result += "| Total FSMO Roles | 5 |`n`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Domain Controllers | $dcCount |" + "`n"
+    $result += "| DCs Holding FSMO Roles | $fsmoHolderCount |" + "`n"
+    $result += "| Total FSMO Roles | 5 |" + "`n" + "`n"
 
-    $result += "| Domain Controller | FSMO Roles Held | Role Count |`n"
-    $result += "| --- | --- | --- |`n"
+    $result += "| Domain Controller | FSMO Roles Held | Role Count |" + "`n"
+    $result += "| --- | --- | --- |" + "`n"
     foreach ($dc in ($dcRoles.Keys | Sort-Object)) {
         $roles = $dcRoles[$dc] -join ', '
         $roleCount = $dcRoles[$dc].Count
-        $result += "| $dc | $roles | $roleCount |`n"
+        $result += "| $dc | $roles | $roleCount |" + "`n"
     }
 
     $testResultMarkdown = "FSMO role distribution has been analyzed across $fsmoHolderCount domain controller(s).`n`n%TestResult%"

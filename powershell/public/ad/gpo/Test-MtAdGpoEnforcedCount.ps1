@@ -52,11 +52,11 @@
     # Security intent: flag environments that use enforced links (they override inheritance blocking).
     $testResult = $enforcedCount -eq 0
 
-    $resultTable = "| Metric | Value |`n"
-    $resultTable += "| --- | --- |`n"
-    $resultTable += "| Total GPO link entries | $totalLinks |`n"
-    $resultTable += "| Enforced GPO link entries | $enforcedCount |`n"
-    $resultTable += "| Enforced link ratio | $enforcedPercentage% |`n"
+    $resultTable = "| Metric | Value |" + "`n"
+    $resultTable += "| --- | --- |" + "`n"
+    $resultTable += "| Total GPO link entries | $totalLinks |" + "`n"
+    $resultTable += "| Enforced GPO link entries | $enforcedCount |" + "`n"
+    $resultTable += "| Enforced link ratio | $enforcedPercentage% |" + "`n"
 
     if ($testResult) {
         $recommendation = "✅ No enforced GPO links (inheritance-blocking links) were detected. Active Directory Group Policy Objects have been analyzed successfully."

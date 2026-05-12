@@ -43,13 +43,13 @@ function Test-MtAdGpoVersionMismatchDetails {
 
     $testResult = $true
 
-    $table = "| GPO Name | HasVersionMismatch |`n"
+    $table = "| GPO Name | HasVersionMismatch |" + "`n"
     $table += '| --- | --- |' + "`n"
 
     foreach ($report in ($mismatched | Sort-Object -Property Name)) {
         $name = [string]$report.Name
         $name = $name -replace '\\|', '\\&#124;'
-        $table += "| $name | $([bool]$report.HasVersionMismatch) |`n"
+        $table += "| $name | $([bool]$report.HasVersionMismatch) |" + "`n"
     }
 
     $recommendation = if ($mismatchCount -gt 0) {

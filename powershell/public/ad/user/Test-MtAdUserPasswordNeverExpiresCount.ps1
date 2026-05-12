@@ -44,12 +44,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Enabled Users | $enabledCount |`n"
-        $result += "| Enabled Users with Password Never Expires | $nonExpiringCount |`n"
-        $result += "| Non-Expiring Percentage (of enabled) | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Enabled Users | $enabledCount |" + "`n"
+        $result += "| Enabled Users with Password Never Expires | $nonExpiringCount |" + "`n"
+        $result += "| Non-Expiring Percentage (of enabled) | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory user objects have been analyzed. $nonExpiringCount out of $enabledCount enabled users ($percentage%) have non-expiring passwords.`n`n%TestResult%"

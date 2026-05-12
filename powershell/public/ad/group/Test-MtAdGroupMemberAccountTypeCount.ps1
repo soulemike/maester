@@ -65,14 +65,14 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Unique Members Analyzed | $totalUniqueMembers |`n"
-        $result += "| Distinct Account Types | $distinctTypeCount |`n"
-        $result += "| Account Types Found | $($distinctTypes -join ', ') |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Unique Members Analyzed | $totalUniqueMembers |" + "`n"
+        $result += "| Distinct Account Types | $distinctTypeCount |" + "`n"
+        $result += "| Account Types Found | $($distinctTypes -join ', ') |" + "`n"
 
         if ($groupsToCheck.Count -lt ($groups | Measure-Object).Count) {
-            $result += "| Note | Analyzed first $($groupsToCheck.Count) groups for performance |`n"
+            $result += "| Note | Analyzed first $($groupsToCheck.Count) groups for performance |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory group member account types have been analyzed. Found $distinctTypeCount distinct account types across $totalUniqueMembers unique members.`n`n%TestResult%"

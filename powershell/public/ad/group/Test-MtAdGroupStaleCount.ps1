@@ -54,12 +54,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Groups | $totalCount |`n"
-        $result += "| Groups Modified Before 2020 | $staleCount |`n"
-        $result += "| Stale Percentage | $percentage% |`n"
-        $result += "| Cutoff Date | 2020-01-01 |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Groups | $totalCount |" + "`n"
+        $result += "| Groups Modified Before 2020 | $staleCount |" + "`n"
+        $result += "| Stale Percentage | $percentage% |" + "`n"
+        $result += "| Cutoff Date | 2020-01-01 |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory groups have been analyzed. $staleCount out of $totalCount groups ($percentage%) have not been modified since before 2020.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

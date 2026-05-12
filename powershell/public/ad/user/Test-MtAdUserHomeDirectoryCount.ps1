@@ -47,11 +47,11 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Users with Home Directory | $homeDirectoryCount |`n"
-        $result += "| Home Directory Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Users with Home Directory | $homeDirectoryCount |" + "`n"
+        $result += "| Home Directory Percentage | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory users have been analyzed. $homeDirectoryCount out of $totalCount users ($percentage%) have the HomeDirectory attribute populated.`n`n%TestResult%"

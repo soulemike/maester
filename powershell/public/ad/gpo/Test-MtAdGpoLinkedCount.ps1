@@ -66,11 +66,11 @@
 
     $testResult = $true
 
-    $resultTable = "| Metric | Value |`n"
-    $resultTable += "| --- | --- |`n"
-    $resultTable += "| Total GPOs | $totalCount |`n"
-    $resultTable += "| Linked GPOs (Active) | $linkedCount |`n"
-    $resultTable += "| Linked Ratio | $linkedPercentage% |`n"
+    $resultTable = "| Metric | Value |" + "`n"
+    $resultTable += "| --- | --- |" + "`n"
+    $resultTable += "| Total GPOs | $totalCount |" + "`n"
+    $resultTable += "| Linked GPOs (Active) | $linkedCount |" + "`n"
+    $resultTable += "| Linked Ratio | $linkedPercentage% |" + "`n"
 
     $testResultMarkdown = "Active Directory Group Policy Objects have been analyzed. The domain contains $totalCount GPO(s); $linkedCount GPO(s) are linked and active across at least one scope (domain, OU, or site).`n`n%TestResult%"
     $testResultMarkdown = $testResultMarkdown -replace '%TestResult%', $resultTable

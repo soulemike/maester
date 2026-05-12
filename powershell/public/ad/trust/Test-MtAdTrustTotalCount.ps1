@@ -39,9 +39,9 @@
     $testResult = $true
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Trusts | $totalCount |`n`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Trusts | $totalCount |" + "`n" + "`n"
 
     if ($totalCount -eq 0) {
         $testResultMarkdown = "No Active Directory trusts are configured in this domain. This is typical for single-domain environments.`n`n%TestResult%"

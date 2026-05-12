@@ -55,20 +55,20 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Zone Delegations | $delegationCount |`n"
-        $result += "| Zones with Delegations | $(($delegationsByZone | Measure-Object).Count) |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Zone Delegations | $delegationCount |" + "`n"
+        $result += "| Zones with Delegations | $(($delegationsByZone | Measure-Object).Count) |" + "`n"
 
         if ($delegationCount -gt 0) {
-            $result += "`n### Zone Delegation Details`n`n"
-            $result += "| Parent Zone | Delegated Subdomain | Target Name Server |`n"
-            $result += "| --- | --- | --- |`n"
+            $result += "`n### Zone Delegation Details" + "`n" + "`n"
+            $result += "| Parent Zone | Delegated Subdomain | Target Name Server |" + "`n"
+            $result += "| --- | --- | --- |" + "`n"
 
             foreach ($record in $delegationRecords | Sort-Object ZoneName, HostName) {
                 $delegatedName = if ($record.HostName -eq "") { "@" } else { $record.HostName }
                 $targetNs = $record.RecordData.NameServer
-                $result += "| $($record.ZoneName) | $delegatedName | $targetNs |`n"
+                $result += "| $($record.ZoneName) | $delegatedName | $targetNs |" + "`n"
             }
         }
 

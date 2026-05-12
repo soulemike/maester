@@ -48,11 +48,11 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total DACL Entries | $daclEntryCount |`n"
-    $result += "| Distinct Objects With DACL Entries | $distinctObjectCount |`n"
-    $result += "| Average ACEs Per Object | $averageAcePerObject |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total DACL Entries | $daclEntryCount |" + "`n"
+    $result += "| Distinct Objects With DACL Entries | $distinctObjectCount |" + "`n"
+    $result += "| Average ACEs Per Object | $averageAcePerObject |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory DACL data has been analyzed. $distinctObjectCount distinct object(s) have one or more DACL entries available for review.`n`n%TestResult%"

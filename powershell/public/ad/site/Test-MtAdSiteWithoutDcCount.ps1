@@ -47,18 +47,18 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Sites | $totalSites |`n"
-        $result += "| Sites with DCs | $sitesWithDcCount |`n"
-        $result += "| Sites without DCs | $sitesWithoutDcCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Sites | $totalSites |" + "`n"
+        $result += "| Sites with DCs | $sitesWithDcCount |" + "`n"
+        $result += "| Sites without DCs | $sitesWithoutDcCount |" + "`n"
 
         if ($sitesWithoutDcCount -gt 0) {
             $percentage = [Math]::Round(($sitesWithoutDcCount / $totalSites) * 100, 2)
-            $result += "| Sites without DCs % | $percentage% |`n"
+            $result += "| Sites without DCs % | $percentage% |" + "`n"
 
             $siteNames = $sitesWithoutDCs | Select-Object -ExpandProperty Name | Sort-Object
-            $result += "| Sites without DCs | $($siteNames -join ', ') |`n"
+            $result += "| Sites without DCs | $($siteNames -join ', ') |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory site coverage has been analyzed. $sitesWithoutDcCount out of $totalSites site(s) do not have domain controllers.`n`n%TestResult%"

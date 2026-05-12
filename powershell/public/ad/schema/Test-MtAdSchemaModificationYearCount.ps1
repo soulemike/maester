@@ -45,18 +45,18 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Schema Objects | $(($schemaObjects | Measure-Object).Count) |`n"
-        $result += "| Years with Modifications | $yearCount |`n"
-        $result += "| First Schema Change | $(($yearsWithModifications | Sort-Object | Select-Object -First 1)) |`n"
-        $result += "| Most Recent Schema Change | $(($yearsWithModifications | Sort-Object | Select-Object -Last 1)) |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Schema Objects | $(($schemaObjects | Measure-Object).Count) |" + "`n"
+        $result += "| Years with Modifications | $yearCount |" + "`n"
+        $result += "| First Schema Change | $(($yearsWithModifications | Sort-Object | Select-Object -First 1)) |" + "`n"
+        $result += "| Most Recent Schema Change | $(($yearsWithModifications | Sort-Object | Select-Object -Last 1)) |" + "`n" + "`n"
 
-        $result += "**Years with Schema Modifications:**`n`n"
-        $result += "| Year |`n"
-        $result += "| --- |`n"
+        $result += "**Years with Schema Modifications:**" + "`n" + "`n"
+        $result += "| Year |" + "`n"
+        $result += "| --- |" + "`n"
         foreach ($year in ($yearsWithModifications | Sort-Object)) {
-            $result += "| $year |`n"
+            $result += "| $year |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory schema has been modified across $yearCount different years.`n`n%TestResult%"

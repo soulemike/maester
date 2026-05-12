@@ -52,10 +52,10 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Default-Query-Policy Count | $defaultQueryPolicyCount |`n"
-        $result += "| LDAPAdminLimits | $ldapAdminLimitsText |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Default-Query-Policy Count | $defaultQueryPolicyCount |" + "`n"
+        $result += "| LDAPAdminLimits | $ldapAdminLimitsText |" + "`n"
 
         $testResultMarkdown = "Active Directory default query policy limits have been analyzed. Default-Query-Policy found: $defaultQueryPolicyCount.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

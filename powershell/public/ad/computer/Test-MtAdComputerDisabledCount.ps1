@@ -49,12 +49,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Computers | $totalCount |`n"
-        $result += "| Enabled Computers | $enabledCount |`n"
-        $result += "| Disabled Computers | $disabledCount |`n"
-        $result += "| Disabled Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Computers | $totalCount |" + "`n"
+        $result += "| Enabled Computers | $enabledCount |" + "`n"
+        $result += "| Disabled Computers | $disabledCount |" + "`n"
+        $result += "| Disabled Percentage | $percentage% |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory computer objects have been analyzed. $disabledCount out of $totalCount computers ($percentage%) are disabled.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

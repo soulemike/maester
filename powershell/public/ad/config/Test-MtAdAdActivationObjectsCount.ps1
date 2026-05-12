@@ -34,9 +34,9 @@
     $testResult = $null -ne $config
 
     if ($testResult) {
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Activation Objects Count | $activationObjectsCount |`n`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Activation Objects Count | $activationObjectsCount |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory activation objects have been counted.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

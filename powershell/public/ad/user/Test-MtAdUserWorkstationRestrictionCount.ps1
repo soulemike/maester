@@ -45,12 +45,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Enabled Users | $enabledCount |`n"
-        $result += "| Users with Workstation Restrictions | $restrictedCount |`n"
-        $result += "| Restriction Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Enabled Users | $enabledCount |" + "`n"
+        $result += "| Users with Workstation Restrictions | $restrictedCount |" + "`n"
+        $result += "| Restriction Percentage | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory user objects have been analyzed. $restrictedCount out of $totalCount users ($percentage%) have workstation logon restrictions configured.`n`n%TestResult%"

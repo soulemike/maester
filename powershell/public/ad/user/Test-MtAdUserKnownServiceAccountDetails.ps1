@@ -72,27 +72,27 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Users Reviewed | $((@($users) | Measure-Object).Count) |`n"
-    $result += "| Matching Service Account Patterns | $serviceAccountCount |`n"
-    $result += "| Enabled Matches | $enabledCount |`n"
-    $result += "| Password Never Expires | $passwordNeverExpiresCount |`n"
-    $result += "| Matches with SPNs | $hasSpnCount |`n`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Users Reviewed | $((@($users) | Measure-Object).Count) |" + "`n"
+    $result += "| Matching Service Account Patterns | $serviceAccountCount |" + "`n"
+    $result += "| Enabled Matches | $enabledCount |" + "`n"
+    $result += "| Password Never Expires | $passwordNeverExpiresCount |" + "`n"
+    $result += "| Matches with SPNs | $hasSpnCount |" + "`n" + "`n"
 
     if ($serviceAccountCount -gt 0) {
-        $result += "### Matching User Accounts`n`n"
-        $result += "| SamAccountName | Display Name | Enabled | Pattern | Password Never Expires | Has SPN |`n"
-        $result += "| --- | --- | --- | --- | --- | --- |`n"
+        $result += "### Matching User Accounts" + "`n" + "`n"
+        $result += "| SamAccountName | Display Name | Enabled | Pattern | Password Never Expires | Has SPN |" + "`n"
+        $result += "| --- | --- | --- | --- | --- | --- |" + "`n"
         foreach ($account in ($serviceAccounts | Select-Object -First 25)) {
-            $result += "| $($account.SamAccountName) | $($account.Name) | $($account.Enabled) | $($account.PatternMatched) | $($account.PasswordNeverExpires) | $($account.HasSpn) |`n"
+            $result += "| $($account.SamAccountName) | $($account.Name) | $($account.Enabled) | $($account.PatternMatched) | $($account.PasswordNeverExpires) | $($account.HasSpn) |" + "`n"
         }
 
         if ($serviceAccountCount -gt 25) {
-            $result += "| ... | ... | ... | ... | ... | ... ($($serviceAccountCount - 25) more) |`n"
+            $result += "| ... | ... | ... | ... | ... | ... ($($serviceAccountCount - 25) more) |" + "`n"
         }
     } else {
-        $result += "No users matched the configured service account naming patterns.`n"
+        $result += "No users matched the configured service account naming patterns." + "`n"
     }
     Write-Verbose "Counts computed"
 

@@ -36,9 +36,9 @@
 
     # Generate markdown results
     if ($hasData) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Certificate Templates Count | $certificateTemplatesCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Certificate Templates Count | $certificateTemplatesCount |" + "`n"
         $testResultMarkdown = "Active Directory certificate templates have been counted. $certificateTemplatesCount certificate template(s) were found.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result
     } else {

@@ -39,9 +39,9 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| CRL Distribution Points | $cdpCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| CRL Distribution Points | $cdpCount |" + "`n"
 
         $testResultMarkdown = "Active Directory CRL distribution points have been analyzed. $cdpCount CRL distribution point(s) found.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

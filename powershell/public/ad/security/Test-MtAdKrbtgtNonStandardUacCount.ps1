@@ -83,13 +83,13 @@
     if ($actualUac -band 0x1000000) { $uacFlags += "TRUSTED_TO_AUTH_FOR_DELEGATION" }
     if ($actualUac -band 0x04000000) { $uacFlags += "PARTIAL_SECRETS_ACCOUNT" }
 
-    $result = "| Property | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Account Name | $($krbtgt.SamAccountName) |`n"
-    $result += "| Current UAC Value | $actualUac |`n"
-    $result += "| Standard UAC Value | $standardUac |`n"
-    $result += "| UAC Is Standard | $(if ($isStandard) { 'Yes' } else { 'No - REVIEW REQUIRED' }) |`n"
-    $result += "| UAC Flags | $($uacFlags -join ', ') |`n"
+    $result = "| Property | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Account Name | $($krbtgt.SamAccountName) |" + "`n"
+    $result += "| Current UAC Value | $actualUac |" + "`n"
+    $result += "| Standard UAC Value | $standardUac |" + "`n"
+    $result += "| UAC Is Standard | $(if ($isStandard) { 'Yes' } else { 'No - REVIEW REQUIRED' }) |" + "`n"
+    $result += "| UAC Flags | $($uacFlags -join ', ') |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "KRBTGT account UAC settings analyzed. Standard UAC should be 514 (disabled normal account).`n`n%TestResult%"

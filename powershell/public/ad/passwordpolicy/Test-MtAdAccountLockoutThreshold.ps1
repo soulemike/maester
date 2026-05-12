@@ -44,14 +44,14 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
         if ($lockoutThreshold -eq 0) {
-            $result += "| Lockout Threshold | Accounts never lock out |`n"
+            $result += "| Lockout Threshold | Accounts never lock out |" + "`n"
         } else {
-            $result += "| Lockout Threshold | $lockoutThreshold failed attempts |`n"
+            $result += "| Lockout Threshold | $lockoutThreshold failed attempts |" + "`n"
         }
-        $result += "| Recommended Maximum | 5 or fewer attempts |`n"
+        $result += "| Recommended Maximum | 5 or fewer attempts |" + "`n"
 
         $recommendation = if ($lockoutThreshold -eq 0) {
             "❌ Account lockout is disabled. This allows unlimited password attempts, making brute-force attacks trivial. Enable account lockout immediately."

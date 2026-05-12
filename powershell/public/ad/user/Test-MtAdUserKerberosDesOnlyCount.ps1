@@ -46,12 +46,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Enabled Users | $enabledCount |`n"
-        $result += "| Users with DES-Only Kerberos | $desOnlyCount |`n"
-        $result += "| DES-Only Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Enabled Users | $enabledCount |" + "`n"
+        $result += "| Users with DES-Only Kerberos | $desOnlyCount |" + "`n"
+        $result += "| DES-Only Percentage | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory user objects have been analyzed. $desOnlyCount out of $totalCount users ($percentage%) are configured to use DES-only Kerberos encryption.`n`n%TestResult%"

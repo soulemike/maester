@@ -47,11 +47,11 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Users with AdminCount = 1 | $adminCount |`n"
-        $result += "| AdminCount Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Users with AdminCount = 1 | $adminCount |" + "`n"
+        $result += "| AdminCount Percentage | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory users have been analyzed. $adminCount out of $totalCount users ($percentage%) have AdminCount set to 1.`n`n%TestResult%"

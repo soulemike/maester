@@ -34,9 +34,9 @@
     $testResult = $null -ne $config
 
     if ($testResult) {
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| LDAP Query Policies Count | $ldapQueryPolicyCount |`n`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| LDAP Query Policies Count | $ldapQueryPolicyCount |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory LDAP query policies have been counted.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

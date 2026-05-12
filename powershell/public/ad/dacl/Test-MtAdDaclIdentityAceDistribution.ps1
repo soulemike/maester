@@ -53,22 +53,22 @@
 
     $testResult = $true
 
-    $summary = "| Metric | Value |`n"
-    $summary += "| --- | --- |`n"
-    $summary += "| Total identities | $($identityDistribution.Count) |`n"
-    $summary += "| Total DACL ACEs | $((@($daclEntries) | Measure-Object).Count) |`n"
+    $summary = "| Metric | Value |" + "`n"
+    $summary += "| --- | --- |" + "`n"
+    $summary += "| Total identities | $($identityDistribution.Count) |" + "`n"
+    $summary += "| Total DACL ACEs | $((@($daclEntries) | Measure-Object).Count) |" + "`n"
 
-    $table = "| IdentityReference | ACE Count | Distinct Objects | Allow ACEs | Deny ACEs |`n"
-    $table += "| --- | --- | --- | --- | --- |`n"
+    $table = "| IdentityReference | ACE Count | Distinct Objects | Allow ACEs | Deny ACEs |" + "`n"
+    $table += "| --- | --- | --- | --- | --- |" + "`n"
 
     foreach ($identity in $identityDistribution) {
         $identityName = [string]$identity.IdentityReference
         $identityName = $identityName -replace '\|', '\\&#124;'
-        $table += "| $identityName | $($identity.AceCount) | $($identity.DistinctObjectCount) | $($identity.AllowAceCount) | $($identity.DenyAceCount) |`n"
+        $table += "| $identityName | $($identity.AceCount) | $($identity.DistinctObjectCount) | $($identity.AllowAceCount) | $($identity.DenyAceCount) |" + "`n"
     }
 
     if ($identityDistribution.Count -eq 0) {
-        $table += "| No identities found | 0 | 0 | 0 | 0 |`n"
+        $table += "| No identities found | 0 | 0 | 0 | 0 |" + "`n"
     }
     Write-Verbose "Counts computed"
 

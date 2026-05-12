@@ -79,7 +79,7 @@ function Test-MtAdGpoNoAuthenticatedUsersDetails {
     $noAuthenticatedUsersCount = ($reportsWithNoAuthenticatedUsers | Measure-Object).Count
     $testResult = $noAuthenticatedUsersCount -eq 0
 
-    $table = "| GPO Name | HasAuthenticatedUsers |`n"
+    $table = "| GPO Name | HasAuthenticatedUsers |" + "`n"
     $table += '| --- | --- |' + "`n"
 
     foreach ($report in @($reportsWithNoAuthenticatedUsers | Sort-Object Name)) {
@@ -88,7 +88,7 @@ function Test-MtAdGpoNoAuthenticatedUsersDetails {
 
         $hasAuthenticatedUsers = $report.HasAuthenticatedUsers
         if ($null -eq $hasAuthenticatedUsers) { $hasAuthenticatedUsers = '' }
-        $table += "| $name | $hasAuthenticatedUsers |`n"
+        $table += "| $name | $hasAuthenticatedUsers |" + "`n"
     }
 
     $recommendation = if ($testResult) {

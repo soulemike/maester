@@ -51,25 +51,25 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Computers | $totalComputers |`n"
-    $result += "| Computers with OS Data | $computersWithOs |`n"
-    $result += "| Distinct OS/Service Pack Combinations | $(($osDetails | Measure-Object).Count) |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Computers | $totalComputers |" + "`n"
+    $result += "| Computers with OS Data | $computersWithOs |" + "`n"
+    $result += "| Distinct OS/Service Pack Combinations | $(($osDetails | Measure-Object).Count) |" + "`n"
 
     if ($osDetails.Count -gt 0) {
-        $result += "`n**Operating System Details (Top 15):**`n`n"
-        $result += "| Operating System | Count | Percentage |`n"
-        $result += "| --- | --- | --- |`n"
+        $result += "`n**Operating System Details (Top 15):**" + "`n" + "`n"
+        $result += "| Operating System | Count | Percentage |" + "`n"
+        $result += "| --- | --- | --- |" + "`n"
 
         $sortedDetails = $osDetails | Sort-Object -Property Count -Descending | Select-Object -First 15
         foreach ($detail in $sortedDetails) {
             $percentage = if ($computersWithOs -gt 0) { [Math]::Round(($detail.Count / $computersWithOs) * 100, 2) } else { 0 }
-            $result += "| $($detail.Name) | $($detail.Count) | $percentage% |`n"
+            $result += "| $($detail.Name) | $($detail.Count) | $percentage% |" + "`n"
         }
 
         if ($osDetails.Count -gt 15) {
-            $result += "| ... and $($osDetails.Count - 15) more combinations | | |`n"
+            $result += "| ... and $($osDetails.Count - 15) more combinations | | |" + "`n"
         }
     }
     Write-Verbose "Counts computed"

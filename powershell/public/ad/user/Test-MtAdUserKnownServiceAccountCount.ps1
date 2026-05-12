@@ -54,11 +54,11 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Users Matching Known Service Account Patterns | $serviceAccountCount |`n"
-        $result += "| Service Account Pattern Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Users Matching Known Service Account Patterns | $serviceAccountCount |" + "`n"
+        $result += "| Service Account Pattern Percentage | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory users have been analyzed. $serviceAccountCount out of $totalCount users ($percentage%) match common service account naming patterns.`n`n%TestResult%"

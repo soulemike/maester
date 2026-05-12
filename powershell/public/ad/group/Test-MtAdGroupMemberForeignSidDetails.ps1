@@ -75,14 +75,14 @@
     $testResult = $true
 
     if ($testResult) {
-        $result = "### Foreign Security Principals by Domain`n`n"
+        $result = "### Foreign Security Principals by Domain" + "`n" + "`n"
 
         if ($foreignSidsByDomain.Count -eq 0) {
-            $result += "> No foreign security principals found in group memberships.`n`n"
-            $result += "This indicates all group members belong to the local domain.`n`n"
+            $result += "> No foreign security principals found in group memberships." + "`n" + "`n"
+            $result += "This indicates all group members belong to the local domain." + "`n" + "`n"
         } else {
-            $result += "| Domain SID | FSP Count | Groups Affected |`n"
-            $result += "| --- | --- | --- |`n"
+            $result += "| Domain SID | FSP Count | Groups Affected |" + "`n"
+            $result += "| --- | --- | --- |" + "`n"
 
             $sortedDomains = $foreignSidsByDomain.GetEnumerator() | Sort-Object { $_.Value.Count } -Descending
 
@@ -94,11 +94,11 @@
                     $affectedGroups += " (+$($domainEntry.Value.Groups.Count - 5) more)"
                 }
 
-                $result += "| $sid | $count | $affectedGroups |`n"
+                $result += "| $sid | $count | $affectedGroups |" + "`n"
             }
 
-            $result += "`n**Total Foreign Security Principals:** $totalForeignSids`n"
-            $result += "**External Domains:** $($foreignSidsByDomain.Count)`n"
+            $result += "`n**Total Foreign Security Principals:** $totalForeignSids" + "`n"
+            $result += "**External Domains:** $($foreignSidsByDomain.Count)" + "`n"
         }
 
         $testResultMarkdown = $result

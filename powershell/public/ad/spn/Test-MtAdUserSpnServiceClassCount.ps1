@@ -51,14 +51,14 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total User SPNs | $totalSpnCount |`n"
-        $result += "| Distinct Service Classes | $serviceClassCount |`n"
-        $result += "| Users with SPNs | $usersWithSpns |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total User SPNs | $totalSpnCount |" + "`n"
+        $result += "| Distinct Service Classes | $serviceClassCount |" + "`n"
+        $result += "| Users with SPNs | $usersWithSpns |" + "`n"
 
         if ($serviceClassCount -gt 0) {
-            $result += "| Service Classes | $($serviceClasses -join ', ') |`n"
+            $result += "| Service Classes | $($serviceClasses -join ', ') |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory user SPN service class analysis found $serviceClassCount distinct service classes across $totalSpnCount SPNs.`n`n%TestResult%"

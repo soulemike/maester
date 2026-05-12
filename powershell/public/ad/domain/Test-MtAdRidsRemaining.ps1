@@ -57,15 +57,15 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Available RIDs | $availableRIDs |`n"
-        $result += "| Total RIDs | $totalRIDs |`n"
-        $result += "| Used RIDs | $usedRIDs |`n"
-        $result += "| Domain | $($domain.Name) |`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Available RIDs | $availableRIDs |" + "`n"
+        $result += "| Total RIDs | $totalRIDs |" + "`n"
+        $result += "| Used RIDs | $usedRIDs |" + "`n"
+        $result += "| Domain | $($domain.Name) |" + "`n"
 
         $percentageUsed = if ($totalRIDs -gt 0) { [Math]::Round(($usedRIDs / $totalRIDs) * 100, 2) } else { 0 }
-        $result += "| Percentage Used | $percentageUsed% |`n"
+        $result += "| Percentage Used | $percentageUsed% |" + "`n"
 
         $testResultMarkdown = "The RID pool status has been retrieved. There are $availableRIDs RIDs remaining in the domain.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

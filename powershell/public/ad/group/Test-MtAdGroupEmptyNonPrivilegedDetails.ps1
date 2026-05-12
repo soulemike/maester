@@ -55,15 +55,15 @@
     $testResult = $true
 
     if ($testResult) {
-        $result = "### Empty Non-Privileged Groups`n`n"
+        $result = "### Empty Non-Privileged Groups" + "`n" + "`n"
 
         if ($emptyNonPrivilegedGroups.Count -eq 0) {
-            $result += "> No empty non-privileged groups found.`n`n"
-            $result += "All non-privileged groups have at least one member.`n`n"
+            $result += "> No empty non-privileged groups found." + "`n" + "`n"
+            $result += "All non-privileged groups have at least one member." + "`n" + "`n"
         } else {
-            $result += "**Total Empty Non-Privileged Groups:** $($emptyNonPrivilegedGroups.Count)`n`n"
-            $result += "| Group Name | Scope | Category | Created | Last Modified |`n"
-            $result += "| --- | --- | --- | --- | --- |`n"
+            $result += "**Total Empty Non-Privileged Groups:** $($emptyNonPrivilegedGroups.Count)" + "`n" + "`n"
+            $result += "| Group Name | Scope | Category | Created | Last Modified |" + "`n"
+            $result += "| --- | --- | --- | --- | --- |" + "`n"
 
             $sortedGroups = $emptyNonPrivilegedGroups | Sort-Object Name
 
@@ -71,12 +71,12 @@
                 $created = if ($group.Created) { $group.Created.ToString('yyyy-MM-dd') } else { 'N/A' }
                 $modified = if ($group.Modified) { $group.Modified.ToString('yyyy-MM-dd') } else { 'N/A' }
 
-                $result += "| $($group.Name) | $($group.GroupScope) | $($group.GroupCategory) | $created | $modified |`n"
+                $result += "| $($group.Name) | $($group.GroupScope) | $($group.GroupCategory) | $created | $modified |" + "`n"
             }
 
             if ($emptyNonPrivilegedGroups.Count -gt 50) {
                 $remaining = $emptyNonPrivilegedGroups.Count - 50
-                $result += "`n> *... and $remaining more groups*`n"
+                $result += "`n> *... and $remaining more groups*" + "`n"
             }
         }
 

@@ -53,12 +53,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Groups | $totalCount |`n"
-        $result += "| Groups in OUs (OU=) | $ouCount |`n"
-        $result += "| Groups in Containers (CN=) | $containerCount |`n"
-        $result += "| Container Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Groups | $totalCount |" + "`n"
+        $result += "| Groups in OUs (OU=) | $ouCount |" + "`n"
+        $result += "| Groups in Containers (CN=) | $containerCount |" + "`n"
+        $result += "| Container Percentage | $percentage% |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory groups have been analyzed. $containerCount out of $totalCount groups ($percentage%) are located in container objects (CN=) rather than Organizational Units.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

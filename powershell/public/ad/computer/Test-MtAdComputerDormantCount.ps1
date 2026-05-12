@@ -56,12 +56,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Computers | $totalCount |`n"
-        $result += "| Enabled Computers | $enabledCount |`n"
-        $result += "| Dormant Computers (>90 days) | $dormantCount |`n"
-        $result += "| Dormant Percentage (of enabled) | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Computers | $totalCount |" + "`n"
+        $result += "| Enabled Computers | $enabledCount |" + "`n"
+        $result += "| Dormant Computers (>90 days) | $dormantCount |" + "`n"
+        $result += "| Dormant Percentage (of enabled) | $percentage% |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory computer objects have been analyzed. $dormantCount out of $enabledCount enabled computers ($percentage%) have not logged on for more than 90 days.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

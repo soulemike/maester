@@ -45,9 +45,9 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Fine-Grained Password Policies | $policyCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Fine-Grained Password Policies | $policyCount |" + "`n"
 
         if ($policyCount -eq 0) {
             $recommendation = "ℹ️ No fine-grained password policies are configured. The domain uses the default domain password policy for all users. Consider implementing FGPPs for privileged accounts requiring stronger policies."

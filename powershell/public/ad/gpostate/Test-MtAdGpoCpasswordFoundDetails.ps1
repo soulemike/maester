@@ -43,7 +43,7 @@ function Test-MtAdGpoCpasswordFoundDetails {
 
     $testResult = $true
 
-    $table = "| GPO Name | CpasswordFound | DefaultPasswordFound |`n"
+    $table = "| GPO Name | CpasswordFound | DefaultPasswordFound |" + "`n"
     $table += '| --- | --- | --- |' + "`n"
 
     foreach ($report in ($found | Sort-Object -Property Name)) {
@@ -52,7 +52,7 @@ function Test-MtAdGpoCpasswordFoundDetails {
 
         $cpasswordFound = [bool]$report.CpasswordFound
         $defaultPasswordFound = [bool]$report.DefaultPasswordFound
-        $table += "| $name | $cpasswordFound | $defaultPasswordFound |`n"
+        $table += "| $name | $cpasswordFound | $defaultPasswordFound |" + "`n"
     }
 
     $recommendation = if ($foundCount -gt 0) {

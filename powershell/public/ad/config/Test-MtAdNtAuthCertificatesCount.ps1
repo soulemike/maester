@@ -38,9 +38,9 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| NTAuth Certificates | $certCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| NTAuth Certificates | $certCount |" + "`n"
 
         $testResultMarkdown = "Active Directory NTAuth certificates have been analyzed. $certCount NTAuth certificate(s) found.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

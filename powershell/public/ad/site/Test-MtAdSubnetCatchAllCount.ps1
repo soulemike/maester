@@ -60,14 +60,14 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Subnets | $totalSubnets |`n"
-        $result += "| Catch-All Subnets | $catchAllCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Subnets | $totalSubnets |" + "`n"
+        $result += "| Catch-All Subnets | $catchAllCount |" + "`n"
 
         if ($catchAllCount -gt 0) {
-            $result += "| Catch-All Subnet Names | $($catchAllSubnets.Name -join ', ') |`n"
-            $result += "`n> **Warning:** Catch-all subnets may cause clients to authenticate to distant domain controllers. Consider using more specific subnet definitions.`n"
+            $result += "| Catch-All Subnet Names | $($catchAllSubnets.Name -join ', ') |" + "`n"
+            $result += "`n> **Warning:** Catch-all subnets may cause clients to authenticate to distant domain controllers. Consider using more specific subnet definitions." + "`n"
         }
 
         $testResultMarkdown = "Active Directory subnet analysis has been performed. $catchAllCount catch-all subnet(s) were found.`n`n%TestResult%"

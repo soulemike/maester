@@ -46,12 +46,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Enabled Users | $enabledCount |`n"
-        $result += "| Users Without Pre-Authentication | $noPreAuthCount |`n"
-        $result += "| No Pre-Authentication Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Enabled Users | $enabledCount |" + "`n"
+        $result += "| Users Without Pre-Authentication | $noPreAuthCount |" + "`n"
+        $result += "| No Pre-Authentication Percentage | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory user objects have been analyzed. $noPreAuthCount out of $totalCount users ($percentage%) do not require Kerberos pre-authentication.`n`n%TestResult%"

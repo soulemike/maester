@@ -40,18 +40,18 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Allowed DNS Suffix Count | $suffixCount |`n"
-        $result += "| Domain Name | $($domain.Name) |`n"
-        $result += "| Domain DNS Root | $($domain.DNSRoot) |`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Allowed DNS Suffix Count | $suffixCount |" + "`n"
+        $result += "| Domain Name | $($domain.Name) |" + "`n"
+        $result += "| Domain DNS Root | $($domain.DNSRoot) |" + "`n"
 
         if ($suffixCount -gt 0) {
-            $result += "| Allowed DNS Suffixes | $($allowedDnsSuffixes -join ', ') |`n"
-            $result += "`n**Note:** Allowed DNS suffixes are configured. Only computers with these DNS suffixes can join the domain.`n"
+            $result += "| Allowed DNS Suffixes | $($allowedDnsSuffixes -join ', ') |" + "`n"
+            $result += "`n**Note:** Allowed DNS suffixes are configured. Only computers with these DNS suffixes can join the domain." + "`n"
         } else {
-            $result += "| Allowed DNS Suffixes | (none configured - any DNS suffix allowed) |`n"
-            $result += "`n**Note:** No allowed DNS suffixes are configured. Computers with any DNS suffix can join the domain.`n"
+            $result += "| Allowed DNS Suffixes | (none configured - any DNS suffix allowed) |" + "`n"
+            $result += "`n**Note:** No allowed DNS suffixes are configured. Computers with any DNS suffix can join the domain." + "`n"
         }
 
         $testResultMarkdown = "The Active Directory domain allowed DNS suffixes have been analyzed successfully.`n`n%TestResult%"

@@ -40,15 +40,15 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| SPN Suffix Count | $suffixCount |`n"
-        $result += "| Forest Name | $($forest.Name) |`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| SPN Suffix Count | $suffixCount |" + "`n"
+        $result += "| Forest Name | $($forest.Name) |" + "`n"
 
         if ($suffixCount -gt 0) {
-            $result += "| SPN Suffixes | $($spnSuffixes -join ', ') |`n"
+            $result += "| SPN Suffixes | $($spnSuffixes -join ', ') |" + "`n"
         } else {
-            $result += "| SPN Suffixes | (none configured - using default forest domain) |`n"
+            $result += "| SPN Suffixes | (none configured - using default forest domain) |" + "`n"
         }
 
         $testResultMarkdown = "The Active Directory forest SPN suffixes have been analyzed successfully.`n`n%TestResult%"

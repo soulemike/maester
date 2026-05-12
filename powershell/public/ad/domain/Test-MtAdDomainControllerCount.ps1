@@ -38,14 +38,14 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Domain Controllers | $dcCount |`n"
-        $result += "| Domain | $($adState.Domain.Name) |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Domain Controllers | $dcCount |" + "`n"
+        $result += "| Domain | $($adState.Domain.Name) |" + "`n"
 
         if ($dcCount -gt 0) {
             $dcNames = $domainControllers | ForEach-Object { $_.Name } | Sort-Object
-            $result += "| DC Names | $($dcNames -join ', ') |`n"
+            $result += "| DC Names | $($dcNames -join ', ') |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory domain controllers have been counted. There are $dcCount domain controller(s) in the domain.`n`n%TestResult%"

@@ -47,14 +47,14 @@
     $testResult = $smbConfigs.Count -gt 0
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total DCs Checked | $($smbConfigs.Count) |`n"
-    $result += "| DCs with SMBv3.1.1 Enabled | $smbv311EnabledCount |`n"
-    $result += "| DCs with SMBv3.1.1 Disabled | $smbv311DisabledCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total DCs Checked | $($smbConfigs.Count) |" + "`n"
+    $result += "| DCs with SMBv3.1.1 Enabled | $smbv311EnabledCount |" + "`n"
+    $result += "| DCs with SMBv3.1.1 Disabled | $smbv311DisabledCount |" + "`n"
 
     if ($smbv311EnabledCount -gt 0) {
-        $result += "| DCs with SMBv3.1.1 Enabled | $($smbv311EnabledDCs.DCName -join ', ') |`n"
+        $result += "| DCs with SMBv3.1.1 Enabled | $($smbv311EnabledDCs.DCName -join ', ') |" + "`n"
     }
 
     $testResultMarkdown = "SMBv3.1.1 protocol status has been analyzed on $($smbConfigs.Count) domain controller(s). $smbv311EnabledCount DC(s) have SMBv3.1.1 enabled.`n`n%TestResult%"

@@ -52,32 +52,32 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Managed Service Accounts | $msaCount |`n"
-    $result += "| Group Managed Service Accounts (gMSA) | $gmsaCount |`n"
-    $result += "| Standalone Managed Service Accounts | $standaloneCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Managed Service Accounts | $msaCount |" + "`n"
+    $result += "| Group Managed Service Accounts (gMSA) | $gmsaCount |" + "`n"
+    $result += "| Standalone Managed Service Accounts | $standaloneCount |" + "`n"
     if ($undeterminedCount -gt 0) {
-        $result += "| Undetermined Type | $undeterminedCount |`n"
+        $result += "| Undetermined Type | $undeterminedCount |" + "`n"
     }
 
     if ($msaCount -gt 0) {
-        $result += "`n**Managed Service Accounts:**`n`n"
-        $result += "| Account Name | Type | Enabled |`n"
-        $result += "| --- | --- | --- |`n"
+        $result += "`n**Managed Service Accounts:**" + "`n" + "`n"
+        $result += "| Account Name | Type | Enabled |" + "`n"
+        $result += "| --- | --- | --- |" + "`n"
 
         foreach ($msa in $serviceAccounts | Select-Object -First 20) {
             $type = if ($groupMSAs -contains $msa) { 'gMSA' } elseif ($standaloneMSAs -contains $msa) { 'MSA' } else { 'Unknown' }
             $enabled = if ($null -ne $msa.Enabled) { $msa.Enabled } else { 'N/A' }
-            $result += "| $($msa.Name) | $type | $enabled |`n"
+            $result += "| $($msa.Name) | $type | $enabled |" + "`n"
         }
 
         if ($msaCount -gt 20) {
-            $result += "| ... and $($msaCount - 20) more | | |`n"
+            $result += "| ... and $($msaCount - 20) more | | |" + "`n"
         }
     } else {
-        $result += "`n**No managed service accounts found.**`n`n"
-        $result += "Consider using gMSAs for services instead of traditional service accounts for improved security.`n"
+        $result += "`n**No managed service accounts found.**" + "`n" + "`n"
+        $result += "Consider using gMSAs for services instead of traditional service accounts for improved security." + "`n"
     }
     Write-Verbose "Counts computed"
 

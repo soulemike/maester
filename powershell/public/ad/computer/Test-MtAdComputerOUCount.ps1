@@ -55,19 +55,19 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Computers | $totalCount |`n"
-        $result += "| Enabled Computers | $enabledCount |`n"
-        $result += "| Distinct OUs/Containers | $distinctOUCount |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Computers | $totalCount |" + "`n"
+        $result += "| Enabled Computers | $enabledCount |" + "`n"
+        $result += "| Distinct OUs/Containers | $distinctOUCount |" + "`n" + "`n"
 
         if ($distinctOUCount -gt 0) {
-            $result += "**Sample Containers:**`n`n"
+            $result += "**Sample Containers:**" + "`n" + "`n"
             $computerContainers | Select-Object -First 10 | ForEach-Object {
-                $result += "- $_`n"
+                $result += "- $_" + "`n"
             }
             if ($computerContainers.Count -gt 10) {
-                $result += "- ... and $($computerContainers.Count - 10) more`n"
+                $result += "- ... and $($computerContainers.Count - 10) more" + "`n"
             }
         }
 

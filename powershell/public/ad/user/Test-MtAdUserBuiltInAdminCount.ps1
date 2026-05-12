@@ -42,13 +42,13 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Users Reviewed | $((@($users) | Measure-Object).Count) |`n"
-    $result += "| Built-In Administrator Style Accounts | $totalCount |`n"
-    $result += "| Enabled Built-In Administrator Style Accounts | $enabledCount |`n"
-    $result += "| RID 500 Accounts | $rid500Count |`n"
-    $result += "| Critical System Objects | $criticalCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Users Reviewed | $((@($users) | Measure-Object).Count) |" + "`n"
+    $result += "| Built-In Administrator Style Accounts | $totalCount |" + "`n"
+    $result += "| Enabled Built-In Administrator Style Accounts | $enabledCount |" + "`n"
+    $result += "| RID 500 Accounts | $rid500Count |" + "`n"
+    $result += "| Critical System Objects | $criticalCount |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory built-in administrator style accounts were counted.`n`n%TestResult%"

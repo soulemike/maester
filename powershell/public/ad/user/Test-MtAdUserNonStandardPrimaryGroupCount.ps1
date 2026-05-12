@@ -47,12 +47,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Users with PrimaryGroupId = 513 | $($totalCount - $nonStandardPrimaryGroupCount) |`n"
-        $result += "| Users with Non-Standard Primary Group | $nonStandardPrimaryGroupCount |`n"
-        $result += "| Non-Standard Primary Group Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Users with PrimaryGroupId = 513 | $($totalCount - $nonStandardPrimaryGroupCount) |" + "`n"
+        $result += "| Users with Non-Standard Primary Group | $nonStandardPrimaryGroupCount |" + "`n"
+        $result += "| Non-Standard Primary Group Percentage | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory users have been analyzed. $nonStandardPrimaryGroupCount out of $totalCount users ($percentage%) have a primaryGroupId other than 513 (Domain Users).`n`n%TestResult%"

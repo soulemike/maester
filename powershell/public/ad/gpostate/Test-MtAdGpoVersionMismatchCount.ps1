@@ -43,11 +43,11 @@ function Test-MtAdGpoVersionMismatchCount {
     $testResult = $true
     $mismatchPercentage = if ($totalCount -gt 0) { [Math]::Round(($mismatchCount / $totalCount) * 100, 2) } else { 0 }
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total GPOs | $totalCount |`n"
-    $result += "| GPOs with version mismatch | $mismatchCount |`n"
-    $result += "| Mismatch ratio | $mismatchPercentage% |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total GPOs | $totalCount |" + "`n"
+    $result += "| GPOs with version mismatch | $mismatchCount |" + "`n"
+    $result += "| Mismatch ratio | $mismatchPercentage% |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory GPOs have been analyzed for version mismatches. $mismatchCount out of $totalCount GPO(s) indicate a version mismatch.`n`n%TestResult%"

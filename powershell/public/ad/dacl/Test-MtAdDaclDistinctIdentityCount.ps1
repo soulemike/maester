@@ -52,17 +52,17 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total DACL ACEs | $totalAceCount |`n"
-    $result += "| Distinct identities | $distinctIdentityCount |`n"
-    $result += "| Distinct objects represented | $distinctObjectCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total DACL ACEs | $totalAceCount |" + "`n"
+    $result += "| Distinct identities | $distinctIdentityCount |" + "`n"
+    $result += "| Distinct objects represented | $distinctObjectCount |" + "`n"
 
     if ($null -ne $largestIdentityGroup) {
         $largestIdentityName = [string]$largestIdentityGroup.Name
         $largestIdentityName = $largestIdentityName -replace '\|', '\\&#124;'
-        $result += "| Identity with most ACEs | $largestIdentityName |`n"
-        $result += "| ACEs for most represented identity | $($largestIdentityGroup.Count) |`n"
+        $result += "| Identity with most ACEs | $largestIdentityName |" + "`n"
+        $result += "| ACEs for most represented identity | $($largestIdentityGroup.Count) |" + "`n"
     }
     Write-Verbose "Counts computed"
 

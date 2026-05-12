@@ -41,10 +41,10 @@
     $testResult = $totalCount -ge 0
 
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| GPOs created before $($cutoffDate.ToString('yyyy-MM-dd')) | $oldCount |`n"
-        $result += "| Total GPOs | $totalCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| GPOs created before $($cutoffDate.ToString('yyyy-MM-dd')) | $oldCount |" + "`n"
+        $result += "| Total GPOs | $totalCount |" + "`n"
 
         $testResultMarkdown = "Active Directory Group Policy Objects have been analyzed. The domain contains $oldCount GPO(s) created before $($cutoffDate.ToString('yyyy-MM-dd')).`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace '%TestResult%', $result

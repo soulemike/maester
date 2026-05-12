@@ -43,11 +43,11 @@ function Test-MtAdGpoDefaultPasswordFoundCount {
     $testResult = $true
     $defaultPasswordPercentage = if ($totalCount -gt 0) { [Math]::Round(($defaultPasswordCount / $totalCount) * 100, 2) } else { 0 }
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total GPOs | $totalCount |`n"
-    $result += "| GPOs with default password | $defaultPasswordCount |`n"
-    $result += "| Default password ratio | $defaultPasswordPercentage% |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total GPOs | $totalCount |" + "`n"
+    $result += "| GPOs with default password | $defaultPasswordCount |" + "`n"
+    $result += "| Default password ratio | $defaultPasswordPercentage% |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory GPOs have been analyzed for default password usage. $defaultPasswordCount out of $totalCount GPO(s) contain a default password.`n`n%TestResult%"

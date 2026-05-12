@@ -51,15 +51,15 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Zones | $totalZones |`n"
-        $result += "| Zones with SOA Records | $soaCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Zones | $totalZones |" + "`n"
+        $result += "| Zones with SOA Records | $soaCount |" + "`n"
 
         if ($soaCount -gt 0) {
-            $result += "`n### SOA Record Details`n`n"
-            $result += "| Zone Name | Primary Server | Responsible Party | Serial | Refresh | Retry | Expire | TTL |`n"
-            $result += "| --- | --- | --- | --- | --- | --- | --- | --- |`n"
+            $result += "`n### SOA Record Details" + "`n" + "`n"
+            $result += "| Zone Name | Primary Server | Responsible Party | Serial | Refresh | Retry | Expire | TTL |" + "`n"
+            $result += "| --- | --- | --- | --- | --- | --- | --- | --- |" + "`n"
 
             foreach ($soa in $soaRecords | Where-Object { $_.ZoneName -notlike "*.in-addr.arpa" } | Sort-Object ZoneName) {
                 $primaryServer = $soa.RecordData.PrimaryServer
@@ -70,7 +70,7 @@
                 $expire = $soa.RecordData.ExpireLimit
                 $ttl = $soa.RecordData.MinimumTimeToLive
 
-                $result += "| $($soa.ZoneName) | $primaryServer | $responsibleParty | $serial | $refresh | $retry | $expire | $ttl |`n"
+                $result += "| $($soa.ZoneName) | $primaryServer | $responsibleParty | $serial | $refresh | $retry | $expire | $ttl |" + "`n"
             }
         }
 

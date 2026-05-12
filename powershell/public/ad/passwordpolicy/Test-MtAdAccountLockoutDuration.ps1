@@ -47,14 +47,14 @@
     if ($testResult) {
         $lockoutDurationMinutes = $lockoutDuration.TotalMinutes
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
         if ($lockoutDurationMinutes -eq 0) {
-            $result += "| Lockout Duration | Until administrator unlocks |`n"
+            $result += "| Lockout Duration | Until administrator unlocks |" + "`n"
         } else {
-            $result += "| Lockout Duration | $([Math]::Round($lockoutDurationMinutes, 0)) minutes |`n"
+            $result += "| Lockout Duration | $([Math]::Round($lockoutDurationMinutes, 0)) minutes |" + "`n"
         }
-        $result += "| Recommended Minimum | 30 minutes |`n"
+        $result += "| Recommended Minimum | 30 minutes |" + "`n"
 
         $recommendation = if ($lockoutDurationMinutes -eq 0) {
             "ℹ️ Accounts remain locked until manually unlocked by an administrator. This provides maximum security but requires administrative overhead."

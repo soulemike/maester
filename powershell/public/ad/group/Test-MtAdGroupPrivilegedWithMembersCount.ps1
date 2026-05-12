@@ -94,24 +94,24 @@
     $testResult = $true
 
     if ($testResult) {
-        $result = "| Category | Count |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Privileged Groups | $totalPrivileged |`n"
-        $result += "| Privileged Groups with Members | $privilegedWithMembers |`n"
-        $result += "| Privileged Groups without Members | $privilegedWithoutMembers |`n"
-        $result += "| Well-Known Privileged with Members | $wellKnownPrivilegedWithMembers |`n"
+        $result = "| Category | Count |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Privileged Groups | $totalPrivileged |" + "`n"
+        $result += "| Privileged Groups with Members | $privilegedWithMembers |" + "`n"
+        $result += "| Privileged Groups without Members | $privilegedWithoutMembers |" + "`n"
+        $result += "| Well-Known Privileged with Members | $wellKnownPrivilegedWithMembers |" + "`n"
 
-        $result += "`n### Well-Known Privileged Groups with Members`n`n"
-        $result += "| Group Name | RID | Member Count |`n"
-        $result += "| --- | --- | --- |`n"
+        $result += "`n### Well-Known Privileged Groups with Members" + "`n" + "`n"
+        $result += "| Group Name | RID | Member Count |" + "`n"
+        $result += "| --- | --- | --- |" + "`n"
 
         $sortedWellKnown = $privilegedGroupsWithMembers | Where-Object { $_.IsWellKnown } | Sort-Object MemberCount -Descending
 
         foreach ($group in $sortedWellKnown) {
-            $result += "| $($group.Name) | $($group.RID) | $($group.MemberCount) |`n"
+            $result += "| $($group.Name) | $($group.RID) | $($group.MemberCount) |" + "`n"
         }
 
-        $testResultMarkdown = "Security audit found **$privilegedWithMembers** privileged groups with members out of **$totalPrivileged** total privileged groups.`n`n"
+        $testResultMarkdown = "Security audit found **$privilegedWithMembers** privileged groups with members out of **$totalPrivileged** total privileged groups." + "`n" + "`n"
         $testResultMarkdown += "These groups should be regularly audited for unauthorized membership changes.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result
     } else {

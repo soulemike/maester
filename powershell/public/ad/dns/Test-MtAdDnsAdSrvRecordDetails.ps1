@@ -59,14 +59,14 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| AD DS SRV Records | $adSrvCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| AD DS SRV Records | $adSrvCount |" + "`n"
 
         if ($adSrvCount -gt 0) {
-            $result += "`n### AD DS SRV Record Details`n`n"
-            $result += "| Record Name | Zone | Target Host | Port | Priority | Weight |`n"
-            $result += "| --- | --- | --- | --- | --- | --- |`n"
+            $result += "`n### AD DS SRV Record Details" + "`n" + "`n"
+            $result += "| Record Name | Zone | Target Host | Port | Priority | Weight |" + "`n"
+            $result += "| --- | --- | --- | --- | --- | --- |" + "`n"
 
             foreach ($srv in $adSrvRecords | Sort-Object ZoneName, HostName) {
                 $recordName = $srv.HostName
@@ -76,7 +76,7 @@
                 $priority = $srv.RecordData.Priority
                 $weight = $srv.RecordData.Weight
 
-                $result += "| $recordName | $zone | $targetHost | $port | $priority | $weight |`n"
+                $result += "| $recordName | $zone | $targetHost | $port | $priority | $weight |" + "`n"
             }
         }
 

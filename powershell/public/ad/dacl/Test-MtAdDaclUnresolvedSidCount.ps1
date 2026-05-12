@@ -46,11 +46,11 @@
 
     $testResult = $true
 
-    $result = '| Metric | Value |`n'
-    $result += '| --- | --- |`n'
-    $result += "| Total DACL Entries | $($daclEntries.Count) |`n"
-    $result += "| ACEs with Unresolved SID IdentityReference | $($unresolvedEntries.Count) |`n"
-    $result += "| Distinct Unresolved SIDs | $distinctUnresolvedSidCount |`n"
+    $result = '| Metric | Value |' + "`n"
+    $result += '| --- | --- |' + "`n"
+    $result += "| Total DACL Entries | $($daclEntries.Count) |" + "`n"
+    $result += "| ACEs with Unresolved SID IdentityReference | $($unresolvedEntries.Count) |" + "`n"
+    $result += "| Distinct Unresolved SIDs | $distinctUnresolvedSidCount |" + "`n"
 
     $testResultMarkdown = "Active Directory DACL identities were analyzed. $distinctUnresolvedSidCount unresolved SID reference(s) were found across $($unresolvedEntries.Count) ACE(s).`n`n%TestResult%"
     $testResultMarkdown = $testResultMarkdown -replace '%TestResult%', $result

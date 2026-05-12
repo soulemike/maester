@@ -46,8 +46,8 @@
     # Generate markdown results
     if ($testResult) {
         if ($policyCount -gt 0) {
-            $result = "| Policy Name | Min Length | Max Age (Days) | History | Complexity | Lockout Threshold |`n"
-            $result += "| --- | --- | --- | --- | --- | --- |`n"
+            $result = "| Policy Name | Min Length | Max Age (Days) | History | Complexity | Lockout Threshold |" + "`n"
+            $result += "| --- | --- | --- | --- | --- | --- |" + "`n"
 
             foreach ($policy in $fgppPolicies) {
                 $name = $policy.Name
@@ -57,14 +57,14 @@
                 $complexity = if ($policy.ComplexityEnabled) { "Yes" } else { "No" }
                 $lockout = $policy.LockoutThreshold
 
-                $result += "| $name | $minLength | $maxAgeDays | $history | $complexity | $lockout |`n"
+                $result += "| $name | $minLength | $maxAgeDays | $history | $complexity | $lockout |" + "`n"
             }
 
             $recommendation = "Fine-grained password policy settings breakdown across $policyCount policies. Review to ensure appropriate security levels for different user populations."
         } else {
-            $result = "| Metric | Value |`n"
-            $result += "| --- | --- |`n"
-            $result += "| Fine-Grained Password Policies | 0 |`n"
+            $result = "| Metric | Value |" + "`n"
+            $result += "| --- | --- |" + "`n"
+            $result += "| Fine-Grained Password Policies | 0 |" + "`n"
 
             $recommendation = "No fine-grained password policies are configured. The domain uses only the default domain password policy."
         }

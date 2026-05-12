@@ -42,13 +42,13 @@
 
     $testResult = $isSynchronized -eq $true
 
-    $result = "| Property | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Root DSE Synchronized | $(if ($isSynchronized) { 'Yes' } else { 'No' }) |`n"
-    $result += "| Server DNS Name | $($rootDse.dnsHostName) |`n"
-    $result += "| Domain Controller Functionality | $($rootDse.domainControllerFunctionality) |`n"
-    $result += "| Forest Functionality | $($rootDse.forestFunctionality) |`n"
-    $result += "| Domain Functionality | $($rootDse.domainFunctionality) |`n"
+    $result = "| Property | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Root DSE Synchronized | $(if ($isSynchronized) { 'Yes' } else { 'No' }) |" + "`n"
+    $result += "| Server DNS Name | $($rootDse.dnsHostName) |" + "`n"
+    $result += "| Domain Controller Functionality | $($rootDse.domainControllerFunctionality) |" + "`n"
+    $result += "| Forest Functionality | $($rootDse.forestFunctionality) |" + "`n"
+    $result += "| Domain Functionality | $($rootDse.domainFunctionality) |" + "`n"
 
     if ($testResult) {
         $testResultMarkdown = "The Active Directory Root DSE is synchronized. The domain controller has completed initial replication.`n`n%TestResult%"

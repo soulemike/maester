@@ -50,11 +50,11 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Groups | $totalCount |`n"
-        $result += "| Domain Local Groups | $domainLocalCount |`n"
-        $result += "| Domain Local Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Groups | $totalCount |" + "`n"
+        $result += "| Domain Local Groups | $domainLocalCount |" + "`n"
+        $result += "| Domain Local Percentage | $percentage% |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory group objects have been analyzed. $domainLocalCount out of $totalCount groups ($percentage%) are domain local groups (resources in local domain only).`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

@@ -42,15 +42,15 @@
 
     $testResult = $true
 
-    $result = "| Property | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Replication Connections | $totalConnections |`n"
-    $result += "| Auto-Generated Connections | $($totalConnections - $manualCount) |`n"
-    $result += "| Manual (Non-Auto) Connections | $manualCount |`n"
+    $result = "| Property | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Replication Connections | $totalConnections |" + "`n"
+    $result += "| Auto-Generated Connections | $($totalConnections - $manualCount) |" + "`n"
+    $result += "| Manual (Non-Auto) Connections | $manualCount |" + "`n"
 
     if ($totalConnections -gt 0) {
         $percentage = [Math]::Round(($manualCount / $totalConnections) * 100, 2)
-        $result += "| Manual Connection Percentage | $percentage% |`n"
+        $result += "| Manual Connection Percentage | $percentage% |" + "`n"
     }
 
     $testResultMarkdown = "Active Directory replication connections have been analyzed. Manual connections bypass automatic topology optimization and should be documented.`n`n%TestResult%"

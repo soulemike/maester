@@ -53,16 +53,16 @@
     $totalComputers = ($computers | Measure-Object).Count
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Computers | $totalComputers |`n"
-    $result += "| Computers with Unconstrained Delegation | $unconstrainedCount |`n"
-    $result += "| Domain Controllers with Unconstrained Delegation | $dcUnconstrainedCount |`n"
-    $result += "| Non-DC Computers with Unconstrained Delegation | $nonDcUnconstrainedCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Computers | $totalComputers |" + "`n"
+    $result += "| Computers with Unconstrained Delegation | $unconstrainedCount |" + "`n"
+    $result += "| Domain Controllers with Unconstrained Delegation | $dcUnconstrainedCount |" + "`n"
+    $result += "| Non-DC Computers with Unconstrained Delegation | $nonDcUnconstrainedCount |" + "`n"
 
     if ($unconstrainedCount -gt 0) {
         $percentage = [Math]::Round(($unconstrainedCount / $totalComputers) * 100, 2)
-        $result += "| Percentage with Unconstrained Delegation | $percentage% |`n"
+        $result += "| Percentage with Unconstrained Delegation | $percentage% |" + "`n"
     }
     Write-Verbose "Counts computed"
 

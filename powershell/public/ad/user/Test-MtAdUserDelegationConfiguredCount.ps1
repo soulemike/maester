@@ -40,13 +40,13 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Users Reviewed | $((@($users) | Measure-Object).Count) |`n"
-    $result += "| Users with Any Delegation Setting | $totalCount |`n"
-    $result += "| TrustedForDelegation Enabled | $unconstrainedCount |`n"
-    $result += "| TrustedToAuthForDelegation Enabled | $protocolTransitionCount |`n"
-    $result += "| Both Delegation Flags Enabled | $bothCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Users Reviewed | $((@($users) | Measure-Object).Count) |" + "`n"
+    $result += "| Users with Any Delegation Setting | $totalCount |" + "`n"
+    $result += "| TrustedForDelegation Enabled | $unconstrainedCount |" + "`n"
+    $result += "| TrustedToAuthForDelegation Enabled | $protocolTransitionCount |" + "`n"
+    $result += "| Both Delegation Flags Enabled | $bothCount |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory users were reviewed for delegation configuration.`n`n%TestResult%"

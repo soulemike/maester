@@ -39,14 +39,14 @@
     $testResult = $true
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Trusts | $totalCount |`n`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Trusts | $totalCount |" + "`n" + "`n"
 
     if ($totalCount -gt 0) {
-        $result += "### Trust Configuration Details`n`n"
-        $result += "| Target | Direction | Type | Intra-Forest | Quarantined | Selective Auth |`n"
-        $result += "| --- | --- | --- | --- | --- | --- |`n"
+        $result += "### Trust Configuration Details" + "`n" + "`n"
+        $result += "| Target | Direction | Type | Intra-Forest | Quarantined | Selective Auth |" + "`n"
+        $result += "| --- | --- | --- | --- | --- | --- |" + "`n"
 
         foreach ($trust in $trusts) {
             $target = $trust.Target
@@ -60,7 +60,7 @@
             $intraForest = if ($trust.IntraForest) { "Yes" } else { "No" }
             $quarantined = if ($trust.Quarantined) { "Yes" } else { "No" }
             $selectiveAuth = if ($trust.SelectiveAuthentication) { "Yes" } else { "No" }
-            $result += "| $target | $direction | $trustType | $intraForest | $quarantined | $selectiveAuth |`n"
+            $result += "| $target | $direction | $trustType | $intraForest | $quarantined | $selectiveAuth |" + "`n"
         }
     }
 

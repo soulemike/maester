@@ -83,37 +83,37 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Foreign SID Principals | $foreignSidCount |`n"
-        $result += "| Distinct External Domains | $distinctDomainSids |`n"
-        $result += "| Groups Analyzed | $($groupsToCheck.Count) |`n"
-        $result += "| Current Domain SID | $domainSid |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Foreign SID Principals | $foreignSidCount |" + "`n"
+        $result += "| Distinct External Domains | $distinctDomainSids |" + "`n"
+        $result += "| Groups Analyzed | $($groupsToCheck.Count) |" + "`n"
+        $result += "| Current Domain SID | $domainSid |" + "`n"
 
         if ($groupsToCheck.Count -lt ($groups | Measure-Object).Count) {
-            $result += "| Note | Analyzed first $($groupsToCheck.Count) of $(($groups | Measure-Object).Count) groups |`n"
+            $result += "| Note | Analyzed first $($groupsToCheck.Count) of $(($groups | Measure-Object).Count) groups |" + "`n"
         }
 
         if ($foreignSidCount -gt 0) {
-            $result += "`n**Foreign SID Principals by External Domain:**`n`n"
-            $result += "| Domain SID | Count |`n"
-            $result += "| --- | --- |`n"
+            $result += "`n**Foreign SID Principals by External Domain:**" + "`n" + "`n"
+            $result += "| Domain SID | Count |" + "`n"
+            $result += "| --- | --- |" + "`n"
 
             $domainSidGroups = $foreignSidPrincipals | Group-Object -Property DomainSID | Sort-Object Count -Descending
             foreach ($domainGroup in $domainSidGroups | Select-Object -First 10) {
-                $result += "| $($domainGroup.Name) | $($domainGroup.Count) |`n"
+                $result += "| $($domainGroup.Name) | $($domainGroup.Count) |" + "`n"
             }
 
             if ($domainSidGroups.Count -gt 10) {
-                $result += "| ... | ($($domainSidGroups.Count - 10) more domains) |`n"
+                $result += "| ... | ($($domainSidGroups.Count - 10) more domains) |" + "`n"
             }
 
-            $result += "`n**Note:** Foreign SIDs may represent:`n"
-            $result += "- Users/groups from trusted external domains or forests`n"
-            $result += "- Migrated accounts with SID history preserved`n"
-            $result += "- Accounts from former domains still referenced in groups`n"
+            $result += "`n**Note:** Foreign SIDs may represent:" + "`n"
+            $result += "- Users/groups from trusted external domains or forests" + "`n"
+            $result += "- Migrated accounts with SID history preserved" + "`n"
+            $result += "- Accounts from former domains still referenced in groups" + "`n"
         } else {
-            $result += "`nNo foreign SID principals found in analyzed groups.`n"
+            $result += "`nNo foreign SID principals found in analyzed groups." + "`n"
         }
 
         $testResultMarkdown = "Active Directory foreign SID principals have been analyzed. Found $foreignSidCount foreign SID principals from $distinctDomainSids external domain(s).`n`n%TestResult%"

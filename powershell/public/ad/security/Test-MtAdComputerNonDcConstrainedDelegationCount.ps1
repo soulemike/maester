@@ -55,26 +55,26 @@
     $totalNonDcComputers = ($nonDcComputers | Measure-Object).Count
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Non-DC Computers | $totalNonDcComputers |`n"
-    $result += "| Non-DC Computers with Constrained Delegation | $nonDcConstrainedCount |`n"
-    $result += "| Non-DC Computers with Both Delegation Types | $nonDcBothCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Non-DC Computers | $totalNonDcComputers |" + "`n"
+    $result += "| Non-DC Computers with Constrained Delegation | $nonDcConstrainedCount |" + "`n"
+    $result += "| Non-DC Computers with Both Delegation Types | $nonDcBothCount |" + "`n"
 
     if ($nonDcConstrainedCount -gt 0) {
         $percentage = [Math]::Round(($nonDcConstrainedCount / $totalNonDcComputers) * 100, 2)
-        $result += "| Percentage with Constrained Delegation | $percentage% |`n"
+        $result += "| Percentage with Constrained Delegation | $percentage% |" + "`n"
     }
 
     if ($nonDcConstrainedCount -gt 0) {
-        $result += "`n**Non-DC Computers with Constrained Delegation:**`n`n"
-        $result += "| Computer Name | Operating System |`n"
-        $result += "| --- | --- |`n"
+        $result += "`n**Non-DC Computers with Constrained Delegation:**" + "`n" + "`n"
+        $result += "| Computer Name | Operating System |" + "`n"
+        $result += "| --- | --- |" + "`n"
         foreach ($comp in $nonDcConstrained | Select-Object -First 10) {
-            $result += "| $($comp.Name) | $($comp.operatingSystem) |`n"
+            $result += "| $($comp.Name) | $($comp.operatingSystem) |" + "`n"
         }
         if ($nonDcConstrainedCount -gt 10) {
-            $result += "| ... and $($nonDcConstrainedCount - 10) more | |`n"
+            $result += "| ... and $($nonDcConstrainedCount - 10) more | |" + "`n"
         }
     }
     Write-Verbose "Counts computed"

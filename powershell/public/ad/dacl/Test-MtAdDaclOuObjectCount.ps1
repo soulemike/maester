@@ -42,11 +42,11 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total DACL Entries | $totalDaclEntryCount |`n"
-    $result += "| OU DACL Entries | $ouDaclEntryCount |`n"
-    $result += "| Distinct OU Objects With DACL Entries | $distinctOuObjectCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total DACL Entries | $totalDaclEntryCount |" + "`n"
+    $result += "| OU DACL Entries | $ouDaclEntryCount |" + "`n"
+    $result += "| Distinct OU Objects With DACL Entries | $distinctOuObjectCount |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory DACL data has been filtered to Organizational Unit objects. $ouDaclEntryCount DACL entr$(if ($ouDaclEntryCount -eq 1) { 'y' } else { 'ies' }) were found across $distinctOuObjectCount OU object(s).`n`n%TestResult%"

@@ -52,24 +52,24 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Sites | $totalSites |`n"
-        $result += "| Sites without Subnets | $sitesWithoutSubnetCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Sites | $totalSites |" + "`n"
+        $result += "| Sites without Subnets | $sitesWithoutSubnetCount |" + "`n"
 
         if ($sitesWithoutSubnetCount -gt 0) {
-            $result += "`n### Sites Without Subnet Associations`n`n"
-            $result += "| Site Name | Description |`n"
-            $result += "| --- | --- |`n"
+            $result += "`n### Sites Without Subnet Associations" + "`n" + "`n"
+            $result += "| Site Name | Description |" + "`n"
+            $result += "| --- | --- |" + "`n"
 
             foreach ($site in ($sitesWithoutSubnets | Sort-Object Name)) {
                 $description = if ($site.Description) { $site.Description } else { "N/A" }
-                $result += "| $($site.Name) | $description |`n"
+                $result += "| $($site.Name) | $description |" + "`n"
             }
 
-            $result += "`n> **Note:** Sites without subnets cannot be used for client site assignment. Consider assigning subnets or removing unused sites.`n"
+            $result += "`n> **Note:** Sites without subnets cannot be used for client site assignment. Consider assigning subnets or removing unused sites." + "`n"
         } else {
-            $result += "`n✅ All sites have subnet associations configured.`n"
+            $result += "`n✅ All sites have subnet associations configured." + "`n"
         }
 
         $testResultMarkdown = "Active Directory sites without subnet associations have been analyzed.`n`n%TestResult%"

@@ -45,15 +45,15 @@
 
         # Generate markdown results
         if ($testResult) {
-            $result = "| Metric | Value |`n"
-            $result += "| --- | --- |`n"
-            $result += "| Total OUs | $totalOUs |`n"
-            $result += "| OUs with GPO Links | $linkedOUCount |`n"
-            $result += "| OUs without GPO Links | $unlinkedOUCount |`n"
+            $result = "| Metric | Value |" + "`n"
+            $result += "| --- | --- |" + "`n"
+            $result += "| Total OUs | $totalOUs |" + "`n"
+            $result += "| OUs with GPO Links | $linkedOUCount |" + "`n"
+            $result += "| OUs without GPO Links | $unlinkedOUCount |" + "`n"
 
             if ($totalOUs -gt 0) {
                 $linkedPercentage = [Math]::Round(($linkedOUCount / $totalOUs) * 100, 2)
-                $result += "| Linked OU Percentage | $linkedPercentage% |`n"
+                $result += "| Linked OU Percentage | $linkedPercentage% |" + "`n"
             }
 
             $testResultMarkdown = "Active Directory Organizational Units have been analyzed. $linkedOUCount out of $totalOUs OUs have GPO links.`n`n%TestResult%"

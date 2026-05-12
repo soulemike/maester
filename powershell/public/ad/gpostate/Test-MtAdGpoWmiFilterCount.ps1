@@ -50,11 +50,11 @@ function Test-MtAdGpoWmiFilterCount {
 
     $wmiPercentage = if ($totalCount -gt 0) { [Math]::Round(($wmiFilterCount / $totalCount) * 100, 2) } else { 0 }
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total GPOs (state) | $totalCount |`n"
-    $result += "| GPOs with WMI Filter | $wmiFilterCount |`n"
-    $result += "| WMI Filter ratio | $wmiPercentage% |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total GPOs (state) | $totalCount |" + "`n"
+    $result += "| GPOs with WMI Filter | $wmiFilterCount |" + "`n"
+    $result += "| WMI Filter ratio | $wmiPercentage% |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory GPOs have been analyzed for WMI filters. $wmiFilterCount out of $totalCount GPO(s) have a WMI filter configured.`n`n%TestResult%"

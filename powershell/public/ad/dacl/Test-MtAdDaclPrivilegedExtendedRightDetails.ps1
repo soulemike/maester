@@ -72,17 +72,17 @@
 
     $testResult = $true
 
-    $table = "| ObjectType | ACE Count | Distinct Objects | Distinct Identities |`n"
-    $table += "| --- | --- | --- | --- |`n"
+    $table = "| ObjectType | ACE Count | Distinct Objects | Distinct Identities |" + "`n"
+    $table += "| --- | --- | --- | --- |" + "`n"
 
     foreach ($item in $breakdown) {
         $objectType = [string]$item.ObjectType
         $objectType = $objectType -replace '\|', '\\&#124;'
-        $table += "| $objectType | $($item.AceCount) | $($item.DistinctObjectCount) | $($item.DistinctIdentityCount) |`n"
+        $table += "| $objectType | $($item.AceCount) | $($item.DistinctObjectCount) | $($item.DistinctIdentityCount) |" + "`n"
     }
 
     if ($breakdown.Count -eq 0) {
-        $table += "| No ExtendedRight allow ACEs found | 0 | 0 | 0 |`n"
+        $table += "| No ExtendedRight allow ACEs found | 0 | 0 | 0 |" + "`n"
     }
     Write-Verbose "Counts computed"
 

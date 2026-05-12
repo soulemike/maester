@@ -42,10 +42,10 @@
     $conflictAceCount = ($conflictEntries | Measure-Object).Count
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Conflict Objects In DACL Data | $conflictObjectCount |`n"
-    $result += "| DACL Entries On Conflict Objects | $conflictAceCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Conflict Objects In DACL Data | $conflictObjectCount |" + "`n"
+    $result += "| DACL Entries On Conflict Objects | $conflictAceCount |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory DACL data has been reviewed for conflict objects. $conflictObjectCount conflict object(s) with CNF markers were identified in the DACL dataset.`n`n%TestResult%"

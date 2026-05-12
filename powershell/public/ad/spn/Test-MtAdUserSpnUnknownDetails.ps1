@@ -94,25 +94,25 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Unknown Service Classes | $unknownCount |`n"
-        $result += "| Total Unknown SPN Instances | $totalUnknownInstances |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Unknown Service Classes | $unknownCount |" + "`n"
+        $result += "| Total Unknown SPN Instances | $totalUnknownInstances |" + "`n" + "`n"
 
         if ($unknownCount -gt 0) {
-            $result += "### Unknown Service Class Details`n`n"
-            $result += "| Service Class | Count | Users |`n"
-            $result += "| --- | --- | --- |`n"
+            $result += "### Unknown Service Class Details" + "`n" + "`n"
+            $result += "| Service Class | Count | Users |" + "`n"
+            $result += "| --- | --- | --- |" + "`n"
 
             foreach ($group in $unknownGroups) {
                 $usersList = ($group.Group | Select-Object -ExpandProperty User -Unique) -join ', '
                 if ($usersList.Length -gt 50) {
                     $usersList = $usersList.Substring(0, 47) + "..."
                 }
-                $result += "| $($group.Name) | $($group.Count) | $usersList |`n"
+                $result += "| $($group.Name) | $($group.Count) | $usersList |" + "`n"
             }
         } else {
-            $result += "No unknown SPN service classes found on user accounts. All SPNs match the known service database.`n"
+            $result += "No unknown SPN service classes found on user accounts. All SPNs match the known service database." + "`n"
         }
 
         $testResultMarkdown = "Active Directory user SPN unknown service class details.`n`n%TestResult%"

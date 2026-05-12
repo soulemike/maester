@@ -62,14 +62,14 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Computers | $totalCount |`n"
-        $result += "| Enabled Computers | $enabledCount |`n"
-        $result += "| Computers with Any Delegation | $totalDelegationCount |`n"
-        $result += "| Unconstrained Delegation | $unconstrainedCount |`n"
-        $result += "| Constrained/Protocol Transition | $constrainedCount |`n"
-        $result += "| Delegation Percentage | $delegationPercentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Computers | $totalCount |" + "`n"
+        $result += "| Enabled Computers | $enabledCount |" + "`n"
+        $result += "| Computers with Any Delegation | $totalDelegationCount |" + "`n"
+        $result += "| Unconstrained Delegation | $unconstrainedCount |" + "`n"
+        $result += "| Constrained/Protocol Transition | $constrainedCount |" + "`n"
+        $result += "| Delegation Percentage | $delegationPercentage% |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory computer objects have been analyzed. $totalDelegationCount out of $enabledCount enabled computers ($delegationPercentage%) have delegation configured.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

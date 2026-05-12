@@ -44,15 +44,15 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Sites | $totalSites |`n"
-        $result += "| Sites with Subnets | $sitesWithSubnetCount |`n"
-        $result += "| Sites without Subnets | $sitesWithoutSubnetCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Sites | $totalSites |" + "`n"
+        $result += "| Sites with Subnets | $sitesWithSubnetCount |" + "`n"
+        $result += "| Sites without Subnets | $sitesWithoutSubnetCount |" + "`n"
 
         if ($sitesWithSubnetCount -gt 0 -and $totalSites -gt 0) {
             $percentage = [Math]::Round(($sitesWithSubnetCount / $totalSites) * 100, 2)
-            $result += "| Sites with Subnets % | $percentage% |`n"
+            $result += "| Sites with Subnets % | $percentage% |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory site subnet associations have been analyzed. $sitesWithSubnetCount out of $totalSites site(s) have subnets assigned.`n`n%TestResult%"

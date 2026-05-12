@@ -58,19 +58,19 @@
     $testResult = $true
 
     if ($testResult) {
-        $result = "| Category | Count |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Groups | $totalGroups |`n"
-        $result += "| Empty Non-Privileged Groups | $emptyNonPrivilegedGroups |`n"
-        $result += "| Empty Privileged Groups | $emptyPrivilegedGroups |`n"
-        $result += "| Groups with Members | $nonEmptyGroups |`n"
+        $result = "| Category | Count |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Groups | $totalGroups |" + "`n"
+        $result += "| Empty Non-Privileged Groups | $emptyNonPrivilegedGroups |" + "`n"
+        $result += "| Empty Privileged Groups | $emptyPrivilegedGroups |" + "`n"
+        $result += "| Groups with Members | $nonEmptyGroups |" + "`n"
 
         if ($totalGroups -gt 0) {
             $emptyPercentage = [Math]::Round(($emptyNonPrivilegedGroups / $totalGroups) * 100, 2)
-            $result += "| Empty Non-Privileged Percentage | $emptyPercentage% |`n"
+            $result += "| Empty Non-Privileged Percentage | $emptyPercentage% |" + "`n"
         }
 
-        $testResultMarkdown = "Active Directory group analysis found **$emptyNonPrivilegedGroups** empty non-privileged groups out of **$totalGroups** total groups.`n`n"
+        $testResultMarkdown = "Active Directory group analysis found **$emptyNonPrivilegedGroups** empty non-privileged groups out of **$totalGroups** total groups." + "`n" + "`n"
         $testResultMarkdown += "Empty non-privileged groups may be candidates for cleanup.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result
     } else {

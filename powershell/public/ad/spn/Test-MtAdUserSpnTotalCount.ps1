@@ -45,15 +45,15 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total User SPNs | $totalSpnCount |`n"
-        $result += "| Users with SPNs | $usersWithSpns |`n"
-        $result += "| Total Users | $totalUsers |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total User SPNs | $totalSpnCount |" + "`n"
+        $result += "| Users with SPNs | $usersWithSpns |" + "`n"
+        $result += "| Total Users | $totalUsers |" + "`n"
 
         if ($totalUsers -gt 0) {
             $percentage = [Math]::Round(($usersWithSpns / $totalUsers) * 100, 2)
-            $result += "| Users with SPNs Percentage | $percentage% |`n"
+            $result += "| Users with SPNs Percentage | $percentage% |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory user SPN analysis found $totalSpnCount SPNs across $usersWithSpns user accounts.`n`n%TestResult%"

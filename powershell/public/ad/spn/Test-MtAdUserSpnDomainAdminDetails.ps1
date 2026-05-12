@@ -76,33 +76,33 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Domain Admin Accounts | $totalDomainAdmins |`n"
-        $result += "| Domain Admins with SPNs | $adminsWithSpns |`n"
-        $result += "| Total SPNs on Domain Admins | $totalAdminSpns |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Domain Admin Accounts | $totalDomainAdmins |" + "`n"
+        $result += "| Domain Admins with SPNs | $adminsWithSpns |" + "`n"
+        $result += "| Total SPNs on Domain Admins | $totalAdminSpns |" + "`n"
 
         if ($totalAdminSpns -gt 0) {
-            $result += "`n**⚠️ Critical**: Domain administrator accounts have SPNs configured. These must be removed immediately.`n`n"
-            $result += "### Domain Admin SPN Details`n`n"
-            $result += "| Account | SPN | Service Class | Host | FQDN |`n"
-            $result += "| --- | --- | --- | --- | --- |`n"
+            $result += "`n**⚠️ Critical**: Domain administrator accounts have SPNs configured. These must be removed immediately." + "`n" + "`n"
+            $result += "### Domain Admin SPN Details" + "`n" + "`n"
+            $result += "| Account | SPN | Service Class | Host | FQDN |" + "`n"
+            $result += "| --- | --- | --- | --- | --- |" + "`n"
 
             foreach ($spnDetail in $adminSpnDetails) {
                 $fqdnStatus = if ($spnDetail.IsFqdn) { "Yes" } else { "No" }
-                $result += "| $($spnDetail.AdminAccount) | $($spnDetail.SPN) | $($spnDetail.ServiceClass) | $($spnDetail.Host) | $fqdnStatus |`n"
+                $result += "| $($spnDetail.AdminAccount) | $($spnDetail.SPN) | $($spnDetail.ServiceClass) | $($spnDetail.Host) | $fqdnStatus |" + "`n"
             }
 
             # Service class breakdown
             $serviceClassGroups = $adminSpnDetails | Group-Object ServiceClass | Sort-Object Count -Descending
-            $result += "`n### Service Class Breakdown`n`n"
-            $result += "| Service Class | Count |`n"
-            $result += "| --- | --- |`n"
+            $result += "`n### Service Class Breakdown" + "`n" + "`n"
+            $result += "| Service Class | Count |" + "`n"
+            $result += "| --- | --- |" + "`n"
             foreach ($group in $serviceClassGroups) {
-                $result += "| $($group.Name) | $($group.Count) |`n"
+                $result += "| $($group.Name) | $($group.Count) |" + "`n"
             }
         } else {
-            $result += "`n**✅ Good**: No domain administrator accounts have SPNs configured.`n"
+            $result += "`n**✅ Good**: No domain administrator accounts have SPNs configured." + "`n"
         }
 
         $testResultMarkdown = "Active Directory domain administrator SPN detailed analysis.`n`n%TestResult%"

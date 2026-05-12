@@ -51,11 +51,11 @@
 
     $testResult = $true
 
-    $result = '| Metric | Value |`n'
-    $result += '| --- | --- |`n'
-    $result += "| Total DACL Entries | $($daclEntries.Count) |`n"
-    $result += "| ACEs with Specific InheritedObjectType | $($filteredEntries.Count) |`n"
-    $result += "| Distinct InheritedObjectType GUIDs | $distinctInheritedObjectTypeCount |`n"
+    $result = '| Metric | Value |' + "`n"
+    $result += '| --- | --- |' + "`n"
+    $result += "| Total DACL Entries | $($daclEntries.Count) |" + "`n"
+    $result += "| ACEs with Specific InheritedObjectType | $($filteredEntries.Count) |" + "`n"
+    $result += "| Distinct InheritedObjectType GUIDs | $distinctInheritedObjectTypeCount |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory DACL inheritance targets were analyzed. $distinctInheritedObjectTypeCount distinct inherited object type GUID(s) were referenced across $($filteredEntries.Count) ACE(s).`n`n%TestResult%"

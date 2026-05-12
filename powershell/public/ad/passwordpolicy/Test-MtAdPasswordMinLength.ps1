@@ -44,10 +44,10 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Minimum Password Length | $minPasswordLength characters |`n"
-        $result += "| Recommended Minimum | 14 characters |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Minimum Password Length | $minPasswordLength characters |" + "`n"
+        $result += "| Recommended Minimum | 14 characters |" + "`n"
 
         $recommendation = if ($minPasswordLength -ge 14) {
             "✅ Minimum password length meets or exceeds the recommended minimum of 14 characters."

@@ -52,11 +52,11 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Groups | $totalCount |`n"
-        $result += "| Groups with AdminCount | $adminCountGroups |`n"
-        $result += "| AdminCount Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Groups | $totalCount |" + "`n"
+        $result += "| Groups with AdminCount | $adminCountGroups |" + "`n"
+        $result += "| AdminCount Percentage | $percentage% |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory groups have been analyzed. $adminCountGroups out of $totalCount groups ($percentage%) have AdminCount set.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

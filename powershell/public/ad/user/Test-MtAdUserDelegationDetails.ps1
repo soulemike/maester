@@ -56,25 +56,25 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Users with Any Delegation Setting | $(($delegatedUsers | Measure-Object).Count) |`n"
-    $result += "| Unconstrained Delegation | $((@($delegatedUsers | Where-Object { $_.TrustedForDelegation -eq $true }) | Measure-Object).Count) |`n"
-    $result += "| Protocol Transition Enabled | $((@($delegatedUsers | Where-Object { $_.TrustedToAuthForDelegation -eq $true }) | Measure-Object).Count) |`n`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Users with Any Delegation Setting | $(($delegatedUsers | Measure-Object).Count) |" + "`n"
+    $result += "| Unconstrained Delegation | $((@($delegatedUsers | Where-Object { $_.TrustedForDelegation -eq $true }) | Measure-Object).Count) |" + "`n"
+    $result += "| Protocol Transition Enabled | $((@($delegatedUsers | Where-Object { $_.TrustedToAuthForDelegation -eq $true }) | Measure-Object).Count) |" + "`n" + "`n"
 
     if ($delegatedUsers.Count -gt 0) {
-        $result += "### Delegation Details`n`n"
-        $result += "| SamAccountName | Display Name | Enabled | Delegation Type | Has SPN |`n"
-        $result += "| --- | --- | --- | --- | --- |`n"
+        $result += "### Delegation Details" + "`n" + "`n"
+        $result += "| SamAccountName | Display Name | Enabled | Delegation Type | Has SPN |" + "`n"
+        $result += "| --- | --- | --- | --- | --- |" + "`n"
         foreach ($user in ($delegatedUsers | Select-Object -First 25)) {
-            $result += "| $($user.SamAccountName) | $($user.Name) | $($user.Enabled) | $($user.DelegationType) | $($user.HasSpn) |`n"
+            $result += "| $($user.SamAccountName) | $($user.Name) | $($user.Enabled) | $($user.DelegationType) | $($user.HasSpn) |" + "`n"
         }
 
         if ($delegatedUsers.Count -gt 25) {
-            $result += "| ... | ... | ... | ... | ... ($($delegatedUsers.Count - 25) more) |`n"
+            $result += "| ... | ... | ... | ... | ... ($($delegatedUsers.Count - 25) more) |" + "`n"
         }
     } else {
-        $result += "No users with delegation-related settings were identified.`n"
+        $result += "No users with delegation-related settings were identified." + "`n"
     }
     Write-Verbose "Counts computed"
 

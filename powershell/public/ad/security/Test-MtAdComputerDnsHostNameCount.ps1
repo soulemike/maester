@@ -48,28 +48,28 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Computers | $totalComputers |`n"
-    $result += "| Computers with DNS Host Name | $withDnsCount |`n"
-    $result += "| Computers without DNS Host Name | $withoutDnsCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Computers | $totalComputers |" + "`n"
+    $result += "| Computers with DNS Host Name | $withDnsCount |" + "`n"
+    $result += "| Computers without DNS Host Name | $withoutDnsCount |" + "`n"
 
     if ($totalComputers -gt 0) {
         $percentage = [Math]::Round(($withDnsCount / $totalComputers) * 100, 2)
-        $result += "| Percentage with DNS Host Name | $percentage% |`n"
+        $result += "| Percentage with DNS Host Name | $percentage% |" + "`n"
     }
 
     if ($withoutDnsCount -gt 0) {
-        $result += "`n**Computers without DNS Host Name (Top 10):**`n`n"
-        $result += "| Computer Name | Operating System |`n"
-        $result += "| --- | --- |`n"
+        $result += "`n**Computers without DNS Host Name (Top 10):**" + "`n" + "`n"
+        $result += "| Computer Name | Operating System |" + "`n"
+        $result += "| --- | --- |" + "`n"
 
         foreach ($comp in $computersWithoutDns | Select-Object -First 10) {
-            $result += "| $($comp.Name) | $($comp.operatingSystem) |`n"
+            $result += "| $($comp.Name) | $($comp.operatingSystem) |" + "`n"
         }
 
         if ($withoutDnsCount -gt 10) {
-            $result += "| ... and $($withoutDnsCount - 10) more | |`n"
+            $result += "| ... and $($withoutDnsCount - 10) more | |" + "`n"
         }
     }
     Write-Verbose "Counts computed"

@@ -43,12 +43,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Enabled Users | $enabledCount |`n"
-        $result += "| Users with Password Not Required | $passwordNotRequiredCount |`n"
-        $result += "| Password Not Required Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Enabled Users | $enabledCount |" + "`n"
+        $result += "| Users with Password Not Required | $passwordNotRequiredCount |" + "`n"
+        $result += "| Password Not Required Percentage | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory user objects have been analyzed. $passwordNotRequiredCount out of $totalCount users ($percentage%) do not require a password.`n`n%TestResult%"

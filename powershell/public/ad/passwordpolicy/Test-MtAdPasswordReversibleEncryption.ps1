@@ -47,10 +47,10 @@
     if ($testResult) {
         $encryptionStatus = if ($reversibleEncryption) { "Enabled" } else { "Disabled" }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Reversible Encryption | $encryptionStatus |`n"
-        $result += "| Recommended Setting | Disabled |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Reversible Encryption | $encryptionStatus |" + "`n"
+        $result += "| Recommended Setting | Disabled |" + "`n"
 
         $recommendation = if ($reversibleEncryption) {
             "❌ Reversible encryption is enabled. This is a critical security risk as passwords can be decrypted. Disable this setting immediately unless absolutely required for legacy applications."

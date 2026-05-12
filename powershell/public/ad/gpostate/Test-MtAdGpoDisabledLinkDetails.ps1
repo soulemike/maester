@@ -43,7 +43,7 @@ function Test-MtAdGpoDisabledLinkDetails {
 
     $testResult = $true
 
-    $table = "| GPO Name | DisabledLinks | Enforcement |`n"
+    $table = "| GPO Name | DisabledLinks | Enforcement |" + "`n"
     $table += '| --- | --- | --- |' + "`n"
 
     foreach ($report in ($disabled | Sort-Object -Property Name)) {
@@ -52,7 +52,7 @@ function Test-MtAdGpoDisabledLinkDetails {
 
         $disabledLinks = [int]$report.DisabledLinks
         $enforcement = [int]$report.Enforcement
-        $table += "| $name | $disabledLinks | $enforcement |`n"
+        $table += "| $name | $disabledLinks | $enforcement |" + "`n"
     }
 
     $recommendation = if ($disabledCount -gt 0) {

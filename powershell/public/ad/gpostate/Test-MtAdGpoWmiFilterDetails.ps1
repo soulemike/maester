@@ -47,7 +47,7 @@ function Test-MtAdGpoWmiFilterDetails {
     $wmiFilteredCount = @($wmiFiltered).Count
     $testResult = $true
 
-    $table = "| GPO DisplayName | Id | GpoStatus | WmiFilter | Owner |`n"
+    $table = "| GPO DisplayName | Id | GpoStatus | WmiFilter | Owner |" + "`n"
     $table += '| --- | --- | --- | --- | --- |' + "`n"
 
     foreach ($gpo in @($wmiFiltered | Sort-Object -Property DisplayName)) {
@@ -62,7 +62,7 @@ function Test-MtAdGpoWmiFilterDetails {
         $wmiFilter = [string]$gpo.WmiFilter
         $wmiFilter = $wmiFilter -replace '\|', '\\&#124;'
 
-        $table += "| $displayName | $id | $status | $wmiFilter | $owner |`n"
+        $table += "| $displayName | $id | $status | $wmiFilter | $owner |" + "`n"
     }
 
     $recommendation = if ($wmiFilteredCount -gt 0) {

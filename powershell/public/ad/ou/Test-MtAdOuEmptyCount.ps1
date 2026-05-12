@@ -71,14 +71,14 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total OUs | $totalCount |`n"
-        $result += "| Empty OUs | $emptyCount |`n"
-        $result += "| Empty Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total OUs | $totalCount |" + "`n"
+        $result += "| Empty OUs | $emptyCount |" + "`n"
+        $result += "| Empty Percentage | $percentage% |" + "`n" + "`n"
 
         if ($emptyCount -gt 0) {
-            $result += "**Note:** See ``Test-MtAdOuEmptyDetails`` for a complete list of empty OUs.`n`n"
+            $result += "**Note:** See ``Test-MtAdOuEmptyDetails`` for a complete list of empty OUs." + "`n" + "`n"
         }
 
         $testResultMarkdown = "Active Directory Organizational Units have been analyzed. $emptyCount OU(s) ($percentage%) are empty (contain no users, groups, or computers).`n`n%TestResult%"

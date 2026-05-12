@@ -63,15 +63,15 @@
             $osVersion = "Unknown/Custom Schema"
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Schema Version | $schemaVersion |`n"
-        $result += "| Corresponding OS | $osVersion |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Schema Version | $schemaVersion |" + "`n"
+        $result += "| Corresponding OS | $osVersion |" + "`n"
         if ($schemaContainer.whenCreated) {
-            $result += "| Schema Created | $($schemaContainer.whenCreated) |`n"
+            $result += "| Schema Created | $($schemaContainer.whenCreated) |" + "`n"
         }
         if ($schemaContainer.whenChanged) {
-            $result += "| Last Modified | $($schemaContainer.whenChanged) |`n"
+            $result += "| Last Modified | $($schemaContainer.whenChanged) |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory schema version is $schemaVersion ($osVersion).`n`n%TestResult%"

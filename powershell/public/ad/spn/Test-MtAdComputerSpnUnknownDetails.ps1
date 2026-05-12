@@ -94,25 +94,25 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Unknown Service Classes | $unknownCount |`n"
-        $result += "| Total Unknown SPN Instances | $totalUnknownInstances |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Unknown Service Classes | $unknownCount |" + "`n"
+        $result += "| Total Unknown SPN Instances | $totalUnknownInstances |" + "`n" + "`n"
 
         if ($unknownCount -gt 0) {
-            $result += "### Unknown Service Class Details`n`n"
-            $result += "| Service Class | Count | Computers |`n"
-            $result += "| --- | --- | --- |`n"
+            $result += "### Unknown Service Class Details" + "`n" + "`n"
+            $result += "| Service Class | Count | Computers |" + "`n"
+            $result += "| --- | --- | --- |" + "`n"
 
             foreach ($group in $unknownGroups) {
                 $computersList = ($group.Group | Select-Object -ExpandProperty Computer -Unique) -join ', '
                 if ($computersList.Length -gt 50) {
                     $computersList = $computersList.Substring(0, 47) + "..."
                 }
-                $result += "| $($group.Name) | $($group.Count) | $computersList |`n"
+                $result += "| $($group.Name) | $($group.Count) | $computersList |" + "`n"
             }
         } else {
-            $result += "No unknown SPN service classes found. All SPNs match the known service database.`n"
+            $result += "No unknown SPN service classes found. All SPNs match the known service database." + "`n"
         }
 
         $testResultMarkdown = "Active Directory computer SPN unknown service class details.`n`n%TestResult%"

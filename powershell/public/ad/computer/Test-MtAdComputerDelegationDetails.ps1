@@ -61,36 +61,36 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Computers | $totalCount |`n"
-        $result += "| Enabled Computers | $enabledCount |`n"
-        $result += "| Computers with Any Delegation | $totalDelegationCount |`n"
-        $result += "| Unconstrained Delegation | $unconstrainedCount |`n"
-        $result += "| Constrained/Protocol Transition | $constrainedCount |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Computers | $totalCount |" + "`n"
+        $result += "| Enabled Computers | $enabledCount |" + "`n"
+        $result += "| Computers with Any Delegation | $totalDelegationCount |" + "`n"
+        $result += "| Unconstrained Delegation | $unconstrainedCount |" + "`n"
+        $result += "| Constrained/Protocol Transition | $constrainedCount |" + "`n" + "`n"
 
         if ($unconstrainedCount -gt 0) {
-            $result += "**Computers with Unconstrained Delegation (High Risk):**`n`n"
-            $result += "| Computer Name | Enabled | Distinguished Name |`n"
-            $result += "| --- | --- | --- |`n"
+            $result += "**Computers with Unconstrained Delegation (High Risk):**" + "`n" + "`n"
+            $result += "| Computer Name | Enabled | Distinguished Name |" + "`n"
+            $result += "| --- | --- | --- |" + "`n"
             $computersWithUnconstrained | Select-Object -First 20 | ForEach-Object {
-                $result += "| $($_.Name) | $($_.Enabled) | $($_.DistinguishedName) |`n"
+                $result += "| $($_.Name) | $($_.Enabled) | $($_.DistinguishedName) |" + "`n"
             }
             if ($unconstrainedCount -gt 20) {
-                $result += "| ... | ... | ... ($($unconstrainedCount - 20) more) |`n"
+                $result += "| ... | ... | ... ($($unconstrainedCount - 20) more) |" + "`n"
             }
-            $result += "`n"
+            $result += "" + "`n"
         }
 
         if ($constrainedCount -gt 0) {
-            $result += "**Computers with Constrained Delegation:**`n`n"
-            $result += "| Computer Name | Enabled | Distinguished Name |`n"
-            $result += "| --- | --- | --- |`n"
+            $result += "**Computers with Constrained Delegation:**" + "`n" + "`n"
+            $result += "| Computer Name | Enabled | Distinguished Name |" + "`n"
+            $result += "| --- | --- | --- |" + "`n"
             $computersWithConstrained | Select-Object -First 20 | ForEach-Object {
-                $result += "| $($_.Name) | $($_.Enabled) | $($_.DistinguishedName) |`n"
+                $result += "| $($_.Name) | $($_.Enabled) | $($_.DistinguishedName) |" + "`n"
             }
             if ($constrainedCount -gt 20) {
-                $result += "| ... | ... | ... ($($constrainedCount - 20) more) |`n"
+                $result += "| ... | ... | ... ($($constrainedCount - 20) more) |" + "`n"
             }
         }
 

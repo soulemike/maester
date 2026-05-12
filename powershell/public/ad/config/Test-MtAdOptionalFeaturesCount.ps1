@@ -36,9 +36,9 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Optional Features Count | $optionalFeaturesCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Optional Features Count | $optionalFeaturesCount |" + "`n"
 
         $testResultMarkdown = "Active Directory optional features have been analyzed. Found $optionalFeaturesCount optional feature(s).`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

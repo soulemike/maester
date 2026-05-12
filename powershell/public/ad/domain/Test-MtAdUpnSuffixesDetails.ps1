@@ -41,21 +41,21 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Forest Name | $($forest.Name) |`n"
-        $result += "| Root Domain | $($forest.RootDomain) |`n"
-        $result += "| UPN Suffix Count | $suffixCount |`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Forest Name | $($forest.Name) |" + "`n"
+        $result += "| Root Domain | $($forest.RootDomain) |" + "`n"
+        $result += "| UPN Suffix Count | $suffixCount |" + "`n"
 
         if ($suffixCount -gt 0) {
-            $result += "`n### Configured UPN Suffixes`n`n"
-            $result += "| # | UPN Suffix |`n"
-            $result += "| --- | --- |`n"
+            $result += "`n### Configured UPN Suffixes" + "`n" + "`n"
+            $result += "| # | UPN Suffix |" + "`n"
+            $result += "| --- | --- |" + "`n"
             for ($i = 0; $i -lt $upnSuffixes.Count; $i++) {
-                $result += "| $($i + 1) | $($upnSuffixes[$i]) |`n"
+                $result += "| $($i + 1) | $($upnSuffixes[$i]) |" + "`n"
             }
         } else {
-            $result += "`n**Note:** No custom UPN suffixes are configured. Users will use the default forest domain as their UPN suffix.`n"
+            $result += "`n**Note:** No custom UPN suffixes are configured. Users will use the default forest domain as their UPN suffix." + "`n"
         }
 
         $testResultMarkdown = "The Active Directory forest UPN suffix details have been retrieved successfully.`n`n%TestResult%"

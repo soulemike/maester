@@ -48,11 +48,11 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Users with SID History | $sidHistoryCount |`n"
-        $result += "| SID History Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Users with SID History | $sidHistoryCount |" + "`n"
+        $result += "| SID History Percentage | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory users have been analyzed. $sidHistoryCount out of $totalCount users ($percentage%) have SID History set.`n`n%TestResult%"

@@ -49,15 +49,15 @@
     $testResult = $true
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Trusts | $totalCount |`n"
-    $result += "| Stale Trusts (>60 days) | $staleCount |`n`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Trusts | $totalCount |" + "`n"
+    $result += "| Stale Trusts (>60 days) | $staleCount |" + "`n" + "`n"
 
     if ($staleCount -gt 0) {
-        $result += "### Stale Trust Details`n`n"
-        $result += "| Target | Direction | Last Validated | Days Since Validation | Type |`n"
-        $result += "| --- | --- | --- | --- | --- |`n"
+        $result += "### Stale Trust Details" + "`n" + "`n"
+        $result += "| Target | Direction | Last Validated | Days Since Validation | Type |" + "`n"
+        $result += "| --- | --- | --- | --- | --- |" + "`n"
 
         foreach ($trust in $staleTrusts) {
             $target = $trust.Target
@@ -70,7 +70,7 @@
                 "Kerberos" { "Kerberos" }
                 default { $trust.TrustType }
             }
-            $result += "| $target | $direction | $($lastValidated.ToString('yyyy-MM-dd')) | $daysSince | $trustType |`n"
+            $result += "| $target | $direction | $($lastValidated.ToString('yyyy-MM-dd')) | $daysSince | $trustType |" + "`n"
         }
     }
 

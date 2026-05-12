@@ -67,7 +67,7 @@ function Test-MtAdGpoAllSettingsDisabledDetails {
     $allDisabledCount = @($allDisabled).Count
     $testResult = $true
 
-    $table = "| GPO DisplayName | Id | GpoStatus | WmiFilter | Owner |`n"
+    $table = "| GPO DisplayName | Id | GpoStatus | WmiFilter | Owner |" + "`n"
     $table += '| --- | --- | --- | --- | --- |' + "`n"
 
     foreach ($gpo in @($allDisabled | Sort-Object -Property DisplayName)) {
@@ -80,7 +80,7 @@ function Test-MtAdGpoAllSettingsDisabledDetails {
         $owner = if ($null -ne $gpo.Owner) { [string]$gpo.Owner } else { '' }
         $owner = $owner -replace '\|', '\\&#124;'
 
-        $table += "| $displayName | $id | $status | $wmiFilter | $owner |`n"
+        $table += "| $displayName | $id | $status | $wmiFilter | $owner |" + "`n"
     }
 
     $recommendation = if ($allDisabledCount -gt 0) {

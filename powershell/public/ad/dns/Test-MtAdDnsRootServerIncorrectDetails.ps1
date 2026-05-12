@@ -87,32 +87,32 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Root Servers | $totalRootServers |`n"
-        $result += "| Incorrect IPs | $incorrectCount |`n"
-        $result += "| Correct IPs | $($totalRootServers - $incorrectCount) |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Root Servers | $totalRootServers |" + "`n"
+        $result += "| Incorrect IPs | $incorrectCount |" + "`n"
+        $result += "| Correct IPs | $($totalRootServers - $incorrectCount) |" + "`n"
 
         if ($incorrectCount -gt 0) {
-            $result += "`n### Root Servers with Incorrect IPs`n`n"
-            $result += "| Server Name | Configured IP | Expected IP | Status |`n"
-            $result += "| --- | --- | --- | --- |`n"
+            $result += "`n### Root Servers with Incorrect IPs" + "`n" + "`n"
+            $result += "| Server Name | Configured IP | Expected IP | Status |" + "`n"
+            $result += "| --- | --- | --- | --- |" + "`n"
             foreach ($server in $incorrectRootServers) {
-                $result += "| $($server.Name) | $($server.ConfiguredIP) | $($server.ExpectedIP) | ❌ Incorrect |`n"
+                $result += "| $($server.Name) | $($server.ConfiguredIP) | $($server.ExpectedIP) | ❌ Incorrect |" + "`n"
             }
         }
 
         if ($totalRootServers -gt 0) {
-            $result += "`n### All Root Server Configurations`n`n"
-            $result += "| Server Name | Configured IP | Expected IP | Status |`n"
-            $result += "| --- | --- | --- | --- |`n"
+            $result += "`n### All Root Server Configurations" + "`n" + "`n"
+            $result += "| Server Name | Configured IP | Expected IP | Status |" + "`n"
+            $result += "| --- | --- | --- | --- |" + "`n"
             foreach ($record in $rootServerRecords | Sort-Object HostName) {
                 $serverName = $record.HostName
                 $configuredIp = $record.RecordData.IPv4Address.IPAddressToString
                 $expectedIp = $rootServers[$serverName]
                 $status = if ($expectedIp -and $configuredIp -eq $expectedIp) { "✅ Correct" } else { "❌ Incorrect" }
 
-                $result += "| $serverName | $configuredIp | $expectedIp | $status |`n"
+                $result += "| $serverName | $configuredIp | $expectedIp | $status |" + "`n"
             }
         }
 

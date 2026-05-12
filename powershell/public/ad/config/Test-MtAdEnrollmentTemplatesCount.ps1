@@ -36,9 +36,9 @@
 
     # Generate markdown results
     if ($hasData) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Enrollment Templates Count | $enrollmentTemplatesCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Enrollment Templates Count | $enrollmentTemplatesCount |" + "`n"
         $testResultMarkdown = "Active Directory enrollment templates have been counted. $enrollmentTemplatesCount enrollment template(s) were found.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result
     } else {

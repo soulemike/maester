@@ -45,10 +45,10 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Password History Count | $passwordHistoryCount |`n"
-        $result += "| Recommended Minimum | 24 |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Password History Count | $passwordHistoryCount |" + "`n"
+        $result += "| Recommended Minimum | 24 |" + "`n"
 
         $recommendation = if ($passwordHistoryCount -ge 24) {
             "✅ Password history count meets or exceeds the recommended minimum of 24."

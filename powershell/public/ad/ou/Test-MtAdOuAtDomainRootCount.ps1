@@ -52,18 +52,18 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total OUs | $totalCount |`n"
-        $result += "| Root-Level OUs | $rootLevelCount |`n"
-        $result += "| Nested OUs | $nestedCount |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total OUs | $totalCount |" + "`n"
+        $result += "| Root-Level OUs | $rootLevelCount |" + "`n"
+        $result += "| Nested OUs | $nestedCount |" + "`n" + "`n"
 
         if ($rootLevelCount -gt 0) {
-            $result += "**Root-Level OUs:**`n`n"
-            $result += "| OU Name | Distinguished Name |`n"
-            $result += "| --- | --- |`n"
+            $result += "**Root-Level OUs:**" + "`n" + "`n"
+            $result += "| OU Name | Distinguished Name |" + "`n"
+            $result += "| --- | --- |" + "`n"
             foreach ($ou in ($rootLevelOUs | Sort-Object Name)) {
-                $result += "| $($ou.Name) | $($ou.DistinguishedName) |`n"
+                $result += "| $($ou.Name) | $($ou.DistinguishedName) |" + "`n"
             }
         }
 

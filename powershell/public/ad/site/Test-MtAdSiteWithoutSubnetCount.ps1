@@ -51,18 +51,18 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Sites | $totalSites |`n"
-        $result += "| Sites with Subnets | $sitesWithSubnetCount |`n"
-        $result += "| Sites without Subnets | $sitesWithoutSubnetCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Sites | $totalSites |" + "`n"
+        $result += "| Sites with Subnets | $sitesWithSubnetCount |" + "`n"
+        $result += "| Sites without Subnets | $sitesWithoutSubnetCount |" + "`n"
 
         if ($sitesWithoutSubnetCount -gt 0) {
             $percentage = [Math]::Round(($sitesWithoutSubnetCount / $totalSites) * 100, 2)
-            $result += "| Sites without Subnets % | $percentage% |`n"
+            $result += "| Sites without Subnets % | $percentage% |" + "`n"
 
             $siteNames = $sitesWithoutSubnets | Select-Object -ExpandProperty Name | Sort-Object
-            $result += "| Sites without Subnets | $($siteNames -join ', ') |`n"
+            $result += "| Sites without Subnets | $($siteNames -join ', ') |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory site subnet associations have been analyzed. $sitesWithoutSubnetCount out of $totalSites site(s) do not have subnets assigned.`n`n%TestResult%"

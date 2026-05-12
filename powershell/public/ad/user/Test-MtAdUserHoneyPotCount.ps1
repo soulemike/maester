@@ -67,11 +67,11 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Users Reviewed | $((@($users) | Measure-Object).Count) |`n"
-    $result += "| Potential Honey Pot Users | $totalCount |`n"
-    $result += "| Enabled Potential Honey Pot Users | $enabledCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Users Reviewed | $((@($users) | Measure-Object).Count) |" + "`n"
+    $result += "| Potential Honey Pot Users | $totalCount |" + "`n"
+    $result += "| Enabled Potential Honey Pot Users | $enabledCount |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory users were reviewed for potential honey pot naming patterns.`n`n%TestResult%"

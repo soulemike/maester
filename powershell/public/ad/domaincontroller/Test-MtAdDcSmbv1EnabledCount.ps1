@@ -47,14 +47,14 @@
     $testResult = $smbv1EnabledCount -eq 0
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total DCs Checked | $($smbConfigs.Count) |`n"
-    $result += "| DCs with SMBv1 Enabled | $smbv1EnabledCount |`n"
-    $result += "| DCs with SMBv1 Disabled | $smbv1DisabledCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total DCs Checked | $($smbConfigs.Count) |" + "`n"
+    $result += "| DCs with SMBv1 Enabled | $smbv1EnabledCount |" + "`n"
+    $result += "| DCs with SMBv1 Disabled | $smbv1DisabledCount |" + "`n"
 
     if ($smbv1EnabledCount -gt 0) {
-        $result += "| DCs with SMBv1 Enabled | $($smbv1EnabledDCs.DCName -join ', ') |`n"
+        $result += "| DCs with SMBv1 Enabled | $($smbv1EnabledDCs.DCName -join ', ') |" + "`n"
         $testResultMarkdown = "❌ **Security Risk**: SMBv1 is enabled on $smbv1EnabledCount domain controller(s). SMBv1 should be disabled on all DCs due to known vulnerabilities.`n`n%TestResult%"
     } else {
         $testResultMarkdown = "✅ **Secure Configuration**: SMBv1 is disabled on all $($smbConfigs.Count) domain controller(s) that were checked.`n`n%TestResult%"

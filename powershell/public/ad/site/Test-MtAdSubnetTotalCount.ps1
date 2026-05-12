@@ -38,9 +38,9 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Subnets | $subnetCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Subnets | $subnetCount |" + "`n"
 
         $testResultMarkdown = "Active Directory subnets have been analyzed. There are $subnetCount subnet(s) configured in the domain.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

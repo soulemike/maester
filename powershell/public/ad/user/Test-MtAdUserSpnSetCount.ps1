@@ -48,11 +48,11 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Users with SPNs Configured | $spnCount |`n"
-        $result += "| SPN Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Users with SPNs Configured | $spnCount |" + "`n"
+        $result += "| SPN Percentage | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory users have been analyzed. $spnCount out of $totalCount users ($percentage%) have one or more SPNs configured.`n`n%TestResult%"

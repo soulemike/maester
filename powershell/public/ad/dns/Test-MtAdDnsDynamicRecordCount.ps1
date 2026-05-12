@@ -58,12 +58,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total DNS Records | $totalCount |`n"
-        $result += "| Dynamic Records | $dynamicCount |`n"
-        $result += "| Static Records | $staticCount |`n"
-        $result += "| Dynamic Percentage | $dynamicPercentage% |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total DNS Records | $totalCount |" + "`n"
+        $result += "| Dynamic Records | $dynamicCount |" + "`n"
+        $result += "| Static Records | $staticCount |" + "`n"
+        $result += "| Dynamic Percentage | $dynamicPercentage% |" + "`n"
 
         $testResultMarkdown = "Active Directory DNS records have been analyzed. $dynamicCount out of $totalCount records ($dynamicPercentage%) are dynamic.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

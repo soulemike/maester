@@ -37,12 +37,12 @@
 
     $testResult = $true
 
-    $result = "| Property | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Optional Features | $featureCount |`n"
+    $result = "| Property | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Optional Features | $featureCount |" + "`n"
 
     if ($featureCount -gt 0) {
-        $result += "| Available Features | $(($optionalFeatures | ForEach-Object { $_.Name }) -join ', ') |`n"
+        $result += "| Available Features | $(($optionalFeatures | ForEach-Object { $_.Name }) -join ', ') |" + "`n"
     }
 
     $testResultMarkdown = "Active Directory optional features have been enumerated. These features extend AD capabilities beyond base functionality.`n`n%TestResult%"

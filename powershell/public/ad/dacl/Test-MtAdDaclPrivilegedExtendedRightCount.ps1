@@ -50,13 +50,13 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total DACL ACEs | $((@($daclEntries) | Measure-Object).Count) |`n"
-    $result += "| ExtendedRight allow ACEs | $($extendedRightEntries.Count) |`n"
-    $result += "| Distinct ObjectType values | $(@($normalizedObjectTypes | Sort-Object -Unique).Count) |`n"
-    $result += "| Distinct identities with ExtendedRight | $(@($extendedRightEntries | Where-Object { -not [string]::IsNullOrWhiteSpace($_.IdentityReference) } | Select-Object -ExpandProperty IdentityReference -Unique).Count) |`n"
-    $result += "| Distinct objects with ExtendedRight | $(@($extendedRightEntries | Where-Object { -not [string]::IsNullOrWhiteSpace($_.ObjectDN) } | Select-Object -ExpandProperty ObjectDN -Unique).Count) |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total DACL ACEs | $((@($daclEntries) | Measure-Object).Count) |" + "`n"
+    $result += "| ExtendedRight allow ACEs | $($extendedRightEntries.Count) |" + "`n"
+    $result += "| Distinct ObjectType values | $(@($normalizedObjectTypes | Sort-Object -Unique).Count) |" + "`n"
+    $result += "| Distinct identities with ExtendedRight | $(@($extendedRightEntries | Where-Object { -not [string]::IsNullOrWhiteSpace($_.IdentityReference) } | Select-Object -ExpandProperty IdentityReference -Unique).Count) |" + "`n"
+    $result += "| Distinct objects with ExtendedRight | $(@($extendedRightEntries | Where-Object { -not [string]::IsNullOrWhiteSpace($_.ObjectDN) } | Select-Object -ExpandProperty ObjectDN -Unique).Count) |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "This informational test counts allow ACEs that grant the ExtendedRight permission.`n`n%TestResult%"

@@ -47,11 +47,11 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Users with Manager Set | $managerCount |`n"
-        $result += "| Manager Coverage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Users with Manager Set | $managerCount |" + "`n"
+        $result += "| Manager Coverage | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory users have been analyzed. $managerCount out of $totalCount users ($percentage%) have the Manager attribute populated.`n`n%TestResult%"

@@ -55,12 +55,12 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Machine Account Quota | $machineAccountQuota |`n"
-        $result += "| Default Value | 10 |`n"
-        $result += "| Using Default | $usingDefault |`n"
-        $result += "| Domain | $($domain.Name) |`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Machine Account Quota | $machineAccountQuota |" + "`n"
+        $result += "| Default Value | 10 |" + "`n"
+        $result += "| Using Default | $usingDefault |" + "`n"
+        $result += "| Domain | $($domain.Name) |" + "`n"
 
         $testResultMarkdown = "The machine account quota determines how many computer accounts a standard user can create in the domain.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

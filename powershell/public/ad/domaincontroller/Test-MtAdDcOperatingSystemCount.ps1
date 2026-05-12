@@ -40,13 +40,13 @@
     $testResult = $dcCount -gt 0
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Domain Controllers | $dcCount |`n"
-    $result += "| Distinct Operating Systems | $uniqueOSCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Domain Controllers | $dcCount |" + "`n"
+    $result += "| Distinct Operating Systems | $uniqueOSCount |" + "`n"
 
     if ($uniqueOSCount -gt 0) {
-        $result += "| Operating Systems | $($uniqueOS -join ', ') |`n"
+        $result += "| Operating Systems | $($uniqueOS -join ', ') |" + "`n"
     }
 
     $testResultMarkdown = "Domain controller operating systems have been analyzed. There are $uniqueOSCount distinct OS version(s) across $dcCount domain controller(s).`n`n%TestResult%"

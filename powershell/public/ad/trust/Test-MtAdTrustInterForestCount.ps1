@@ -41,11 +41,11 @@
     $testResult = $true
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Trusts | $totalCount |`n"
-    $result += "| Inter-Forest Trusts | $interForestCount |`n"
-    $result += "| Intra-Forest Trusts | $($totalCount - $interForestCount) |`n`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Trusts | $totalCount |" + "`n"
+    $result += "| Inter-Forest Trusts | $interForestCount |" + "`n"
+    $result += "| Intra-Forest Trusts | $($totalCount - $interForestCount) |" + "`n" + "`n"
 
     if ($interForestCount -eq 0) {
         $testResultMarkdown = "No inter-forest trusts are configured. All trusts (if any) are within the same forest.`n`n%TestResult%"

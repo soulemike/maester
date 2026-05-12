@@ -1,4 +1,4 @@
-﻿function Test-MtAdDaclPrivilegedExtendedRightIdentity {
+function Test-MtAdDaclPrivilegedExtendedRightIdentity {
     <#
     .SYNOPSIS
     Returns identities with privileged extended rights in Active Directory DACLs.
@@ -88,8 +88,8 @@
             Sort-Object @{ Expression = 'Count'; Descending = $true }, @{ Expression = 'Name'; Descending = $false }
     )
 
-    $result = '| IdentityReference | Privileged Extended Rights | ACE Count |`n'
-    $result += '| --- | --- | --- |`n'
+    $result = '| IdentityReference | Privileged Extended Rights | ACE Count |' + "`n"
+    $result += '| --- | --- | --- |' + "`n"
 
     foreach ($group in $identityGroups) {
         $identity = [string]$group.Name
@@ -103,7 +103,7 @@
         )
 
         $rightList = ($rights | ForEach-Object { $_ -replace '\|', '\\&#124;' }) -join ', '
-        $result += "| $identity | $rightList | $($group.Count) |`n"
+        $result += "| $identity | $rightList | $($group.Count) |" + "`n"
     }
 
     $testResult = $true

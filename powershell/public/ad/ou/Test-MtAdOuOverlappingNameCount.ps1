@@ -46,19 +46,19 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total OUs | $totalCount |`n"
-        $result += "| Duplicate OU Names | $overlappingNameCount |`n"
-        $result += "| OUs with Duplicate Names | $affectedOuCount |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total OUs | $totalCount |" + "`n"
+        $result += "| Duplicate OU Names | $overlappingNameCount |" + "`n"
+        $result += "| OUs with Duplicate Names | $affectedOuCount |" + "`n" + "`n"
 
         if ($overlappingNameCount -gt 0) {
-            $result += "**Duplicate OU Names:**`n`n"
-            $result += "| OU Name | Count | Distinguished Names |`n"
-            $result += "| --- | --- | --- |`n"
+            $result += "**Duplicate OU Names:**" + "`n" + "`n"
+            $result += "| OU Name | Count | Distinguished Names |" + "`n"
+            $result += "| --- | --- | --- |" + "`n"
             foreach ($group in $overlappingNames) {
                 $dns = ($group.Group | ForEach-Object { $_.DistinguishedName }) -join "<br>"
-                $result += "| $($group.Name) | $($group.Count) | $dns |`n"
+                $result += "| $($group.Name) | $($group.Count) | $dns |" + "`n"
             }
         }
 

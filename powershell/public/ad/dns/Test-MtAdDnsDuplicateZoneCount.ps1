@@ -53,20 +53,20 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total DNS Zones | $totalZoneCount |`n"
-        $result += "| Duplicate/Conflict Zones | $duplicateCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total DNS Zones | $totalZoneCount |" + "`n"
+        $result += "| Duplicate/Conflict Zones | $duplicateCount |" + "`n"
 
         if ($duplicateCount -gt 0) {
-            $result += "`n### Duplicate/Conflict Zones`n`n"
-            $result += "| Zone Name | Zone Type |`n"
-            $result += "| --- | --- |`n"
+            $result += "`n### Duplicate/Conflict Zones" + "`n" + "`n"
+            $result += "| Zone Name | Zone Type |" + "`n"
+            $result += "| --- | --- |" + "`n"
             foreach ($zone in $duplicateZones) {
-                $result += "| $($zone.ZoneName) | $($zone.ZoneType) |`n"
+                $result += "| $($zone.ZoneName) | $($zone.ZoneType) |" + "`n"
             }
 
-            $result += "`n> **Note**: Duplicate zones (CNF:) indicate replication conflicts. These should be investigated and resolved on each domain controller.`n"
+            $result += "`n> **Note**: Duplicate zones (CNF:) indicate replication conflicts. These should be investigated and resolved on each domain controller." + "`n"
         }
 
         $testResultMarkdown = "Active Directory DNS zones have been analyzed. $duplicateCount duplicate or conflict zones were found.`n`n%TestResult%"

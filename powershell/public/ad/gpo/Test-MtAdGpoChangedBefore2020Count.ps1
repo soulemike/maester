@@ -50,11 +50,11 @@
     $testResult = $true
 
     # Generate markdown results
-    $resultTable = "| Metric | Value |`n"
-    $resultTable += "| --- | --- |`n"
-    $resultTable += "| Total GPOs | $totalCount |`n"
-    $resultTable += "| Stale GPOs (Modified before 2020-01-01) | $staleCount |`n"
-    $resultTable += "| Stale GPOs % | $stalePercentage% |`n"
+    $resultTable = "| Metric | Value |" + "`n"
+    $resultTable += "| --- | --- |" + "`n"
+    $resultTable += "| Total GPOs | $totalCount |" + "`n"
+    $resultTable += "| Stale GPOs (Modified before 2020-01-01) | $staleCount |" + "`n"
+    $resultTable += "| Stale GPOs % | $stalePercentage% |" + "`n"
 
     if ($staleCount -gt 0) {
         $recommendation = "⚠️ Found $staleCount stale GPO(s) (not modified since before 2020-01-01). Stale policies can contain outdated security settings and create security gaps. Consider regular review and remediation of unchanged policies."

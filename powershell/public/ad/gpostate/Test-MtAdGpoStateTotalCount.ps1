@@ -41,9 +41,9 @@ function Test-MtAdGpoStateTotalCount {
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total GPOs (state) | $totalCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total GPOs (state) | $totalCount |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "Active Directory GPO state has been analyzed. The domain contains $totalCount GPO(s) (state view).`n`n%TestResult%"

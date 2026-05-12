@@ -47,10 +47,10 @@
     if ($testResult) {
         $complexityStatus = if ($complexityEnabled) { "Enabled" } else { "Disabled" }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Password Complexity | $complexityStatus |`n"
-        $result += "| Recommended Setting | Enabled |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Password Complexity | $complexityStatus |" + "`n"
+        $result += "| Recommended Setting | Enabled |" + "`n"
 
         $recommendation = if ($complexityEnabled) {
             "✅ Password complexity is enabled. This helps prevent the use of common, easily guessable passwords."

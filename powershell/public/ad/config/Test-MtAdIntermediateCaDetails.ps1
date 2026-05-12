@@ -39,17 +39,17 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Intermediate CA | Certificate Present |`n"
-        $result += "| --- | --- |`n"
+        $result = "| Intermediate CA | Certificate Present |" + "`n"
+        $result += "| --- | --- |" + "`n"
 
         foreach ($ca in $intermediateCAs | Select-Object -First 10) {
             $caName = $ca.Name
             $hasCert = if ($ca.cACertificate) { "Yes" } else { "No" }
-            $result += "| $caName | $hasCert |`n"
+            $result += "| $caName | $hasCert |" + "`n"
         }
 
         if ($caCount -gt 10) {
-            $result += "| ... ($($caCount - 10) more) | ... |`n"
+            $result += "| ... ($($caCount - 10) more) | ... |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory intermediate CA details have been analyzed. $caCount intermediate CA(s) found.`n`n%TestResult%"

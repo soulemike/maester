@@ -51,11 +51,11 @@
                 $policyName = $policy.Name
                 $appliesTo = $policy.AppliesTo
 
-                $result += "**Policy: $policyName**`n`n"
+                $result += "**Policy: $policyName**" + "`n" + "`n"
 
                 if ($appliesTo -and $appliesTo.Count -gt 0) {
-                    $result += "| Applies To | Type |`n"
-                    $result += "| --- | --- |`n"
+                    $result += "| Applies To | Type |" + "`n"
+                    $result += "| --- | --- |" + "`n"
 
                     foreach ($target in $appliesTo) {
                         try {
@@ -64,25 +64,25 @@
                             if ($object) {
                                 $objectClass = $object.ObjectClass
                                 $objectName = $object.Name
-                                $result += "| $objectName | $objectClass |`n"
+                                $result += "| $objectName | $objectClass |" + "`n"
                             } else {
-                                $result += "| $target | Unknown |`n"
+                                $result += "| $target | Unknown |" + "`n"
                             }
                         } catch {
-                            $result += "| $target | Unknown |`n"
+                            $result += "| $target | Unknown |" + "`n"
                         }
                     }
-                    $result += "`n"
+                    $result += "" + "`n"
                 } else {
-                    $result += "⚠️ This policy is not applied to any users or groups.`n`n"
+                    $result += "⚠️ This policy is not applied to any users or groups." + "`n" + "`n"
                 }
             }
 
             $recommendation = "Fine-grained password policy application targets across $policyCount policies. Ensure policies are applied to the correct users and groups."
         } else {
-            $result = "| Metric | Value |`n"
-            $result += "| --- | --- |`n"
-            $result += "| Fine-Grained Password Policies | 0 |`n"
+            $result = "| Metric | Value |" + "`n"
+            $result += "| --- | --- |" + "`n"
+            $result += "| Fine-Grained Password Policies | 0 |" + "`n"
 
             $recommendation = "No fine-grained password policies are configured. The domain uses only the default domain password policy."
         }

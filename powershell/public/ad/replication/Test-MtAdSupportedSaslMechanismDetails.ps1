@@ -45,14 +45,14 @@
 
     $testResult = $true
 
-    $result = "| Property | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total SASL Mechanisms | $mechanismCount |`n"
+    $result = "| Property | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total SASL Mechanisms | $mechanismCount |" + "`n"
 
     if ($mechanismCount -gt 0) {
-        $result += "`n**Supported SASL Mechanisms:**`n`n"
-        $result += "| Mechanism | Description | Security Level |`n"
-        $result += "| --- | --- | --- |`n"
+        $result += "`n**Supported SASL Mechanisms:**" + "`n" + "`n"
+        $result += "| Mechanism | Description | Security Level |" + "`n"
+        $result += "| --- | --- | --- |" + "`n"
 
         foreach ($mechanism in $saslMechanisms) {
             switch ($mechanism) {
@@ -62,7 +62,7 @@
                 'DIGEST-MD5' { $desc = 'Digest authentication'; $level = 'Low' }
                 default { $desc = 'Unknown mechanism'; $level = 'Unknown' }
             }
-            $result += "| $mechanism | $desc | $level |`n"
+            $result += "| $mechanism | $desc | $level |" + "`n"
         }
     }
 

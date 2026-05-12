@@ -50,11 +50,11 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Groups | $totalCount |`n"
-        $result += "| Security Groups | $securityCount |`n"
-        $result += "| Security Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Groups | $totalCount |" + "`n"
+        $result += "| Security Groups | $securityCount |" + "`n"
+        $result += "| Security Percentage | $percentage% |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory group objects have been analyzed. $securityCount out of $totalCount groups ($percentage%) are security groups (used for access control).`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

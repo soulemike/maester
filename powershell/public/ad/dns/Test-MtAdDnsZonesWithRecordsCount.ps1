@@ -73,21 +73,21 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total DNS Zones | $totalZoneCount |`n"
-        $result += "| Zones with Non-Default Records | $zonesWithRecordsCount |`n"
-        $result += "| Zones with Only Default Records | $($totalZoneCount - $zonesWithRecordsCount) |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total DNS Zones | $totalZoneCount |" + "`n"
+        $result += "| Zones with Non-Default Records | $zonesWithRecordsCount |" + "`n"
+        $result += "| Zones with Only Default Records | $($totalZoneCount - $zonesWithRecordsCount) |" + "`n"
 
         if ($zonesWithRecordsCount -gt 0) {
-            $result += "`n### Zones with Non-Default Records`n`n"
-            $result += "| Zone Name | Zone Type |`n"
-            $result += "| --- | --- |`n"
+            $result += "`n### Zones with Non-Default Records" + "`n" + "`n"
+            $result += "| Zone Name | Zone Type |" + "`n"
+            $result += "| --- | --- |" + "`n"
             foreach ($zone in $zonesWithRecords | Select-Object -First 10) {
-                $result += "| $($zone.ZoneName) | $($zone.ZoneType) |`n"
+                $result += "| $($zone.ZoneName) | $($zone.ZoneType) |" + "`n"
             }
             if ($zonesWithRecordsCount -gt 10) {
-                $result += "| ... and $($zonesWithRecordsCount - 10) more | |`n"
+                $result += "| ... and $($zonesWithRecordsCount - 10) more | |" + "`n"
             }
         }
 

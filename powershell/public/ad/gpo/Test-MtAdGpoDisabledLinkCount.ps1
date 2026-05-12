@@ -64,16 +64,16 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Links | $totalLinks |`n"
-        $result += "| Enabled Links | $enabledLinks |`n"
-        $result += "| Disabled Links | $disabledLinks |`n"
-        $result += "| Enforced Links | $enforcedLinks |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Links | $totalLinks |" + "`n"
+        $result += "| Enabled Links | $enabledLinks |" + "`n"
+        $result += "| Disabled Links | $disabledLinks |" + "`n"
+        $result += "| Enforced Links | $enforcedLinks |" + "`n"
 
         if ($totalLinks -gt 0) {
             $disabledPercentage = [Math]::Round(($disabledLinks / $totalLinks) * 100, 2)
-            $result += "| Disabled Percentage | $disabledPercentage% |`n"
+            $result += "| Disabled Percentage | $disabledPercentage% |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory GPO links have been analyzed. $disabledLinks out of $totalLinks links are disabled.`n`n%TestResult%"

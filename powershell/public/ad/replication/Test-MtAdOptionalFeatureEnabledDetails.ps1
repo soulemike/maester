@@ -39,18 +39,18 @@
 
     $testResult = $true
 
-    $result = "| Property | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Optional Features | $(($optionalFeatures | Measure-Object).Count) |`n"
-    $result += "| Enabled Features | $enabledCount |`n"
+    $result = "| Property | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Optional Features | $(($optionalFeatures | Measure-Object).Count) |" + "`n"
+    $result += "| Enabled Features | $enabledCount |" + "`n"
 
     if ($enabledCount -gt 0) {
-        $result += "`n**Enabled Feature Details:**`n`n"
-        $result += "| Feature Name | Enabled Scopes |`n"
-        $result += "| --- | --- |`n"
+        $result += "`n**Enabled Feature Details:**" + "`n" + "`n"
+        $result += "| Feature Name | Enabled Scopes |" + "`n"
+        $result += "| --- | --- |" + "`n"
         foreach ($feature in $enabledFeatures) {
             $scopeCount = $feature.EnabledScopes.Count
-            $result += "| $($feature.Name) | $scopeCount scope(s) |`n"
+            $result += "| $($feature.Name) | $scopeCount scope(s) |" + "`n"
         }
     }
 

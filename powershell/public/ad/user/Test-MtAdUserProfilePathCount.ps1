@@ -47,11 +47,11 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Users with Profile Path | $profilePathCount |`n"
-        $result += "| Profile Path Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Users with Profile Path | $profilePathCount |" + "`n"
+        $result += "| Profile Path Percentage | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory users have been analyzed. $profilePathCount out of $totalCount users ($percentage%) have the ProfilePath attribute populated.`n`n%TestResult%"

@@ -63,17 +63,17 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Domains | $totalDomains |`n"
-        $result += "| Non-Compliant Domains | $nonCompliantCount |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Domains | $totalDomains |" + "`n"
+        $result += "| Non-Compliant Domains | $nonCompliantCount |" + "`n" + "`n"
 
         if ($nonCompliantCount -gt 0) {
-            $result += "### Non-Compliant Domain Details`n`n"
-            $result += "| Domain Name | Non-Compliant Labels | Issue |`n"
-            $result += "| --- | --- | --- |`n"
+            $result += "### Non-Compliant Domain Details" + "`n" + "`n"
+            $result += "| Domain Name | Non-Compliant Labels | Issue |" + "`n"
+            $result += "| --- | --- | --- |" + "`n"
             foreach ($detail in $nonCompliantDomainDetails) {
-                $result += "| $($detail.DomainName) | $($detail.NonCompliantLabels) | $($detail.Issue) |`n"
+                $result += "| $($detail.DomainName) | $($detail.NonCompliantLabels) | $($detail.Issue) |" + "`n"
             }
         } else {
             $result += "All domain names comply with RFC 1123 standards."

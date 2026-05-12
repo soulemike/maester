@@ -38,11 +38,11 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Domain Functional Level | $functionalLevel |`n"
-        $result += "| Domain Name | $($domain.Name) |`n"
-        $result += "| Domain SID | $($domain.DomainSID) |`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Domain Functional Level | $functionalLevel |" + "`n"
+        $result += "| Domain Name | $($domain.Name) |" + "`n"
+        $result += "| Domain SID | $($domain.DomainSID) |" + "`n"
 
         $testResultMarkdown = "The Active Directory domain functional level has been retrieved successfully.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

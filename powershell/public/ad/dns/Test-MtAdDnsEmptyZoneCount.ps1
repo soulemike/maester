@@ -59,18 +59,18 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total DNS Zones | $totalZoneCount |`n"
-        $result += "| Empty Zones | $emptyZoneCount |`n"
-        $result += "| Zones with Records | $($totalZoneCount - $emptyZoneCount) |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total DNS Zones | $totalZoneCount |" + "`n"
+        $result += "| Empty Zones | $emptyZoneCount |" + "`n"
+        $result += "| Zones with Records | $($totalZoneCount - $emptyZoneCount) |" + "`n"
 
         if ($emptyZoneCount -gt 0) {
-            $result += "`n### Empty Zones`n`n"
-            $result += "| Zone Name | Zone Type |`n"
-            $result += "| --- | --- |`n"
+            $result += "`n### Empty Zones" + "`n" + "`n"
+            $result += "| Zone Name | Zone Type |" + "`n"
+            $result += "| --- | --- |" + "`n"
             foreach ($zone in $emptyZones) {
-                $result += "| $($zone.ZoneName) | $($zone.ZoneType) |`n"
+                $result += "| $($zone.ZoneName) | $($zone.ZoneType) |" + "`n"
             }
         }
 

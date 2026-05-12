@@ -64,16 +64,16 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total DACL ACEs | $((@($daclEntries) | Measure-Object).Count) |`n"
-    $result += "| Privileged allow ACEs | $($privilegedAllowEntries.Count) |`n"
-    $result += "| Distinct objects with privileged allow ACEs | $(@($privilegedAllowEntries | Where-Object { -not [string]::IsNullOrWhiteSpace($_.ObjectDN) } | Select-Object -ExpandProperty ObjectDN -Unique).Count) |`n"
-    $result += "| Distinct identities with privileged allow ACEs | $(@($privilegedAllowEntries | Where-Object { -not [string]::IsNullOrWhiteSpace($_.IdentityReference) } | Select-Object -ExpandProperty IdentityReference -Unique).Count) |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total DACL ACEs | $((@($daclEntries) | Measure-Object).Count) |" + "`n"
+    $result += "| Privileged allow ACEs | $($privilegedAllowEntries.Count) |" + "`n"
+    $result += "| Distinct objects with privileged allow ACEs | $(@($privilegedAllowEntries | Where-Object { -not [string]::IsNullOrWhiteSpace($_.ObjectDN) } | Select-Object -ExpandProperty ObjectDN -Unique).Count) |" + "`n"
+    $result += "| Distinct identities with privileged allow ACEs | $(@($privilegedAllowEntries | Where-Object { -not [string]::IsNullOrWhiteSpace($_.IdentityReference) } | Select-Object -ExpandProperty IdentityReference -Unique).Count) |" + "`n"
 
     foreach ($right in $privilegedRights) {
         $rightCount = @($privilegedAllowEntries | Where-Object { $_.MatchedRights -contains $right }).Count
-        $result += "| ACEs containing $right | $rightCount |`n"
+        $result += "| ACEs containing $right | $rightCount |" + "`n"
     }
     Write-Verbose "Counts computed"
 

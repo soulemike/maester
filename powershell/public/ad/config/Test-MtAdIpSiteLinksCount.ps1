@@ -38,9 +38,9 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| IP Site Links Count | $ipSiteLinksCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| IP Site Links Count | $ipSiteLinksCount |" + "`n"
 
         $testResultMarkdown = "Active Directory IP site links have been analyzed. Found $ipSiteLinksCount IP site link(s).`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

@@ -43,12 +43,12 @@
 
     $testResult = $true
 
-    $result = "| Property | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Supported SASL Mechanisms Count | $mechanismCount |`n"
+    $result = "| Property | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Supported SASL Mechanisms Count | $mechanismCount |" + "`n"
 
     if ($mechanismCount -gt 0) {
-        $result += "| Mechanisms | $(($saslMechanisms -join ', ')) |`n"
+        $result += "| Mechanisms | $(($saslMechanisms -join ', ')) |" + "`n"
     }
 
     $testResultMarkdown = "Active Directory supported SASL mechanisms have been enumerated. These mechanisms define available authentication protocols.`n`n%TestResult%"

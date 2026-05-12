@@ -34,9 +34,9 @@
     $testResult = $null -ne $config
 
     if ($testResult) {
-        $result = "| Property | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| AuthN Policy Containers Count | $authNPolicyConfigCount |`n`n"
+        $result = "| Property | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| AuthN Policy Containers Count | $authNPolicyConfigCount |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory AuthN policy containers have been counted.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

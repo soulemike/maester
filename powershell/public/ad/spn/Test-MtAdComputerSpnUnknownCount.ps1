@@ -87,16 +87,16 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total SPNs | $totalSpnCount |`n"
-        $result += "| Total Service Classes | $totalServiceClasses |`n"
-        $result += "| Unknown Service Classes | $unknownCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total SPNs | $totalSpnCount |" + "`n"
+        $result += "| Total Service Classes | $totalServiceClasses |" + "`n"
+        $result += "| Unknown Service Classes | $unknownCount |" + "`n"
 
         if ($unknownCount -gt 0 -and $totalServiceClasses -gt 0) {
             $percentage = [Math]::Round(($unknownCount / $totalServiceClasses) * 100, 2)
-            $result += "| Unknown Percentage | $percentage% |`n"
-            $result += "| Unknown Classes | $($unknownServiceClasses -join ', ') |`n"
+            $result += "| Unknown Percentage | $percentage% |" + "`n"
+            $result += "| Unknown Classes | $($unknownServiceClasses -join ', ') |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory computer SPN analysis found $unknownCount unknown service classes out of $totalServiceClasses total.`n`n%TestResult%"

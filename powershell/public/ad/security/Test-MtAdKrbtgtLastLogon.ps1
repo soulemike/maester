@@ -46,12 +46,12 @@
     $lastLogon = $krbtgt.LastLogonDate
     $testResult = $true
 
-    $result = "| Property | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Account Name | $($krbtgt.SamAccountName) |`n"
-    $result += "| Last Logon Date | $(if ($lastLogon) { $lastLogon.ToString('yyyy-MM-dd HH:mm:ss') } else { 'Never' }) |`n"
-    $result += "| Account Enabled | $($krbtgt.Enabled) |`n"
-    $result += "| Password Last Set | $(if ($krbtgt.PasswordLastSet) { $krbtgt.PasswordLastSet.ToString('yyyy-MM-dd HH:mm:ss') } else { 'Never' }) |`n"
+    $result = "| Property | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Account Name | $($krbtgt.SamAccountName) |" + "`n"
+    $result += "| Last Logon Date | $(if ($lastLogon) { $lastLogon.ToString('yyyy-MM-dd HH:mm:ss') } else { 'Never' }) |" + "`n"
+    $result += "| Account Enabled | $($krbtgt.Enabled) |" + "`n"
+    $result += "| Password Last Set | $(if ($krbtgt.PasswordLastSet) { $krbtgt.PasswordLastSet.ToString('yyyy-MM-dd HH:mm:ss') } else { 'Never' }) |" + "`n"
     Write-Verbose "Counts computed"
 
     $testResultMarkdown = "KRBTGT account last logon information retrieved. This service account should not have interactive logons.`n`n%TestResult%"

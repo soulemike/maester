@@ -57,14 +57,14 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total NetBIOS Names | $totalNames |`n"
-        $result += "| Non-Compliant Names | $nonCompliantCount |`n"
-        $result += "| Compliant Names | $($totalNames - $nonCompliantCount) |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total NetBIOS Names | $totalNames |" + "`n"
+        $result += "| Non-Compliant Names | $nonCompliantCount |" + "`n"
+        $result += "| Compliant Names | $($totalNames - $nonCompliantCount) |" + "`n"
 
         if ($nonCompliantCount -gt 0) {
-            $result += "| Non-Compliant Names | $($nonCompliantNames -join ', ') |`n"
+            $result += "| Non-Compliant Names | $($nonCompliantNames -join ', ') |" + "`n"
         }
 
         $testResultMarkdown = "NetBIOS name compliance has been checked. $nonCompliantCount out of $totalNames NetBIOS name(s) are non-compliant.`n`n%TestResult%"

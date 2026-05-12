@@ -50,11 +50,11 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Groups | $totalCount |`n"
-        $result += "| Global Groups | $globalCount |`n"
-        $result += "| Global Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Groups | $totalCount |" + "`n"
+        $result += "| Global Groups | $globalCount |" + "`n"
+        $result += "| Global Percentage | $percentage% |" + "`n" + "`n"
 
         $testResultMarkdown = "Active Directory group objects have been analyzed. $globalCount out of $totalCount groups ($percentage%) are global groups (forest-wide usage).`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result

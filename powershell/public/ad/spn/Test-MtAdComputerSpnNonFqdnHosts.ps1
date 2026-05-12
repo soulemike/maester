@@ -68,30 +68,30 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total SPNs | $totalSpns |`n"
-        $result += "| FQDN Hosts | $fqdnCount |`n"
-        $result += "| Non-FQDN Hosts | $nonFqdnCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total SPNs | $totalSpns |" + "`n"
+        $result += "| FQDN Hosts | $fqdnCount |" + "`n"
+        $result += "| Non-FQDN Hosts | $nonFqdnCount |" + "`n"
 
         if ($totalSpns -gt 0) {
             $percentage = [Math]::Round(($nonFqdnCount / $totalSpns) * 100, 2)
-            $result += "| Non-FQDN Percentage | $percentage% |`n"
+            $result += "| Non-FQDN Percentage | $percentage% |" + "`n"
         }
 
         if ($nonFqdnCount -gt 0) {
-            $result += "`n### Non-FQDN SPN Examples`n`n"
-            $result += "| SPN | Computer |`n"
-            $result += "| --- | --- |`n"
+            $result += "`n### Non-FQDN SPN Examples" + "`n" + "`n"
+            $result += "| SPN | Computer |" + "`n"
+            $result += "| --- | --- |" + "`n"
 
             # Show first 10 examples
             $examples = $nonFqdnSpns | Select-Object -First 10
             foreach ($example in $examples) {
-                $result += "| $($example.SPN) | $($example.Computer) |`n"
+                $result += "| $($example.SPN) | $($example.Computer) |" + "`n"
             }
 
             if ($nonFqdnCount -gt 10) {
-                $result += "| ... and $($nonFqdnCount - 10) more | |`n"
+                $result += "| ... and $($nonFqdnCount - 10) more | |" + "`n"
             }
         }
 

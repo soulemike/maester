@@ -61,14 +61,14 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Domains | $totalDomains |`n"
-        $result += "| Non-Compliant Domains | $nonCompliantCount |`n"
-        $result += "| Compliant Domains | $($totalDomains - $nonCompliantCount) |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Domains | $totalDomains |" + "`n"
+        $result += "| Non-Compliant Domains | $nonCompliantCount |" + "`n"
+        $result += "| Compliant Domains | $($totalDomains - $nonCompliantCount) |" + "`n"
 
         if ($nonCompliantCount -gt 0) {
-            $result += "| Non-Compliant Domain Names | $($nonCompliantDomains -join ', ') |`n"
+            $result += "| Non-Compliant Domain Names | $($nonCompliantDomains -join ', ') |" + "`n"
         }
 
         $testResultMarkdown = "Domain name RFC compliance has been checked. $nonCompliantCount out of $totalDomains domain(s) have non-compliant names.`n`n%TestResult%"

@@ -37,20 +37,20 @@
 
     $testResult = $true
 
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Enabled Built-In Administrator Style Accounts | $(($enabledBuiltInAdmins | Measure-Object).Count) |`n`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Enabled Built-In Administrator Style Accounts | $(($enabledBuiltInAdmins | Measure-Object).Count) |" + "`n" + "`n"
 
     if ($enabledBuiltInAdmins.Count -gt 0) {
-        $result += "### Enabled Account Details`n`n"
-        $result += "| SamAccountName | Display Name | SID | AdminCount | Last Logon |`n"
-        $result += "| --- | --- | --- | --- | --- |`n"
+        $result += "### Enabled Account Details" + "`n" + "`n"
+        $result += "| SamAccountName | Display Name | SID | AdminCount | Last Logon |" + "`n"
+        $result += "| --- | --- | --- | --- | --- |" + "`n"
         foreach ($user in $enabledBuiltInAdmins) {
             $lastLogon = if ($null -ne $user.LastLogonDate) { Get-Date $user.LastLogonDate -Format 'yyyy-MM-dd HH:mm:ss' } else { 'Never/Unknown' }
-            $result += "| $($user.SamAccountName) | $($user.Name) | $([string]$user.SID) | $($user.AdminCount) | $lastLogon |`n"
+            $result += "| $($user.SamAccountName) | $($user.Name) | $([string]$user.SID) | $($user.AdminCount) | $lastLogon |" + "`n"
         }
     } else {
-        $result += "No enabled built-in administrator style accounts were found.`n"
+        $result += "No enabled built-in administrator style accounts were found." + "`n"
     }
     Write-Verbose "Counts computed"
 

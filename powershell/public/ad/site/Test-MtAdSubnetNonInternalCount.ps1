@@ -82,14 +82,14 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Subnets | $totalSubnets |`n"
-        $result += "| Non-Internal (Public IP) Subnets | $nonInternalCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Subnets | $totalSubnets |" + "`n"
+        $result += "| Non-Internal (Public IP) Subnets | $nonInternalCount |" + "`n"
 
         if ($nonInternalCount -gt 0) {
-            $result += "| Non-Internal Subnet Names | $($nonInternalSubnets.Name -join ', ') |`n"
-            $result += "`n> **Note:** Non-RFC1918 subnets use public IP addresses. Ensure these are properly isolated and do not conflict with internet-routable addresses.`n"
+            $result += "| Non-Internal Subnet Names | $($nonInternalSubnets.Name -join ', ') |" + "`n"
+            $result += "`n> **Note:** Non-RFC1918 subnets use public IP addresses. Ensure these are properly isolated and do not conflict with internet-routable addresses." + "`n"
         }
 
         $testResultMarkdown = "Active Directory subnet analysis has been performed. $nonInternalCount non-internal (public IP) subnet(s) were found.`n`n%TestResult%"

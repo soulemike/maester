@@ -38,13 +38,13 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Sites | $siteCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Sites | $siteCount |" + "`n"
 
         if ($siteCount -gt 0) {
             $siteNames = $sites | Select-Object -ExpandProperty Name | Sort-Object
-            $result += "| Site Names | $($siteNames -join ', ') |`n"
+            $result += "| Site Names | $($siteNames -join ', ') |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory sites have been analyzed. There are $siteCount site(s) configured in the domain.`n`n%TestResult%"

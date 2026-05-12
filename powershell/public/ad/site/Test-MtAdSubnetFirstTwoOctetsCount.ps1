@@ -47,13 +47,13 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total IPv4 Subnets | $totalSubnets |`n"
-        $result += "| Distinct /16 Networks | $distinctCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total IPv4 Subnets | $totalSubnets |" + "`n"
+        $result += "| Distinct /16 Networks | $distinctCount |" + "`n"
 
         if ($distinctCount -gt 0 -and $distinctCount -le 20) {
-            $result += "| /16 Networks Used | $($firstTwoOctets -join ', ') |`n"
+            $result += "| /16 Networks Used | $($firstTwoOctets -join ', ') |" + "`n"
         }
 
         $testResultMarkdown = "Active Directory subnet /16 network analysis has been performed. $distinctCount distinct /16 network(s) are in use.`n`n%TestResult%"

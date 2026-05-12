@@ -36,9 +36,9 @@
 
     # Generate markdown results
     if ($hasData) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Enterprise CAs Count | $enterpriseCaCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Enterprise CAs Count | $enterpriseCaCount |" + "`n"
         $testResultMarkdown = "Active Directory Enterprise CAs have been counted. $enterpriseCaCount Enterprise certificate authority(s) were found.`n`n%TestResult%"
         $testResultMarkdown = $testResultMarkdown -replace "%TestResult%", $result
     } else {

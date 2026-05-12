@@ -86,18 +86,18 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Root Servers | $totalRootServers |`n"
-        $result += "| Incorrect IPs | $incorrectCount |`n"
-        $result += "| Correct IPs | $($totalRootServers - $incorrectCount) |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Root Servers | $totalRootServers |" + "`n"
+        $result += "| Incorrect IPs | $incorrectCount |" + "`n"
+        $result += "| Correct IPs | $($totalRootServers - $incorrectCount) |" + "`n"
 
         if ($incorrectCount -gt 0) {
-            $result += "`n### Root Servers with Incorrect IPs`n`n"
-            $result += "| Server Name | Configured IP | Expected IP |`n"
-            $result += "| --- | --- | --- |`n"
+            $result += "`n### Root Servers with Incorrect IPs" + "`n" + "`n"
+            $result += "| Server Name | Configured IP | Expected IP |" + "`n"
+            $result += "| --- | --- | --- |" + "`n"
             foreach ($server in $incorrectRootServers) {
-                $result += "| $($server.Name) | $($server.ConfiguredIP) | $($server.ExpectedIP) |`n"
+                $result += "| $($server.Name) | $($server.ConfiguredIP) | $($server.ExpectedIP) |" + "`n"
             }
         }
 

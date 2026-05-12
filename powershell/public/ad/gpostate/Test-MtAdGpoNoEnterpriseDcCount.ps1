@@ -95,12 +95,12 @@
         $sampleNamesText += " (showing first $sampleLimit)"
     }
 
-    $resultTable = "| Metric | Value |`n"
-    $resultTable += "| --- | --- |`n"
-    $resultTable += "| Total GPO Reports | $([int]($gpoReports | Measure-Object).Count) |`n"
-    $resultTable += "| GPO Reports Without Enterprise Domain Controllers | $noEnterpriseDcCount |`n"
+    $resultTable = "| Metric | Value |" + "`n"
+    $resultTable += "| --- | --- |" + "`n"
+    $resultTable += "| Total GPO Reports | $([int]($gpoReports | Measure-Object).Count) |" + "`n"
+    $resultTable += "| GPO Reports Without Enterprise Domain Controllers | $noEnterpriseDcCount |" + "`n"
     if ($noEnterpriseDcCount -gt 0 -and $sampleNamesText) {
-        $resultTable += "| Sample GPO Reports | $sampleNamesText |`n"
+        $resultTable += "| Sample GPO Reports | $sampleNamesText |" + "`n"
     }
 
     if ($testResult) {

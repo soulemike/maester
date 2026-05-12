@@ -44,12 +44,12 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Users | $totalCount |`n"
-        $result += "| Enabled Users | $enabledCount |`n"
-        $result += "| Enabled Users Never Logged In | $neverLoggedInCount |`n"
-        $result += "| Never Logged In Percentage (of enabled) | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Users | $totalCount |" + "`n"
+        $result += "| Enabled Users | $enabledCount |" + "`n"
+        $result += "| Enabled Users Never Logged In | $neverLoggedInCount |" + "`n"
+        $result += "| Never Logged In Percentage (of enabled) | $percentage% |" + "`n" + "`n"
     Write-Verbose "Counts computed"
 
         $testResultMarkdown = "Active Directory user objects have been analyzed. $neverLoggedInCount out of $enabledCount enabled users ($percentage%) have never logged on.`n`n%TestResult%"

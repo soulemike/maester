@@ -47,22 +47,22 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total Sites | $totalSites |`n"
-        $result += "| Sites without DCs | $sitesWithoutDcCount |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total Sites | $totalSites |" + "`n"
+        $result += "| Sites without DCs | $sitesWithoutDcCount |" + "`n"
 
         if ($sitesWithoutDcCount -gt 0) {
-            $result += "`n### Sites Without Domain Controllers`n`n"
-            $result += "| Site Name | Description |`n"
-            $result += "| --- | --- |`n"
+            $result += "`n### Sites Without Domain Controllers" + "`n" + "`n"
+            $result += "| Site Name | Description |" + "`n"
+            $result += "| --- | --- |" + "`n"
 
             foreach ($site in ($sitesWithoutDCs | Sort-Object Name)) {
                 $description = if ($site.Description) { $site.Description } else { "N/A" }
-                $result += "| $($site.Name) | $description |`n"
+                $result += "| $($site.Name) | $description |" + "`n"
             }
         } else {
-            $result += "`n✅ All sites have domain controllers deployed.`n"
+            $result += "`n✅ All sites have domain controllers deployed." + "`n"
         }
 
         $testResultMarkdown = "Active Directory sites without domain controllers have been analyzed.`n`n%TestResult%"

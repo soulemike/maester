@@ -58,21 +58,21 @@
 
     # Generate markdown results
     if ($testResult) {
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total DNS Zones | $totalZoneCount |`n"
-        $result += "| Non-Standard Zones | $nonStandardCount |`n"
-        $result += "| Standard Zones | $($totalZoneCount - $nonStandardCount) |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total DNS Zones | $totalZoneCount |" + "`n"
+        $result += "| Non-Standard Zones | $nonStandardCount |" + "`n"
+        $result += "| Standard Zones | $($totalZoneCount - $nonStandardCount) |" + "`n"
 
         if ($nonStandardCount -gt 0) {
-            $result += "`n### Non-Standard Zone Names`n`n"
-            $result += "| Zone Name | Zone Type |`n"
-            $result += "| --- | --- |`n"
+            $result += "`n### Non-Standard Zone Names" + "`n" + "`n"
+            $result += "| Zone Name | Zone Type |" + "`n"
+            $result += "| --- | --- |" + "`n"
             foreach ($zone in $nonStandardZones) {
-                $result += "| $($zone.ZoneName) | $($zone.ZoneType) |`n"
+                $result += "| $($zone.ZoneName) | $($zone.ZoneType) |" + "`n"
             }
 
-            $result += "`n> **Note**: Non-standard zone names do not comply with RFCs 952, 1035, and 1123 for internet domain names.`n"
+            $result += "`n> **Note**: Non-standard zone names do not comply with RFCs 952, 1035, and 1123 for internet domain names." + "`n"
         }
 
         $testResultMarkdown = "Active Directory DNS zones have been analyzed. $nonStandardCount zones have non-standard names.`n`n%TestResult%"

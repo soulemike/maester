@@ -72,22 +72,22 @@
             0
         }
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Total OUs | $totalCount |`n"
-        $result += "| Empty OUs | $emptyCount |`n"
-        $result += "| Empty Percentage | $percentage% |`n`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Total OUs | $totalCount |" + "`n"
+        $result += "| Empty OUs | $emptyCount |" + "`n"
+        $result += "| Empty Percentage | $percentage% |" + "`n" + "`n"
 
         if ($emptyCount -gt 0) {
-            $result += "**Empty Organizational Units:**`n`n"
-            $result += "| OU Name | Created | Distinguished Name |`n"
-            $result += "| --- | --- | --- |`n"
+            $result += "**Empty Organizational Units:**" + "`n" + "`n"
+            $result += "| OU Name | Created | Distinguished Name |" + "`n"
+            $result += "| --- | --- | --- |" + "`n"
             foreach ($ou in ($emptyOUs | Sort-Object Name)) {
                 $created = if ($ou.createTimeStamp) { $ou.createTimeStamp.ToString("yyyy-MM-dd") } elseif ($ou.whenCreated) { $ou.whenCreated.ToString("yyyy-MM-dd") } else { "Unknown" }
-                $result += "| $($ou.Name) | $created | $($ou.DistinguishedName) |`n"
+                $result += "| $($ou.Name) | $created | $($ou.DistinguishedName) |" + "`n"
             }
         } else {
-            $result += "**No empty OUs found.** All OUs contain at least one user, group, or computer object.`n"
+            $result += "**No empty OUs found.** All OUs contain at least one user, group, or computer object." + "`n"
         }
 
         $testResultMarkdown = "Active Directory Organizational Units have been analyzed. $emptyCount OU(s) ($percentage%) are empty (contain no users, groups, or computers).`n`n%TestResult%"

@@ -47,10 +47,10 @@
     if ($testResult) {
         $maxPasswordAgeDays = $maxPasswordAge.Days
 
-        $result = "| Metric | Value |`n"
-        $result += "| --- | --- |`n"
-        $result += "| Maximum Password Age | $maxPasswordAgeDays days |`n"
-        $result += "| Recommended Maximum | 90 days or less |`n"
+        $result = "| Metric | Value |" + "`n"
+        $result += "| --- | --- |" + "`n"
+        $result += "| Maximum Password Age | $maxPasswordAgeDays days |" + "`n"
+        $result += "| Recommended Maximum | 90 days or less |" + "`n"
 
         $recommendation = if ($maxPasswordAgeDays -gt 0 -and $maxPasswordAgeDays -le 90) {
             "✅ Maximum password age meets the recommendation of 90 days or less."

@@ -43,15 +43,15 @@
     $testResult = $dcCount -gt 0
 
     # Generate markdown results
-    $result = "| Metric | Value |`n"
-    $result += "| --- | --- |`n"
-    $result += "| Total Domain Controllers | $dcCount |`n"
-    $result += "| Writable Domain Controllers | $writableDcCount |`n"
-    $result += "| Read-Only Domain Controllers (RODC) | $rodcCount |`n"
+    $result = "| Metric | Value |" + "`n"
+    $result += "| --- | --- |" + "`n"
+    $result += "| Total Domain Controllers | $dcCount |" + "`n"
+    $result += "| Writable Domain Controllers | $writableDcCount |" + "`n"
+    $result += "| Read-Only Domain Controllers (RODC) | $rodcCount |" + "`n"
 
     if ($rodcCount -gt 0) {
-        $result += "| RODC Names | $($rodcs.Name -join ', ') |`n"
-        $result += "| RODC Sites | $($rodcs.Site -join ', ') |`n"
+        $result += "| RODC Names | $($rodcs.Name -join ', ') |" + "`n"
+        $result += "| RODC Sites | $($rodcs.Site -join ', ') |" + "`n"
         $testResultMarkdown = "ℹ️ **RODC Configuration**: $rodcCount read-only domain controller(s) detected. RODCs are appropriate for branch office deployments where physical security cannot be guaranteed.`n`n%TestResult%"
     } else {
         $testResultMarkdown = "ℹ️ **No RODCs**: All $dcCount domain controller(s) are writable DCs. Consider RODCs for branch office locations with limited physical security.`n`n%TestResult%"
