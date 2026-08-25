@@ -1,0 +1,11 @@
+Maester AD Test Results - 08/20/2026 00:27:28
+=====================================
+Total Tests: 270
+Passed: 193
+Failed: 37
+Skipped: 40
+Duration: 00:00:45.3620762
+
+Windows Runner: MiSouleRunW (10.20.0.10)
+Domain: misoule02.local
+Domain Controller: MiSouleDC02 (10.20.0.4)

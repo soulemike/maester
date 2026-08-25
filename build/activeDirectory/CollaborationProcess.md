@@ -83,9 +83,10 @@ Before marking a phase complete, you MUST validate all tests against the live do
 
 3. **Execute validation script**:
    ```powershell
-   Import-Module ActiveDirectory
-   # Run each test function and verify results
-   Test-MtAd[TestName]
+    # Validate protocol prerequisites before running AD tests
+    ./build/activeDirectory/Test-ADProtocolPrerequisites.ps1 -DirectoryServer 'misoule02.local'
+    # Run one isolated AD test cycle
+    ./build/activeDirectory/Run-ADTests-And-CopyReports.ps1 -ConnectActiveDirectory -TargetName 'misoule02.local'
    ```
 
 4. **Document results** in `AD-TEST-RESULTS.md`

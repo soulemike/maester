@@ -15,14 +15,11 @@ Copy-Item -Path ".\powershell" -Destination "\\DC01\C$\temp\maester" -Recurse -F
 # Import the module
 Import-Module C:\temp\maester\Maester.psd1 -Force
 
-# Quick validation (tests Get-MtADGpoState only)
-.\build\activeDirectory\Simple-Validate-Phase19.ps1 -Quick
+# Validate protocol prerequisites before running AD tests
+./build/activeDirectory/Test-ADProtocolPrerequisites.ps1 -DirectoryServer 'misoule02.local'
 
-# Full validation (tests 11 key functions)
-.\build\activeDirectory\Simple-Validate-Phase19.ps1
-
-# Detailed validation with output table
-.\build\activeDirectory\Simple-Validate-Phase19.ps1 -Detailed
+# Run one isolated AD test cycle (single-target rule)
+./build/activeDirectory/Run-ADTests-And-CopyReports.ps1 -ConnectActiveDirectory -TargetName 'misoule02.local'
 ```
 
 ### Option 2: Manual PowerShell Verification
@@ -64,20 +61,10 @@ Invoke-Pester -Path "tests\Maester\ad\gpostate"
 
 ### Sample Output
 ```
-=== Phase 19 GPO State Simple Validation ===
+=== Phase 19 GPO State Protocol Validation ===
 
-Running full validation...
-Testing Get-MtADGpoState [SETUP]... PASS
-Testing Test-MtAdGpoStateTotalCount [AD-GPOS-01]... PASS
-Testing Test-MtAdGpoWmiFilterCount [AD-GPOS-02]... PASS
-Testing Test-MtAdGpoSettingsDisabledCount [AD-GPOS-04]... PASS
-Testing Test-MtAdGpoOwnerDistinctCount [AD-GPOS-08]... PASS
-Testing Test-MtAdGpoNoPermissionsCount [AD-GPOREP-01]... PASS
-Testing Test-MtAdGpoNoAuthenticatedUsersCount [AD-GPOREP-03]... PASS
-Testing Test-MtAdGpoDenyAceCount [AD-GPOREP-07]... PASS
-Testing Test-MtAdGpoDisabledLinkCount [AD-GPOREP-12]... PASS
-Testing Test-MtAdGpoVersionMismatchCount [AD-GPOREP-15]... PASS
-Testing Test-MtAdGpoCpasswordFoundCount [AD-GPOREP-17]... PASS
+Protocol prerequisites validated.
+Running one isolated AD test cycle...
 
 === Validation Summary ===
 Passed: 11
@@ -90,9 +77,8 @@ Total:  11
 ## Troubleshooting
 
 ### "Get-MtADGpoState returns null"
-- Ensure you're running on a domain-joined machine or DC
-- Check that ActiveDirectory and GroupPolicy modules are available
-- Verify you have permissions to read GPOs
+- Ensure you're running on a domain-joined machine or that prerequisites validate protocol reachability to your target DC.
+- Verify you have permissions to read GPOs.
 
 ### "Command not found"
 - Ensure Maester module is imported: `Import-Module .\powershell\Maester.psd1 -Force`

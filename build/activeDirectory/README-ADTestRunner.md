@@ -1,158 +1,79 @@
-# Active Directory Test Runner
+# Active Directory Test Runner (Protocol-Based)
 
-This folder contains scripts for running Maester Active Directory tests on a domain controller and managing the resulting reports.
+This folder contains scripts for running Maester Active Directory tests against a specific directory server endpoint and managing the resulting report artifacts.
 
-## Quick Start
+## Protocol prerequisites (per TargetName / DirectoryServer)
+Before running AD tests, validate that the runner can reach and negotiate the required protocols for the chosen directory server.
 
-### Option 1: Run All AD Tests (Recommended)
+- LDAP: TCP/389
+- LDAPS: TCP/636
+- DNS: TCP/53
+- SMB: TCP/445
+- WinRM: TCP/5985 (HTTP) and TCP/5986 (HTTPS)
 
-From the repository root on a domain controller:
+When using LDAPS / StartTLS and WinRM over HTTPS, ensure the runner trusts the server certificates.
 
-```powershell
-# Run all AD tests and copy reports to build/activeDirectory
-.\build\activeDirectory\Run-ADTests-And-CopyReports.ps1 -ConnectActiveDirectory
+## Single-target rule (recommended)
+Run exactly one directory server per invocation:
 
-# With verbose output
-.\build\activeDirectory\Run-ADTests-And-CopyReports.ps1 -ConnectActiveDirectory -Verbose
-```
+1. Validate protocol prerequisites for a single server.
+2. Connect to Active Directory via `Connect-Maester -Service ActiveDirectory`.
+3. Run Maester AD tests (`Invoke-Maester -Tag AD -SkipGraphConnect -NonInteractive`).
+4. Copy reports (the filename prefix includes your `TargetName`).
 
-### Option 2: Run Specific AD Test Categories
+Do not loop over multiple `TargetName` values in a single run.
 
-```powershell
-# Import Maester module first
-Import-Module .\powershell\Maester.psd1 -Force
+## Supported scripts
 
-# Explicitly validate the Active Directory connection
-Connect-Maester -Service ActiveDirectory
+| Script | Purpose |
+|---|---|
+| `Test-ADProtocolPrerequisites.ps1` | Validates reachability and protocol/TLS/remoting prerequisites for one directory server. |
+| `Run-ADTests-And-CopyReports.ps1` | Runs the Maester Active Directory test suite (tag `AD`) for one target and copies the generated report artifacts to `build/activeDirectory`. |
 
-# Run only GPO State tests
-Invoke-Maester -Path ".\tests\ad\gpostate" -OutputFolder ".\build\activeDirectory" -SkipGraphConnect -NonInteractive
+## Quick start
 
-# Run only Domain tests
-Invoke-Maester -Path ".\tests\ad\domain" -OutputFolder ".\build\activeDirectory" -SkipGraphConnect -NonInteractive
-
-# Run only Security tests
-Invoke-Maester -Path ".\tests\ad\security" -OutputFolder ".\build\activeDirectory" -SkipGraphConnect -NonInteractive
-```
-
-### Option 3: Manual Copy After Running Tests
+### 1) Validate prerequisites for one directory server
 
 ```powershell
-# Explicitly validate the Active Directory connection
-Connect-Maester -Service ActiveDirectory
-
-# Run tests with default output
-Invoke-Maester -Path ".\tests\ad" -Tag "AD" -OutputFolder ".\test-results" -SkipGraphConnect -NonInteractive
-
-# Copy the latest reports to build/activeDirectory
-$latestReports = Get-ChildItem -Path ".\test-results" -Filter "TestResults-*" | Sort-Object LastWriteTime -Descending | Select-Object -First 3
-$latestReports | Copy-Item -Destination ".\build\activeDirectory\" -Force
+./build/activeDirectory/Test-ADProtocolPrerequisites.ps1 -DirectoryServer 'misoule02.local'
 ```
 
-## Available AD Test Categories
+### 2) Run one isolated AD test cycle and copy reports
 
-The AD tests are organized into the following categories:
+```powershell
+./build/activeDirectory/Run-ADTests-And-CopyReports.ps1 -ConnectActiveDirectory -TargetName 'misoule02.local'
+```
 
-| Category | Path | Description |
-|----------|------|-------------|
-| GPO State | `tests/ad/gpostate` | GPO configuration and state tests |
-| Domain | `tests/ad/domain` | Domain configuration tests |
-| Security | `tests/ad/security` | Security-related AD tests |
-| User | `tests/ad/user` | User account tests |
-| Group | `tests/ad/group` | Group configuration tests |
-| Computer | `tests/ad/computer` | Computer account tests |
-| GPO | `tests/ad/gpo` | Group Policy Object tests |
-| Password Policy | `tests/ad/passwordpolicy` | Password policy tests |
-| Replication | `tests/ad/replication` | AD replication tests |
-| DACL | `tests/ad/dacl` | Discretionary Access Control List tests |
-| Domain Controller | `tests/ad/domaincontroller` | DC-specific tests |
-| DNS | `tests/ad/dns` | DNS-related tests |
-| OU | `tests/ad/ou` | Organizational Unit tests |
-| Site | `tests/ad/site` | AD site topology tests |
-| Schema | `tests/ad/schema` | AD schema tests |
-| SPN | `tests/ad/spn` | Service Principal Name tests |
-| Trust | `tests/ad/trust` | Domain trust tests |
-| Config | `tests/ad/config` | General configuration tests |
+Optional export formats:
 
-## Script Parameters
+```powershell
+./build/activeDirectory/Run-ADTests-And-CopyReports.ps1 -ConnectActiveDirectory -TargetName 'misoule02.local' -ExportCsv -ExportExcel
+```
 
-### Run-ADTests-And-CopyReports.ps1
+The copied artifacts use the naming convention:
 
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `ConnectActiveDirectory` | Required | Explicitly authorize AD connection validation and test execution |
-| `MaesterModulePath` | `..\..\powershell` | Path to Maester PowerShell module |
-| `TestPath` | `..\..\tests` | Path to test files |
-| `OutputFolder` | `..\..\test-results` | Temporary output folder |
-| `TargetFolder` | Current folder | Where to copy final reports |
+`AD-TestResults-{TargetName}-{timestamp}`
 
-## Report Files
+## Build guidance
 
-After running tests, the following files are generated:
+- Run the commands from the repository root (or adjust relative paths).
+- Ensure you can import the Maester module (`Maester.psd1`) from the `-MaesterModulePath` used by the runner.
+- In CI, prefer one job per `TargetName` so each test cycle is isolated and produces unambiguous artifacts.
 
-- **HTML Report** (`AD-TestResults-*.html`) - Interactive web-based report
-- **Markdown Report** (`AD-TestResults-*.md`) - Markdown format for documentation
-- **JSON Data** (`AD-TestResults-*.json`) - Raw test data for automation
-- **CSV Export** (optional) - Spreadsheet format
-- **Excel Export** (optional) - Excel workbook format
+## Retired scripts
+The legacy validation scripts below are retired in favor of the protocol-based workflow:
 
-## Requirements
-
-- Windows Server with Active Directory role (or domain-joined machine)
-- PowerShell 5.1 or later
-- ActiveDirectory PowerShell module
-- GroupPolicy PowerShell module
-- Domain Admin or equivalent permissions (for full test coverage)
+- `Validate-Phase7-GPO.ps1`
+- `Validate-Phase7-Simple.ps1`
+- `validate-dns-tests.ps1`
+- `validate-dns-tests-v2.ps1`
+- `Standalone-Phase19-Validation.ps1`
+- `Simple-Validate-Phase19.ps1`
+- `Validate-Phase19-GPOState.ps1`
 
 ## Troubleshooting
 
-### "Access Denied" Errors
-- Ensure you're running PowerShell as Administrator
-- Verify you have Domain Admin or equivalent permissions
-- Check that the ActiveDirectory and GroupPolicy modules are installed
-
-### "Module Not Found" Errors
-- Verify the Maester module path is correct
-- Run `Import-Module .\powershell\Maester.psd1 -Force` to test module import
-
-### Tests Taking Too Long
-- Use `-Path` parameter to run specific test categories
-- Exclude long-running tests with appropriate tags
-- Run tests during off-peak hours
-
-### No Reports Generated
-- Check the output folder path exists and is writable
-- Verify Invoke-Maester completed successfully
-- Look for error messages in the console output
-
-## Examples
-
-### Example 1: Full AD Test Suite
-```powershell
-.\build\activeDirectory\Run-ADTests-And-CopyReports.ps1 -ConnectActiveDirectory -Verbose
-```
-
-### Example 2: Quick GPO Validation Only
-```powershell
-Import-Module .\powershell\Maester.psd1 -Force
-Connect-Maester -Service ActiveDirectory
-Invoke-Maester -Path ".\tests\ad\gpostate" -OutputFolder ".\build\activeDirectory" -SkipGraphConnect -NonInteractive
-```
-
-### Example 3: Export to CSV and Excel
-```powershell
-Connect-Maester -Service ActiveDirectory
-Invoke-Maester -Path ".\tests\ad" -OutputFolder ".\build\activeDirectory" -ExportCsv -ExportExcel -SkipGraphConnect -NonInteractive
-```
-
-### Example 4: Run with Specific Tags
-```powershell
-Connect-Maester -Service ActiveDirectory
-Invoke-Maester -Path ".\tests\ad" -Tag "AD.GPOState" -OutputFolder ".\build\activeDirectory" -SkipGraphConnect -NonInteractive
-```
-
-## See Also
-
-- [Phase 19 Validation Guide](Phase19-Validation-README.md) - GPO State validation
-- [Maester Documentation](https://maester.dev) - Full Maester documentation
-- [AD Test Backlog](ADTestBacklog.md) - AD test development status
+- **TLS/Certificate failures**: confirm LDAPS/StartTLS and WinRM HTTPS certificates are trusted by the runner.
+- **Timeouts / connection refused**: confirm firewall rules allow TCP/389, TCP/636, TCP/53, TCP/445, and TCP/5985-5986 to the runner.
+- **Authentication/authorization failures**: ensure your session account can read the AD objects required by the tests.
+- **No reports generated**: verify the output folder and check for artifacts with prefix `AD-TestResults-{TargetName}-...`.
