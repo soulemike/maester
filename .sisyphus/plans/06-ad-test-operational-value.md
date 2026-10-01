@@ -1,621 +1,1101 @@
-# Plan 6: AD Test Operational Value & Good Practice Guidance
-
-> **Reference View** — This plan improves Maester's existing Active Directory test suite to provide operational value and good-practice guidance on why each test matters. It enriches the canonical guidance layer (`powershell/public/ad/**`), keeps test wrappers thin, and adds net-new security assertion tests where justified.
+# AD Test Quality Improvement Plan
 
 ## TL;DR
-> **Summary**: Inventory all ~270 AD files, classify each check by semantics and severity, define a standard guidance template contract, enrich existing public AD functions with tiered operational guidance (lightweight or rich markdown), and add net-new security assertion tests for known weaknesses with industry-accepted thresholds — all while preserving backward compatibility for existing tests.
-> **Deliverables**: Complete AD check classification matrix, guidance template contract, enriched public AD functions with adjacent `.md` templates, net-new security assertion tests, deprecation list, updated documentation.
-> **Effort**: XL
-> **Parallel**: YES — 6 waves
-> **Critical Path**: Inventory → Template Contract → Stable Category Guidance → Stable Category Assertions → Dependent Category Guidance → Dependent Category Assertions → Docs & Validation
+
+> **Quick Summary**: Systematically fix all identified quality issues in the Maester Active Directory test suite (270 test wrappers, 92 hardcoded-$true functions, 28 missing .md files, 17 empty-table tests). Reclassify informational tests as `investigate` (Operational controls), add real security thresholds where applicable (Preventive/Detective controls), fix the silent-pass bug, and validate end-to-end via azure-lab with pre/post report comparison.
+>
+> **Deliverables**:
+> - 270 test wrappers with fixed silent-pass bug
+> - 92 functions audited and categorized (investigate vs threshold)
+> - 28 missing companion .md files in gpostate/
+> - 17 tests with suppressed empty tables
+> - Pre-change and post-change HTML/JSON reports from azure-lab
+> - Report comparison documenting status count deltas
+>
+> **Estimated Effort**: Large (250+ files across multiple categories)
+> **Parallel Execution**: YES — 4 waves
+> **Critical Path**: T1-T6 (silent-pass fix) → T9 (audit) → T10-T11 (reclassify/thresholds) → T13-T15 (baseline/validation)
+
+---
 
 ## Context
 
 ### Original Request
-Add a sixth plan for improving the current AD tests to ensure they provide operational value and good practice guidance on why the tests matter.
+Using the .sisyphus/drafts/AD_TESTS_ANALYSIS.md as context, build a plan to improve the test quality and value for the AD tests within the project. Ensure all tests align with the same project structure. Perform end to end testing as part of validation with comparison of reports between the pre-change and post-change results.
 
 ### Interview Summary
-- **Scope**: All ~270 AD `.ps1` files across 19 categories under `tests/ad/` and `powershell/public/ad/`.
-- **Test evolution**: Hybrid — existing tests keep current pass/fail behavior (guidance-only enrichment). New security assertion tests are net-add. A deprecation list tracks operational tests that overlap significantly with new security tests.
-- **Guidance layer**: Canonical guidance lives in `powershell/public/ad/**` public functions (current AD architecture), enriched via `Add-MtTestResultDetail` and adjacent `.md` templates. `tests/ad/**` wrappers remain thin.
-- **Guidance depth**: Tiered — rich markdown (benefits, remediation steps, impacted resources, related links) for highest-severity tests; lightweight standard template (Why It Matters, Risk, Remediation, References) for lower-severity/inventory tests.
-- **Assertion rubric**: Moderate — a check becomes a failing assertion if it represents a known security weakness with an industry-accepted best-practice threshold.
-- **Backward compatibility**: Existing test pass/fail semantics are preserved. Breaking changes are not introduced to existing test IDs.
+**Key Decisions**:
+- **Scope**: ALL issues (P0, P1, P2) from AD_TESTS_ANALYSIS.md
+- **Classification Strategy**: Hybrid approach
+  - Reclassify purely informational tests as `investigate` status (Operational controls)
+  - Add real security thresholds where possible (Preventive/Detective controls)
+- **End-to-End Testing**: YES, using azure-lab + labconfig
+  - Capture pre-change baseline reports
+  - Capture post-change reports
+  - Compare and validate improvements
+- **AD Environment**: Available via build/activeDirectory/azure-lab/
 
-### Metis Review (gaps addressed)
-- **Scope underestimation corrected**: ~270 files, not ~150. Plan includes an executable inventory step.
-- **Canonical layer resolved**: Public functions own guidance; wrappers stay thin. Avoids duplication with Entra pattern.
-- **Dependency gating**: Waves 4–5 are gated on Plan 2 (LDAP collectors) and Plan 3 (cross-platform transport) stability. Plan 5 overlap is managed via classification matrix.
-- **Assertion rubric**: Explicit moderate criteria defined in Task 2.
-- **Severity source**: Derived from mapping to CIS/Microsoft baselines and internal risk assessment; not invented ad-hoc.
-- **Report bloat guard**: Rich markdown capped per check; summary-vs-detail strategy defined in template contract.
+### Research Findings
+- "Investigate" is a first-class UI status (purple badge, sort order 4 between Failed and Passed)
+- `Add-MtTestResultDetail` supports `-Investigate` flag
+- Test wrappers use pattern: `if ($null -ne $result) { $result | Should -Be $true }` with no else block
+- Good example: `Test-MtAdDomainNameStandardCompliance` computes real boolean from data
+- AD runner: `build/activeDirectory/Run-ADTests-And-CopyReports.ps1`
+- Report generated via `Get-MtHtmlReport.ps1` + `powershell/assets/ReportTemplate.html`
+
+### Metis Review
+**Identified Gaps** (addressed in plan):
+- **Guardrails**: Restrict changes to AD tests only; no non-AD test modifications
+- **Scope creep**: No new reporting formats; no broad reclassification beyond stated items
+- **Assumptions**: Uniform else block for silent-pass fix; azure-lab stability noted as risk
+- **Edge cases**: Flaky AD environment, race conditions, backward compatibility
+- **Acceptance criteria**: All P0-P2 resolved; pre/post reports compared; zero regressions
+
+---
 
 ## Work Objectives
 
 ### Core Objective
-Transform Maester's AD test suite from a collection of data-retrieval checks into an operationally valuable security assessment tool that explains why each finding matters, what risk it poses, and what remediation steps to take.
+Transform the Maester AD test suite from a data-collection tool into a security validation framework by fixing structural bugs, adding meaningful pass/fail thresholds, and ensuring consistent documentation and reporting.
 
-### Deliverables
-1. **AD Check Classification Matrix** (CSV/JSON): Every AD check mapped to wrapper path, public function path, category, current semantics, target semantics, guidance depth, severity, references, and Plan 2/3/5 dependencies.
-2. **Guidance Template Contract**: Standard lightweight template + rich markdown template specifications.
-3. **Enriched Public AD Functions**: All stable-category public functions updated with operational guidance via `Add-MtTestResultDetail` and adjacent `.md` templates.
-4. **Net-New Security Assertion Tests**: New failing tests for known AD security weaknesses with industry-accepted thresholds.
-5. **Deprecation List**: Operational tests marked for future deprecation where new security tests provide overlapping coverage.
-6. **Updated Documentation**: Regenerated command docs and any new operational guidance pages.
+### Concrete Deliverables
+- All 270 test wrappers emit `Skipped` when AD data cannot be retrieved (no silent passes)
+- All 92 hardcoded-$true functions categorized and updated (investigate or threshold)
+- 28 missing companion .md files created in `powershell/public/ad/gpostate/`
+- 17 detail tests suppress empty markdown tables on pass
+- Pre-change and post-change HTML/JSON reports captured from azure-lab
+- Report comparison documenting status count deltas and new failures
 
-### Definition of Done (verifiable conditions with commands)
-- [ ] `./powershell/tests/pester.ps1` passes with zero failures.
-- [ ] `./build/Build-MaesterModule.ps1` succeeds.
-- [ ] `./build/Test-MaesterModuleOutput.ps1` validates.
-- [ ] Every AD check in the classification matrix has a defined guidance depth and severity.
-- [ ] Every enriched public function in **stable categories** emits the expected guidance sections at runtime (verified by structural QA).
-- [ ] New security assertion tests in **stable categories** have Pester fixtures with pass/fail/boundary cases.
-- [ ] Report renders both lightweight and rich markdown correctly in HTML output.
-- [ ] No existing test ID has changed pass/fail semantics.
-- [ ] Dependent-category work is either completed (if Plan 2/3 gate passes) or documented as deferred with a follow-on plan reference.
-- [ ] Any E2E validation of new or enriched checks follows the Plan 9 three-track mandatory process against the canonical lab topology (`MiSouleDC02/misoule02.local`, `MiSouleDC03/child.misoule02.local`, `MiSouleDC04/misoule03.local`, `MiSouleRunnerWin`, `MiSouleRunnerLinux`).
+### Definition of Done
+- [ ] `Invoke-Maester` runs on AD tests with zero silent passes when AD is disconnected
+- [ ] All AD tests have companion .md documentation
+- [ ] No empty markdown tables in test output when findings count is zero
+- [ ] Pre/post report comparison shows expected status shifts (retrievable→investigate, threshold tests→fail when misconfigured)
+- [ ] Unit tests (`./powershell/tests/pester.ps1`) pass for modified module functions
 
 ### Must Have
-- Complete inventory and classification of all AD checks.
-- Written assertion rubric applied consistently.
-- Guidance enrichment for all **stable-category** public functions.
-- At least 10 net-new security assertion tests covering high-impact AD weaknesses in **stable categories**.
-- Deprecation list with justification for each entry.
-- Agent-executed QA for every wave.
-- **Conditional**: If Plan 2/3 stability gate passes, guidance enrichment and net-new assertions for dependent categories.
+- Silent-pass bug fixed in ALL 270 test wrappers
+- 28 missing .md files created with consistent template
+- 17 empty-table tests fixed
+- Pre/post report comparison completed via azure-lab
 
-### Must NOT Have (guardrails, AI slop patterns, scope boundaries)
-- No changes to AD protocol, transport, or collector layer (Plans 1–3 own this).
-- No changes to test wrapper pass/fail logic for existing tests.
-- No new check families outside AD scope.
-- No broad renaming or ID churn for existing tests.
-- No silent invention of a severity system without documented source.
-- No duplication of guidance between public functions and test wrappers.
-- No conversion of advisory/inventory checks into failing assertions without rubric justification.
-- No manual-only verification steps.
+### Must NOT Have (Guardrails)
+- Changes to non-AD test trees (CIS, CISA, EIDSCA, MT, etc.)
+- New reporting formats or dependencies
+- Breaking changes to `Add-MtTestResultDetail` or `Get-MtHtmlReport` APIs
+- Removal of existing test data — only change result classification and thresholds
+- Hand-editing of generated content (website/docs/commands/, website/docs/tests/)
+
+---
 
 ## Verification Strategy
-> ZERO HUMAN INTERVENTION — all verification is agent-executed.
-- **Test decision**: Tests-after for guidance enrichment; TDD for net-new security assertion tests.
-- **QA policy**: Every task has agent-executed scenarios (happy path + failure/edge path).
-- **Evidence**: `.sisyphus/evidence/task-{N}-{slug}.{ext}`
+
+> **ZERO HUMAN INTERVENTION** — ALL verification is agent-executed. No exceptions.
+
+### Test Decision
+- **Infrastructure exists**: YES — Pester tests in `./powershell/tests/pester.ps1`
+- **Automated tests**: Tests-after — validate modified module functions via unit tests
+- **Framework**: Pester (PowerShell)
+- **Agent-Executed QA**: ALWAYS — every task includes explicit QA scenarios
+
+### QA Policy
+Every task MUST include agent-executed QA scenarios.
+Evidence saved to `.sisyphus/evidence/task-{N}-{scenario-slug}.{ext}`.
+
+- **PowerShell/Module**: Use Bash (pwsh) — Import module, call functions, compare output
+- **Report Validation**: Use Bash (pwsh) — Run Invoke-Maester, assert HTML/JSON output exists, parse status counts
+- **Test Wrapper Validation**: Use Bash (pwsh) — Run Pester on modified .Tests.ps1 files, assert no silent passes
+
+---
 
 ## Execution Strategy
 
 ### Parallel Execution Waves
-> Target: 5-8 tasks per wave. <3 per wave (except final) = under-splitting.
 
-**Wave 1: Foundation** — Inventory, classification, template contract, assertion rubric.
-**Wave 2: Stable Category Guidance** — Enrich public functions for categories not affected by Plans 2/3/5.
-**Wave 3: Stable Category Assertions** — Add net-new security tests for stable categories.
-**Wave 4: Dependent Category Guidance** — Enrich public functions for Plan 2/3-dependent categories (after upstream plans settle).
-**Wave 5: Dependent Category Assertions** — Add net-new security tests for dependent categories.
-**Wave 6: Documentation, Deprecation & Final Validation** — Docs regeneration, deprecation list finalization, verification waves.
+```
+Wave 0 (Baseline — run BEFORE any code changes):
+└── T13: Build module and run pre-change baseline (azure-lab)
 
-### Dependency Matrix (full, all tasks)
-| Task | Blocks | Blocked By |
-|------|--------|------------|
-| 1 (Inventory) | 2, 3, 4, 5, 6, 7, 8 | — |
-| 2 (Rubric + Template) | 3, 4, 5, 6, 7, 8 | 1 |
-| 3 (Stable Guidance) | — | 1, 2 |
-| 4 (Stable Assertions) | — | 1, 2, 3 |
-| 5 (Plan 2/3 Dependency Gate) | 6, 7 | Plan 2, Plan 3 completion |
-| 6 (Dependent Guidance) | — | 1, 2, 5 |
-| 7 (Dependent Assertions) | — | 1, 2, 5, 6 |
-| 8 (Docs + Validation) | F1–F4 | 3, 4, 6, 7 |
+Wave 1 (Foundation — all independent, start after T13):
+├── T1: Fix silent-pass bug in domain/ tests (~20 files)
+├── T2: Fix silent-pass bug in gpo/ tests (~30 files)
+├── T3: Fix silent-pass bug in gpostate/ tests (~50 files)
+├── T4: Fix silent-pass bug in user/ tests (~30 files)
+├── T5: Fix silent-pass bug in computer/, config/, dacl/, dns/ tests (~40 files)
+├── T6: Fix silent-pass bug in remaining categories (~100 files)
+├── T7: Create 28 missing .md files for gpostate/ tests
+├── T8: Fix empty tables in 17 detail tests
+└── T9: Audit and categorize 92 hardcoded-$true functions
 
-### Agent Dispatch Summary (wave → task count → categories)
-- Wave 1: 2 tasks — deep research + quick
-- Wave 2: 2 tasks — unspecified-high
-- Wave 3: 2 tasks — unspecified-high
-- Wave 4: 1 task — deep
-- Wave 5: 2 tasks — unspecified-high
-- Wave 6: 3 tasks — writing + unspecified-high + deep
-- Final Verification: 4 parallel review agents
+Wave 2 (Core logic — depends on T9 categorization):
+├── T10: Convert informational tests to investigate status
+├── T11: Add security thresholds to threshold-eligible tests
+└── T12: Update .md files with Operational/Preventive/Detective classifications
+
+Wave 3 (Post-change validation — after all code changes):
+├── T14: Run post-change tests and capture reports (azure-lab)
+└── T15: Compare pre/post reports and document deltas
+
+Wave FINAL (Verification — after ALL tasks):
+├── F1: Plan compliance audit (oracle)
+├── F2: Code quality review (unspecified-high)
+├── F3: Real manual QA — re-run azure-lab end-to-end (unspecified-high)
+└── F4: Scope fidelity check (deep)
+-> Present results -> Get explicit user okay
+
+Critical Path: T13 (baseline) → T1-T6 → T9 → T10-T11 → T14-T15 → F1-F4 → user okay
+Parallel Speedup: ~60% faster than sequential
+Max Concurrent: 9 (Wave 1)
+```
+
+### Dependency Matrix
+
+| Task | Blocked By | Blocks |
+|------|-----------|--------|
+| T13 | None | T1-T15 (baseline must exist before comparison) |
+| T1-T8 | None | T10-T12 (indirectly) |
+| T9 | None | T10-T12 |
+| T10 | T9 | T14 |
+| T11 | T9 | T14 |
+| T12 | T9 | T14 |
+| T14 | T10-T12 | T15 |
+| T15 | T14 | F1-F4 |
+| F1-F4 | T15 | user okay |
+| F1-F4 | T15 | user okay |
+
+### Agent Dispatch Summary
+
+- **Wave 0**: **1** task — T13 → `unspecified-high`
+- **Wave 1**: **9** tasks — T1-T6 → `quick`, T7 → `writing`, T8 → `quick`, T9 → `deep`
+- **Wave 2**: **3** tasks — T10-T11 → `deep`, T12 → `writing`
+- **Wave 3**: **2** tasks — T14-T15 → `unspecified-high`
+- **FINAL**: **4** tasks — F1 → `oracle`, F2 → `unspecified-high`, F3 → `unspecified-high`, F4 → `deep`
+
+---
 
 ## TODOs
 
-- [ ] 1. Generate Complete AD Check Inventory & Classification Matrix
+- [ ] 1. Fix silent-pass bug in domain/ test wrappers
 
   **What to do**:
-  - Enumerate every `.ps1` file under `tests/ad/` and `powershell/public/ad/`.
-  - Map each test wrapper to its corresponding public function.
-  - Record: TestId, wrapper path, public function path, category, current semantics (retrieval/assertion), target semantics (operational/assertion/deferred), guidance depth (rich/standard/none), severity source, authoritative references, dependency on Plans 2/3/5.
-  - Store as machine-readable CSV/JSON under `.sisyphus/evidence/`.
-  - Use `ast_grep_search` to identify thin wrappers (tests that only call a public function and assert retrievability).
-  - Use `grep` to count public functions assigning `$testResult = $true`.
+  - Find all `.Tests.ps1` files in `tests/ad/domain/`
+  - Locate the pattern: `if ($null -ne $result) { $result | Should -Be $true -Because "..." }`
+  - Add an `else` block: `Set-ItResult -Skipped -Because "Active Directory data could not be retrieved"`
+  - Ensure the `It` block description still makes sense after changes
 
-  **Must NOT do**: Do not modify any files during inventory. Do not assume 1:1 wrapper:function mapping without verification.
+  **Must NOT do**:
+  - Do NOT change the test logic or assertions inside the `if` block
+  - Do NOT modify the corresponding `.ps1` functions in `powershell/public/ad/`
+  - Do NOT change non-AD test wrappers
 
   **Recommended Agent Profile**:
-  - Category: `deep` — Reason: requires systematic codebase traversal and cross-referencing
-  - Skills: `[]`
-  - Omitted: `[]`
+  - **Category**: `quick`
+    - Reason: Pattern replacement across multiple files with consistent structure
+  - **Skills**: []
 
-  **Parallelization**: Can Parallel: NO | Wave 1 | Blocks: 2, 3, 4, 5, 6, 7, 8 | Blocked By: —
+  **Parallelization**:
+  - **Can Run In Parallel**: YES
+  - **Parallel Group**: Wave 1 (with T2-T9)
+  - **Blocks**: None
+  - **Blocked By**: None
 
   **References**:
-  - Pattern: `tests/ad/**` — all AD test wrappers
-  - Pattern: `powershell/public/ad/**` — all public AD functions
-  - Tool: `ast_grep_search` with pattern `It $NAME { $RESULT | Should -Be $true }` to find thin wrappers
-  - Tool: `grep` for `$testResult = $true` in `powershell/public/ad/**`
+  - **Pattern to follow**: `tests/ad/domain/Test-MtAdDomainNameStandardCompliance.Tests.ps1` — wrapper pattern
+  - **Fix pattern**: Add `else { Set-ItResult -Skipped -Because "Active Directory data could not be retrieved" }` after the `if ($null -ne $result)` block
+  - **Pester docs**: `Set-ItResult` is the standard Pester way to mark a test as skipped
 
   **Acceptance Criteria**:
-  - [ ] Inventory file exists at `.sisyphus/evidence/ad-check-inventory.json` with ≥270 entries.
-  - [ ] Every entry has wrapper path, public function path, and category populated.
-  - [ ] Count of `$testResult = $true` public functions is documented.
+  - [ ] All `.Tests.ps1` files in `tests/ad/domain/` have the `else` block added
+  - [ ] `grep -r "if (\$null -ne \$result)" tests/ad/domain/ | wc -l` shows zero occurrences without matching `else`
 
   **QA Scenarios**:
-  ```
-  Scenario: Inventory completeness
-    Tool: Bash
-    Steps: Run `find tests/ad -name '*.Tests.ps1' | wc -l` and `find powershell/public/ad -name '*.ps1' | wc -l`
-    Expected: Counts match inventory entry counts within ±5
-    Evidence: .sisyphus/evidence/task-1-inventory-counts.txt
 
-  Scenario: Wrapper-to-function mapping accuracy
-    Tool: Bash
-    Steps: Sample 10 random inventory entries and verify wrapper calls the mapped public function
-    Expected: All 10 samples match
-    Evidence: .sisyphus/evidence/task-1-mapping-sample.txt
+  ```
+  Scenario: Verify no silent-pass pattern remains in domain tests
+    Tool: Bash (grep)
+    Preconditions: T1 changes applied
+    Steps:
+      1. Run: grep -r "if (\$null -ne \$result)" tests/ad/domain/*.Tests.ps1
+      2. For each match, verify the next non-empty line contains "else" or "Set-ItResult"
+    Expected Result: Zero files with `if ($null -ne $result)` lacking an `else` block
+    Failure Indicators: Any file where `if ($null -ne $result)` is not followed by `else`
+    Evidence: .sisyphus/evidence/task-1-domain-silent-pass-fix.txt
+  ```
+
+  **Evidence to Capture**:
+  - [ ] Screenshot or text file showing grep results before and after fix
+
+  **Commit**: YES
+  - Message: `fix(ad-tests): silent-pass bug in domain test wrappers`
+  - Files: `tests/ad/domain/*.Tests.ps1`
+
+- [ ] 2. Fix silent-pass bug in gpo/ test wrappers
+
+  **What to do**:
+  - Find all `.Tests.ps1` files in `tests/ad/gpo/`
+  - Apply the same fix as T1: add `else { Set-ItResult -Skipped -Because "Active Directory data could not be retrieved" }`
+
+  **Must NOT do**:
+  - Do NOT change test logic inside `if` blocks
+  - Do NOT modify `powershell/public/ad/gpo/*.ps1` functions
+
+  **Recommended Agent Profile**:
+  - **Category**: `quick`
+  - **Skills**: []
+
+  **Parallelization**:
+  - **Can Run In Parallel**: YES
+  - **Parallel Group**: Wave 1 (with T1, T3-T9)
+  - **Blocks**: None
+  - **Blocked By**: None
+
+  **References**:
+  - Same pattern as T1, applied to `tests/ad/gpo/`
+
+  **Acceptance Criteria**:
+  - [ ] All `.Tests.ps1` files in `tests/ad/gpo/` have the `else` block
+  - [ ] grep shows zero silent-pass patterns
+
+  **QA Scenarios**:
+
+  ```
+  Scenario: Verify no silent-pass pattern remains in gpo tests
+    Tool: Bash (grep)
+    Preconditions: T2 changes applied
+    Steps:
+      1. Run: grep -r "if (\$null -ne \$result)" tests/ad/gpo/*.Tests.ps1
+      2. Verify every match has a corresponding else block
+    Expected Result: Zero silent-pass patterns
+    Evidence: .sisyphus/evidence/task-2-gpo-silent-pass-fix.txt
+  ```
+
+  **Commit**: YES
+  - Message: `fix(ad-tests): silent-pass bug in gpo test wrappers`
+  - Files: `tests/ad/gpo/*.Tests.ps1`
+
+- [ ] 3. Fix silent-pass bug in gpostate/ test wrappers
+
+  **What to do**:
+  - Find all `.Tests.ps1` files in `tests/ad/gpostate/`
+  - Apply the same fix as T1: add `else { Set-ItResult -Skipped -Because "Active Directory data could not be retrieved" }`
+
+  **Must NOT do**:
+  - Do NOT change test logic inside `if` blocks
+  - Do NOT modify `powershell/public/ad/gpostate/*.ps1` functions
+
+  **Recommended Agent Profile**:
+  - **Category**: `quick`
+  - **Skills**: []
+
+  **Parallelization**:
+  - **Can Run In Parallel**: YES
+  - **Parallel Group**: Wave 1 (with T1-T2, T4-T9)
+  - **Blocks**: None
+  - **Blocked By**: None
+
+  **References**:
+  - Same pattern as T1, applied to `tests/ad/gpostate/`
+
+  **Acceptance Criteria**:
+  - [ ] All `.Tests.ps1` files in `tests/ad/gpostate/` have the `else` block
+
+  **QA Scenarios**:
+
+  ```
+  Scenario: Verify no silent-pass pattern remains in gpostate tests
+    Tool: Bash (grep)
+    Preconditions: T3 changes applied
+    Steps:
+      1. Run: grep -r "if (\$null -ne \$result)" tests/ad/gpostate/*.Tests.ps1
+      2. Verify every match has a corresponding else block
+    Expected Result: Zero silent-pass patterns
+    Evidence: .sisyphus/evidence/task-3-gpostate-silent-pass-fix.txt
+  ```
+
+  **Commit**: YES
+  - Message: `fix(ad-tests): silent-pass bug in gpostate test wrappers`
+  - Files: `tests/ad/gpostate/*.Tests.ps1`
+
+- [ ] 4. Fix silent-pass bug in user/ test wrappers
+
+  **What to do**:
+  - Find all `.Tests.ps1` files in `tests/ad/user/`
+  - Apply the same fix as T1: add `else { Set-ItResult -Skipped -Because "Active Directory data could not be retrieved" }`
+
+  **Must NOT do**:
+  - Do NOT change test logic inside `if` blocks
+  - Do NOT modify `powershell/public/ad/user/*.ps1` functions
+
+  **Recommended Agent Profile**:
+  - **Category**: `quick`
+  - **Skills**: []
+
+  **Parallelization**:
+  - **Can Run In Parallel**: YES
+  - **Parallel Group**: Wave 1 (with T1-T3, T5-T9)
+  - **Blocks**: None
+  - **Blocked By**: None
+
+  **Acceptance Criteria**:
+  - [ ] All `.Tests.ps1` files in `tests/ad/user/` have the `else` block
+
+  **QA Scenarios**:
+
+  ```
+  Scenario: Verify no silent-pass pattern remains in user tests
+    Tool: Bash (grep)
+    Preconditions: T4 changes applied
+    Steps:
+      1. Run: grep -r "if (\$null -ne \$result)" tests/ad/user/*.Tests.ps1
+      2. Verify every match has a corresponding else block
+    Expected Result: Zero silent-pass patterns
+    Evidence: .sisyphus/evidence/task-4-user-silent-pass-fix.txt
+  ```
+
+  **Commit**: YES
+  - Message: `fix(ad-tests): silent-pass bug in user test wrappers`
+  - Files: `tests/ad/user/*.Tests.ps1`
+
+- [ ] 5. Fix silent-pass bug in computer/, config/, dacl/, dns/ test wrappers
+
+  **What to do**:
+  - Find all `.Tests.ps1` files in `tests/ad/computer/`, `tests/ad/config/`, `tests/ad/dacl/`, `tests/ad/dns/`
+  - Apply the same fix as T1: add `else { Set-ItResult -Skipped -Because "Active Directory data could not be retrieved" }`
+
+  **Must NOT do**:
+  - Do NOT change test logic inside `if` blocks
+  - Do NOT modify corresponding `.ps1` functions
+
+  **Recommended Agent Profile**:
+  - **Category**: `quick`
+  - **Skills**: []
+
+  **Parallelization**:
+  - **Can Run In Parallel**: YES
+  - **Parallel Group**: Wave 1 (with T1-T4, T6-T9)
+  - **Blocks**: None
+  - **Blocked By**: None
+
+  **Acceptance Criteria**:
+  - [ ] All `.Tests.ps1` files in the four directories have the `else` block
+
+  **QA Scenarios**:
+
+  ```
+  Scenario: Verify no silent-pass pattern remains in computer/config/dacl/dns tests
+    Tool: Bash (grep)
+    Preconditions: T5 changes applied
+    Steps:
+      1. Run: grep -r "if (\$null -ne \$result)" tests/ad/{computer,config,dacl,dns}/*.Tests.ps1
+      2. Verify every match has a corresponding else block
+    Expected Result: Zero silent-pass patterns
+    Evidence: .sisyphus/evidence/task-5-computer-config-dacl-dns-silent-pass-fix.txt
+  ```
+
+  **Commit**: YES
+  - Message: `fix(ad-tests): silent-pass bug in computer/config/dacl/dns test wrappers`
+  - Files: `tests/ad/{computer,config,dacl,dns}/*.Tests.ps1`
+
+- [ ] 6. Fix silent-pass bug in remaining AD category test wrappers
+
+  **What to do**:
+  - Find all `.Tests.ps1` files in remaining `tests/ad/` subdirectories:
+    `domaincontroller/`, `group/`, `ou/`, `passwordpolicy/`, `printer/`, `replication/`, `schema/`, `security/`, `site/`, `spn/`, `trust/`
+  - Apply the same fix as T1: add `else { Set-ItResult -Skipped -Because "Active Directory data could not be retrieved" }`
+
+  **Must NOT do**:
+  - Do NOT change test logic inside `if` blocks
+  - Do NOT modify corresponding `.ps1` functions
+
+  **Recommended Agent Profile**:
+  - **Category**: `quick`
+  - **Skills**: []
+
+  **Parallelization**:
+  - **Can Run In Parallel**: YES
+  - **Parallel Group**: Wave 1 (with T1-T5, T7-T9)
+  - **Blocks**: None
+  - **Blocked By**: None
+
+  **Acceptance Criteria**:
+  - [ ] All `.Tests.ps1` files in remaining directories have the `else` block
+  - [ ] Global check: `grep -r "if (\$null -ne \$result)" tests/ad/ | grep -v "else" | wc -l` returns 0
+
+  **QA Scenarios**:
+
+  ```
+  Scenario: Global verification — zero silent-pass patterns across all AD tests
+    Tool: Bash (grep)
+    Preconditions: T1-T6 all applied
+    Steps:
+      1. Run: grep -r "if (\$null -ne \$result)" tests/ad/ | grep -v "else"
+      2. Count results
+    Expected Result: Zero lines returned (all if blocks have else)
+    Evidence: .sisyphus/evidence/task-6-remaining-silent-pass-fix.txt
+  ```
+
+  **Commit**: YES
+  - Message: `fix(ad-tests): silent-pass bug in remaining AD category test wrappers`
+  - Files: `tests/ad/{domaincontroller,group,ou,passwordpolicy,printer,replication,schema,security,site,spn,trust}/*.Tests.ps1`
+
+- [ ] 7. Create 28 missing companion .md files for gpostate/ tests
+
+  **What to do**:
+  - For each of the 28 `.ps1` files in `powershell/public/ad/gpostate/` that lacks a `.md` companion, create one
+  - Follow the established pattern from existing AD `.md` files:
+    ```markdown
+    #### Test-MtAdXxx
+
+    #### Why This Test Matters
+    [Explanation of security relevance]
+
+    #### Security Recommendation
+    [Remediation guidance]
+
+    #### How the Test Works
+    [Technical details]
+
+    #### Related Tests
+    - `Test-MtAdYyy` - Description
+    ```
+  - For tests that are purely informational (count/enumerate without threshold), identify as **Operational control**
+  - For tests that check security configurations, identify as **Detective control**
+  - Read the corresponding `.ps1` file to understand what the test does and write accurate documentation
+
+  **Must NOT do**:
+  - Do NOT copy-paste identical content across all 28 files
+  - Do NOT invent security relevance where none exists — be honest about informational tests
+  - Do NOT modify existing `.md` files (that is T12)
+
+  **Recommended Agent Profile**:
+  - **Category**: `writing`
+    - Reason: Documentation creation requiring accurate technical content
+  - **Skills**: []
+
+  **Parallelization**:
+  - **Can Run In Parallel**: YES
+  - **Parallel Group**: Wave 1 (with T1-T6, T8-T9)
+  - **Blocks**: T12 (updates to .md files)
+  - **Blocked By**: None
+
+  **References**:
+  - **Pattern to follow**: `powershell/public/ad/domain/Test-MtAdDomainNameStandardCompliance.md` — existing companion .md
+  - **Source functions**: `powershell/public/ad/gpostate/*.ps1` — read each to understand test purpose
+  - **Missing files list**: See AD_TESTS_ANALYSIS.md Section 3 for the 28 missing files
+
+  **Acceptance Criteria**:
+  - [ ] 28 new `.md` files created in `powershell/public/ad/gpostate/`
+  - [ ] Each file follows the established 4-section pattern
+  - [ ] Each file accurately describes the test's purpose based on its `.ps1` implementation
+  - [ ] `ls powershell/public/ad/gpostate/*.md | wc -l` equals number of `.ps1` files in same directory
+
+  **QA Scenarios**:
+
+  ```
+  Scenario: Verify all gpostate functions have companion .md files
+    Tool: Bash (ls + diff)
+    Preconditions: T7 changes applied
+    Steps:
+      1. List all .ps1 files: ls powershell/public/ad/gpostate/*.ps1 | xargs -n1 basename | sed 's/.ps1//'
+      2. List all .md files: ls powershell/public/ad/gpostate/*.md | xargs -n1 basename | sed 's/.md//'
+      3. Compare — every .ps1 should have a matching .md
+    Expected Result: Zero missing .md files
+    Evidence: .sisyphus/evidence/task-7-gpostate-md-files.txt
+  ```
+
+  **Evidence to Capture**:
+  - [ ] List of created files with descriptions
+
+  **Commit**: YES
+  - Message: `docs(ad-tests): add missing gpostate companion markdown files`
+  - Files: `powershell/public/ad/gpostate/*.md`
+
+- [ ] 8. Fix empty markdown tables in 17 detail tests
+
+  **What to do**:
+  - For each of the 17 detail tests listed in AD_TESTS_ANALYSIS.md Section 4:
+    - Locate the table generation code in the `.ps1` function
+    - Wrap table generation in a conditional: only generate the table when there are findings
+    - When findings count is 0, omit the table entirely (show summary message only)
+    - Example fix pattern:
+      ```powershell
+      if ($findingsCount -gt 0) {
+          $testResultMarkdown = "$recommendation`n`n%TestResult%"
+          $testResultMarkdown = $testResultMarkdown -replace '%TestResult%', $table
+      } else {
+          $testResultMarkdown = $recommendation
+      }
+      ```
+  - Also limit table sizes to 25 rows with "... and N more" for all detail tables
+
+  **Must NOT do**:
+  - Do NOT remove the table generation logic entirely — just make it conditional
+  - Do NOT change the test result boolean logic
+  - Do NOT modify non-detail tests (tests without tables)
+
+  **Recommended Agent Profile**:
+  - **Category**: `quick`
+    - Reason: Pattern-based fix across known files
+  - **Skills**: []
+
+  **Parallelization**:
+  - **Can Run In Parallel**: YES
+  - **Parallel Group**: Wave 1 (with T1-T7, T9)
+  - **Blocks**: None
+  - **Blocked By**: None
+
+  **References**:
+  - **Files to fix**: See AD_TESTS_ANALYSIS.md Section 4 for the 17 file list
+  - **Example fix**: `powershell/public/ad/gpostate/Test-MtAdGpoNoAuthenticatedUsersDetails.ps1` — wrap table in `if ($noAuthenticatedUsersCount -gt 0)`
+
+  **Acceptance Criteria**:
+  - [ ] All 17 files generate tables conditionally (only when findings > 0)
+  - [ ] All detail tables limited to 25 rows max
+  - [ ] Test result boolean logic unchanged
+
+  **QA Scenarios**:
+
+  ```
+  Scenario: Verify empty tables are suppressed in detail tests
+    Tool: Bash (grep)
+    Preconditions: T8 changes applied
+    Steps:
+      1. For each of the 17 files, verify table generation is inside an if block
+      2. Verify the if condition checks findings/count > 0
+    Expected Result: All 17 files have conditional table generation
+    Evidence: .sisyphus/evidence/task-8-empty-tables-fix.txt
+  ```
+
+  **Commit**: YES
+  - Message: `fix(ad-tests): suppress empty markdown tables and limit table sizes`
+  - Files: `powershell/public/ad/{gpostate,gpo,dacl}/*Details.ps1`
+
+- [ ] 9. Audit and categorize 92 hardcoded-$true functions
+
+  **What to do**:
+  - Find all functions in `powershell/public/ad/**/*.ps1` that hardcode `$testResult = $true`
+  - For each function, determine:
+    1. **What does it actually test?** (read the function body)
+    2. **Can a security threshold be defined?**
+       - YES → Mark as **Threshold candidate** (Preventive/Detective)
+       - NO → Mark as **Investigate candidate** (Operational)
+    3. **What is the recommended classification?**
+  - Produce an audit document: `.sisyphus/drafts/ad-test-audit.md` with a table:
+    | Function | File | Current Logic | Can Threshold? | Recommended | Control Type |
+  - Examples of threshold candidates:
+    - `Test-MtAdPasswordMinLength` → fail if < 14
+    - `Test-MtAdPasswordMaxAge` → fail if > 90 days or = 0
+    - `Test-MtAdRecycleBinStatus` → fail if disabled
+    - `Test-MtAdDomainFunctionalLevel` → fail if < Windows Server 2016
+  - Examples of investigate candidates:
+    - `Test-MtAdOptionalFeatureCount` → just counts features
+    - `Test-MtAdSiteTotalCount` → just counts sites
+    - `Test-MtAdTrustTotalCount` → just counts trusts
+
+  **Must NOT do**:
+  - Do NOT modify any `.ps1` files in this task — this is audit-only
+  - Do NOT make assumptions about thresholds without security justification
+
+  **Recommended Agent Profile**:
+  - **Category**: `deep`
+    - Reason: Requires reading and understanding 92 functions, making security judgments
+  - **Skills**: []
+
+  **Parallelization**:
+  - **Can Run In Parallel**: YES
+  - **Parallel Group**: Wave 1 (with T1-T8)
+  - **Blocks**: T10-T12 (all depend on this audit)
+  - **Blocked By**: None
+
+  **References**:
+  - **Source files**: `powershell/public/ad/**/*.ps1` — search for `$testResult = $true`
+  - **Good example**: `powershell/public/ad/domain/Test-MtAdDomainNameStandardCompliance.ps1` — real threshold logic
+  - **Investigate usage**: `report/src/lib/testStatus.ts` — Investigate is a first-class status
+  - **Add-MtTestResultDetail**: `powershell/public/Add-MtTestResultDetail.ps1` — supports `-Investigate` flag
+
+  **Acceptance Criteria**:
+  - [ ] Audit document created at `.sisyphus/drafts/ad-test-audit.md`
+  - [ ] All 92 functions categorized as Threshold or Investigate
+  - [ ] Each categorization has a 1-sentence security justification
+  - [ ] At least 10 functions identified as Threshold candidates
+  - [ ] At least 50 functions identified as Investigate candidates
+
+  **QA Scenarios**:
+
+  ```
+  Scenario: Verify audit document completeness
+    Tool: Bash (wc + grep)
+    Preconditions: T9 completed
+    Steps:
+      1. Count lines in .sisyphus/drafts/ad-test-audit.md
+      2. Verify document contains "Threshold candidate" and "Investigate candidate"
+      3. Count table rows — should be ~92
+    Expected Result: Document exists, has ~92 rows, both categories present
+    Evidence: .sisyphus/evidence/task-9-audit-document.txt
+  ```
+
+  **Commit**: YES
+  - Message: `docs(ad-tests): audit and categorize hardcoded-$true functions`
+  - Files: `.sisyphus/drafts/ad-test-audit.md`
+
+- [ ] 10. Convert informational tests to investigate status
+
+  **What to do**:
+  - Using the audit document from T9, find all functions marked as **Investigate candidate**
+  - For each function:
+    1. Keep the function returning `$true` (so the wrapper's `Should -Be $true` passes)
+    2. Add `Add-MtTestResultDetail -Result $testResultMarkdown -Investigate` to mark the test as Investigate
+    3. The wrapper's `else { Set-ItResult -Skipped }` from T1-T6 only triggers when the function returns `$null` (AD not connected) — this is correct and should remain
+    4. Update the companion `.md` file to identify the test as an **Operational control**
+  - The test will show as **Investigate** (purple badge) in the report, not Passed or Failed
+  - Example pattern:
+    ```powershell
+    # In the function
+    Add-MtTestResultDetail -Result $testResultMarkdown -Investigate
+    return $true  # wrapper's Should -Be $true passes, but Investigate flag overrides status
+    ```
+  - Update the test wrapper It block description from "should be retrievable" to "should be investigated" or similar
+
+  **Must NOT do**:
+  - Do NOT change functions marked as Threshold candidates
+  - Do NOT remove data collection logic — only change the result classification
+  - Do NOT change non-AD tests
+
+  **Recommended Agent Profile**:
+  - **Category**: `deep`
+    - Reason: Requires understanding each function, modifying result logic, updating wrappers and docs
+  - **Skills**: []
+
+  **Parallelization**:
+  - **Can Run In Parallel**: YES (with T11-T12)
+  - **Parallel Group**: Wave 2
+  - **Blocks**: T14 (post-change run)
+  - **Blocked By**: T9 (audit document)
+
+  **References**:
+  - **Audit document**: `.sisyphus/drafts/ad-test-audit.md` — lists all Investigate candidates
+  - **Investigate flag**: `powershell/public/Add-MtTestResultDetail.ps1` — `-Investigate` parameter
+  - **Status UI**: `report/src/lib/testStatus.ts` — Investigate is sort order 4
+  - **Example wrapper pattern**: `tests/ad/domain/Test-MtAdDomainNameStandardCompliance.Tests.ps1`
+
+  **Acceptance Criteria**:
+  - [ ] All Investigate-candidate functions from T9 updated
+  - [ ] Functions call `Add-MtTestResultDetail -Investigate`
+  - [ ] Test wrappers updated to reflect investigate classification
+  - [ ] Companion .md files updated to identify as Operational control
+
+  **QA Scenarios**:
+
+  ```
+  Scenario: Verify investigate functions emit correct status
+    Tool: Bash (pwsh)
+    Preconditions: T10 changes applied
+    Steps:
+      1. Import Maester module
+      2. Mock AD connection to return sample data
+      3. Call an investigate-classified function
+      4. Verify Add-MtTestResultDetail was called with -Investigate
+    Expected Result: Function returns investigate signal, not $true
+    Evidence: .sisyphus/evidence/task-10-investigate-status.ps1
+  ```
+
+  **Commit**: YES
+  - Message: `refactor(ad-tests): reclassify informational tests as investigate`
+  - Files: `powershell/public/ad/**/*.ps1`, `tests/ad/**/*.Tests.ps1`, `powershell/public/ad/**/*.md`
+
+- [ ] 11. Add security thresholds to threshold-eligible tests
+
+  **What to do**:
+  - Using the audit document from T9, find all functions marked as **Threshold candidate**
+  - For each function, replace the hardcoded `$testResult = $true` with actual security logic:
+    - `Test-MtAdPasswordMinLength` → `$testResult = $minLength -ge 14`
+    - `Test-MtAdPasswordMaxAge` → `$testResult = $maxAge -le 90 -and $maxAge -ne 0`
+    - `Test-MtAdPasswordReversibleEncryption` → `$testResult = -not $reversibleEncryptionEnabled`
+    - `Test-MtAdRecycleBinStatus` → `$testResult = $recycleBinEnabled`
+    - `Test-MtAdDomainFunctionalLevel` → `$testResult = $functionalLevel -ge 'Windows2016'`
+    - `Test-MtAdTombstoneLifetimeConfig` → `$testResult = $tombstoneLifetime -ge 180`
+  - Update the test wrapper It block description from "should be retrievable" to a meaningful security assertion (e.g., "should have minimum password length of at least 14")
+  - Update the companion `.md` file to identify as **Preventive** or **Detective control**
+  - Ensure the function still calls `Add-MtTestResultDetail` with the result markdown
+
+  **Must NOT do**:
+  - Do NOT change functions marked as Investigate candidates
+  - Do NOT invent arbitrary thresholds — use industry-standard baselines (CIS, Microsoft recommendations)
+  - Do NOT change the data retrieval logic — only the assertion logic
+
+  **Recommended Agent Profile**:
+  - **Category**: `deep`
+    - Reason: Security threshold decisions require domain expertise
+  - **Skills**: []
+
+  **Parallelization**:
+  - **Can Run In Parallel**: YES (with T10, T12)
+  - **Parallel Group**: Wave 2
+  - **Blocks**: T14 (post-change run)
+  - **Blocked By**: T9 (audit document)
+
+  **References**:
+  - **Audit document**: `.sisyphus/drafts/ad-test-audit.md` — lists all Threshold candidates
+  - **Good example**: `powershell/public/ad/domain/Test-MtAdDomainNameStandardCompliance.ps1` — real boolean from data
+  - **CIS benchmarks**: Use CIS Active Directory benchmarks for threshold values where applicable
+  - **Microsoft recommendations**: Use Microsoft security baseline recommendations
+
+  **Acceptance Criteria**:
+  - [ ] All Threshold-candidate functions from T9 updated with real security logic
+  - [ ] No function hardcodes `$testResult = $true` (unless intentionally investigate)
+  - [ ] Test wrapper descriptions updated to reflect security assertions
+  - [ ] Companion .md files updated to identify as Preventive/Detective control
+
+  **QA Scenarios**:
+
+  ```
+  Scenario: Verify threshold functions fail when misconfigured
+    Tool: Bash (pwsh)
+    Preconditions: T11 changes applied
+    Steps:
+      1. Import Maester module
+      2. Mock AD data with misconfigured values (e.g., password min length = 8)
+      3. Call Test-MtAdPasswordMinLength
+      4. Verify function returns $false
+    Expected Result: Function returns $false for non-compliant configuration
+    Evidence: .sisyphus/evidence/task-11-threshold-fail.ps1
+
+  Scenario: Verify threshold functions pass when compliant
+    Tool: Bash (pwsh)
+    Preconditions: T11 changes applied
+    Steps:
+      1. Import Maester module
+      2. Mock AD data with compliant values (e.g., password min length = 16)
+      3. Call Test-MtAdPasswordMinLength
+      4. Verify function returns $true
+    Expected Result: Function returns $true for compliant configuration
+    Evidence: .sisyphus/evidence/task-11-threshold-pass.ps1
+  ```
+
+  **Commit**: YES
+  - Message: `feat(ad-tests): add security thresholds to eligible tests`
+  - Files: `powershell/public/ad/**/*.ps1`, `tests/ad/**/*.Tests.ps1`, `powershell/public/ad/**/*.md`
+
+- [ ] 12. Update .md files with Operational/Preventive/Detective control classifications
+
+  **What to do**:
+  - For ALL AD companion `.md` files in `powershell/public/ad/**/*.md`:
+    - Add a **Control Type** section identifying the test as:
+      - **Operational** — for investigate/informational tests
+      - **Preventive** — for tests that enforce a security configuration
+      - **Detective** — for tests that detect a security misconfiguration
+    - Update the "Why This Test Matters" section to reflect the actual purpose
+    - Update the "Security Recommendation" section with actionable guidance
+  - Ensure consistency across all 241+ existing .md files plus the 28 new ones from T7
+
+  **Must NOT do**:
+  - Do NOT change non-AD .md files
+  - Do NOT remove existing sections — only add/update
+
+  **Recommended Agent Profile**:
+  - **Category**: `writing`
+    - Reason: Documentation updates across many files
+  - **Skills**: []
+
+  **Parallelization**:
+  - **Can Run In Parallel**: YES (with T10-T11)
+  - **Parallel Group**: Wave 2
+  - **Blocks**: T14 (post-change run)
+  - **Blocked By**: T9 (audit document), T7 (new .md files)
+
+  **References**:
+  - **Existing pattern**: `powershell/public/ad/domain/Test-MtAdDomainNameStandardCompliance.md`
+  - **Control types**: NIST SP 800-53 control families (Operational, Preventive, Detective)
+
+  **Acceptance Criteria**:
+  - [ ] All AD `.md` files have a Control Type designation
+  - [ ] All classifications are consistent with T9/T10/T11 decisions
+
+  **QA Scenarios**:
+
+  ```
+  Scenario: Verify all .md files have Control Type section
+    Tool: Bash (grep)
+    Preconditions: T12 changes applied
+    Steps:
+      1. Run: grep -r "#### Control Type" powershell/public/ad/**/*.md | wc -l
+      2. Count total .md files in powershell/public/ad/
+    Expected Result: Counts match (every .md has Control Type)
+    Evidence: .sisyphus/evidence/task-12-control-type-classification.txt
+  ```
+
+  **Commit**: YES
+  - Message: `docs(ad-tests): update control classifications in markdown files`
+  - Files: `powershell/public/ad/**/*.md`
+
+- [ ] 13. Build module and run pre-change baseline (azure-lab)
+
+  **What to do**:
+  - **IMPORTANT**: Run this task BEFORE applying any code changes from T1-T12. This captures the baseline.
+  - Build the local Maester module from the current (unmodified) source: `./build/Build-LocalMaester.ps1 -BuildReport`
+  - Validate build: `./build/Test-MaesterModuleOutput.ps1`
+  - Run AD tests via azure-lab:
+    ```powershell
+    # Connect to AD
+    Connect-Maester -Service ActiveDirectory -ActiveDirectoryServer "<DC>" `
+      -ActiveDirectoryCredential (Get-Credential) `
+      -ActiveDirectoryAuthMode Negotiate -ActiveDirectoryTlsMode Auto
+    
+    # Run AD tests
+    Invoke-Maester -Path "./tests/ad" -Tag "AD" `
+      -OutputFolder "./test-results" `
+      -OutputHtmlFile "AD-TestResults-pre-change.html" `
+      -OutputJsonFile "AD-TestResults-pre-change.json" `
+      -NonInteractive
+    ```
+  - Or use the dedicated runner: `build/activeDirectory/Run-ADTests-And-CopyReports.ps1`
+  - Copy the generated reports to `.sisyphus/evidence/baseline/` for archiving
+  - Record status counts from the JSON report:
+    - Total tests, Passed, Failed, Investigate, Skipped, Error
+
+  **Must NOT do**:
+  - Do NOT run this after applying T1-T12 changes — this is the BASELINE (pre-change)
+  - Do NOT skip this step — the comparison depends on it
+
+  **Recommended Agent Profile**:
+  - **Category**: `unspecified-high`
+    - Reason: Requires running full test suite against live AD environment
+  - **Skills**: []
+
+  **Parallelization**:
+  - **Can Run In Parallel**: NO — must run FIRST (before any code changes)
+  - **Parallel Group**: Wave 0
+  - **Blocks**: T1-T15 (baseline must be captured before comparison)
+  - **Blocked By**: None
+
+  **References**:
+  - **Build script**: `./build/Build-LocalMaester.ps1`
+  - **AD runner**: `build/activeDirectory/Run-ADTests-And-CopyReports.ps1`
+  - **Invoke-Maester**: `powershell/public/Invoke-Maester.ps1`
+  - **Prerequisites**: `build/activeDirectory/azure-lab/Test-ADProtocolPrerequisites.ps1`
+
+  **Acceptance Criteria**:
+  - [ ] Module builds successfully
+  - [ ] HTML and JSON reports generated
+  - [ ] Reports copied to `.sisyphus/evidence/baseline/`
+  - [ ] Status counts recorded in `.sisyphus/evidence/baseline/status-counts.json`
+
+  **QA Scenarios**:
+
+  ```
+  Scenario: Verify baseline reports exist and are valid
+    Tool: Bash (ls + file)
+    Preconditions: T13 completed
+    Steps:
+      1. List .sisyphus/evidence/baseline/
+      2. Verify HTML and JSON files exist
+      3. Verify JSON file is valid JSON (jq empty)
+    Expected Result: Both files exist, JSON is valid
+    Evidence: .sisyphus/evidence/task-13-baseline-reports.txt
+  ```
+
+  **Commit**: NO (baseline is evidence, not code)
+
+- [ ] 14. Run post-change tests and capture reports (azure-lab)
+
+  **What to do**:
+  - Build the module WITH all changes from T1-T12: `./build/Build-LocalMaester.ps1 -BuildReport`
+  - Validate build: `./build/Test-MaesterModuleOutput.ps1`
+  - Run AD tests via azure-lab using the same configuration as T13
+  - Generate post-change reports:
+    - `AD-TestResults-post-change.html`
+    - `AD-TestResults-post-change.json`
+  - Copy reports to `.sisyphus/evidence/post-change/`
+  - Record status counts from JSON report
+
+  **Must NOT do**:
+  - Do NOT change AD environment configuration between T13 and T14
+  - Do NOT use different Invoke-Maester parameters than T13
+
+  **Recommended Agent Profile**:
+  - **Category**: `unspecified-high`
+  - **Skills**: []
+
+  **Parallelization**:
+  - **Can Run In Parallel**: NO — must run after T10-T12 (all code changes)
+  - **Parallel Group**: Wave 3
+  - **Blocks**: T15 (comparison)
+  - **Blocked By**: T10-T12 (all code changes must be applied first)
+
+  **References**:
+  - Same as T13
+
+  **Acceptance Criteria**:
+  - [ ] Module builds successfully with all changes
+  - [ ] HTML and JSON reports generated
+  - [ ] Reports copied to `.sisyphus/evidence/post-change/`
+  - [ ] Status counts recorded
+
+  **QA Scenarios**:
+
+  ```
+  Scenario: Verify post-change reports exist and are valid
+    Tool: Bash (ls + file)
+    Preconditions: T14 completed
+    Steps:
+      1. List .sisyphus/evidence/post-change/
+      2. Verify HTML and JSON files exist
+      3. Verify JSON is valid
+    Expected Result: Both files exist, JSON is valid
+    Evidence: .sisyphus/evidence/task-14-post-change-reports.txt
   ```
 
   **Commit**: NO
 
-- [ ] 2. Define Assertion Rubric & Guidance Template Contract
+- [ ] 15. Compare pre/post reports and document deltas
 
   **What to do**:
-  - Write the **moderate assertion rubric**: a check becomes a failing assertion if it represents a known security weakness with an industry-accepted best-practice threshold. Document explicit criteria: (a) maps to CIS control or Microsoft baseline, (b) threshold is documented and defensible, (c) false-positive risk is manageable in typical environments, (d) remediation is documentable.
-  - Define the **lightweight guidance template**: mandatory sections `Why It Matters`, `Risk`, `Remediation`, `References`. Max length guidelines.
-  - Define the **rich guidance template**: mandatory sections `Benefits`, `Impact`, `Remediation Steps` (numbered), `Impacted Resources` (table), `Related Links`. Max length and row-cap guidelines.
-  - Define **severity mapping**: how severity (Critical/High/Medium/Low/Info) is derived from CIS/Microsoft baselines and internal risk assessment.
-  - Define **deprecation criteria**: when an operational test overlaps ≥80% with a new security test, it goes on the deprecation list.
-  - Document the **canonical emission pattern**: public function calls `Add-MtTestResultDetail -Description $desc -Result $result -Severity $sev` where `$desc` comes from adjacent `.md` template or inline markdown.
-  - Store contract as `.sisyphus/evidence/ad-guidance-contract.md`.
+  - Parse both JSON reports (baseline and post-change)
+  - Compare status counts:
+    - Expected changes:
+      - Passed count may decrease (some "retrievable" tests now show as Investigate or Skipped)
+      - Investigate count should increase (informational tests reclassified)
+      - Failed count may increase (threshold tests now fail when misconfigured)
+      - Skipped count may increase (silent-pass bug fixed, AD disconnections properly skipped)
+    - Unexpected changes to flag:
+      - New errors
+      - Tests that disappeared
+      - Status changes that don't align with T10-T11 modifications
+  - Generate a comparison report: `.sisyphus/evidence/report-comparison.md`
+    - Table: Status | Baseline Count | Post-Change Count | Delta | Expected?
+    - List of tests that changed status with explanation
+    - Any unexpected changes flagged for investigation
+  - Verify NO tests silently pass when AD is disconnected:
+    - Temporarily disconnect AD (or mock disconnect)
+    - Run a subset of AD tests
+    - Verify all show as Skipped (not Passed)
 
-  **Must NOT do**: Do not invent severity values without documented source. Do not define templates that require protocol changes.
-
-  **Recommended Agent Profile**:
-  - Category: `writing` — Reason: requires structured documentation and contract specification
-  - Skills: `[]`
-
-  **Parallelization**: Can Parallel: NO | Wave 1 | Blocks: 3, 4, 5, 6, 7, 8 | Blocked By: 1
-
-  **References**:
-  - Pattern: `powershell/public/Add-MtTestResultDetail.ps1` — function signature and behavior
-  - Pattern: `website/docs/writing-tests/formatting-test-results.md` — existing guidance for writers
-  - Pattern: `tests/Maester/Entra/Test-EntraRecommendations.Tests.ps1:24-75` — rich markdown inspiration
-  - Pattern: `powershell/public/ad/domain/Test-MtAdMachineAccountQuota.ps1:56-71` — current AD emission pattern
-
-  **Acceptance Criteria**:
-  - [ ] Contract document exists at `.sisyphus/evidence/ad-guidance-contract.md`.
-  - [ ] Rubric includes ≥4 explicit criteria for assertion conversion.
-  - [ ] Both templates specify mandatory sections and max length constraints.
-  - [ ] Severity mapping documents source-of-truth (CIS/Microsoft baseline mapping).
-
-  **QA Scenarios**:
-  ```
-  Scenario: Contract completeness
-    Tool: Bash
-    Steps: grep -c "^## " .sisyphus/evidence/ad-guidance-contract.md
-    Expected: ≥8 major sections (Rubric, Lightweight Template, Rich Template, Severity Mapping, Deprecation Criteria, Emission Pattern, Examples, Non-Goals)
-    Evidence: .sisyphus/evidence/task-2-contract-sections.txt
-
-  Scenario: Rubric testability
-    Tool: Bash
-    Steps: Apply rubric to 5 sample AD checks from inventory and classify each as assertion/operational/deferred
-    Expected: All 5 classify unambiguously with documented justification
-    Evidence: .sisyphus/evidence/task-2-rubric-sample.txt
-  ```
-
-  **Commit**: NO
-
-- [ ] 3. Enrich Stable-Category Public Functions with Operational Guidance
-
-  **What to do**:
-  - Identify **stable categories** (unaffected by Plans 2/3/5): `computer`, `config`, `ou`, `printer`, `replication`, `schema`, `site`, `spn`.
-  - For each public function in stable categories, evaluate against the rubric and template contract.
-  - **Guidance-only enrichment** (no pass/fail changes): Update adjacent `.md` templates or inline `Add-MtTestResultDetail` calls with:
-    - Lightweight template: `Why It Matters`, `Risk`, `Remediation`, `References`
-    - Rich template (for high-severity checks): `Benefits`, `Impact`, `Remediation Steps`, `Impacted Resources`, `Related Links`
-  - Ensure `-Severity` is explicitly passed to `Add-MtTestResultDetail` (or Pester tag `Severity:Value` is added).
-  - Ensure `-Result` markdown uses `%TestResult%` placeholder only when `-GraphObjects` is passed.
-  - Add `Add-MtTestResultDetail -SkippedBecause NotConnectedActiveDirectory` guards where missing for `$null` AD state.
-  - Run `./powershell/tests/pester.ps1` after each batch.
-
-  **Must NOT do**: Do not change pass/fail logic of existing tests. Do not add new dependencies. Do not modify Plan 2/3/5-dependent categories.
+  **Must NOT do**:
+  - Do NOT ignore unexpected changes — flag them for review
+  - Do NOT manually edit the JSON reports
 
   **Recommended Agent Profile**:
-  - Category: `unspecified-high` — Reason: many files, consistent pattern application
-  - Skills: `[]`
+  - **Category**: `unspecified-high`
+    - Reason: Requires parsing JSON, comparing data, making judgments
+  - **Skills**: []
 
-  **Parallelization**: Can Parallel: YES (by subcategory) | Wave 2 | Blocks: — | Blocked By: 1, 2
-
-  **References**:
-  - Pattern: `powershell/public/ad/computer/**` — stable category example
-  - Pattern: `powershell/public/ad/config/**` — stable category example
-  - Pattern: `powershell/public/Add-MtTestResultDetail.ps1` — emission API
-  - Pattern: `website/docs/writing-tests/formatting-test-results.md` — writer guidance
-
-  **Acceptance Criteria**:
-  - [ ] All public functions in stable categories emit guidance via `Add-MtTestResultDetail`.
-  - [ ] `./powershell/tests/pester.ps1` passes.
-  - [ ] At least one rich-template example exists per stable category.
-  - [ ] No existing test ID has changed pass/fail semantics.
-
-  **QA Scenarios**:
-  ```
-  Scenario: Guidance emission verification
-    Tool: Bash
-    Steps: Run Pester unit tests for 3 enriched public functions; capture Add-MtTestResultDetail call parameters
-    Expected: Each call includes -Description or loads from adjacent .md; -Severity is present; -Result contains expected sections
-    Evidence: .sisyphus/evidence/task-3-emission-verification.txt
-
-  Scenario: No regression
-    Tool: Bash
-    Steps: Run ./powershell/tests/pester.ps1
-    Expected: Exit code 0; zero AD-related failures
-    Evidence: .sisyphus/evidence/task-3-pester-results.txt
-  ```
-
-  **Commit**: YES | Message: `feat(ad): add operational guidance to stable category checks` | Files: `powershell/public/ad/{computer,config,ou,printer,replication,schema,site,spn}/**`
-
-- [ ] 4. Add Net-New Security Assertion Tests for Stable Categories
-
-  **What to do**:
-  - Using the classification matrix and rubric, identify stable-category checks that represent known security weaknesses with industry-accepted thresholds.
-  - Create **net-new** public functions and test wrappers (new TestIds) — do not modify existing tests.
-  - Examples of candidates:
-    - Unconstrained delegation count should be zero (computer/security overlap)
-    - SMBv1 enabled on DCs should be zero (domaincontroller — but this may be Plan 3 dependent; use stable alternative)
-    - Stale enabled computer accounts exceeding threshold (computer)
-    - Non-RFC1918 subnets indicating misconfiguration (site)
-  - Each new test must:
-    - Have a Pester fixture with pass/fail/boundary cases
-    - Use the rich guidance template
-    - Include `-Severity` tag
-    - Include `Add-MtTestResultDetail` with full remediation context
-    - Follow Maester naming conventions (`Test-MtAd*`, `AD-XXX-NN` ID format)
-  - Maintain the deprecation list: if a new security test overlaps ≥80% with an existing operational test, document the overlap.
-
-  **Must NOT do**: Do not modify existing test wrappers or public functions. Do not create tests for Plan 2/3-dependent categories. Do not assert without documented threshold and reference.
-
-  **Recommended Agent Profile**:
-  - Category: `unspecified-high` — Reason: implementing new checks with fixtures
-  - Skills: `[]`
-
-  **Parallelization**: Can Parallel: YES (by subcategory) | Wave 3 | Blocks: — | Blocked By: 1, 2, 3
+  **Parallelization**:
+  - **Can Run In Parallel**: NO — must run after T14
+  - **Parallel Group**: Wave 3
+  - **Blocks**: F1-F4 (final verification)
+  - **Blocked By**: T14 (post-change reports)
 
   **References**:
-  - Pattern: `tests/ad/security/Test-MtAdComputerNonDcUnconstrainedDelegationCount.Tests.ps1` — existing assertion-style test (checks non-DC computers should not have unconstrained delegation)
-  - Pattern: `powershell/public/ad/security/Test-MtAdComputerNonDcUnconstrainedDelegationCount.ps1` — public function with assertion logic
-  - Pattern: `tests/Maester/Entra/Test-EntraRecommendations.Tests.ps1:24-75` — rich guidance pattern
-  - Standard: Maester test naming conventions from `AGENTS.md`
+  - **Baseline reports**: `.sisyphus/evidence/baseline/`
+  - **Post-change reports**: `.sisyphus/evidence/post-change/`
+  - **JSON structure**: Parse `AD-TestResults-*.json` — array of test results with `Result` field
 
   **Acceptance Criteria**:
-  - [ ] ≥10 net-new security assertion tests created across stable categories.
-  - [ ] Each new test has a Pester fixture with pass/fail/boundary cases.
-  - [ ] Deprecation list updated with ≥3 entries where new tests overlap existing operational tests.
-  - [ ] `./powershell/tests/pester.ps1` passes including new tests.
+  - [ ] Comparison report generated at `.sisyphus/evidence/report-comparison.md`
+  - [ ] All expected deltas documented and explained
+  - [ ] Zero unexpected changes OR unexpected changes flagged with investigation notes
+  - [ ] Silent-pass verification confirms zero silent passes when AD disconnected
 
   **QA Scenarios**:
+
   ```
-  Scenario: New assertion test passes in compliant environment
-    Tool: Bash
-    Steps: Run Pester for a new assertion test against a synthetic fixture representing a compliant state
-    Expected: Test passes; Add-MtTestResultDetail emits success guidance
-    Evidence: .sisyphus/evidence/task-4-assertion-pass.txt
+  Scenario: Verify report comparison shows expected deltas
+    Tool: Bash (pwsh + jq)
+    Preconditions: T15 completed
+    Steps:
+      1. Parse baseline JSON: jq '[.[] | .Result] | group_by(.) | map({status: .[0], count: length})' baseline.json
+      2. Parse post-change JSON: same command
+      3. Compare counts — Investigate should increase, Passed may decrease
+    Expected Result: Deltas match expected changes from T10-T11
+    Evidence: .sisyphus/evidence/task-15-report-comparison.md
 
-  Scenario: New assertion test fails in non-compliant environment
-    Tool: Bash
-    Steps: Run Pester for a new assertion test against a synthetic fixture representing a non-compliant state
-    Expected: Test fails; Add-MtTestResultDetail emits failure guidance with remediation steps
-    Evidence: .sisyphus/evidence/task-4-assertion-fail.txt
-
-  Scenario: Deprecation list accuracy
-    Tool: Bash
-    Steps: Verify each deprecation list entry has a corresponding new test and documented overlap justification
-    Expected: All entries justified with ≥80% overlap rationale
-    Evidence: .sisyphus/evidence/task-4-deprecation-list.txt
-  ```
-
-  **Commit**: YES | Message: `feat(ad): add net-new security assertion tests for stable categories` | Files: `tests/ad/**`, `powershell/public/ad/**`
-
-- [ ] 5. Gate: Verify Plan 2 & Plan 3 Stability for Dependent Categories
-
-  **What to do**:
-  - Confirm Plan 2 (LDAP collectors) has completed migration for categories: `passwordpolicy`, `group`, `domain`. **Inline stability criteria** (since upstream plan files are not present in repo):
-    - Zero legacy `Get-AD*` calls (`Get-ADDefaultDomainPasswordPolicy`, `Get-ADFineGrainedPasswordPolicy`, `Get-ADGroup`, `Get-ADDomain`, `Get-ADUser`) in `powershell/public/ad/{passwordpolicy,group,domain}/**`.
-    - All directory-state collection uses LDAP-based collectors with frozen object contracts.
-  - Confirm Plan 3 (cross-platform transport) has completed GPO state composition for categories: `gpo`, `gpostate`, `domaincontroller`, `dns`. **Inline stability criteria**:
-    - `Get-MtADGpoState` composes from LDAP + SYSVOL with canonical GPO report fields: `Name`, `GPOName`, `DisabledLinks`, `Enforcement`, `EnforcementEnabled`, `HasVersionMismatch`, `CpasswordFound`, `DefaultPasswordFound`, `PermissionsPresent`, `HasAuthenticatedUsers`, `HasDomainComputers`, `HasEnterpriseDomainControllers`, `HasInheritedPermissions`, `HasApplyGroupPolicyAce`, `HasDenyAce`.
-    - No field renames or type changes in GPO state contracts since Plan 3 baseline.
-  - Verify no legacy `Get-AD*` calls remain in dependent-category public functions.
-  - Verify GPO state contracts from Plan 3 are stable (no field renames or type changes).
-  - **Plan 5 overlap check**: For `security`, `dacl`, `trust`, `user` categories, inspect whether tier-model guidance already exists in public functions. If yes, document harmonization strategy (reference, don't duplicate).
-  - Document any remaining instability or blockers.
-  - If stability is not confirmed, document deferred categories and proceed with Tasks 6–7 only for confirmed-stable dependent categories.
-
-  **Must NOT do**: Do not begin modifying dependent-category files before stability is confirmed. Do not assume Plan 2/3 completion without verification.
-
-  **Recommended Agent Profile**:
-  - Category: `deep` — Reason: requires cross-plan dependency verification and risk assessment
-  - Skills: `[]`
-
-  **Parallelization**: Can Parallel: NO | Wave 4 | Blocks: 6, 7 | Blocked By: Plan 2, Plan 3
-
-  **References**:
-  - Plan 2 stability criteria (inlined in task description above): zero legacy `Get-AD*` calls in `powershell/public/ad/{passwordpolicy,group,domain}/**`
-  - Plan 3 stability criteria (inlined in task description above): GPO state contracts stable with canonical field set
-  - Pattern: `powershell/public/ad/passwordpolicy/**` — Plan 2 affected category
-  - Pattern: `powershell/public/ad/gpo/**` — Plan 3 affected category
-
-  **Acceptance Criteria**:
-  - [ ] Plan 2 stability confirmed for `passwordpolicy`, `group`, `domain` (zero legacy `Get-AD*` calls).
-  - [ ] Plan 3 stability confirmed for `gpo`, `gpostate`, `domaincontroller`, `dns` (stable GPO state contracts).
-  - [ ] Stability report stored at `.sisyphus/evidence/plan-2-3-stability-report.md`.
-
-  **QA Scenarios**:
-  ```
-  Scenario: Plan 2 legacy call verification
-    Tool: Bash
-    Steps: grep -r "Get-ADDefaultDomainPasswordPolicy\|Get-ADFineGrainedPasswordPolicy\|Get-ADGroup\|Get-ADDomain" powershell/public/ad/{passwordpolicy,group,domain}/
-    Expected: Zero matches (or matches documented as exceptions)
-    Evidence: .sisyphus/evidence/task-5-plan2-legacy-check.txt
-
-  Scenario: Plan 3 contract stability
-    Tool: Bash
-    Steps: Read `powershell/public/Get-MtADGpoState.ps1` (or equivalent GPO state composer) and verify it exposes all fields in the inline contract: Name, GPOName, DisabledLinks, Enforcement, EnforcementEnabled, HasVersionMismatch, CpasswordFound, DefaultPasswordFound, PermissionsPresent, HasAuthenticatedUsers, HasDomainComputers, HasEnterpriseDomainControllers, HasInheritedPermissions, HasApplyGroupPolicyAce, HasDenyAce
-    Expected: All 15 fields are present and typed correctly in the output object
-    Evidence: .sisyphus/evidence/task-5-plan3-contract-check.txt
+  Scenario: Verify no silent passes when AD disconnected
+    Tool: Bash (pwsh)
+    Preconditions: T1-T6 applied
+    Steps:
+      1. Disconnect AD (or use invalid server)
+      2. Run a sample of AD tests: Invoke-Maester -Path ./tests/ad/domain -Tag AD
+      3. Parse results — verify no "Passed" results when AD is unreachable
+    Expected Result: All tests show Skipped, zero Passed
+    Evidence: .sisyphus/evidence/task-15-no-silent-pass-verify.txt
   ```
 
-  **Commit**: NO
+  **Commit**: NO (evidence only)
 
-- [ ] 6. Enrich Dependent-Category Public Functions with Operational Guidance
+---
 
-  **What to do**:
-  - Same approach as Task 3, but for Plan 2/3-stable dependent categories: `passwordpolicy`, `group`, `domain`, `gpo`, `gpostate`, `domaincontroller`, `dns`.
-  - Also evaluate Plan 5 overlap for `security`, `dacl`, `trust`, `user`: if Plan 5 has already added tier-model guidance, do not duplicate — instead harmonize or reference Plan 5 content.
-  - Apply lightweight or rich template based on severity mapping.
-  - Add `Add-MtTestResultDetail -SkippedBecause NotConnectedActiveDirectory` guards where missing.
-  - Run `./powershell/tests/pester.ps1` after each batch.
+## Final Verification Wave
 
-  **Must NOT do**: Do not duplicate Plan 5 tier-model guidance. Do not change existing pass/fail logic.
-
-  **Recommended Agent Profile**:
-  - Category: `unspecified-high` — Reason: many files, consistent pattern application
-  - Skills: `[]`
-
-  **Parallelization**: Can Parallel: YES (by subcategory) | Wave 5 | Blocks: — | Blocked By: 1, 2, 5
-
-  **References**:
-  - Pattern: `powershell/public/ad/passwordpolicy/**` — dependent category
-  - Pattern: `powershell/public/ad/gpo/**` — dependent category
-  - Plan 5 overlap criteria (inlined): For `security`, `dacl`, `trust`, `user` categories, check if tier-model guidance already exists. If yes, harmonize by referencing rather than duplicating.
-
-  **Acceptance Criteria**:
-  - [ ] All public functions in dependent categories emit guidance via `Add-MtTestResultDetail`.
-  - [ ] `./powershell/tests/pester.ps1` passes.
-  - [ ] Plan 5 overlap documented and harmonized (no duplication).
-
-  **QA Scenarios**:
-  ```
-  Scenario: Guidance emission verification
-    Tool: Bash
-    Steps: Run Pester unit tests for 3 enriched dependent-category public functions
-    Expected: Each call includes expected guidance sections; no Plan 5 duplication
-    Evidence: .sisyphus/evidence/task-6-emission-verification.txt
-
-  Scenario: No regression
-    Tool: Bash
-    Steps: Run ./powershell/tests/pester.ps1
-    Expected: Exit code 0; zero AD-related failures
-    Evidence: .sisyphus/evidence/task-6-pester-results.txt
-  ```
-
-  **Commit**: YES | Message: `feat(ad): add operational guidance to dependent category checks` | Files: `powershell/public/ad/{passwordpolicy,group,domain,gpo,gpostate,domaincontroller,dns,security,dacl,trust,user}/**`
-
-- [ ] 7. Add Net-New Security Assertion Tests for Dependent Categories
-
-  **What to do**:
-  - Same approach as Task 4, but for dependent categories after Plan 2/3 stability is confirmed.
-  - Identify security weakness candidates:
-    - Weak password policy settings (passwordpolicy)
-    - Privileged group membership anomalies (group)
-    - Domain functional level below recommended (domain)
-    - GPO with Cpassword or default passwords (gpo/gpostate)
-    - SMBv1 enabled on DCs (domaincontroller)
-    - DNS zone transfer misconfiguration (dns)
-  - Each new test: Pester fixture, rich template, `-Severity`, `Add-MtTestResultDetail`, Maester naming.
-  - Update deprecation list for overlaps.
-
-  **Must NOT do**: Do not create tests for categories where Plan 2/3 stability is not confirmed.
-
-  **Recommended Agent Profile**:
-  - Category: `unspecified-high` — Reason: implementing new checks with fixtures
-  - Skills: `[]`
-
-  **Parallelization**: Can Parallel: YES (by subcategory) | Wave 5 | Blocks: — | Blocked By: 1, 2, 5, 6
-
-  **References**:
-  - Pattern: `tests/ad/security/Test-MtAdComputerNonDcUnconstrainedDelegationCount.Tests.ps1` — assertion pattern
-  - Pattern: `tests/Maester/Entra/Test-EntraRecommendations.Tests.ps1:24-75` — rich guidance
-
-  **Acceptance Criteria**:
-  - [ ] ≥10 net-new security assertion tests created across dependent categories.
-  - [ ] Each new test has a Pester fixture with pass/fail/boundary cases.
-  - [ ] Deprecation list updated.
-  - [ ] `./powershell/tests/pester.ps1` passes including new tests.
-
-  **QA Scenarios**:
-  ```
-  Scenario: New assertion test passes in compliant environment
-    Tool: Bash
-    Steps: Run Pester for a new assertion test against synthetic fixture
-    Expected: Test passes; guidance emitted correctly
-    Evidence: .sisyphus/evidence/task-7-assertion-pass.txt
-
-  Scenario: New assertion test fails in non-compliant environment
-    Tool: Bash
-    Steps: Run Pester for a new assertion test against synthetic fixture
-    Expected: Test fails; remediation guidance emitted
-    Evidence: .sisyphus/evidence/task-7-assertion-fail.txt
-  ```
-
-  **Commit**: YES | Message: `feat(ad): add net-new security assertion tests for dependent categories` | Files: `tests/ad/**`, `powershell/public/ad/**`
-
-- [ ] 8. Regenerate Documentation & Finalize Deprecation List
-
-  **What to do**:
-  - Run command docs regeneration: `./build/Update-CommandReference.ps1` (generates `website/docs/commands/**` from comment-based help).
-  - Run test docs regeneration: `cd website && npm run generate-test-docs` (runs `node scripts/generate-test-docs.mjs`).
-  - Verify generated docs under `website/docs/commands/` and `website/docs/tests/` reflect changes.
-  - Finalize the deprecation list with: operational test ID, new security test ID, overlap justification, recommended migration path, timeline.
-  - Store final deprecation list at `.sisyphus/evidence/ad-deprecation-list.md`.
-  - Run `./build/Build-MaesterModule.ps1` and `./build/Test-MaesterModuleOutput.ps1`.
-  - Run `./powershell/tests/pester.ps1`.
-  - Verify report rendering: build report app (`cd report && npm ci && npm run build`) and inspect HTML output for both lightweight and rich markdown examples.
-  - Ensure any E2E validation references in generated docs align with Plan 9's canonical topology and three-track mandatory validation process.
-
-  **Must NOT do**: Do not hand-edit generated docs. Do not finalize deprecation list without overlap justification.
-
-  **Recommended Agent Profile**:
-  - Category: `writing` — Reason: documentation and list finalization
-  - Skills: `[]`
-
-  **Parallelization**: Can Parallel: NO | Wave 6 | Blocks: F1–F4 | Blocked By: 3, 4, 6, 7
-
-  **References**:
-  - Command: `./build/Build-MaesterModule.ps1` — module build
-  - Command: `./build/Test-MaesterModuleOutput.ps1` — module validation
-  - Command: `./powershell/tests/pester.ps1` — unit tests
-  - Rule: `AGENTS.md` — "Generated content — regenerate, never hand-edit"
-
-  **Acceptance Criteria**:
-  - [ ] Generated docs reflect all updated public functions.
-  - [ ] Deprecation list finalized with ≥3 entries and full justification.
-  - [ ] `./build/Build-MaesterModule.ps1` succeeds.
-  - [ ] `./build/Test-MaesterModuleOutput.ps1` validates.
-  - [ ] `./powershell/tests/pester.ps1` passes.
-  - [ ] Report rendering verified for both lightweight and rich markdown.
-
-  **QA Scenarios**:
-  ```
-  Scenario: Documentation regeneration
-    Tool: Bash
-    Steps: Run `./build/Update-CommandReference.ps1` and `cd website && npm run generate-test-docs`; diff generated files against baseline
-    Expected: Only expected files changed; no hand-edits detected; `website/docs/commands/` and `website/docs/tests/` reflect updated public functions
-    Evidence: .sisyphus/evidence/task-8-docs-diff.txt
-
-  Scenario: Report rendering
-    Tool: Bash
-    Steps: Build report app (cd report && npm ci && npm run build); inspect HTML output for rich and lightweight guidance sections
-    Expected: Both templates render correctly without markdown leakage or truncation
-    Evidence: .sisyphus/evidence/task-8-report-render.html
-  ```
-
-  **Commit**: YES | Message: `docs(ad): regenerate docs and finalize deprecation list` | Files: `website/docs/commands/**`, `website/docs/tests/**`, `.sisyphus/evidence/ad-deprecation-list.md`
-
-## Final Verification Wave (MANDATORY — after ALL implementation tasks)
 > 4 review agents run in PARALLEL. ALL must APPROVE. Present consolidated results to user and get explicit "okay" before completing.
-> **Do NOT auto-proceed after verification. Wait for user's explicit approval before marking work complete.**
-> **Never mark F1-F4 as checked before getting user's okay.** Rejection or user feedback -> fix -> re-run -> present again -> wait for okay.
 
-- [ ] F1. Plan Compliance Audit
+- [ ] F1. **Plan Compliance Audit** — `oracle`
+  Read the plan end-to-end. For each "Must Have": verify implementation exists (read file, run command). For each "Must NOT Have": search codebase for forbidden patterns — reject with file:line if found. Check evidence files exist in `.sisyphus/evidence/`. Compare deliverables against plan.
+  Output: `Must Have [N/N] | Must NOT Have [N/N] | Tasks [N/N] | VERDICT: APPROVE/REJECT`
 
-  **Agent**: oracle
-  **What to verify**:
-  - All enriched public functions use `Add-MtTestResultDetail` as the canonical emission layer (no wrapper-level guidance duplication).
-  - No existing test ID has changed pass/fail semantics.
-  - Assertion rubric from Task 2 was applied consistently to all net-new security tests.
-  - Deprecation list is complete with ≥3 entries and full overlap justification.
-  - Severity values are sourced from CIS/Microsoft baselines or documented internal risk assessment (not invented ad-hoc).
+- [ ] F2. **Code Quality Review** — `unspecified-high`
+  Run `./powershell/tests/pester.ps1` on modified files. Review all changed files for: hardcoded credentials, empty catches, Write-Host in prod, commented-out code, unused imports. Check AI slop: excessive comments, over-abstraction, generic names.
+  Output: `Build [PASS/FAIL] | Tests [N pass/N fail] | Files [N clean/N issues] | VERDICT`
 
-  **Steps**:
-  1. Read `.sisyphus/evidence/ad-check-inventory.json` and sample 20 entries.
-  2. Read `.sisyphus/evidence/ad-guidance-contract.md` and verify rubric criteria.
-  3. Read `.sisyphus/evidence/ad-deprecation-list.md` and verify entries.
-  4. Inspect 10 modified public functions for `Add-MtTestResultDetail` usage and severity sourcing.
-  5. Inspect 5 net-new security tests for rubric compliance.
+- [ ] F3. **Real Manual QA — Azure-Lab End-to-End** — `unspecified-high`
+  Start from clean state. Run full AD test suite via `build/activeDirectory/Run-ADTests-And-CopyReports.ps1`. Execute EVERY QA scenario from EVERY task — follow exact steps, capture evidence. Test edge cases: AD disconnected, empty results, rapid re-runs. Save to `.sisyphus/evidence/final-qa/`.
+  Output: `Scenarios [N/N pass] | Integration [N/N] | Edge Cases [N tested] | VERDICT`
 
-  **Expected**: All samples pass compliance checks. Any deviation is documented with justification.
-  **Evidence**: `.sisyphus/evidence/f1-compliance-audit.md`
+- [ ] F4. **Scope Fidelity Check** — `deep`
+  For each task: read "What to do", read actual diff (`git diff`). Verify 1:1 — everything in spec was built (no missing), nothing beyond spec was built (no creep). Check "Must NOT do" compliance. Detect cross-task contamination. Flag unaccounted changes.
+  Output: `Tasks [N/N compliant] | Contamination [CLEAN/N issues] | Unaccounted [CLEAN/N files] | VERDICT`
 
-- [ ] F2. Code Quality Review
-
-  **Agent**: unspecified-high
-  **What to verify**:
-  - Pester conventions followed (Describe/It naming, Should assertions, Because messages).
-  - `Add-MtTestResultDetail` usage is correct (Description/Result markdown valid, Severity present, no malformed `%TestResult%` placeholders).
-  - No AI slop patterns (hardcoded values, copy-paste drift, inconsistent formatting).
-  - Maester naming conventions followed (`Test-MtAd*`, `AD-XXX-NN` IDs).
-  - Markdown in `.md` templates and inline strings is valid (no unclosed backticks, broken links, malformed tables).
-
-  **Steps**:
-  1. Run `Invoke-ScriptAnalyzer` on all modified `powershell/public/ad/**/*.ps1` files.
-  2. Run `Invoke-ScriptAnalyzer` on all new `tests/ad/**/*.Tests.ps1` files.
-  3. Validate markdown syntax in all new/adjacent `.md` template files.
-  4. Check for consistent naming across all new tests.
-
-  **Expected**: Zero PSScriptAnalyzer warnings for modified files. All markdown valid. All naming consistent.
-  **Evidence**: `.sisyphus/evidence/f2-quality-review.txt`
-
-- [ ] F3. Real QA Execution
-
-  **Agent**: unspecified-high
-  **What to verify**:
-  - Unit tests pass.
-  - Module builds successfully.
-  - Report renders both lightweight and rich markdown correctly.
-  - New assertion tests fail correctly against non-compliant fixtures.
-
-  **Steps**:
-  1. Run `./powershell/tests/pester.ps1` and capture exit code + failure count.
-  2. Run `./build/Build-MaesterModule.ps1` and capture exit code.
-  3. Run `./build/Test-MaesterModuleOutput.ps1` and capture exit code.
-  4. Build report app: `cd report && npm ci && npm run build`.
-  5. Run a synthetic test cycle that exercises both lightweight and rich guidance templates; capture HTML output.
-  6. Run 3 net-new security assertion tests against non-compliant synthetic fixtures; verify they fail with expected guidance.
-
-  **Expected**: All commands exit 0. HTML report shows both template types without markdown leakage or truncation. New assertion tests fail with correct remediation guidance.
-  **Evidence**: `.sisyphus/evidence/f3-qa-execution.txt`, `.sisyphus/evidence/f3-report-render.html`
-
-- [ ] F4. Scope Fidelity Check
-
-  **Agent**: deep
-  **What to verify**:
-  - No protocol, transport, or collector layer changes (Plans 1–3 boundaries respected).
-  - No test wrapper guidance duplication (public functions remain canonical).
-  - Plan 2/3/5 dependencies respected (no modifications to unstable categories).
-  - Scope boundaries enforced (no new non-AD check families, no broad ID churn).
-
-  **Steps**:
-  1. Diff all modified files against `main` baseline; categorize changes by layer (protocol, collector, public function, test wrapper, docs).
-  2. Verify zero changes in `powershell/internal/ad/` (protocol layer) unless explicitly justified.
-  3. Verify all guidance emission occurs in `powershell/public/ad/**` (not test wrappers).
-  4. Cross-check modified categories against dependency matrix; verify no Plan 2/3-unstable categories were modified.
-  5. Verify no existing test IDs were renamed or removed.
-
-  **Expected**: All changes are within scope (public functions + test wrappers + docs). Zero protocol-layer changes. Zero wrapper-level guidance duplication. Zero unauthorized category modifications.
-  **Evidence**: `.sisyphus/evidence/f4-scope-fidelity.md`
+---
 
 ## Commit Strategy
-- Wave 2 commit: `feat(ad): add operational guidance to stable category checks`
-- Wave 3 commit: `feat(ad): add net-new security assertion tests for stable categories`
-- Wave 5 commit (dependent guidance): `feat(ad): add operational guidance to dependent category checks`
-- Wave 5 commit (dependent assertions): `feat(ad): add net-new security assertion tests for dependent categories`
-- Wave 6 commit: `docs(ad): regenerate docs and finalize deprecation list`
-- No commits for inventory, rubric, or stability gate tasks (research/planning artifacts).
+
+- **Wave 0** (baseline — no code commits, evidence only):
+  - Baseline reports archived to `.sisyphus/evidence/baseline/`
+- **Wave 1 commits** (grouped by category):
+  - `fix(ad-tests): silent-pass bug in domain tests` — T1 files
+  - `fix(ad-tests): silent-pass bug in gpo tests` — T2 files
+  - `fix(ad-tests): silent-pass bug in gpostate tests` — T3 files
+  - `fix(ad-tests): silent-pass bug in user tests` — T4 files
+  - `fix(ad-tests): silent-pass bug in computer/config/dacl/dns tests` — T5 files
+  - `fix(ad-tests): silent-pass bug in remaining AD categories` — T6 files
+  - `docs(ad-tests): add missing gpostate companion markdown files` — T7 files
+  - `fix(ad-tests): suppress empty markdown tables on pass` — T8 files
+  - `refactor(ad-tests): audit and categorize hardcoded-$true functions` — T9 (audit doc)
+- **Wave 2 commits**:
+  - `refactor(ad-tests): reclassify informational tests as investigate` — T10 files
+  - `feat(ad-tests): add security thresholds to eligible tests` — T11 files
+  - `docs(ad-tests): update control classifications in markdown files` — T12 files
+- **Wave 3 commits** (evidence only):
+  - Post-change reports archived to `.sisyphus/evidence/post-change/`
+  - Comparison report archived to `.sisyphus/evidence/report-comparison.md`
+
+---
 
 ## Success Criteria
-- All ~270 AD files are inventoried and classified.
-- Every **stable-category** public function emits operational guidance via `Add-MtTestResultDetail`.
-- ≥10 net-new security assertion tests exist in **stable categories**.
-- Deprecation list documents ≥3 operational tests with overlap justification.
-- `./powershell/tests/pester.ps1`, `./build/Build-MaesterModule.ps1`, and `./build/Test-MaesterModuleOutput.ps1` all pass.
-- Report renders both lightweight and rich markdown correctly.
-- **Conditional**: If Plan 2/3 stability gate passes, dependent-category guidance enrichment and ≥10 additional net-new assertion tests are also completed.
-- **If gate fails**: Deferred categories and their blocked tasks are documented with a follow-on plan reference.
-- Final verification wave (F1–F4) receives explicit user approval.
-- Plan 9 E2E alignment: any live E2E validation of new or enriched checks follows the three-track mandatory process (preflight gate, protocol probe matrix, public E2E runner matrix) against the canonical lab topology, with machine-readable evidence artifacts for every mandatory row.
+
+### Verification Commands
+```powershell
+# Build and validate module
+./build/Build-LocalMaester.ps1
+./build/Test-MaesterModuleOutput.ps1
+
+# Run unit tests on modified functions
+./powershell/tests/pester.ps1
+
+# Run AD tests via azure-lab (pre/post comparison)
+build/activeDirectory/Run-ADTests-And-CopyReports.ps1
+
+# Verify no silent passes — check that Skipped count is explicit
+# (not hidden as Passed)
+```
+
+### Final Checklist
+- [ ] All 270 test wrappers have explicit else block (no silent passes)
+- [ ] All 92 hardcoded-$true functions categorized and updated
+- [ ] All 28 missing .md files created with consistent template
+- [ ] All 17 empty-table tests fixed
+- [ ] Pre-change baseline report captured and archived
+- [ ] Post-change report captured and compared
+- [ ] Report comparison shows expected deltas (no unexpected regressions)
+- [ ] `./powershell/tests/pester.ps1` passes for modified files
+- [ ] No changes to non-AD test trees
+- [ ] No breaking changes to Add-MtTestResultDetail or Get-MtHtmlReport APIs
