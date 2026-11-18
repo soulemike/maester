@@ -121,9 +121,6 @@
         "AD-FEAT-01",
         "AD-FEAT-02",
         "AD-FGPP-01",
-        "AD-FGPP-02",
-        "AD-FGPP-03",
-        "AD-FGPP-04",
         "AD-FOR-01",
         "AD-FOR-02",
         "AD-FOR-03",
@@ -197,12 +194,6 @@
         "AD-OU-05",
         "AD-PRINT-01",
         "AD-PWDPOL-01",
-        "AD-PWDPOL-02",
-        "AD-PWDPOL-03",
-        "AD-PWDPOL-04",
-        "AD-PWDPOL-05",
-        "AD-PWDPOL-06",
-        "AD-PWDPOL-07",
         "AD-REPL-01",
         "AD-REPL-02",
         "AD-ROOTDSE-01",
@@ -257,22 +248,30 @@
         "AD-USER-11",
         "AD-USER-12",
         "AD-USER-13",
-        "AD-USER-14",
         "AD-USER-15",
         "AD-USER-16",
-        "AD-USER-17",
-        "AD-USER-18",
         "AD-USER-19",
         "AD-USER-20",
-        "AD-USER-21",
         "AD-USER-22",
-        "AD-USER-23",
-        "AD-USER-24",
-        "AD-USER-25",
-        "AD-USER-26",
-        "AD-USER-27",
-        "AD-USER-28",
-        "AD-USER-29"
+        "AD-USER-26"
+      ]
+    },
+    {
+      "Tag": "AD-FGPP-02",
+      "Tests": [
+        "AD-FGPP-01"
+      ]
+    },
+    {
+      "Tag": "AD-FGPP-03",
+      "Tests": [
+        "AD-FGPP-01"
+      ]
+    },
+    {
+      "Tag": "AD-FGPP-04",
+      "Tests": [
+        "AD-FGPP-01"
       ]
     },
     {
@@ -324,6 +323,42 @@
       ]
     },
     {
+      "Tag": "AD-PWDPOL-02",
+      "Tests": [
+        "AD-PWDPOL-01"
+      ]
+    },
+    {
+      "Tag": "AD-PWDPOL-03",
+      "Tests": [
+        "AD-PWDPOL-01"
+      ]
+    },
+    {
+      "Tag": "AD-PWDPOL-04",
+      "Tests": [
+        "AD-PWDPOL-01"
+      ]
+    },
+    {
+      "Tag": "AD-PWDPOL-05",
+      "Tests": [
+        "AD-PWDPOL-01"
+      ]
+    },
+    {
+      "Tag": "AD-PWDPOL-06",
+      "Tests": [
+        "AD-PWDPOL-01"
+      ]
+    },
+    {
+      "Tag": "AD-PWDPOL-07",
+      "Tests": [
+        "AD-PWDPOL-01"
+      ]
+    },
+    {
       "Tag": "AD-SPN-02",
       "Tests": [
         "AD-SPN-01"
@@ -351,6 +386,66 @@
       "Tag": "AD-SPN-13",
       "Tests": [
         "AD-SPN-12"
+      ]
+    },
+    {
+      "Tag": "AD-USER-14",
+      "Tests": [
+        "AD-SPN-06"
+      ]
+    },
+    {
+      "Tag": "AD-USER-17",
+      "Tests": [
+        "AD-USER-16"
+      ]
+    },
+    {
+      "Tag": "AD-USER-18",
+      "Tests": [
+        "AD-USER-16"
+      ]
+    },
+    {
+      "Tag": "AD-USER-21",
+      "Tests": [
+        "AD-USER-20"
+      ]
+    },
+    {
+      "Tag": "AD-USER-23",
+      "Tests": [
+        "AD-USER-22"
+      ]
+    },
+    {
+      "Tag": "AD-USER-24",
+      "Tests": [
+        "AD-USER-22"
+      ]
+    },
+    {
+      "Tag": "AD-USER-25",
+      "Tests": [
+        "AD-USER-22"
+      ]
+    },
+    {
+      "Tag": "AD-USER-27",
+      "Tests": [
+        "AD-USER-26"
+      ]
+    },
+    {
+      "Tag": "AD-USER-28",
+      "Tests": [
+        "AD-USER-05"
+      ]
+    },
+    {
+      "Tag": "AD-USER-29",
+      "Tests": [
+        "AD-USER-05"
       ]
     },
     {
@@ -585,16 +680,7 @@
       "Tag": "AD.PasswordPolicy",
       "Tests": [
         "AD-FGPP-01",
-        "AD-FGPP-02",
-        "AD-FGPP-03",
-        "AD-FGPP-04",
-        "AD-PWDPOL-01",
-        "AD-PWDPOL-02",
-        "AD-PWDPOL-03",
-        "AD-PWDPOL-04",
-        "AD-PWDPOL-05",
-        "AD-PWDPOL-06",
-        "AD-PWDPOL-07"
+        "AD-PWDPOL-01"
       ]
     },
     {
@@ -693,6 +779,7 @@
     {
       "Tag": "AD.User",
       "Tests": [
+        "AD-SPN-06",
         "AD-USER-01",
         "AD-USER-02",
         "AD-USER-03",
@@ -706,22 +793,12 @@
         "AD-USER-11",
         "AD-USER-12",
         "AD-USER-13",
-        "AD-USER-14",
         "AD-USER-15",
         "AD-USER-16",
-        "AD-USER-17",
-        "AD-USER-18",
         "AD-USER-19",
         "AD-USER-20",
-        "AD-USER-21",
         "AD-USER-22",
-        "AD-USER-23",
-        "AD-USER-24",
-        "AD-USER-25",
-        "AD-USER-26",
-        "AD-USER-27",
-        "AD-USER-28",
-        "AD-USER-29"
+        "AD-USER-26"
       ]
     },
     {
