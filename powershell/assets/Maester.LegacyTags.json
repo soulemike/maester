@@ -165,9 +165,7 @@
         "AD-ROOTDSE-01",
         "AD-ROOTDSE-03",
         "AD-SCH-01",
-        "AD-SCH-02",
         "AD-SCH-03",
-        "AD-SCH-04",
         "AD-SCH-05",
         "AD-SITE-01",
         "AD-SITE-02",
@@ -187,8 +185,6 @@
         "AD-TRUST-01",
         "AD-TRUST-02",
         "AD-TRUST-03",
-        "AD-TRUST-04",
-        "AD-TRUST-05",
         "AD-TRUST-06",
         "AD-TRUST-07",
         "AD-USER-01",
@@ -525,6 +521,18 @@
       ]
     },
     {
+      "Tag": "AD-SCH-02",
+      "Tests": [
+        "AD-SCH-01"
+      ]
+    },
+    {
+      "Tag": "AD-SCH-04",
+      "Tests": [
+        "AD-SCH-03"
+      ]
+    },
+    {
       "Tag": "AD-SITE-03",
       "Tests": [
         "AD-SITE-02"
@@ -606,6 +614,18 @@
       "Tag": "AD-SUB-11",
       "Tests": [
         "AD-SITE-04"
+      ]
+    },
+    {
+      "Tag": "AD-TRUST-04",
+      "Tests": [
+        "AD-TRUST-03"
+      ]
+    },
+    {
+      "Tag": "AD-TRUST-05",
+      "Tests": [
+        "AD-TRUST-01"
       ]
     },
     {
@@ -899,9 +919,7 @@
       "Tag": "AD.Schema",
       "Tests": [
         "AD-SCH-01",
-        "AD-SCH-02",
         "AD-SCH-03",
-        "AD-SCH-04",
         "AD-SCH-05"
       ]
     },
@@ -951,8 +969,6 @@
         "AD-TRUST-01",
         "AD-TRUST-02",
         "AD-TRUST-03",
-        "AD-TRUST-04",
-        "AD-TRUST-05",
         "AD-TRUST-06",
         "AD-TRUST-07"
       ]
