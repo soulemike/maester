@@ -1,0 +1,104 @@
+[
+  {
+    "branch": "split/ad-00-foundation",
+    "sessionID": "ses_e10c644ceffee075xNLyzGcthr",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/00-foundation",
+    "idle": true
+  },
+  {
+    "branch": "split/ad-01-collector-overlaps",
+    "sessionID": "ses_e10c635f5ffeG74mWP8eLACCDY",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/01-collector-overlaps",
+    "idle": true
+  },
+  {
+    "branch": "split/ad-02-groups-spns",
+    "sessionID": "ses_e10c62a0bffeS2d3dEOSw6kSY4",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/02-groups-spns",
+    "idle": true
+  },
+  {
+    "branch": "split/ad-03-users-passwords",
+    "sessionID": "ses_e10c61be0ffeo68iwrF1dalihl",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/03-users-passwords",
+    "idle": true
+  },
+  {
+    "branch": "split/ad-04-computers",
+    "sessionID": "ses_e10c60f63ffeEpwkrGXlSSAjEj",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/04-computers",
+    "idle": true
+  },
+  {
+    "branch": "split/ad-05-domains-controllers",
+    "sessionID": "ses_e10c600fbffeWYzoUwL2nM1NCz",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/05-domains-controllers",
+    "idle": true
+  },
+  {
+    "branch": "split/ad-06-tombstone-overlap",
+    "sessionID": "ses_e10c5f342ffePq3YIcmk2JOYId",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/06-tombstone-overlap",
+    "idle": true
+  },
+  {
+    "branch": "split/ad-07-topology",
+    "sessionID": "ses_e10c5e63bffeL2YgY67q2M41hf",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/07-topology",
+    "idle": true
+  },
+  {
+    "branch": "split/ad-08-directory-config",
+    "sessionID": "ses_e10c5db16ffeloGxL0plCa6015",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/08-directory-config",
+    "idle": true
+  },
+  {
+    "branch": "split/ad-09-auth-policy-overlap",
+    "sessionID": "ses_e10c5cf47ffeNLi3i4Zokkekdn",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/09-auth-policy-overlap",
+    "idle": true
+  },
+  {
+    "branch": "split/ad-10-adcs",
+    "sessionID": "ses_e10c5c2e0ffeTcTUcmCOHjr2ra",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/10-adcs",
+    "idle": true
+  },
+  {
+    "branch": "split/ad-11-gpo",
+    "sessionID": "ses_e10c5b010ffevX7BYtYcAb68Pt",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/11-gpo",
+    "idle": true
+  },
+  {
+    "branch": "split/ad-12-schema-trust",
+    "sessionID": "ses_e10c5a4a9ffe6w9vGr9chhJ4aI",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/12-schema-trust",
+    "idle": true
+  },
+  {
+    "branch": "split/ad-13-dacl",
+    "sessionID": "ses_e10c59876ffeUQ6StoRMnA7Z9O",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/13-dacl",
+    "idle": true
+  },
+  {
+    "branch": "split/ad-14-dns",
+    "sessionID": "ses_e10c58aa5ffeDpwxWrnFnJBEa4",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/14-dns",
+    "idle": true
+  },
+  {
+    "branch": "split/ad-15-catalog-docs",
+    "sessionID": "ses_e10c57ee0ffe10xjBCUiPqlC0h",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/15-catalog-docs",
+    "idle": true
+  },
+  {
+    "branch": "split/ad-16-main-reconciliation",
+    "sessionID": "ses_e10c573b9ffeiQRlD5sTKWywe2",
+    "location": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/16-main-reconciliation",
+    "idle": true
+  }
+]

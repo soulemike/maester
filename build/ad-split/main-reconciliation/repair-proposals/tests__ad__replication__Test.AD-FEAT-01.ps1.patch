@@ -1,0 +1,13 @@
+diff --git a/tests/ad/replication/Test.AD-FEAT-01.ps1 b/tests/ad/replication/Test.AD-FEAT-01.ps1
+index 1608ea61e8b344951432b8d0adbd8daf5a9f78b0..641c02b5a759341301394f8ba87607a6fd76c675 100644
+--- a/tests/ad/replication/Test.AD-FEAT-01.ps1
++++ b/tests/ad/replication/Test.AD-FEAT-01.ps1
+@@ -67,7 +67,7 @@
+             throw "Enabled scopes could not be retrieved for optional feature '$($feature.Name)'."
+         }
+         if (@($feature.EnabledScopes).Count -gt 0) {
+-            $scopeText = (@($feature.EnabledScopes) | ForEach-Object { ([string]$_).Replace('|', '&#124;') }) -join '<br>'
++            $scopeText = (@($feature.EnabledScopes) | ForEach-Object { ([string]$_).Replace('|', '&#124;') }) -join '; '
+         }
+         $name = ([string]$feature.Name).Replace('|', '&#124;')
+         $result += "| $name | $($feature.IsEnabled) | $scopeText |`n"

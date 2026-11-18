@@ -1,0 +1,3 @@
+# Candidate repair contribution — not applied
+
+Source: soulemike/maester PR #13, FiraSenax contribution, head `809eda8be7da66bdd4ddf0cefe5f962dc31591c3`. Patches compare original consolidation `bf1709daaf89373886caf332e1dcd68fc91af528` to that repair head for selected AD areas only. They are review proposals, not approved resolutions or imported ancestry. Review parameter preservation, OU date handling, optional-feature scope separators and DER normalization. Rebase the selected accepted fixes onto their feature branches and retain contributor credit. Do not merge the broad repair branch wholesale.

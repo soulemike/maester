@@ -1,0 +1,27 @@
+diff --git a/powershell/tests/functions/ADSiteOuBatch.Tests.ps1 b/powershell/tests/functions/ADSiteOuBatch.Tests.ps1
+index ee55590e681aa5cf53bf0928681ddb33108159bc..8f3d8c9de51c5062288ad5f827bc86d8d316629b 100644
+--- a/powershell/tests/functions/ADSiteOuBatch.Tests.ps1
++++ b/powershell/tests/functions/ADSiteOuBatch.Tests.ps1
+@@ -126,6 +126,22 @@ Describe 'AD site, subnet, OU and printer checks with <Representation> state' -F
+         $script:detail.Text | Should -Match '1 OU\(s\)'
+     }
+ 
++    It 'keeps typed OU modification dates independent of <Culture> parsing' -ForEach @(
++        @{ Culture = 'de-DE' }
++        @{ Culture = 'en-US' }
++    ) {
++        $previousCulture = [Globalization.CultureInfo]::CurrentCulture
++        try {
++            [Globalization.CultureInfo]::CurrentCulture = [Globalization.CultureInfo]::new($Culture)
++            $script:state.OrganizationalUnits[0].Modified = [datetime]::new(2010, 11, 17)
++            Test-MtAdOuStaleCount -MaximumAgeYears 5 | Should -BeTrue
++            $script:detail.Text | Should -Match '\| 2010-11-17 \|'
++            $script:detail.Text | Should -Match '1 OU\(s\)'
++        } finally {
++            [Globalization.CultureInfo]::CurrentCulture = $previousCulture
++        }
++    }
++
+     It 'reports printer name, server, location and description for review' {
+         Test-MtAdPrinterTotalCount | Should -BeTrue
+         $script:detail.Investigate | Should -BeTrue

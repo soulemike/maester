@@ -1,0 +1,22 @@
+diff --git a/powershell/tests/functions/ADSchemaTrustChecks.Tests.ps1 b/powershell/tests/functions/ADSchemaTrustChecks.Tests.ps1
+index b9b381e69a292f351c34a2781b0f0a370331b8ff..b2af0d4e93675ac82aeb7ba0832d5984de643f81 100644
+--- a/powershell/tests/functions/ADSchemaTrustChecks.Tests.ps1
++++ b/powershell/tests/functions/ADSchemaTrustChecks.Tests.ps1
+@@ -98,7 +98,7 @@ Describe 'Merged AD schema, RootDSE, service-account and trust checks' {
+ 
+     It 'reports a missing KRBTGT account as unavailable and respects a configured password-age threshold' {
+         Test-MtAdKrbtgtPasswordLastSet | Should -BeFalse
+-        Test-MtAdKrbtgtPasswordLastSet -MaxPasswordAgeDays 240 | Should -BeTrue
++        Test-MtAdKrbtgtPasswordLastSet -MaximumPasswordAgeDays 240 | Should -BeTrue
+         $script:state.Users = @()
+         Test-MtAdKrbtgtPasswordLastSet | Should -BeNullOrEmpty
+         Should -Invoke Add-MtTestResultDetail -ModuleName Maester -ParameterFilter { $SkippedBecause -eq 'Error' }
+@@ -130,7 +130,7 @@ Describe 'Merged AD schema, RootDSE, service-account and trust checks' {
+         $script:detail.Text | Should -Match 'no stale-trust assertion can be made'
+         $script:detail.Text | Should -Not -Match 'No stale trusts detected'
+         $script:state.Trusts[0] | Add-Member -NotePropertyName LastValidated -NotePropertyValue (Get-Date).AddDays(-90) -Force
+-        Test-MtAdTrustStaleCount -StaleThresholdDays 60 | Should -BeTrue
++        Test-MtAdTrustStaleCount -MaximumValidationAgeDays 60 | Should -BeTrue
+         $script:detail.Text | Should -Match 'Stale Trusts \(>60 days\) \| 1'
+         $script:detail.Text | Should -Match 'Unknown Validation Status \| 1'
+         $script:detail.Text | Should -Match 'external.example \| Inbound \| Domain Uplevel \| [0-9]{4}-'
