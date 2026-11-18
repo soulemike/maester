@@ -1,0 +1,60 @@
+# AD split: review and merge decisions
+
+Evidence snapshot: current fork and upstream main both `512a076de`; original consolidation `bf1709daa`. The original branch is retained. Public GitHub PR/issue data was read without authentication; SSH fetched relevant PR heads. Upstream open-PR file lists were collected completely. GitHub later rate-limited further API reads while reviewing fork PRs; relevant fork heads #10, #11 and #13 were fetched through Git instead.
+
+## Segmentation and merge order
+
+Use the ordered stack in `plan.json`: foundation; shared collector overlaps; groups/SPNs; users/passwords; computers; domains/controllers; tombstone overlap; topology; directory configuration; authentication-policy overlap; AD CS; GPO; schema/trust; DACL; DNS; final catalog/docs. Each branch compares against its immediate parent and is rebased to main only after that parent merges. This avoids duplicate shared-foundation diffs and sibling conflicts in generated legacy mappings.
+
+Every retirement accompanies its surviving target, cumulative native replacement entries and regenerated legacy tag table. Cross-feature dependencies are explicit: USER-14→SPN-06; COMP-09/10→DCOMP-01/03; CFG-01→FOR-03; CFG-04→FEAT-01; CFG-05→FOR-04. USER-05 moves atomically to delegation. Do not merge individual branch diffs against main out of order.
+
+Historical URL redirects arrive in the final catalog/docs branch. Intermediate retirement branches are review units, not independently deployable website snapshots. Merge/deploy with compatibility changes, or bring the agreed redirect mechanism forward before deployment.
+
+## Main reconciliation — separate administrative branch
+
+`git merge-tree` reports eleven genuinely conflicted paths. The staged unit includes paired guides/code and retirement chains, so it owns fifteen source-change paths:
+
+- COMP-02 (deleted by consolidation, modified on main) and DCOMP-06 (the survivor): preserve current `MaximumInactiveDays` behavior when deciding how to combine inventories.
+- TRUST-07 (deleted by consolidation, modified on main) and TRUST-06 (survivor): preserve current validation-age parameters and documented semantics.
+- USER-02: reconcile current parameterized retention with consolidated disabled-user lifecycle behavior.
+- KRBTGT-01 plus retired KRBTGT-02/03: reconcile current password-age parameter and combined evidence; clean partner files are held to avoid mixed guides/code.
+- `Frameworks.Tests.ps1`: preserve current DISA/framework assertions; do not restore a stale whole-file fixture/count from the consolidation.
+
+The administrative branch holds source patches, not executable resolutions. It must not become an upstream PR or be merged into main. Main's active versions remain in the feature stack; these chains' retirement mappings are excluded until an approved resolution removes the old IDs. The stack is therefore not a completed, fully integrated consolidation.
+
+## Impacted PR areas
+
+| Area / split owner | Open PRs | Evidence and merge decision |
+| --- | --- | --- |
+| Existing broad consolidation | upstream #2734 | Original PR remains open. Do not merge it in parallel with split replacements. After split acceptance, decide whether to supersede it; no PR was closed or changed. |
+| Reconciliation / shared certificate parser / OU dates / optional-feature scopes | fork #13 (`codex/fix-ad-consolidation-on-main`) | Draft specifically resolves all eleven main conflicts and adds inventory/date/scope repairs. Review its incremental AD fixes as candidate resolutions; do not import its merged main ancestry or generated builder data. Preserve author credit. |
+| NTAuth paths / AD CS | upstream #2812 | Includes the entire #2734 consolidation and fork #13 repair ancestry. Review its advertised five-file NTAuth increment separately, then rebase onto the accepted AD CS foundation. It is not an independent 568-file change to merge beside this stack. |
+| AD CS configuration evidence | upstream #2804 then #2806 | #2806 explicitly depends on #2804. Shared configuration collector overlaps; merge their extra flags/EKU/publication evidence without undoing null-vs-empty distinctions, and keep parser/inventory contracts. These PRs are not imported by this migration. |
+| gMSA collector | upstream #2786 | Additional `msDS-GroupMSAMembership` evidence collides directly with the service-account collector changes. Reconcile on collector-overlap branch; never request managed passwords. |
+| Authentication policy / state categories | upstream #2783 | CFG-08 is a confirmed content conflict, not merely a shared path. Dedicated authentication-policy branch holds this area. Decide whether richer policy/silo posture replaces the consolidation inventory; preserve empty/unknown distinctions. |
+| Replication and DNS state categories | upstream #2784, #2785 | Shared `Get-MtADDomainState` paths overlap, though no additional content conflict beyond preexisting main conflicts appeared in the merge-tree probe. Follow the authors' order #2786 → #2783 → #2784 → #2785 and rebase state-category additions rather than copying a whole older state helper. |
+| Tombstone lifetime | upstream #2699 | Different outcome model for absent attributes. Dedicated tombstone branch preserves known-object effective 60-day default, errors on failed collection, and configurable advisory. Decide with the PR author; do not equate unset attribute with unreadable object. Its unrelated CIS lockbox fix remains separate. |
+| Golden registry / global fixtures | upstream #2816, #2768–#2772 | Shared Golden/exporter edits; confirmed additional conflicts in exporter/Golden for #2768/#2769/#2771/#2772. Foundation and later generated catalogue commits must retain CISA replacement semantics, not replace generated JSON wholesale. #2816's own import fix is not the eleven inherited AD/main conflicts. |
+| Framework assertions | upstream #2540, #2770, #2772, #2789, #2799 | Shared fixture paths; #2540/#2770 have confirmed framework content conflict in the source merge probe. Keep new framework facts and tests; reconcile source count/assertion changes separately. |
+| Upgrade guidance / redirects | upstream #2683, #2768, #2769 | Shared upgrade guide and redirect mechanism. #2683's reported source merge conflicts are outside this split's changed paths; distinguish inherited/indirect conflicts from actual AD delta. Coordinate final documentation and legacy registry changes. |
+| Older DNS targeting proposals | fork #10, #11 | Both propose old AD-command-based `ComputerName` changes in a now substantially redesigned state helper. Do not merge whole stale branches. Review whether current target/protocol/cache APIs already cover the requested behavior; port only a demonstrated missing capability in the collector-overlap session. |
+
+The raw open-PR inventory and path intersections are retained beside this document. A shared path is a coordination risk, not proof of a content conflict; merge-tree results include main conflicts inherited by old PR heads and are labelled accordingly.
+
+## Issue #2796: outstanding report safety work
+
+Open. Consolidation formatters improve pipe/HTML handling but do not establish complete Markdown escaping. Examples still use narrower custom escaping; direct directory values and variable `-replace` calls remain. The issue comment identifies a second, independent defect: `$&`, `$$`, `$1` and named groups are interpreted in regex replacement strings. `Get-MtSafeMarkdown` does not fix that; literal `.Replace()` is needed where replacement text is literal.
+
+Recommended separate follow-up after agreeing the split baseline: a report-safety ratchet/gate, then folder-sized escaping and literal-placeholder sweeps. Do not claim the existing formatting foundation closes this issue. No new ratchet or full escaping sweep is implemented in this migration, and no empty issue-fix branch is published as if it were a fix. The foundation and feature sessions carry the outstanding requirement for subsequent decisions.
+
+## Issue #2405: merged fixes, remaining decisions
+
+Open, but `origin/fix/ad-issues-2405` has no commits ahead of upstream main. PR #2437 merged that work (`21704fdbe`). Do not duplicate its already merged KDS-count, empty-result/query-error, DFS-R serverReference, DACL platform/skip, and stale-computer fixes by replaying the old branch.
+
+The consolidation modifies several of those areas again. Review KDS zero-key policy in directory-config: operator-confirmed complete visibility is not proof that an organization requires gMSA use, so the optional zero-key failure still needs a requirements decision. Main now has configurable stale-computer behavior that belongs in the COMP-02/DCOMP-06 reconciliation chain. Preserve its parameter, not the consolidation's older implementation. Compare surviving DACL behaviors and actual DFS-R child-OU fixtures before asserting full acceptance. Issue #2331 disposition and GPO indentation acceptance have not been established here; no issue is closed by this migration.
+
+## Validation and draft publication
+
+Each executable branch must run Golden, Frameworks, RepositoryLayout, NativeTestAttributes/NativeTestLint and every existing `AD*.Tests.ps1` / `ActiveDirectory*.Tests.ps1`. Branch-specific failures are blockers, not a reason to weaken expected outcomes. Administrative patch branch is not executable migration acceptance.
+
+Sessions are created at their worktree directories and handed a parked message with `resume=false`; no agents are automatically launched in those sessions. Local PR drafts and compare links are prepared per worktree. GitHub CLI authentication is unavailable, so published GitHub draft PRs are not claimed.

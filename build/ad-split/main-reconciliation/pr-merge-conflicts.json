@@ -1,0 +1,299 @@
+[
+  {
+    "number": 2816,
+    "title": "fix(tests): Golden.Tests.ps1 imports the module it reaches into",
+    "ref": "upstream/pr-2816",
+    "mergeTreeExit": 1,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/engine/Frameworks.Tests.ps1",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.md deleted in HEAD and modified in upstream/pr-2816.  Version upstream/pr-2816 of tests/ad/computer/Test.AD-COMP-02.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.ps1 deleted in HEAD and modified in upstream/pr-2816.  Version upstream/pr-2816 of tests/ad/computer/Test.AD-COMP-02.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-DCOMP-06.ps1",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-KRBTGT-01.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.ps1",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.md deleted in HEAD and modified in upstream/pr-2816.  Version upstream/pr-2816 of tests/ad/trust/Test.AD-TRUST-07.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.ps1 deleted in HEAD and modified in upstream/pr-2816.  Version upstream/pr-2816 of tests/ad/trust/Test.AD-TRUST-07.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.md",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.ps1"
+    ]
+  },
+  {
+    "number": 2812,
+    "title": "feat(ad): verify NTAuth CA certificate paths against published roots",
+    "ref": "upstream/pr-2812",
+    "mergeTreeExit": 0,
+    "conflicts": []
+  },
+  {
+    "number": 2806,
+    "title": "fix(ad): handle incomplete AD CS enrollment prerequisite evidence",
+    "ref": "upstream/pr-2806",
+    "mergeTreeExit": 1,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/engine/Frameworks.Tests.ps1",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.md deleted in HEAD and modified in upstream/pr-2806.  Version upstream/pr-2806 of tests/ad/computer/Test.AD-COMP-02.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.ps1 deleted in HEAD and modified in upstream/pr-2806.  Version upstream/pr-2806 of tests/ad/computer/Test.AD-COMP-02.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-DCOMP-06.ps1",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-KRBTGT-01.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.ps1",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.md deleted in HEAD and modified in upstream/pr-2806.  Version upstream/pr-2806 of tests/ad/trust/Test.AD-TRUST-07.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.ps1 deleted in HEAD and modified in upstream/pr-2806.  Version upstream/pr-2806 of tests/ad/trust/Test.AD-TRUST-07.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.md",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.ps1"
+    ]
+  },
+  {
+    "number": 2799,
+    "title": "feat: add CISA SCuBA Power Platform baseline checks",
+    "ref": "upstream/pr-2799",
+    "mergeTreeExit": 1,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/engine/Frameworks.Tests.ps1",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.md deleted in HEAD and modified in upstream/pr-2799.  Version upstream/pr-2799 of tests/ad/computer/Test.AD-COMP-02.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.ps1 deleted in HEAD and modified in upstream/pr-2799.  Version upstream/pr-2799 of tests/ad/computer/Test.AD-COMP-02.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-DCOMP-06.ps1",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-KRBTGT-01.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.ps1",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.md deleted in HEAD and modified in upstream/pr-2799.  Version upstream/pr-2799 of tests/ad/trust/Test.AD-TRUST-07.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.ps1 deleted in HEAD and modified in upstream/pr-2799.  Version upstream/pr-2799 of tests/ad/trust/Test.AD-TRUST-07.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.md",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.ps1"
+    ]
+  },
+  {
+    "number": 2789,
+    "title": "Add CISA Teams baseline checks",
+    "ref": "upstream/pr-2789",
+    "mergeTreeExit": 1,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/engine/Frameworks.Tests.ps1",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.md deleted in HEAD and modified in upstream/pr-2789.  Version upstream/pr-2789 of tests/ad/computer/Test.AD-COMP-02.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.ps1 deleted in HEAD and modified in upstream/pr-2789.  Version upstream/pr-2789 of tests/ad/computer/Test.AD-COMP-02.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-DCOMP-06.ps1",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-KRBTGT-01.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.ps1",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.md deleted in HEAD and modified in upstream/pr-2789.  Version upstream/pr-2789 of tests/ad/trust/Test.AD-TRUST-07.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.ps1 deleted in HEAD and modified in upstream/pr-2789.  Version upstream/pr-2789 of tests/ad/trust/Test.AD-TRUST-07.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.md",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.ps1"
+    ]
+  },
+  {
+    "number": 2786,
+    "title": "feat(ad): add gMSA password authorization tests",
+    "ref": "upstream/pr-2786",
+    "mergeTreeExit": 1,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in powershell/internal/services/ad/queries/Get-MtLdapServiceAccount.ps1",
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/engine/Frameworks.Tests.ps1",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.md deleted in HEAD and modified in upstream/pr-2786.  Version upstream/pr-2786 of tests/ad/computer/Test.AD-COMP-02.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.ps1 deleted in HEAD and modified in upstream/pr-2786.  Version upstream/pr-2786 of tests/ad/computer/Test.AD-COMP-02.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-DCOMP-06.ps1",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-KRBTGT-01.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.ps1",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.md deleted in HEAD and modified in upstream/pr-2786.  Version upstream/pr-2786 of tests/ad/trust/Test.AD-TRUST-07.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.ps1 deleted in HEAD and modified in upstream/pr-2786.  Version upstream/pr-2786 of tests/ad/trust/Test.AD-TRUST-07.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.md",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.ps1"
+    ]
+  },
+  {
+    "number": 2785,
+    "title": "feat(ad): add DNS zone authorization tests",
+    "ref": "upstream/pr-2785",
+    "mergeTreeExit": 1,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/engine/Frameworks.Tests.ps1",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.md deleted in HEAD and modified in upstream/pr-2785.  Version upstream/pr-2785 of tests/ad/computer/Test.AD-COMP-02.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.ps1 deleted in HEAD and modified in upstream/pr-2785.  Version upstream/pr-2785 of tests/ad/computer/Test.AD-COMP-02.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-DCOMP-06.ps1",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-KRBTGT-01.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.ps1",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.md deleted in HEAD and modified in upstream/pr-2785.  Version upstream/pr-2785 of tests/ad/trust/Test.AD-TRUST-07.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.ps1 deleted in HEAD and modified in upstream/pr-2785.  Version upstream/pr-2785 of tests/ad/trust/Test.AD-TRUST-07.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.md",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.ps1"
+    ]
+  },
+  {
+    "number": 2784,
+    "title": "feat(ad): add replication naming-context coverage tests",
+    "ref": "upstream/pr-2784",
+    "mergeTreeExit": 1,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/engine/Frameworks.Tests.ps1",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.md deleted in HEAD and modified in upstream/pr-2784.  Version upstream/pr-2784 of tests/ad/computer/Test.AD-COMP-02.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.ps1 deleted in HEAD and modified in upstream/pr-2784.  Version upstream/pr-2784 of tests/ad/computer/Test.AD-COMP-02.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-DCOMP-06.ps1",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-KRBTGT-01.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.ps1",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.md deleted in HEAD and modified in upstream/pr-2784.  Version upstream/pr-2784 of tests/ad/trust/Test.AD-TRUST-07.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.ps1 deleted in HEAD and modified in upstream/pr-2784.  Version upstream/pr-2784 of tests/ad/trust/Test.AD-TRUST-07.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.md",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.ps1"
+    ]
+  },
+  {
+    "number": 2783,
+    "title": "feat(ad): add authentication policy and silo posture tests",
+    "ref": "upstream/pr-2783",
+    "mergeTreeExit": 1,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/engine/Frameworks.Tests.ps1",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.md deleted in HEAD and modified in upstream/pr-2783.  Version upstream/pr-2783 of tests/ad/computer/Test.AD-COMP-02.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.ps1 deleted in HEAD and modified in upstream/pr-2783.  Version upstream/pr-2783 of tests/ad/computer/Test.AD-COMP-02.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/config/Test.AD-CFG-08.md",
+      "CONFLICT (content): Merge conflict in tests/ad/config/Test.AD-CFG-08.ps1",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-DCOMP-06.ps1",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-KRBTGT-01.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.ps1",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.md deleted in HEAD and modified in upstream/pr-2783.  Version upstream/pr-2783 of tests/ad/trust/Test.AD-TRUST-07.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.ps1 deleted in HEAD and modified in upstream/pr-2783.  Version upstream/pr-2783 of tests/ad/trust/Test.AD-TRUST-07.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.md",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.ps1"
+    ]
+  },
+  {
+    "number": 2772,
+    "title": "CISA: Security Suite migration (Part 5 of 5) \u2013 Purview DLP 3.1\u20133.5",
+    "ref": "upstream/pr-2772",
+    "mergeTreeExit": 1,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in build/golden/Export-MtLegacyTagTable.ps1",
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/engine/Frameworks.Tests.ps1",
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/golden/Golden.Tests.ps1",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.md deleted in HEAD and modified in upstream/pr-2772.  Version upstream/pr-2772 of tests/ad/computer/Test.AD-COMP-02.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.ps1 deleted in HEAD and modified in upstream/pr-2772.  Version upstream/pr-2772 of tests/ad/computer/Test.AD-COMP-02.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-DCOMP-06.ps1",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-KRBTGT-01.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.ps1",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.md deleted in HEAD and modified in upstream/pr-2772.  Version upstream/pr-2772 of tests/ad/trust/Test.AD-TRUST-07.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.ps1 deleted in HEAD and modified in upstream/pr-2772.  Version upstream/pr-2772 of tests/ad/trust/Test.AD-TRUST-07.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.md",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.ps1"
+    ]
+  },
+  {
+    "number": 2771,
+    "title": "CISA: Security Suite migration (Part 4 of 5) \u2013 Safe Links 7.1\u20137.3 and allow lists 8.1\u20138.2",
+    "ref": "upstream/pr-2771",
+    "mergeTreeExit": 1,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in build/golden/Export-MtLegacyTagTable.ps1",
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/engine/Frameworks.Tests.ps1",
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/golden/Golden.Tests.ps1",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.md deleted in HEAD and modified in upstream/pr-2771.  Version upstream/pr-2771 of tests/ad/computer/Test.AD-COMP-02.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.ps1 deleted in HEAD and modified in upstream/pr-2771.  Version upstream/pr-2771 of tests/ad/computer/Test.AD-COMP-02.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-DCOMP-06.ps1",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-KRBTGT-01.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.ps1",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.md deleted in HEAD and modified in upstream/pr-2771.  Version upstream/pr-2771 of tests/ad/trust/Test.AD-TRUST-07.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.ps1 deleted in HEAD and modified in upstream/pr-2771.  Version upstream/pr-2771 of tests/ad/trust/Test.AD-TRUST-07.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.md",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.ps1"
+    ]
+  },
+  {
+    "number": 2770,
+    "title": "CISA: Security Suite migration (Part 3 of 5) \u2013 audit 5.1\u20135.2 and spam 6.1\u20136.2",
+    "ref": "upstream/pr-2770",
+    "mergeTreeExit": 1,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/engine/Frameworks.Tests.ps1"
+    ]
+  },
+  {
+    "number": 2769,
+    "title": "CISA: Security Suite migration (Part 2 of 5) \u2013 impersonation 2.1\u20132.4 and alerts 4.1\u20134.2",
+    "ref": "upstream/pr-2769",
+    "mergeTreeExit": 1,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in build/golden/Export-MtLegacyTagTable.ps1",
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/engine/Frameworks.Tests.ps1",
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/golden/Golden.Tests.ps1",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.md deleted in HEAD and modified in upstream/pr-2769.  Version upstream/pr-2769 of tests/ad/computer/Test.AD-COMP-02.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.ps1 deleted in HEAD and modified in upstream/pr-2769.  Version upstream/pr-2769 of tests/ad/computer/Test.AD-COMP-02.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-DCOMP-06.ps1",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-KRBTGT-01.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.ps1",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.md deleted in HEAD and modified in upstream/pr-2769.  Version upstream/pr-2769 of tests/ad/trust/Test.AD-TRUST-07.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.ps1 deleted in HEAD and modified in upstream/pr-2769.  Version upstream/pr-2769 of tests/ad/trust/Test.AD-TRUST-07.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.md",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.ps1",
+      "CONFLICT (content): Merge conflict in website/src/lib/redirects.mjs"
+    ]
+  },
+  {
+    "number": 2768,
+    "title": "CISA: Security Suite migration (Part 1 of 5) \u2013 framework pin and malware checks 1.1\u20131.4",
+    "ref": "upstream/pr-2768",
+    "mergeTreeExit": 1,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in build/golden/Export-MtLegacyTagTable.ps1",
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/engine/Frameworks.Tests.ps1",
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/golden/Golden.Tests.ps1",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.md deleted in HEAD and modified in upstream/pr-2768.  Version upstream/pr-2768 of tests/ad/computer/Test.AD-COMP-02.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.ps1 deleted in HEAD and modified in upstream/pr-2768.  Version upstream/pr-2768 of tests/ad/computer/Test.AD-COMP-02.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-DCOMP-06.ps1",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-KRBTGT-01.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.ps1",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.md deleted in HEAD and modified in upstream/pr-2768.  Version upstream/pr-2768 of tests/ad/trust/Test.AD-TRUST-07.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.ps1 deleted in HEAD and modified in upstream/pr-2768.  Version upstream/pr-2768 of tests/ad/trust/Test.AD-TRUST-07.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.md",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.ps1"
+    ]
+  },
+  {
+    "number": 2699,
+    "title": "fix(ad): AD-FOR-03 no longer substitutes a default tombstone lifetime",
+    "ref": "upstream/pr-2699",
+    "mergeTreeExit": 1,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/engine/Frameworks.Tests.ps1",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.md deleted in HEAD and modified in upstream/pr-2699.  Version upstream/pr-2699 of tests/ad/computer/Test.AD-COMP-02.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/computer/Test.AD-COMP-02.ps1 deleted in HEAD and modified in upstream/pr-2699.  Version upstream/pr-2699 of tests/ad/computer/Test.AD-COMP-02.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/domain/Test.AD-FOR-03.ps1",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-DCOMP-06.ps1",
+      "CONFLICT (content): Merge conflict in tests/ad/security/Test.AD-KRBTGT-01.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.md",
+      "CONFLICT (content): Merge conflict in tests/ad/trust/Test.AD-TRUST-06.ps1",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.md deleted in HEAD and modified in upstream/pr-2699.  Version upstream/pr-2699 of tests/ad/trust/Test.AD-TRUST-07.md left in tree.",
+      "CONFLICT (modify/delete): tests/ad/trust/Test.AD-TRUST-07.ps1 deleted in HEAD and modified in upstream/pr-2699.  Version upstream/pr-2699 of tests/ad/trust/Test.AD-TRUST-07.ps1 left in tree.",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.md",
+      "CONFLICT (content): Merge conflict in tests/ad/user/Test.AD-USER-02.ps1"
+    ]
+  },
+  {
+    "number": 2683,
+    "title": "feat: the defender's path (M1\u2013M7)",
+    "ref": "upstream/pr-2683",
+    "mergeTreeExit": 1,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in powershell/assets/ReportTemplate.html",
+      "CONFLICT (content): Merge conflict in powershell/internal/engine/Invoke-MtNativePlan.ps1",
+      "CONFLICT (content): Merge conflict in website/scripts/generate-test-docs.mjs",
+      "CONFLICT (content): Merge conflict in website/scripts/prepare-data.mjs"
+    ]
+  },
+  {
+    "number": 2540,
+    "title": "feat(github): add remaining direct CIS GitHub v1.2.0 checks",
+    "ref": "upstream/pr-2540",
+    "mergeTreeExit": 1,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in powershell/tests/functions/engine/Frameworks.Tests.ps1"
+    ]
+  }
+]
