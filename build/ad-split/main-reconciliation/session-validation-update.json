@@ -1,0 +1,104 @@
+[
+  {
+    "branch": "split/ad-00-foundation",
+    "status": "BLOCKED",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  },
+  {
+    "branch": "split/ad-01-collector-overlaps",
+    "status": "BLOCKED",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  },
+  {
+    "branch": "split/ad-02-groups-spns",
+    "status": "BLOCKED",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  },
+  {
+    "branch": "split/ad-03-users-passwords",
+    "status": "BLOCKED",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  },
+  {
+    "branch": "split/ad-04-computers",
+    "status": "BLOCKED",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  },
+  {
+    "branch": "split/ad-05-domains-controllers",
+    "status": "BLOCKED",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  },
+  {
+    "branch": "split/ad-06-tombstone-overlap",
+    "status": "BLOCKED",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  },
+  {
+    "branch": "split/ad-07-topology",
+    "status": "BLOCKED",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  },
+  {
+    "branch": "split/ad-08-directory-config",
+    "status": "BLOCKED",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  },
+  {
+    "branch": "split/ad-09-auth-policy-overlap",
+    "status": "BLOCKED",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  },
+  {
+    "branch": "split/ad-10-adcs",
+    "status": "BLOCKED",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  },
+  {
+    "branch": "split/ad-11-gpo",
+    "status": "BLOCKED",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  },
+  {
+    "branch": "split/ad-12-schema-trust",
+    "status": "BLOCKED",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  },
+  {
+    "branch": "split/ad-13-dacl",
+    "status": "INCOMPLETE",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  },
+  {
+    "branch": "split/ad-14-dns",
+    "status": "INCOMPLETE",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  },
+  {
+    "branch": "split/ad-15-catalog-docs",
+    "status": "INCOMPLETE",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  },
+  {
+    "branch": "split/ad-16-main-reconciliation",
+    "status": "NOT-APPLICABLE: pending patch artifacts only",
+    "durableUpdateAcknowledged": true,
+    "resume": false
+  }
+]

@@ -75,6 +75,17 @@ Final structural review found no dropped source changes or ownership errors. Its
 
 The first completed boundary, 00-foundation, is **BLOCKED** by the existing `ActiveDirectoryOptIn` guarded-collector fixture: it requires pure assessment/formatting helpers to call a collector even when they perform no directory operation. The source fixture's distinction between native tests, transport/session access and pure helpers is currently owned by branch 15. Golden and native catalogue/layout/parameter/shim checks passed at boundary 00. This is a documented fixture-placement dependency to fix in the new sessions/restack, not a green foundation and not a reason to remove safety checks. Subsequent branch results remain in progress.
 
+**Latest status supersedes the earlier progress wording:** the shell job ended with `Shell.NotFoundError`; no matching validation process remains. Complete result records exist for 00–12, all BLOCKED. Boundaries 13–15 are INCOMPLETE because no completed records were saved. The administrative boundary 16 has no executable acceptance run. No automatic restart occurred, and supplemental checks remain unexecuted.
+
+Recorded blockers by area:
+
+- Pure-helper guarded-collector fixture: 00–12; its source update currently arrives in 15.
+- Ordered-dictionary Windows LAPS regression: 01–11; not reported in the completed 12-schema-trust result. The fixture is placed before its schema migration.
+- Non-benchmark catalogue-count assertion: 07–12; the conflicting framework fixture remains quarantined rather than replaced wholesale.
+- KDS zero-key and exactly-two-key fixture expectations: 08–12; main's old skip/wording expectations differ from the visibility-aware assessment and later fixture update. The zero-key gMSA requirement decision is still unresolved.
+
+These failures demonstrate that branch-boundary acceptance needs further fixture/dependency work. The source changes have been preserved, but the current stack is not a set of approved independently deployable PRs.
+
 Supplemental runner `TestResults/ad-split/supplemental-validation.py` is prepared but has not run. It adds per-boundary static Maester-command checks, analyzer/encoding/help/build selections, direct SYSVOL transport tests on 11–15, and final module validation. An optional `--full-representative` run covers complete suites at boundaries 00/03/05/07/11/15; that longer validation remains pending until explicitly launched. Do not describe prepared scripts as executed evidence.
 
 Committed packet evidence was added after the reviewer snapshot: administrative commits `f91fbb376` and `6c1850b2c` contain the review matrix, draft bodies, session index and candidate repair patches. The source-first merge-tree evidence and main-first migration tree differ only by conflict-marker orientation; all hand-written nonquarantined migrated paths were compared to the actual migration tree and matched exactly.

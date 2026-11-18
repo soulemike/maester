@@ -1,0 +1,9 @@
+{
+  "status": "STOPPED",
+  "toolError": "Shell.NotFoundError",
+  "completedExecutableBranches": 13,
+  "remainingIncompleteExecutableBranches": 3,
+  "matchingProcessFound": false,
+  "automaticallyRestarted": false,
+  "supplementalValidationExecuted": false
+}

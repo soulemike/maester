@@ -51,3 +51,7 @@ BLOCKED (exit 1).
 - [-] Active Directory test source safety.Routes every public AD test command through a guarded collector before any AD operation 2.46s (2.45s|4ms)
 
 Log: `TestResults/ad-split/validation.log`.
+
+## Validation job stopped
+
+Authoritative state: **BLOCKED**. The parent validation shell ended with `Shell.NotFoundError`; no process remains. No automatic restart or supplemental run occurred. Read `MERGE-REVIEW.md` for recorded blockers.

@@ -19,3 +19,19 @@ Original source: `bf1709daaf89373886caf332e1dcd68fc91af528`. Current fork/upstre
 - Review open-PR overlap matrix in the master packet.
 - Redirects/global acceptance changes arrive in the final catalog/docs branch; do not deploy intermediate retirements without URL compatibility.
 - GitHub CLI authentication unavailable: this is a local draft body, not a published PR.
+
+## Actual migration validation
+
+BLOCKED (exit 1).
+
+- [-] AD-CFG-22: KDS root key count.Skips when zero KDS root keys are found 703ms (656ms|47ms)
+- [-] AD-CFG-22: KDS root key count.Investigates when exactly two KDS root keys exist 48ms (46ms|2ms)
+- [-] Active Directory test source safety.Routes every public AD test command through a guarded collector before any AD operation 2.7s (2.7s|1ms)
+- [-] Windows LAPS readiness accepts the production dictionary state.passes with an ordered dictionary, not only a PSCustomObject fixture 61ms (61ms|1ms)
+- [-] Benchmark of the tests shipped with Maester.Carries Benchmark as null on every other test 82ms (78ms|4ms)
+
+Log: `TestResults/ad-split/validation.log`.
+
+## Validation job stopped
+
+Authoritative state: **BLOCKED**. The parent validation shell ended with `Shell.NotFoundError`; no process remains. No automatic restart or supplemental run occurred. Read `MERGE-REVIEW.md` for recorded blockers.

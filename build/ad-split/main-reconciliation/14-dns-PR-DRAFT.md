@@ -33,3 +33,7 @@ Original source: `bf1709daaf89373886caf332e1dcd68fc91af528`. Current fork/upstre
 - Review open-PR overlap matrix in the master packet.
 - Redirects/global acceptance changes arrive in the final catalog/docs branch; do not deploy intermediate retirements without URL compatibility.
 - GitHub CLI authentication unavailable: this is a local draft body, not a published PR.
+
+## Validation job stopped
+
+Authoritative state: **INCOMPLETE**. The parent validation shell ended with `Shell.NotFoundError`; no process remains. No automatic restart or supplemental run occurred. Read `MERGE-REVIEW.md` for recorded blockers.
