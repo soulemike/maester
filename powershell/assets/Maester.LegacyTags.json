@@ -71,11 +71,8 @@
         "AD-DC-03",
         "AD-DC-04",
         "AD-DC-05",
-        "AD-DC-06",
         "AD-DC-07",
-        "AD-DC-08",
         "AD-DCD-01",
-        "AD-DCD-02",
         "AD-DCD-03",
         "AD-DCD-04",
         "AD-DCOMP-01",
@@ -109,9 +106,7 @@
         "AD-DOM-03",
         "AD-DOM-04",
         "AD-DOM-05",
-        "AD-DOM-06",
         "AD-DOM-07",
-        "AD-DOM-08",
         "AD-DOMS-01",
         "AD-FEAT-01",
         "AD-FEAT-02",
@@ -121,7 +116,6 @@
         "AD-FOR-03",
         "AD-FOR-04",
         "AD-FORS-01",
-        "AD-FORS-02",
         "AD-FORS-03",
         "AD-FORS-04",
         "AD-GCHG-01",
@@ -264,6 +258,24 @@
       ]
     },
     {
+      "Tag": "AD-DC-06",
+      "Tests": [
+        "AD-DC-05"
+      ]
+    },
+    {
+      "Tag": "AD-DC-08",
+      "Tests": [
+        "AD-DC-07"
+      ]
+    },
+    {
+      "Tag": "AD-DCD-02",
+      "Tests": [
+        "AD-DCD-01"
+      ]
+    },
+    {
       "Tag": "AD-DCOMP-02",
       "Tests": [
         "AD-DCOMP-01"
@@ -282,6 +294,18 @@
       ]
     },
     {
+      "Tag": "AD-DOM-06",
+      "Tests": [
+        "AD-DOM-05"
+      ]
+    },
+    {
+      "Tag": "AD-DOM-08",
+      "Tests": [
+        "AD-DOM-07"
+      ]
+    },
+    {
       "Tag": "AD-FGPP-02",
       "Tests": [
         "AD-FGPP-01"
@@ -297,6 +321,12 @@
       "Tag": "AD-FGPP-04",
       "Tests": [
         "AD-FGPP-01"
+      ]
+    },
+    {
+      "Tag": "AD-FORS-02",
+      "Tests": [
+        "AD-FORS-01"
       ]
     },
     {
@@ -572,9 +602,7 @@
         "AD-DOM-03",
         "AD-DOM-04",
         "AD-DOM-05",
-        "AD-DOM-06",
         "AD-DOM-07",
-        "AD-DOM-08",
         "AD-DOMS-01"
       ]
     },
@@ -586,11 +614,8 @@
         "AD-DC-03",
         "AD-DC-04",
         "AD-DC-05",
-        "AD-DC-06",
         "AD-DC-07",
-        "AD-DC-08",
         "AD-DCD-01",
-        "AD-DCD-02",
         "AD-DCD-03",
         "AD-DCD-04"
       ]
@@ -603,7 +628,6 @@
         "AD-FOR-03",
         "AD-FOR-04",
         "AD-FORS-01",
-        "AD-FORS-02",
         "AD-FORS-03",
         "AD-FORS-04"
       ]

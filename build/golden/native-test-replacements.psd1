@@ -38,4 +38,10 @@
     'AD-USER-27' = 'AD-USER-26'
     'AD-USER-28' = 'AD-USER-05'
     'AD-USER-29' = 'AD-USER-05'
+    'AD-DC-06' = 'AD-DC-05'
+    'AD-DC-08' = 'AD-DC-07'
+    'AD-DCD-02' = 'AD-DCD-01'
+    'AD-DOM-06' = 'AD-DOM-05'
+    'AD-DOM-08' = 'AD-DOM-07'
+    'AD-FORS-02' = 'AD-FORS-01'
 }
