@@ -26,12 +26,7 @@
         "AD-CFG-11",
         "AD-CFG-12",
         "AD-CFG-13",
-        "AD-CFG-14",
         "AD-CFG-15",
-        "AD-CFG-16",
-        "AD-CFG-17",
-        "AD-CFG-18",
-        "AD-CFG-19",
         "AD-CFG-20",
         "AD-CFG-21",
         "AD-CFG-22",
@@ -245,6 +240,36 @@
       "Tag": "AD-CFG-05",
       "Tests": [
         "AD-FOR-04"
+      ]
+    },
+    {
+      "Tag": "AD-CFG-14",
+      "Tests": [
+        "AD-CFG-13"
+      ]
+    },
+    {
+      "Tag": "AD-CFG-16",
+      "Tests": [
+        "AD-CFG-15"
+      ]
+    },
+    {
+      "Tag": "AD-CFG-17",
+      "Tests": [
+        "AD-CFG-15"
+      ]
+    },
+    {
+      "Tag": "AD-CFG-18",
+      "Tests": [
+        "AD-CFG-15"
+      ]
+    },
+    {
+      "Tag": "AD-CFG-19",
+      "Tests": [
+        "AD-CFG-15"
       ]
     },
     {
@@ -611,12 +636,7 @@
         "AD-CFG-11",
         "AD-CFG-12",
         "AD-CFG-13",
-        "AD-CFG-14",
         "AD-CFG-15",
-        "AD-CFG-16",
-        "AD-CFG-17",
-        "AD-CFG-18",
-        "AD-CFG-19",
         "AD-CFG-20",
         "AD-CFG-21",
         "AD-CFG-22",
