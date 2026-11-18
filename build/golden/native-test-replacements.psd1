@@ -1,6 +1,9 @@
 ﻿# Explicit native-test replacements at this migration boundary.
 @{
     'MT1060' = 'MT.1060'
+    'AD-CFG-01' = 'AD-FOR-03'
+    'AD-CFG-04' = 'AD-FEAT-01'
+    'AD-CFG-05' = 'AD-FOR-04'
     'AD-COMP-09' = 'AD-DCOMP-01'
     'AD-COMP-10' = 'AD-DCOMP-03'
     'AD-DCOMP-02' = 'AD-DCOMP-01'
@@ -22,6 +25,7 @@
     'AD-SPN-10' = 'AD-SPN-09'
     'AD-SPN-13' = 'AD-SPN-12'
     'AD-USER-14' = 'AD-SPN-06'
+    'AD-CFG-24' = 'AD-CFG-23'
     'AD-FGPP-02' = 'AD-FGPP-01'
     'AD-FGPP-03' = 'AD-FGPP-01'
     'AD-FGPP-04' = 'AD-FGPP-01'
