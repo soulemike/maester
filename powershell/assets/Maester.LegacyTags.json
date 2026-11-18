@@ -109,7 +109,6 @@
         "AD-DOM-07",
         "AD-DOMS-01",
         "AD-FEAT-01",
-        "AD-FEAT-02",
         "AD-FGPP-01",
         "AD-FOR-01",
         "AD-FOR-02",
@@ -180,13 +179,11 @@
         "AD-OU-02",
         "AD-OU-03",
         "AD-OU-04",
-        "AD-OU-05",
         "AD-PRINT-01",
         "AD-PWDPOL-01",
         "AD-REPL-01",
         "AD-REPL-02",
         "AD-ROOTDSE-01",
-        "AD-ROOTDSE-02",
         "AD-ROOTDSE-03",
         "AD-SCH-01",
         "AD-SCH-02",
@@ -195,9 +192,7 @@
         "AD-SCH-05",
         "AD-SITE-01",
         "AD-SITE-02",
-        "AD-SITE-03",
         "AD-SITE-04",
-        "AD-SITE-05",
         "AD-SPN-01",
         "AD-SPN-03",
         "AD-SPN-05",
@@ -206,17 +201,10 @@
         "AD-SPN-09",
         "AD-SPN-11",
         "AD-SPN-12",
-        "AD-SUB-01",
-        "AD-SUB-02",
         "AD-SUB-03",
         "AD-SUB-04",
-        "AD-SUB-05",
         "AD-SUB-06",
-        "AD-SUB-07",
         "AD-SUB-08",
-        "AD-SUB-09",
-        "AD-SUB-10",
-        "AD-SUB-11",
         "AD-TRUST-01",
         "AD-TRUST-02",
         "AD-TRUST-03",
@@ -306,6 +294,12 @@
       ]
     },
     {
+      "Tag": "AD-FEAT-02",
+      "Tests": [
+        "AD-FEAT-01"
+      ]
+    },
+    {
       "Tag": "AD-FGPP-02",
       "Tests": [
         "AD-FGPP-01"
@@ -378,6 +372,12 @@
       ]
     },
     {
+      "Tag": "AD-OU-05",
+      "Tests": [
+        "AD-OU-04"
+      ]
+    },
+    {
       "Tag": "AD-PWDPOL-02",
       "Tests": [
         "AD-PWDPOL-01"
@@ -414,6 +414,24 @@
       ]
     },
     {
+      "Tag": "AD-ROOTDSE-02",
+      "Tests": [
+        "AD-ROOTDSE-01"
+      ]
+    },
+    {
+      "Tag": "AD-SITE-03",
+      "Tests": [
+        "AD-SITE-02"
+      ]
+    },
+    {
+      "Tag": "AD-SITE-05",
+      "Tests": [
+        "AD-SITE-04"
+      ]
+    },
+    {
       "Tag": "AD-SPN-02",
       "Tests": [
         "AD-SPN-01"
@@ -441,6 +459,48 @@
       "Tag": "AD-SPN-13",
       "Tests": [
         "AD-SPN-12"
+      ]
+    },
+    {
+      "Tag": "AD-SUB-01",
+      "Tests": [
+        "AD-SITE-04"
+      ]
+    },
+    {
+      "Tag": "AD-SUB-02",
+      "Tests": [
+        "AD-SITE-04"
+      ]
+    },
+    {
+      "Tag": "AD-SUB-05",
+      "Tests": [
+        "AD-SUB-04"
+      ]
+    },
+    {
+      "Tag": "AD-SUB-07",
+      "Tests": [
+        "AD-SUB-06"
+      ]
+    },
+    {
+      "Tag": "AD-SUB-09",
+      "Tests": [
+        "AD-SUB-08"
+      ]
+    },
+    {
+      "Tag": "AD-SUB-10",
+      "Tests": [
+        "AD-SUB-08"
+      ]
+    },
+    {
+      "Tag": "AD-SUB-11",
+      "Tests": [
+        "AD-SITE-04"
       ]
     },
     {
@@ -721,8 +781,7 @@
         "AD-OU-01",
         "AD-OU-02",
         "AD-OU-03",
-        "AD-OU-04",
-        "AD-OU-05"
+        "AD-OU-04"
       ]
     },
     {
@@ -743,11 +802,9 @@
       "Tests": [
         "AD-DFSR-01",
         "AD-FEAT-01",
-        "AD-FEAT-02",
         "AD-REPL-01",
         "AD-REPL-02",
         "AD-ROOTDSE-01",
-        "AD-ROOTDSE-02",
         "AD-ROOTDSE-03"
       ]
     },
@@ -781,20 +838,11 @@
       "Tests": [
         "AD-SITE-01",
         "AD-SITE-02",
-        "AD-SITE-03",
         "AD-SITE-04",
-        "AD-SITE-05",
-        "AD-SUB-01",
-        "AD-SUB-02",
         "AD-SUB-03",
         "AD-SUB-04",
-        "AD-SUB-05",
         "AD-SUB-06",
-        "AD-SUB-07",
-        "AD-SUB-08",
-        "AD-SUB-09",
-        "AD-SUB-10",
-        "AD-SUB-11"
+        "AD-SUB-08"
       ]
     },
     {
