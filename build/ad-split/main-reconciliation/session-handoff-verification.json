@@ -1,0 +1,121 @@
+[
+  {
+    "branch": "split/ad-00-foundation",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  },
+  {
+    "branch": "split/ad-01-collector-overlaps",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  },
+  {
+    "branch": "split/ad-02-groups-spns",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  },
+  {
+    "branch": "split/ad-03-users-passwords",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  },
+  {
+    "branch": "split/ad-04-computers",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  },
+  {
+    "branch": "split/ad-05-domains-controllers",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  },
+  {
+    "branch": "split/ad-06-tombstone-overlap",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  },
+  {
+    "branch": "split/ad-07-topology",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  },
+  {
+    "branch": "split/ad-08-directory-config",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  },
+  {
+    "branch": "split/ad-09-auth-policy-overlap",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  },
+  {
+    "branch": "split/ad-10-adcs",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  },
+  {
+    "branch": "split/ad-11-gpo",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  },
+  {
+    "branch": "split/ad-12-schema-trust",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  },
+  {
+    "branch": "split/ad-13-dacl",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  },
+  {
+    "branch": "split/ad-14-dns",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  },
+  {
+    "branch": "split/ad-15-catalog-docs",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  },
+  {
+    "branch": "split/ad-16-main-reconciliation",
+    "sessionID": "<local-session-id>",
+    "handoffStatus": "queued in durable inbox; not delivered because resume=false",
+    "handoffCount": 1,
+    "sessionMessages": 0
+  }
+]

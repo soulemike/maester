@@ -2856,7 +2856,7 @@
       "retiredMappings": {
         "MT1060": "MT.1060"
       },
-      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/00-foundation",
+      "worktree": "<local-worktree-path>",
       "commits": [
         "4d32a101ec068d5d36e0d5834bab6fa78dd6e034",
         "a4362221f428bd3f308ce2523a12262e20c2aee2"
@@ -2889,7 +2889,7 @@
         "powershell/internal/services/ad/queries/Get-MtLdapUser.ps1",
         "powershell/tests/functions/golden/Golden.Tests.ps1"
       ],
-      "sessionID": "ses_e10c644ceffee075xNLyzGcthr"
+      "sessionID": "<local-session-id>"
     },
     {
       "name": "01-collector-overlaps",
@@ -2906,7 +2906,7 @@
       "retiredMappings": {
         "MT1060": "MT.1060"
       },
-      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/01-collector-overlaps",
+      "worktree": "<local-worktree-path>",
       "commits": [
         "72a31d6ec14fd7b477d5d0b58380d43c4f120f77"
       ],
@@ -2918,7 +2918,7 @@
         "powershell/tests/functions/ADCollectorQueries.Tests.ps1",
         "powershell/tests/functions/ADSecondBatchCollectors.Tests.ps1"
       ],
-      "sessionID": "ses_e10c635f5ffeG74mWP8eLACCDY"
+      "sessionID": "<local-session-id>"
     },
     {
       "name": "02-groups-spns",
@@ -3013,7 +3013,7 @@
         "AD-SPN-10": "AD-SPN-09",
         "AD-SPN-13": "AD-SPN-12"
       },
-      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/02-groups-spns",
+      "worktree": "<local-worktree-path>",
       "commits": [
         "a0b71be360e28f477663bf21ac208f26b8ac9712",
         "d7dc71a299415c6cb5486aa9d3597b638246ef4e",
@@ -3094,7 +3094,7 @@
         "tests/ad/spn/Test.AD-SPN-13.md",
         "tests/ad/spn/Test.AD-SPN-13.ps1"
       ],
-      "sessionID": "ses_e10c62a0bffeS2d3dEOSw6kSY4"
+      "sessionID": "<local-session-id>"
     },
     {
       "name": "03-users-passwords",
@@ -3226,7 +3226,7 @@
         "AD-USER-28": "AD-USER-05",
         "AD-USER-29": "AD-USER-05"
       },
-      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/03-users-passwords",
+      "worktree": "<local-worktree-path>",
       "commits": [
         "9806b0fd755f1639cba4eb81406fe8e78abadf7c",
         "b78ad480758d9d25bc85ac01bbf5cd25f4907ea6",
@@ -3326,7 +3326,7 @@
         "tests/ad/user/Test.AD-USER-29.md",
         "tests/ad/user/Test.AD-USER-29.ps1"
       ],
-      "sessionID": "ses_e10c61be0ffeo68iwrF1dalihl"
+      "sessionID": "<local-session-id>"
     },
     {
       "name": "04-computers",
@@ -3410,7 +3410,7 @@
         "AD-USER-28": "AD-USER-05",
         "AD-USER-29": "AD-USER-05"
       },
-      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/04-computers",
+      "worktree": "<local-worktree-path>",
       "commits": [
         "406d6029da22ff73a22f91992bc3359a665f5ef4",
         "ee0e7f2bcce6f9366558cc3ff4433f43f92604d7"
@@ -3455,7 +3455,7 @@
         "tests/ad/security/Test.AD-DCOMP-09.md",
         "tests/ad/security/Test.AD-DCOMP-09.ps1"
       ],
-      "sessionID": "ses_e10c60f63ffeEpwkrGXlSSAjEj"
+      "sessionID": "<local-session-id>"
     },
     {
       "name": "05-domains-controllers",
@@ -3569,7 +3569,7 @@
         "AD-DOM-08": "AD-DOM-07",
         "AD-FORS-02": "AD-FORS-01"
       },
-      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/05-domains-controllers",
+      "worktree": "<local-worktree-path>",
       "commits": [
         "63aefcdf4fce619fcb63050fcaff774ae70f7023",
         "308d9d3a47cc2d2ac598a792e6d5093af33d8787",
@@ -3639,7 +3639,7 @@
         "tests/ad/domain/Test.AD-FORS-04.md",
         "tests/ad/domain/Test.AD-FORS-04.ps1"
       ],
-      "sessionID": "ses_e10c600fbffeWYzoUwL2nM1NCz"
+      "sessionID": "<local-session-id>"
     },
     {
       "name": "06-tombstone-overlap",
@@ -3696,7 +3696,7 @@
         "AD-DOM-08": "AD-DOM-07",
         "AD-FORS-02": "AD-FORS-01"
       },
-      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/06-tombstone-overlap",
+      "worktree": "<local-worktree-path>",
       "commits": [
         "016b33b3d42b952c935c62792c289272d85b00bd"
       ],
@@ -3705,7 +3705,7 @@
         "tests/ad/domain/Test.AD-FOR-03.md",
         "tests/ad/domain/Test.AD-FOR-03.ps1"
       ],
-      "sessionID": "ses_e10c5f342ffePq3YIcmk2JOYId"
+      "sessionID": "<local-session-id>"
     },
     {
       "name": "07-topology",
@@ -3832,7 +3832,7 @@
         "AD-DOM-08": "AD-DOM-07",
         "AD-FORS-02": "AD-FORS-01"
       },
-      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/07-topology",
+      "worktree": "<local-worktree-path>",
       "commits": [
         "7c2755ad42b86795c9b21292e65a71c9a96cf37b",
         "a9fe9686f20e83933b35daa16ec81b9e7d68f34f",
@@ -3903,7 +3903,7 @@
         "tests/ad/site/Test.AD-SUB-11.md",
         "tests/ad/site/Test.AD-SUB-11.ps1"
       ],
-      "sessionID": "ses_e10c5e63bffeL2YgY67q2M41hf"
+      "sessionID": "<local-session-id>"
     },
     {
       "name": "08-directory-config",
@@ -4000,7 +4000,7 @@
         "AD-DOM-08": "AD-DOM-07",
         "AD-FORS-02": "AD-FORS-01"
       },
-      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/08-directory-config",
+      "worktree": "<local-worktree-path>",
       "commits": [
         "0f8fdbf3c15b8769a9ff36e0440d037a3343890c",
         "2dc34ee42d3d655c2927102d9b8f1a2223e0b55e"
@@ -4036,7 +4036,7 @@
         "tests/ad/config/Test.AD-CFG-24.md",
         "tests/ad/config/Test.AD-CFG-24.ps1"
       ],
-      "sessionID": "ses_e10c5db16ffeloGxL0plCa6015"
+      "sessionID": "<local-session-id>"
     },
     {
       "name": "09-auth-policy-overlap",
@@ -4109,7 +4109,7 @@
         "AD-DOM-08": "AD-DOM-07",
         "AD-FORS-02": "AD-FORS-01"
       },
-      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/09-auth-policy-overlap",
+      "worktree": "<local-worktree-path>",
       "commits": [
         "77bb02db2f449e54946225fccd23abee02d20ba0"
       ],
@@ -4118,7 +4118,7 @@
         "tests/ad/config/Test.AD-CFG-08.md",
         "tests/ad/config/Test.AD-CFG-08.ps1"
       ],
-      "sessionID": "ses_e10c5cf47ffeNLi3i4Zokkekdn"
+      "sessionID": "<local-session-id>"
     },
     {
       "name": "10-adcs",
@@ -4215,7 +4215,7 @@
         "AD-DOM-08": "AD-DOM-07",
         "AD-FORS-02": "AD-FORS-01"
       },
-      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/10-adcs",
+      "worktree": "<local-worktree-path>",
       "commits": [
         "35dbf8bd663211439a26d5d56f97802431dad8b2"
       ],
@@ -4245,7 +4245,7 @@
         "tests/ad/config/Test.AD-CFG-21.md",
         "tests/ad/config/Test.AD-CFG-21.ps1"
       ],
-      "sessionID": "ses_e10c5c2e0ffeTcTUcmCOHjr2ra"
+      "sessionID": "<local-session-id>"
     },
     {
       "name": "11-gpo",
@@ -4405,7 +4405,7 @@
         "AD-DOM-08": "AD-DOM-07",
         "AD-FORS-02": "AD-FORS-01"
       },
-      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/11-gpo",
+      "worktree": "<local-worktree-path>",
       "commits": [
         "a639394b04e762d5b47bc7ed73651b0e03f6ffed",
         "bc2d8fa823f7a706e5a15962986b67207caa28ba",
@@ -4489,7 +4489,7 @@
         "tests/ad/gpo/Test.AD-GPOL-06.md",
         "tests/ad/gpo/Test.AD-GPOL-06.ps1"
       ],
-      "sessionID": "ses_e10c5b010ffevX7BYtYcAb68Pt"
+      "sessionID": "<local-session-id>"
     },
     {
       "name": "12-schema-trust",
@@ -4601,7 +4601,7 @@
         "AD-DOM-08": "AD-DOM-07",
         "AD-FORS-02": "AD-FORS-01"
       },
-      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/12-schema-trust",
+      "worktree": "<local-worktree-path>",
       "commits": [
         "0d7d4d444dae153c17091f6ffb8200efd8b04e0a"
       ],
@@ -4630,7 +4630,7 @@
         "tests/ad/trust/Test.AD-TRUST-05.md",
         "tests/ad/trust/Test.AD-TRUST-05.ps1"
       ],
-      "sessionID": "ses_e10c5a4a9ffe6w9vGr9chhJ4aI"
+      "sessionID": "<local-session-id>"
     },
     {
       "name": "13-dacl",
@@ -4765,7 +4765,7 @@
         "AD-DOM-08": "AD-DOM-07",
         "AD-FORS-02": "AD-FORS-01"
       },
-      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/13-dacl",
+      "worktree": "<local-worktree-path>",
       "commits": [
         "fc262733d7108774708d6618e0be047f4fd0dd7a",
         "1a6597c7ec7cdc62185ba129e8784d73b94edba3"
@@ -4810,7 +4810,7 @@
         "tests/ad/dacl/Test.AD-DACL-18.md",
         "tests/ad/dacl/Test.AD-DACL-18.ps1"
       ],
-      "sessionID": "ses_e10c59876ffeUQ6StoRMnA7Z9O"
+      "sessionID": "<local-session-id>"
     },
     {
       "name": "14-dns",
@@ -4926,7 +4926,7 @@
         "AD-DOM-08": "AD-DOM-07",
         "AD-FORS-02": "AD-FORS-01"
       },
-      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/14-dns",
+      "worktree": "<local-worktree-path>",
       "commits": [
         "d8b399e6dd4e22c17be53a707296ef2a325befae"
       ],
@@ -4949,7 +4949,7 @@
         "tests/ad/dns/Test.AD-DNS-18.md",
         "tests/ad/dns/Test.AD-DNS-19.md"
       ],
-      "sessionID": "ses_e10c58aa5ffeDpwxWrnFnJBEa4"
+      "sessionID": "<local-session-id>"
     },
     {
       "name": "15-catalog-docs",
@@ -5060,7 +5060,7 @@
         "AD-DOM-08": "AD-DOM-07",
         "AD-FORS-02": "AD-FORS-01"
       },
-      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/15-catalog-docs",
+      "worktree": "<local-worktree-path>",
       "commits": [
         "cee38e90b1fed703a1a525d3dc1f219ac9f0a18c"
       ],
@@ -5078,7 +5078,7 @@
         "website/scripts/test-retired-test-redirects.mjs",
         "website/src/lib/redirects.mjs"
       ],
-      "sessionID": "ses_e10c57ee0ffe10xjBCUiPqlC0h"
+      "sessionID": "<local-session-id>"
     },
     {
       "name": "16-main-reconciliation",

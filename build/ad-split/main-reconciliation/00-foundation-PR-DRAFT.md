@@ -43,3 +43,11 @@ Original source: `bf1709daaf89373886caf332e1dcd68fc91af528`. Current fork/upstre
 - Review open-PR overlap matrix in the master packet.
 - Redirects/global acceptance changes arrive in the final catalog/docs branch; do not deploy intermediate retirements without URL compatibility.
 - GitHub CLI authentication unavailable: this is a local draft body, not a published PR.
+
+## Actual migration validation
+
+BLOCKED (exit 1).
+
+- [-] Active Directory test source safety.Routes every public AD test command through a guarded collector before any AD operation 2.46s (2.45s|4ms)
+
+Log: `TestResults/ad-split/validation.log`.

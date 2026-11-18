@@ -17,7 +17,7 @@ Historical URL redirects arrive in the final catalog/docs branch. Intermediate r
 - COMP-02 (deleted by consolidation, modified on main) and DCOMP-06 (the survivor): preserve current `MaximumInactiveDays` behavior when deciding how to combine inventories.
 - TRUST-07 (deleted by consolidation, modified on main) and TRUST-06 (survivor): preserve current validation-age parameters and documented semantics.
 - USER-02: reconcile current parameterized retention with consolidated disabled-user lifecycle behavior.
-- KRBTGT-01 plus retired KRBTGT-02/03: reconcile current password-age parameter and combined evidence; clean partner files are held to avoid mixed guides/code.
+- KRBTGT-01 plus the guide changes for still-active KRBTGT-02/03: reconcile the current password-age parameter and combined evidence. KRBTGT-02/03 are not retirement mappings; their `.ps1` files remain. Their guide deletions are held for review rather than silently removing documentation from active checks.
 - `Frameworks.Tests.ps1`: preserve current DISA/framework assertions; do not restore a stale whole-file fixture/count from the consolidation.
 
 The administrative branch holds source patches, not executable resolutions. It must not become an upstream PR or be merged into main. Main's active versions remain in the feature stack; these chains' retirement mappings are excluded until an approved resolution removes the old IDs. The stack is therefore not a completed, fully integrated consolidation.
@@ -58,3 +58,19 @@ The consolidation modifies several of those areas again. Review KDS zero-key pol
 Each executable branch must run Golden, Frameworks, RepositoryLayout, NativeTestAttributes/NativeTestLint and every existing `AD*.Tests.ps1` / `ActiveDirectory*.Tests.ps1`. Branch-specific failures are blockers, not a reason to weaken expected outcomes. Administrative patch branch is not executable migration acceptance.
 
 Sessions are created at their worktree directories and handed a parked message with `resume=false`; no agents are automatically launched in those sessions. Local PR drafts and compare links are prepared per worktree. GitHub CLI authentication is unavailable, so published GitHub draft PRs are not claimed.
+
+The handoffs are stored in each session's durable inbox, not yet delivered as conversation messages: `resume=false` intentionally leaves all seventeen sessions without assistant messages. Session locations and queued handoffs were read back through the API. Foundation and reconciliation root parents were separately verified as the pinned `512a076de` commit.
+
+### Squash merge and hard dependencies
+
+Commit batches respect the user's fewer-than-25-path preference, but intermediate commits inside a feature branch need not be independently catalogue-valid. Squash-merge each complete branch boundary; do not cherry-pick individual registry or retirement chunks.
+
+- Collector-overlap branch 01 is a hard prerequisite: computer/delegation assessments require its service-account fields.
+- Groups/SPNs branch 02 precedes USER-14 retirement; tombstone 06 precedes CFG-01 retirement in 08; topology 07 precedes CFG-04 retirement in 08.
+- Authentication-policy branch 09 has no intrinsic downstream dependency, but its placement in this stack is an intentional review-order gate. It can be moved to the end in a future approved restack if PR #2783 blocks progress. Do not rewrite pushed branch histories silently.
+
+### Structural review and remaining acceptance evidence
+
+Final structural review found no dropped source changes or ownership errors. Its verdict was **INSUFFICIENT EVIDENCE for acceptance** while validation ran. The initial selected runner omits the separately located SYSVOL transport suite and broader analyzer/encoding/help/build checks. Supplemental validation is required before approval; no merge readiness is claimed. A mechanical per-branch check of Maester command references must distinguish repository-defined commands, binary/exported commands and unresolved dynamic calls.
+
+Committed packet evidence was added after the reviewer snapshot: administrative commits `f91fbb376` and `6c1850b2c` contain the review matrix, draft bodies, session index and candidate repair patches. The source-first merge-tree evidence and main-first migration tree differ only by conflict-marker orientation; all hand-written nonquarantined migrated paths were compared to the actual migration tree and matched exactly.

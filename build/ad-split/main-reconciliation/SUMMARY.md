@@ -6,25 +6,25 @@ Fork and upstream main both start at `512a076de`. Every nonquarantined product p
 
 | Branch / compare | Feature | Owned source paths | Session | Validation |
 | --- | --- | ---: | --- | --- |
-| [00-foundation](https://github.com/soulemike/maester/compare/main...split/ad-00-foundation?expand=1) | Shared collectors, formatting and catalogue support | 26 | `ses_e10c644ceffee075xNLyzGcthr` | PENDING |
-| [01-collector-overlaps](https://github.com/soulemike/maester/compare/split/ad-00-foundation...split/ad-01-collector-overlaps?expand=1) | Configuration/state/gMSA collector PR overlaps | 5 | `ses_e10c635f5ffeG74mWP8eLACCDY` | PENDING |
-| [02-groups-spns](https://github.com/soulemike/maester/compare/split/ad-01-collector-overlaps...split/ad-02-groups-spns?expand=1) | Groups, membership and SPNs | 70 | `ses_e10c62a0bffeS2d3dEOSw6kSY4` | PENDING |
-| [03-users-passwords](https://github.com/soulemike/maester/compare/split/ad-02-groups-spns...split/ad-03-users-passwords?expand=1) | Users, delegation and password policies | 88 | `ses_e10c61be0ffeo68iwrF1dalihl` | PENDING |
-| [04-computers](https://github.com/soulemike/maester/compare/split/ad-03-users-passwords...split/ad-04-computers?expand=1) | Computer lifecycle and security | 35 | `ses_e10c60f63ffeEpwkrGXlSSAjEj` | PENDING |
-| [05-domains-controllers](https://github.com/soulemike/maester/compare/split/ad-04-computers...split/ad-05-domains-controllers?expand=1) | Domains, forests, DCs and FSMO | 59 | `ses_e10c600fbffeWYzoUwL2nM1NCz` | PENDING |
-| [06-tombstone-overlap](https://github.com/soulemike/maester/compare/split/ad-05-domains-controllers...split/ad-06-tombstone-overlap?expand=1) | Tombstone advisory versus PR #2699 | 2 | `ses_e10c5f342ffePq3YIcmk2JOYId` | PENDING |
-| [07-topology](https://github.com/soulemike/maester/compare/split/ad-06-tombstone-overlap...split/ad-07-topology?expand=1) | Sites, subnets, OUs, replication and printers | 60 | `ses_e10c5e63bffeL2YgY67q2M41hf` | PENDING |
-| [08-directory-config](https://github.com/soulemike/maester/compare/split/ad-07-topology...split/ad-08-directory-config?expand=1) | Directory configuration and KDS | 26 | `ses_e10c5db16ffeloGxL0plCa6015` | PENDING |
-| [09-auth-policy-overlap](https://github.com/soulemike/maester/compare/split/ad-08-directory-config...split/ad-09-auth-policy-overlap?expand=1) | Authentication policy versus PR #2783 | 2 | `ses_e10c5cf47ffeNLi3i4Zokkekdn` | PENDING |
-| [10-adcs](https://github.com/soulemike/maester/compare/split/ad-09-auth-policy-overlap...split/ad-10-adcs?expand=1) | CA, certificate and template inventory | 21 | `ses_e10c5c2e0ffeTcTUcmCOHjr2ra` | PENDING |
-| [11-gpo](https://github.com/soulemike/maester/compare/split/ad-10-adcs...split/ad-11-gpo?expand=1) | GPO inventory, permissions and SYSVOL | 72 | `ses_e10c5b010ffevX7BYtYcAb68Pt` | PENDING |
-| [12-schema-trust](https://github.com/soulemike/maester/compare/split/ad-11-gpo...split/ad-12-schema-trust?expand=1) | Schema and nonconflicted trust changes | 20 | `ses_e10c5a4a9ffe6w9vGr9chhJ4aI` | PENDING |
-| [13-dacl](https://github.com/soulemike/maester/compare/split/ad-12-schema-trust...split/ad-13-dacl?expand=1) | DACL consolidation | 35 | `ses_e10c59876ffeUQ6StoRMnA7Z9O` | PENDING |
-| [14-dns](https://github.com/soulemike/maester/compare/split/ad-13-dacl...split/ad-14-dns?expand=1) | DNS guide updates | 16 | `ses_e10c58aa5ffeDpwxWrnFnJBEa4` | PENDING |
-| [15-catalog-docs](https://github.com/soulemike/maester/compare/split/ad-14-dns...split/ad-15-catalog-docs?expand=1) | Cross-suite regressions, redirects and upgrade guidance | 11 | `ses_e10c57ee0ffe10xjBCUiPqlC0h` | PENDING |
-| [16-main-reconciliation](https://github.com/soulemike/maester/compare/main...split/ad-16-main-reconciliation?expand=1) | Pending main conflict chains — administrative, not for PR | 15 | `ses_e10c573b9ffeiQRlD5sTKWywe2` | PENDING |
+| [00-foundation](https://github.com/soulemike/maester/compare/main...split/ad-00-foundation?expand=1) | Shared collectors, formatting and catalogue support | 26 | `<local-session-id>` | BLOCKED |
+| [01-collector-overlaps](https://github.com/soulemike/maester/compare/split/ad-00-foundation...split/ad-01-collector-overlaps?expand=1) | Configuration/state/gMSA collector PR overlaps | 5 | `<local-session-id>` | PENDING |
+| [02-groups-spns](https://github.com/soulemike/maester/compare/split/ad-01-collector-overlaps...split/ad-02-groups-spns?expand=1) | Groups, membership and SPNs | 70 | `<local-session-id>` | PENDING |
+| [03-users-passwords](https://github.com/soulemike/maester/compare/split/ad-02-groups-spns...split/ad-03-users-passwords?expand=1) | Users, delegation and password policies | 88 | `<local-session-id>` | PENDING |
+| [04-computers](https://github.com/soulemike/maester/compare/split/ad-03-users-passwords...split/ad-04-computers?expand=1) | Computer lifecycle and security | 35 | `<local-session-id>` | PENDING |
+| [05-domains-controllers](https://github.com/soulemike/maester/compare/split/ad-04-computers...split/ad-05-domains-controllers?expand=1) | Domains, forests, DCs and FSMO | 59 | `<local-session-id>` | PENDING |
+| [06-tombstone-overlap](https://github.com/soulemike/maester/compare/split/ad-05-domains-controllers...split/ad-06-tombstone-overlap?expand=1) | Tombstone advisory versus PR #2699 | 2 | `<local-session-id>` | PENDING |
+| [07-topology](https://github.com/soulemike/maester/compare/split/ad-06-tombstone-overlap...split/ad-07-topology?expand=1) | Sites, subnets, OUs, replication and printers | 60 | `<local-session-id>` | PENDING |
+| [08-directory-config](https://github.com/soulemike/maester/compare/split/ad-07-topology...split/ad-08-directory-config?expand=1) | Directory configuration and KDS | 26 | `<local-session-id>` | PENDING |
+| [09-auth-policy-overlap](https://github.com/soulemike/maester/compare/split/ad-08-directory-config...split/ad-09-auth-policy-overlap?expand=1) | Authentication policy versus PR #2783 | 2 | `<local-session-id>` | PENDING |
+| [10-adcs](https://github.com/soulemike/maester/compare/split/ad-09-auth-policy-overlap...split/ad-10-adcs?expand=1) | CA, certificate and template inventory | 21 | `<local-session-id>` | PENDING |
+| [11-gpo](https://github.com/soulemike/maester/compare/split/ad-10-adcs...split/ad-11-gpo?expand=1) | GPO inventory, permissions and SYSVOL | 72 | `<local-session-id>` | PENDING |
+| [12-schema-trust](https://github.com/soulemike/maester/compare/split/ad-11-gpo...split/ad-12-schema-trust?expand=1) | Schema and nonconflicted trust changes | 20 | `<local-session-id>` | PENDING |
+| [13-dacl](https://github.com/soulemike/maester/compare/split/ad-12-schema-trust...split/ad-13-dacl?expand=1) | DACL consolidation | 35 | `<local-session-id>` | PENDING |
+| [14-dns](https://github.com/soulemike/maester/compare/split/ad-13-dacl...split/ad-14-dns?expand=1) | DNS guide updates | 16 | `<local-session-id>` | PENDING |
+| [15-catalog-docs](https://github.com/soulemike/maester/compare/split/ad-14-dns...split/ad-15-catalog-docs?expand=1) | Cross-suite regressions, redirects and upgrade guidance | 11 | `<local-session-id>` | PENDING |
+| [16-main-reconciliation](https://github.com/soulemike/maester/compare/main...split/ad-16-main-reconciliation?expand=1) | Pending main conflict chains — administrative, not for PR | 15 | `<local-session-id>` | PENDING |
 
-Worktree root: `/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/`.
+Worktree root: `<local-worktree-path>`.
 
 Each worktree contains `TestResults/ad-split/PR-DRAFT.md`, `MERGE-REVIEW.md` and its validation log. The drafts are local text with compare links, not published GitHub PRs: CLI authentication is unavailable.
 
