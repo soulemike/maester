@@ -1,0 +1,15 @@
+diff --git a/tests/ad/security/Test.AD-KRBTGT-02.md b/tests/ad/security/Test.AD-KRBTGT-02.md
+index be75354443feb7b07e2072ce6e9880a8d72e07c5..bc05aec2203d705e92a89bcc8e0b90ecde5fb96e 100644
+--- a/tests/ad/security/Test.AD-KRBTGT-02.md
++++ b/tests/ad/security/Test.AD-KRBTGT-02.md
+@@ -37,8 +37,8 @@ This test retrieves the KRBTGT account and checks:
+ 
+ #### Related Tests
+ 
+-- `Test-MtAdKrbtgtPasswordLastSet` - Checks KRBTGT password age
+-- `Test-MtAdKrbtgtNonStandardUacCount` - Validates KRBTGT UAC settings
++- **AD-KRBTGT-01 — KRBTGT password age should not exceed the configured maximum** — `Test-MtAdKrbtgtPasswordLastSet` — Checks KRBTGT password age.
++- **AD-KRBTGT-03 — KRBTGT should have standard UAC settings (disabled account)** — `Test-MtAdKrbtgtNonStandardUacCount` — Validates KRBTGT UAC settings.
+ 
+ <!--- Results --->
+ %TestResult%

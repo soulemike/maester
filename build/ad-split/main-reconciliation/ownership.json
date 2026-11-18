@@ -1,0 +1,5211 @@
+{
+  "source": "bf1709daaf89373886caf332e1dcd68fc91af528",
+  "main": "512a076de7bb173045a2ebe62b0493d613ddd0b5",
+  "mergeBase": "d6c644bcc584f3d2261214cae1072f25529d6c5a",
+  "changes": [
+    {
+      "status": "M",
+      "path": "build/golden/Export-MtLegacyTagTable.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "A",
+      "path": "build/golden/native-test-replacements.psd1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "M",
+      "path": "powershell/assets/Maester.LegacyTags.json",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Assert-MtAdUserAccountControl.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/ConvertTo-MtAdConfigurationInventoryCell.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Format-MtAdSiteInventoryValue.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Format-MtAdSummaryTable.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Format-MtAdUserSecurityTable.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Get-MtAdCertificateInventory.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Get-MtAdConfigurationInventory.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Get-MtAdConfigurationInventorySiteLinkTransport.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Get-MtAdDomainControllerRelease.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Get-MtAdDomainControllersInScope.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Get-MtAdDomainNameFindings.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Get-MtAdFsmoPlacement.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Get-MtAdFunctionalLevelAssessment.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Get-MtAdOrganizationalUnitOverview.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Get-MtAdPasswordPolicyUsage.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Get-MtAdSiteSubnetOverview.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Get-MtAdStateCollection.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Get-MtAdSubnetInventory.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Get-MtAdUserPathFindings.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Invoke-MtAdConfigurationInventoryReport.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Test-MtAdPasswordPolicyConfiguration.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/checks/ad/ad/Test-MtAdUserOrdinaryIdentity.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "A",
+      "path": "powershell/internal/services/ad/Test-MtAdDomainControllerAccount.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "M",
+      "path": "powershell/internal/services/ad/protocol/ConvertFrom-MtLdapValue.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "M",
+      "path": "powershell/internal/services/ad/queries/Get-MtLdapComputer.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "M",
+      "path": "powershell/internal/services/ad/queries/Get-MtLdapConfigurationContainer.ps1",
+      "owner": "01-collector-overlaps"
+    },
+    {
+      "status": "M",
+      "path": "powershell/internal/services/ad/queries/Get-MtLdapDomain.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "M",
+      "path": "powershell/internal/services/ad/queries/Get-MtLdapDomainController.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "M",
+      "path": "powershell/internal/services/ad/queries/Get-MtLdapFineGrainedPasswordPolicy.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "M",
+      "path": "powershell/internal/services/ad/queries/Get-MtLdapForest.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "M",
+      "path": "powershell/internal/services/ad/queries/Get-MtLdapOptionalFeature.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "M",
+      "path": "powershell/internal/services/ad/queries/Get-MtLdapPrinter.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "M",
+      "path": "powershell/internal/services/ad/queries/Get-MtLdapReplicationSite.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "M",
+      "path": "powershell/internal/services/ad/queries/Get-MtLdapSchemaObject.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "M",
+      "path": "powershell/internal/services/ad/queries/Get-MtLdapServiceAccount.ps1",
+      "owner": "01-collector-overlaps"
+    },
+    {
+      "status": "M",
+      "path": "powershell/internal/services/ad/queries/Get-MtLdapUser.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "M",
+      "path": "powershell/internal/services/ad/transport/Get-MtSysvolContent.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "powershell/public/services/ad/Get-MtADDomainState.ps1",
+      "owner": "01-collector-overlaps"
+    },
+    {
+      "status": "M",
+      "path": "powershell/public/services/ad/Get-MtADGpoState.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "powershell/tests/ad/transport/Get-MtSysvolContent.Tests.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADCertificateInventoryBatch.Tests.ps1",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADCollectorQueries.Tests.ps1",
+      "owner": "01-collector-overlaps"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADComputerChecks.Tests.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADConfigurationChecks.Tests.ps1",
+      "owner": "15-catalog-docs"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADDaclConsolidation.Tests.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADDomainForestBatch.Tests.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADGpoInventory.Tests.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADGpoReports.Tests.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADGroupSpnChecks.Tests.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADGuideContent.Tests.ps1",
+      "owner": "15-catalog-docs"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADPasswordPolicyBatch.Tests.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADResultPresentation.Tests.ps1",
+      "owner": "15-catalog-docs"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADReviewCorrections.Tests.ps1",
+      "owner": "15-catalog-docs"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADSchemaTrustChecks.Tests.ps1",
+      "owner": "15-catalog-docs"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADSecondBatchCollectors.Tests.ps1",
+      "owner": "01-collector-overlaps"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADSiteOuBatch.Tests.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "A",
+      "path": "powershell/tests/functions/ADUserSecurityBatch.Tests.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "powershell/tests/functions/ActiveDirectoryDacl.Tests.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "powershell/tests/functions/ActiveDirectoryGpoPermissions.Tests.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "powershell/tests/functions/ActiveDirectoryIssues.Tests.ps1",
+      "owner": "15-catalog-docs"
+    },
+    {
+      "status": "M",
+      "path": "powershell/tests/functions/ActiveDirectoryOptIn.Tests.ps1",
+      "owner": "15-catalog-docs"
+    },
+    {
+      "status": "M",
+      "path": "powershell/tests/functions/engine/Frameworks.Tests.ps1",
+      "owner": "16-main-reconciliation"
+    },
+    {
+      "status": "M",
+      "path": "powershell/tests/functions/golden/Golden.Tests.ps1",
+      "owner": "00-foundation"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/computer/Test.AD-COMP-01.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/computer/Test.AD-COMP-01.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/computer/Test.AD-COMP-02.md",
+      "owner": "16-main-reconciliation"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/computer/Test.AD-COMP-02.ps1",
+      "owner": "16-main-reconciliation"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/computer/Test.AD-COMP-03.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/computer/Test.AD-COMP-03.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/computer/Test.AD-COMP-04.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/computer/Test.AD-COMP-04.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/computer/Test.AD-COMP-05.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/computer/Test.AD-COMP-05.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/computer/Test.AD-COMP-06.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/computer/Test.AD-COMP-06.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/computer/Test.AD-COMP-07.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/computer/Test.AD-COMP-07.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/computer/Test.AD-COMP-08.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/computer/Test.AD-COMP-08.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/computer/Test.AD-COMP-09.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/computer/Test.AD-COMP-09.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/computer/Test.AD-COMP-10.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/computer/Test.AD-COMP-10.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-01.md",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-01.ps1",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-02.md",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-02.ps1",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-03.md",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-03.ps1",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-04.md",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-04.ps1",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-05.md",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-05.ps1",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-06.md",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-06.ps1",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-07.md",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-07.ps1",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-08.md",
+      "owner": "09-auth-policy-overlap"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-08.ps1",
+      "owner": "09-auth-policy-overlap"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-09.md",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-09.ps1",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-10.md",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-10.ps1",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-11.md",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-11.ps1",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-12.md",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-12.ps1",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-13.md",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-13.ps1",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-14.md",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-14.ps1",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-15.md",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-15.ps1",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-16.md",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-16.ps1",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-17.md",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-17.ps1",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-18.md",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-18.ps1",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-19.md",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-19.ps1",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-20.md",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-20.ps1",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-21.md",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-21.ps1",
+      "owner": "10-adcs"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-22.md",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-22.ps1",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-23.md",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/config/Test.AD-CFG-23.ps1",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-24.md",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/config/Test.AD-CFG-24.ps1",
+      "owner": "08-directory-config"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-01.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-02.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-03.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-03.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/dacl/Test.AD-DACL-04.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/dacl/Test.AD-DACL-04.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-05.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-05.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/dacl/Test.AD-DACL-06.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/dacl/Test.AD-DACL-06.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-07.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-07.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/dacl/Test.AD-DACL-08.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/dacl/Test.AD-DACL-08.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-09.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-09.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/dacl/Test.AD-DACL-10.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/dacl/Test.AD-DACL-10.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-11.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-11.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/dacl/Test.AD-DACL-12.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/dacl/Test.AD-DACL-12.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/dacl/Test.AD-DACL-13.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/dacl/Test.AD-DACL-13.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-14.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-15.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-15.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/dacl/Test.AD-DACL-16.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/dacl/Test.AD-DACL-16.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-17.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dacl/Test.AD-DACL-17.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/dacl/Test.AD-DACL-18.md",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/dacl/Test.AD-DACL-18.ps1",
+      "owner": "13-dacl"
+    },
+    {
+      "status": "A",
+      "path": "tests/ad/delegation/Test.AD-USER-05.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "A",
+      "path": "tests/ad/delegation/Test.AD-USER-05.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dns/Test.AD-DNS-01.md",
+      "owner": "14-dns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dns/Test.AD-DNS-02.md",
+      "owner": "14-dns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dns/Test.AD-DNS-03.md",
+      "owner": "14-dns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dns/Test.AD-DNS-04.md",
+      "owner": "14-dns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dns/Test.AD-DNS-05.md",
+      "owner": "14-dns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dns/Test.AD-DNS-06.md",
+      "owner": "14-dns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dns/Test.AD-DNS-07.md",
+      "owner": "14-dns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dns/Test.AD-DNS-08.md",
+      "owner": "14-dns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dns/Test.AD-DNS-09.md",
+      "owner": "14-dns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dns/Test.AD-DNS-10.md",
+      "owner": "14-dns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dns/Test.AD-DNS-11.md",
+      "owner": "14-dns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dns/Test.AD-DNS-12.md",
+      "owner": "14-dns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dns/Test.AD-DNS-14.md",
+      "owner": "14-dns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dns/Test.AD-DNS-16.md",
+      "owner": "14-dns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dns/Test.AD-DNS-18.md",
+      "owner": "14-dns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/dns/Test.AD-DNS-19.md",
+      "owner": "14-dns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain-controller/Test.AD-DC-01.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain-controller/Test.AD-DC-01.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain-controller/Test.AD-DC-02.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain-controller/Test.AD-DC-03.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain-controller/Test.AD-DC-04.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain-controller/Test.AD-DC-05.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain-controller/Test.AD-DC-05.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/domain-controller/Test.AD-DC-06.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/domain-controller/Test.AD-DC-06.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain-controller/Test.AD-DC-07.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain-controller/Test.AD-DC-07.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/domain-controller/Test.AD-DC-08.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/domain-controller/Test.AD-DC-08.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain-controller/Test.AD-DCD-01.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain-controller/Test.AD-DCD-01.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/domain-controller/Test.AD-DCD-02.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/domain-controller/Test.AD-DCD-02.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain-controller/Test.AD-DCD-03.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain-controller/Test.AD-DCD-03.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain-controller/Test.AD-DCD-04.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain-controller/Test.AD-DCD-04.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-DOM-01.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-DOM-01.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-DOM-02.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-DOM-02.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-DOM-03.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-DOM-03.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-DOM-04.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-DOM-04.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-DOM-05.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-DOM-05.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/domain/Test.AD-DOM-06.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/domain/Test.AD-DOM-06.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-DOM-07.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-DOM-07.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/domain/Test.AD-DOM-08.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/domain/Test.AD-DOM-08.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-DOMS-01.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-DOMS-01.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-FOR-01.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-FOR-01.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-FOR-02.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-FOR-02.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-FOR-03.md",
+      "owner": "06-tombstone-overlap"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-FOR-03.ps1",
+      "owner": "06-tombstone-overlap"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-FOR-04.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-FOR-04.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-FORS-01.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-FORS-01.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/domain/Test.AD-FORS-02.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/domain/Test.AD-FORS-02.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-FORS-03.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-FORS-03.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-FORS-04.md",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/domain/Test.AD-FORS-04.ps1",
+      "owner": "05-domains-controllers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-01.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-01.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-02.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-02.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-03.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-03.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-04.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-04.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-05.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-06.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-07.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-07.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-08.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-08.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-09.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-10.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-10.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-11.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-11.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-12.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-12.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-13.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-13.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-14.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-15.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-15.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-16.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-16.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-17.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-17.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-18.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-18.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-19.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-19.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-20.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo-state/Test.AD-GPOREP-20.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOS-01.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOS-02.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOS-03.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOS-04.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOS-05.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOS-06.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOS-07.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOS-08.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo-state/Test.AD-GPOS-09.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo/Test.AD-GPO-01.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo/Test.AD-GPO-01.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo/Test.AD-GPO-02.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo/Test.AD-GPO-02.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo/Test.AD-GPO-03.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo/Test.AD-GPO-03.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo/Test.AD-GPO-04.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo/Test.AD-GPO-04.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo/Test.AD-GPO-05.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo/Test.AD-GPO-05.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo/Test.AD-GPOL-01.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo/Test.AD-GPOL-02.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo/Test.AD-GPOL-02.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo/Test.AD-GPOL-03.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo/Test.AD-GPOL-03.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo/Test.AD-GPOL-04.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo/Test.AD-GPOL-04.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo/Test.AD-GPOL-05.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/gpo/Test.AD-GPOL-05.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo/Test.AD-GPOL-06.md",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/gpo/Test.AD-GPOL-06.ps1",
+      "owner": "11-gpo"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GCHG-01.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GMC-01.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GMC-01.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GMC-02.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GMC-02.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/group/Test.AD-GMC-03.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/group/Test.AD-GMC-03.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GMC-04.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GMC-04.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/group/Test.AD-GMC-05.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/group/Test.AD-GMC-05.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GMC-06.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GMC-06.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/group/Test.AD-GMC-07.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/group/Test.AD-GMC-07.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GMC-08.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GMC-08.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/group/Test.AD-GMC-09.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/group/Test.AD-GMC-09.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GMC-10.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GMC-10.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/group/Test.AD-GMC-11.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/group/Test.AD-GMC-11.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GRP-01.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GRP-01.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GRP-02.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GRP-02.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GRP-03.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GRP-03.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GRP-04.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GRP-04.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GRP-05.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GRP-05.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GRP-06.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GRP-06.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/group/Test.AD-GRP-07.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/group/Test.AD-GRP-07.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GRP-08.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/group/Test.AD-GRP-08.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/group/Test.AD-GRP-09.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/group/Test.AD-GRP-09.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/group/Test.AD-GRP-10.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/group/Test.AD-GRP-10.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/ou/Test.AD-OU-01.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/ou/Test.AD-OU-01.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/ou/Test.AD-OU-02.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/ou/Test.AD-OU-02.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/ou/Test.AD-OU-03.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/ou/Test.AD-OU-03.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/ou/Test.AD-OU-04.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/ou/Test.AD-OU-04.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/ou/Test.AD-OU-05.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/ou/Test.AD-OU-05.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/password-policy/Test.AD-FGPP-01.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/password-policy/Test.AD-FGPP-01.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-FGPP-02.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-FGPP-02.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-FGPP-03.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-FGPP-03.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-FGPP-04.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-FGPP-04.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/password-policy/Test.AD-PWDPOL-01.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/password-policy/Test.AD-PWDPOL-01.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-PWDPOL-02.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-PWDPOL-02.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-PWDPOL-03.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-PWDPOL-03.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-PWDPOL-04.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-PWDPOL-04.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-PWDPOL-05.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-PWDPOL-05.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-PWDPOL-06.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-PWDPOL-06.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-PWDPOL-07.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/password-policy/Test.AD-PWDPOL-07.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/printer/Test.AD-PRINT-01.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/printer/Test.AD-PRINT-01.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/replication/Test.AD-DFSR-01.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/replication/Test.AD-FEAT-01.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/replication/Test.AD-FEAT-01.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/replication/Test.AD-FEAT-02.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/replication/Test.AD-FEAT-02.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/replication/Test.AD-REPL-01.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/replication/Test.AD-REPL-02.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/replication/Test.AD-ROOTDSE-01.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/replication/Test.AD-ROOTDSE-01.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/replication/Test.AD-ROOTDSE-02.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/replication/Test.AD-ROOTDSE-02.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/replication/Test.AD-ROOTDSE-03.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/schema/Test.AD-SCH-01.md",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/schema/Test.AD-SCH-01.ps1",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/schema/Test.AD-SCH-02.md",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/schema/Test.AD-SCH-02.ps1",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/schema/Test.AD-SCH-03.md",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/schema/Test.AD-SCH-03.ps1",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/schema/Test.AD-SCH-04.md",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/schema/Test.AD-SCH-04.ps1",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/schema/Test.AD-SCH-05.md",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/schema/Test.AD-SCH-05.ps1",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-DCOMP-01.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-DCOMP-01.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/security/Test.AD-DCOMP-02.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/security/Test.AD-DCOMP-02.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-DCOMP-03.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-DCOMP-03.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-DCOMP-04.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-DCOMP-04.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/security/Test.AD-DCOMP-05.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/security/Test.AD-DCOMP-05.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-DCOMP-06.md",
+      "owner": "16-main-reconciliation"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-DCOMP-06.ps1",
+      "owner": "16-main-reconciliation"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-DCOMP-07.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-DCOMP-07.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-DCOMP-08.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-DCOMP-08.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/security/Test.AD-DCOMP-09.md",
+      "owner": "04-computers"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/security/Test.AD-DCOMP-09.ps1",
+      "owner": "04-computers"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-KRBTGT-01.md",
+      "owner": "16-main-reconciliation"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-KRBTGT-01.ps1",
+      "owner": "16-main-reconciliation"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-KRBTGT-02.md",
+      "owner": "16-main-reconciliation"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-KRBTGT-03.md",
+      "owner": "16-main-reconciliation"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-MSA-01.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/security/Test.AD-MSA-01.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/site/Test.AD-SITE-01.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/site/Test.AD-SITE-01.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/site/Test.AD-SITE-02.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/site/Test.AD-SITE-02.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SITE-03.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SITE-03.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/site/Test.AD-SITE-04.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/site/Test.AD-SITE-04.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SITE-05.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SITE-05.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SUB-01.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SUB-01.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SUB-02.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SUB-02.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/site/Test.AD-SUB-03.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/site/Test.AD-SUB-03.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/site/Test.AD-SUB-04.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/site/Test.AD-SUB-04.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SUB-05.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SUB-05.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/site/Test.AD-SUB-06.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/site/Test.AD-SUB-06.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SUB-07.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SUB-07.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/site/Test.AD-SUB-08.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/site/Test.AD-SUB-08.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SUB-09.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SUB-09.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SUB-10.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SUB-10.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SUB-11.md",
+      "owner": "07-topology"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/site/Test.AD-SUB-11.ps1",
+      "owner": "07-topology"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/spn/Test.AD-SPN-01.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/spn/Test.AD-SPN-01.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/spn/Test.AD-SPN-02.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/spn/Test.AD-SPN-02.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/spn/Test.AD-SPN-03.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/spn/Test.AD-SPN-03.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/spn/Test.AD-SPN-04.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/spn/Test.AD-SPN-04.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/spn/Test.AD-SPN-05.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/spn/Test.AD-SPN-05.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/spn/Test.AD-SPN-06.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/spn/Test.AD-SPN-06.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/spn/Test.AD-SPN-07.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/spn/Test.AD-SPN-07.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/spn/Test.AD-SPN-08.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/spn/Test.AD-SPN-08.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/spn/Test.AD-SPN-09.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/spn/Test.AD-SPN-09.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/spn/Test.AD-SPN-10.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/spn/Test.AD-SPN-10.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/spn/Test.AD-SPN-11.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/spn/Test.AD-SPN-11.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/spn/Test.AD-SPN-12.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/spn/Test.AD-SPN-12.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/spn/Test.AD-SPN-13.md",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/spn/Test.AD-SPN-13.ps1",
+      "owner": "02-groups-spns"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/trust/Test.AD-TRUST-01.md",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/trust/Test.AD-TRUST-01.ps1",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/trust/Test.AD-TRUST-02.md",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/trust/Test.AD-TRUST-02.ps1",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/trust/Test.AD-TRUST-03.md",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/trust/Test.AD-TRUST-03.ps1",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/trust/Test.AD-TRUST-04.md",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/trust/Test.AD-TRUST-04.ps1",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/trust/Test.AD-TRUST-05.md",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/trust/Test.AD-TRUST-05.ps1",
+      "owner": "12-schema-trust"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/trust/Test.AD-TRUST-06.md",
+      "owner": "16-main-reconciliation"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/trust/Test.AD-TRUST-06.ps1",
+      "owner": "16-main-reconciliation"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/trust/Test.AD-TRUST-07.md",
+      "owner": "16-main-reconciliation"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/trust/Test.AD-TRUST-07.ps1",
+      "owner": "16-main-reconciliation"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-01.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-01.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-02.md",
+      "owner": "16-main-reconciliation"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-02.ps1",
+      "owner": "16-main-reconciliation"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-03.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-03.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-04.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-04.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-05.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-05.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-06.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-06.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-07.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-07.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-08.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-08.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-09.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-09.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-10.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-10.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-11.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-11.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-12.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-12.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-13.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-13.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-14.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-14.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-15.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-15.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-16.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-16.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-17.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-17.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-18.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-18.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-19.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-19.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-20.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-20.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-21.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-21.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-22.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-22.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-23.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-23.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-24.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-24.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-25.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-25.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-26.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "tests/ad/user/Test.AD-USER-26.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-27.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-27.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-28.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-28.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-29.md",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "D",
+      "path": "tests/ad/user/Test.AD-USER-29.ps1",
+      "owner": "03-users-passwords"
+    },
+    {
+      "status": "M",
+      "path": "website/docs/advanced/active-directory.md",
+      "owner": "15-catalog-docs"
+    },
+    {
+      "status": "M",
+      "path": "website/docs/upgrading-from-2x.md",
+      "owner": "15-catalog-docs"
+    },
+    {
+      "status": "A",
+      "path": "website/scripts/test-retired-test-redirects.mjs",
+      "owner": "15-catalog-docs"
+    },
+    {
+      "status": "M",
+      "path": "website/src/lib/redirects.mjs",
+      "owner": "15-catalog-docs"
+    }
+  ],
+  "branches": [
+    {
+      "name": "00-foundation",
+      "branch": "split/ad-00-foundation",
+      "parent": "upstream/main",
+      "paths": [
+        "build/golden/Export-MtLegacyTagTable.ps1",
+        "build/golden/native-test-replacements.psd1",
+        "powershell/assets/Maester.LegacyTags.json",
+        "powershell/internal/checks/ad/ad/Assert-MtAdUserAccountControl.ps1",
+        "powershell/internal/checks/ad/ad/ConvertTo-MtAdConfigurationInventoryCell.ps1",
+        "powershell/internal/checks/ad/ad/Format-MtAdSiteInventoryValue.ps1",
+        "powershell/internal/checks/ad/ad/Format-MtAdSummaryTable.ps1",
+        "powershell/internal/checks/ad/ad/Format-MtAdUserSecurityTable.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdCertificateInventory.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdConfigurationInventory.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdConfigurationInventorySiteLinkTransport.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdStateCollection.ps1",
+        "powershell/internal/checks/ad/ad/Invoke-MtAdConfigurationInventoryReport.ps1",
+        "powershell/internal/services/ad/Test-MtAdDomainControllerAccount.ps1",
+        "powershell/internal/services/ad/protocol/ConvertFrom-MtLdapValue.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapComputer.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapDomain.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapDomainController.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapFineGrainedPasswordPolicy.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapForest.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapOptionalFeature.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapPrinter.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapReplicationSite.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapSchemaObject.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapUser.ps1",
+        "powershell/tests/functions/golden/Golden.Tests.ps1"
+      ],
+      "patchOnly": false,
+      "retiredMappings": {
+        "MT1060": "MT.1060"
+      },
+      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/00-foundation",
+      "commits": [
+        "4d32a101ec068d5d36e0d5834bab6fa78dd6e034",
+        "a4362221f428bd3f308ce2523a12262e20c2aee2"
+      ],
+      "compare": "https://github.com/soulemike/maester/compare/main...split/ad-00-foundation?expand=1",
+      "changedPaths": [
+        "build/golden/Export-MtLegacyTagTable.ps1",
+        "build/golden/native-test-replacements.psd1",
+        "powershell/internal/checks/ad/ad/Assert-MtAdUserAccountControl.ps1",
+        "powershell/internal/checks/ad/ad/ConvertTo-MtAdConfigurationInventoryCell.ps1",
+        "powershell/internal/checks/ad/ad/Format-MtAdSiteInventoryValue.ps1",
+        "powershell/internal/checks/ad/ad/Format-MtAdSummaryTable.ps1",
+        "powershell/internal/checks/ad/ad/Format-MtAdUserSecurityTable.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdCertificateInventory.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdConfigurationInventory.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdConfigurationInventorySiteLinkTransport.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdStateCollection.ps1",
+        "powershell/internal/checks/ad/ad/Invoke-MtAdConfigurationInventoryReport.ps1",
+        "powershell/internal/services/ad/Test-MtAdDomainControllerAccount.ps1",
+        "powershell/internal/services/ad/protocol/ConvertFrom-MtLdapValue.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapComputer.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapDomain.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapDomainController.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapFineGrainedPasswordPolicy.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapForest.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapOptionalFeature.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapPrinter.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapReplicationSite.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapSchemaObject.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapUser.ps1",
+        "powershell/tests/functions/golden/Golden.Tests.ps1"
+      ],
+      "sessionID": "ses_e10c644ceffee075xNLyzGcthr"
+    },
+    {
+      "name": "01-collector-overlaps",
+      "branch": "split/ad-01-collector-overlaps",
+      "parent": "split/ad-00-foundation",
+      "paths": [
+        "powershell/internal/services/ad/queries/Get-MtLdapConfigurationContainer.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapServiceAccount.ps1",
+        "powershell/public/services/ad/Get-MtADDomainState.ps1",
+        "powershell/tests/functions/ADCollectorQueries.Tests.ps1",
+        "powershell/tests/functions/ADSecondBatchCollectors.Tests.ps1"
+      ],
+      "patchOnly": false,
+      "retiredMappings": {
+        "MT1060": "MT.1060"
+      },
+      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/01-collector-overlaps",
+      "commits": [
+        "72a31d6ec14fd7b477d5d0b58380d43c4f120f77"
+      ],
+      "compare": "https://github.com/soulemike/maester/compare/split/ad-00-foundation...split/ad-01-collector-overlaps?expand=1",
+      "changedPaths": [
+        "powershell/internal/services/ad/queries/Get-MtLdapConfigurationContainer.ps1",
+        "powershell/internal/services/ad/queries/Get-MtLdapServiceAccount.ps1",
+        "powershell/public/services/ad/Get-MtADDomainState.ps1",
+        "powershell/tests/functions/ADCollectorQueries.Tests.ps1",
+        "powershell/tests/functions/ADSecondBatchCollectors.Tests.ps1"
+      ],
+      "sessionID": "ses_e10c635f5ffeG74mWP8eLACCDY"
+    },
+    {
+      "name": "02-groups-spns",
+      "branch": "split/ad-02-groups-spns",
+      "parent": "split/ad-01-collector-overlaps",
+      "paths": [
+        "powershell/tests/functions/ADGroupSpnChecks.Tests.ps1",
+        "tests/ad/group/Test.AD-GCHG-01.md",
+        "tests/ad/group/Test.AD-GMC-01.md",
+        "tests/ad/group/Test.AD-GMC-01.ps1",
+        "tests/ad/group/Test.AD-GMC-02.md",
+        "tests/ad/group/Test.AD-GMC-02.ps1",
+        "tests/ad/group/Test.AD-GMC-03.md",
+        "tests/ad/group/Test.AD-GMC-03.ps1",
+        "tests/ad/group/Test.AD-GMC-04.md",
+        "tests/ad/group/Test.AD-GMC-04.ps1",
+        "tests/ad/group/Test.AD-GMC-05.md",
+        "tests/ad/group/Test.AD-GMC-05.ps1",
+        "tests/ad/group/Test.AD-GMC-06.md",
+        "tests/ad/group/Test.AD-GMC-06.ps1",
+        "tests/ad/group/Test.AD-GMC-07.md",
+        "tests/ad/group/Test.AD-GMC-07.ps1",
+        "tests/ad/group/Test.AD-GMC-08.md",
+        "tests/ad/group/Test.AD-GMC-08.ps1",
+        "tests/ad/group/Test.AD-GMC-09.md",
+        "tests/ad/group/Test.AD-GMC-09.ps1",
+        "tests/ad/group/Test.AD-GMC-10.md",
+        "tests/ad/group/Test.AD-GMC-10.ps1",
+        "tests/ad/group/Test.AD-GMC-11.md",
+        "tests/ad/group/Test.AD-GMC-11.ps1",
+        "tests/ad/group/Test.AD-GRP-01.md",
+        "tests/ad/group/Test.AD-GRP-01.ps1",
+        "tests/ad/group/Test.AD-GRP-02.md",
+        "tests/ad/group/Test.AD-GRP-02.ps1",
+        "tests/ad/group/Test.AD-GRP-03.md",
+        "tests/ad/group/Test.AD-GRP-03.ps1",
+        "tests/ad/group/Test.AD-GRP-04.md",
+        "tests/ad/group/Test.AD-GRP-04.ps1",
+        "tests/ad/group/Test.AD-GRP-05.md",
+        "tests/ad/group/Test.AD-GRP-05.ps1",
+        "tests/ad/group/Test.AD-GRP-06.md",
+        "tests/ad/group/Test.AD-GRP-06.ps1",
+        "tests/ad/group/Test.AD-GRP-07.md",
+        "tests/ad/group/Test.AD-GRP-07.ps1",
+        "tests/ad/group/Test.AD-GRP-08.md",
+        "tests/ad/group/Test.AD-GRP-08.ps1",
+        "tests/ad/group/Test.AD-GRP-09.md",
+        "tests/ad/group/Test.AD-GRP-09.ps1",
+        "tests/ad/group/Test.AD-GRP-10.md",
+        "tests/ad/group/Test.AD-GRP-10.ps1",
+        "tests/ad/spn/Test.AD-SPN-01.md",
+        "tests/ad/spn/Test.AD-SPN-01.ps1",
+        "tests/ad/spn/Test.AD-SPN-02.md",
+        "tests/ad/spn/Test.AD-SPN-02.ps1",
+        "tests/ad/spn/Test.AD-SPN-03.md",
+        "tests/ad/spn/Test.AD-SPN-03.ps1",
+        "tests/ad/spn/Test.AD-SPN-04.md",
+        "tests/ad/spn/Test.AD-SPN-04.ps1",
+        "tests/ad/spn/Test.AD-SPN-05.md",
+        "tests/ad/spn/Test.AD-SPN-05.ps1",
+        "tests/ad/spn/Test.AD-SPN-06.md",
+        "tests/ad/spn/Test.AD-SPN-06.ps1",
+        "tests/ad/spn/Test.AD-SPN-07.md",
+        "tests/ad/spn/Test.AD-SPN-07.ps1",
+        "tests/ad/spn/Test.AD-SPN-08.md",
+        "tests/ad/spn/Test.AD-SPN-08.ps1",
+        "tests/ad/spn/Test.AD-SPN-09.md",
+        "tests/ad/spn/Test.AD-SPN-09.ps1",
+        "tests/ad/spn/Test.AD-SPN-10.md",
+        "tests/ad/spn/Test.AD-SPN-10.ps1",
+        "tests/ad/spn/Test.AD-SPN-11.md",
+        "tests/ad/spn/Test.AD-SPN-11.ps1",
+        "tests/ad/spn/Test.AD-SPN-12.md",
+        "tests/ad/spn/Test.AD-SPN-12.ps1",
+        "tests/ad/spn/Test.AD-SPN-13.md",
+        "tests/ad/spn/Test.AD-SPN-13.ps1"
+      ],
+      "patchOnly": false,
+      "retiredMappings": {
+        "MT1060": "MT.1060",
+        "AD-GMC-03": "AD-GMC-02",
+        "AD-GMC-05": "AD-GMC-04",
+        "AD-GMC-07": "AD-GMC-06",
+        "AD-GMC-09": "AD-GMC-08",
+        "AD-GMC-11": "AD-GMC-10",
+        "AD-GRP-07": "AD-GRP-06",
+        "AD-GRP-09": "AD-GRP-08",
+        "AD-GRP-10": "AD-GRP-08",
+        "AD-SPN-02": "AD-SPN-01",
+        "AD-SPN-04": "AD-SPN-03",
+        "AD-SPN-08": "AD-SPN-07",
+        "AD-SPN-10": "AD-SPN-09",
+        "AD-SPN-13": "AD-SPN-12"
+      },
+      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/02-groups-spns",
+      "commits": [
+        "a0b71be360e28f477663bf21ac208f26b8ac9712",
+        "d7dc71a299415c6cb5486aa9d3597b638246ef4e",
+        "4eecf75cfc068b85748b9833978b57d5d2d3ad36"
+      ],
+      "compare": "https://github.com/soulemike/maester/compare/split/ad-01-collector-overlaps...split/ad-02-groups-spns?expand=1",
+      "changedPaths": [
+        "build/golden/native-test-replacements.psd1",
+        "powershell/assets/Maester.LegacyTags.json",
+        "powershell/tests/functions/ADGroupSpnChecks.Tests.ps1",
+        "tests/ad/group/Test.AD-GCHG-01.md",
+        "tests/ad/group/Test.AD-GMC-01.md",
+        "tests/ad/group/Test.AD-GMC-01.ps1",
+        "tests/ad/group/Test.AD-GMC-02.md",
+        "tests/ad/group/Test.AD-GMC-02.ps1",
+        "tests/ad/group/Test.AD-GMC-03.md",
+        "tests/ad/group/Test.AD-GMC-03.ps1",
+        "tests/ad/group/Test.AD-GMC-04.md",
+        "tests/ad/group/Test.AD-GMC-04.ps1",
+        "tests/ad/group/Test.AD-GMC-05.md",
+        "tests/ad/group/Test.AD-GMC-05.ps1",
+        "tests/ad/group/Test.AD-GMC-06.md",
+        "tests/ad/group/Test.AD-GMC-06.ps1",
+        "tests/ad/group/Test.AD-GMC-07.md",
+        "tests/ad/group/Test.AD-GMC-07.ps1",
+        "tests/ad/group/Test.AD-GMC-08.md",
+        "tests/ad/group/Test.AD-GMC-08.ps1",
+        "tests/ad/group/Test.AD-GMC-09.md",
+        "tests/ad/group/Test.AD-GMC-09.ps1",
+        "tests/ad/group/Test.AD-GMC-10.md",
+        "tests/ad/group/Test.AD-GMC-10.ps1",
+        "tests/ad/group/Test.AD-GMC-11.md",
+        "tests/ad/group/Test.AD-GMC-11.ps1",
+        "tests/ad/group/Test.AD-GRP-01.md",
+        "tests/ad/group/Test.AD-GRP-01.ps1",
+        "tests/ad/group/Test.AD-GRP-02.md",
+        "tests/ad/group/Test.AD-GRP-02.ps1",
+        "tests/ad/group/Test.AD-GRP-03.md",
+        "tests/ad/group/Test.AD-GRP-03.ps1",
+        "tests/ad/group/Test.AD-GRP-04.md",
+        "tests/ad/group/Test.AD-GRP-04.ps1",
+        "tests/ad/group/Test.AD-GRP-05.md",
+        "tests/ad/group/Test.AD-GRP-05.ps1",
+        "tests/ad/group/Test.AD-GRP-06.md",
+        "tests/ad/group/Test.AD-GRP-06.ps1",
+        "tests/ad/group/Test.AD-GRP-07.md",
+        "tests/ad/group/Test.AD-GRP-07.ps1",
+        "tests/ad/group/Test.AD-GRP-08.md",
+        "tests/ad/group/Test.AD-GRP-08.ps1",
+        "tests/ad/group/Test.AD-GRP-09.md",
+        "tests/ad/group/Test.AD-GRP-09.ps1",
+        "tests/ad/group/Test.AD-GRP-10.md",
+        "tests/ad/group/Test.AD-GRP-10.ps1",
+        "tests/ad/spn/Test.AD-SPN-01.md",
+        "tests/ad/spn/Test.AD-SPN-01.ps1",
+        "tests/ad/spn/Test.AD-SPN-02.md",
+        "tests/ad/spn/Test.AD-SPN-02.ps1",
+        "tests/ad/spn/Test.AD-SPN-03.md",
+        "tests/ad/spn/Test.AD-SPN-03.ps1",
+        "tests/ad/spn/Test.AD-SPN-04.md",
+        "tests/ad/spn/Test.AD-SPN-04.ps1",
+        "tests/ad/spn/Test.AD-SPN-05.md",
+        "tests/ad/spn/Test.AD-SPN-05.ps1",
+        "tests/ad/spn/Test.AD-SPN-06.md",
+        "tests/ad/spn/Test.AD-SPN-06.ps1",
+        "tests/ad/spn/Test.AD-SPN-07.md",
+        "tests/ad/spn/Test.AD-SPN-07.ps1",
+        "tests/ad/spn/Test.AD-SPN-08.md",
+        "tests/ad/spn/Test.AD-SPN-08.ps1",
+        "tests/ad/spn/Test.AD-SPN-09.md",
+        "tests/ad/spn/Test.AD-SPN-09.ps1",
+        "tests/ad/spn/Test.AD-SPN-10.md",
+        "tests/ad/spn/Test.AD-SPN-10.ps1",
+        "tests/ad/spn/Test.AD-SPN-11.md",
+        "tests/ad/spn/Test.AD-SPN-11.ps1",
+        "tests/ad/spn/Test.AD-SPN-12.md",
+        "tests/ad/spn/Test.AD-SPN-12.ps1",
+        "tests/ad/spn/Test.AD-SPN-13.md",
+        "tests/ad/spn/Test.AD-SPN-13.ps1"
+      ],
+      "sessionID": "ses_e10c62a0bffeS2d3dEOSw6kSY4"
+    },
+    {
+      "name": "03-users-passwords",
+      "branch": "split/ad-03-users-passwords",
+      "parent": "split/ad-02-groups-spns",
+      "paths": [
+        "powershell/internal/checks/ad/ad/Get-MtAdPasswordPolicyUsage.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdUserPathFindings.ps1",
+        "powershell/internal/checks/ad/ad/Test-MtAdPasswordPolicyConfiguration.ps1",
+        "powershell/internal/checks/ad/ad/Test-MtAdUserOrdinaryIdentity.ps1",
+        "powershell/tests/functions/ADPasswordPolicyBatch.Tests.ps1",
+        "powershell/tests/functions/ADUserSecurityBatch.Tests.ps1",
+        "tests/ad/delegation/Test.AD-USER-05.md",
+        "tests/ad/delegation/Test.AD-USER-05.ps1",
+        "tests/ad/password-policy/Test.AD-FGPP-01.md",
+        "tests/ad/password-policy/Test.AD-FGPP-01.ps1",
+        "tests/ad/password-policy/Test.AD-FGPP-02.md",
+        "tests/ad/password-policy/Test.AD-FGPP-02.ps1",
+        "tests/ad/password-policy/Test.AD-FGPP-03.md",
+        "tests/ad/password-policy/Test.AD-FGPP-03.ps1",
+        "tests/ad/password-policy/Test.AD-FGPP-04.md",
+        "tests/ad/password-policy/Test.AD-FGPP-04.ps1",
+        "tests/ad/password-policy/Test.AD-PWDPOL-01.md",
+        "tests/ad/password-policy/Test.AD-PWDPOL-01.ps1",
+        "tests/ad/password-policy/Test.AD-PWDPOL-02.md",
+        "tests/ad/password-policy/Test.AD-PWDPOL-02.ps1",
+        "tests/ad/password-policy/Test.AD-PWDPOL-03.md",
+        "tests/ad/password-policy/Test.AD-PWDPOL-03.ps1",
+        "tests/ad/password-policy/Test.AD-PWDPOL-04.md",
+        "tests/ad/password-policy/Test.AD-PWDPOL-04.ps1",
+        "tests/ad/password-policy/Test.AD-PWDPOL-05.md",
+        "tests/ad/password-policy/Test.AD-PWDPOL-05.ps1",
+        "tests/ad/password-policy/Test.AD-PWDPOL-06.md",
+        "tests/ad/password-policy/Test.AD-PWDPOL-06.ps1",
+        "tests/ad/password-policy/Test.AD-PWDPOL-07.md",
+        "tests/ad/password-policy/Test.AD-PWDPOL-07.ps1",
+        "tests/ad/security/Test.AD-MSA-01.md",
+        "tests/ad/security/Test.AD-MSA-01.ps1",
+        "tests/ad/user/Test.AD-USER-01.md",
+        "tests/ad/user/Test.AD-USER-01.ps1",
+        "tests/ad/user/Test.AD-USER-03.md",
+        "tests/ad/user/Test.AD-USER-03.ps1",
+        "tests/ad/user/Test.AD-USER-04.md",
+        "tests/ad/user/Test.AD-USER-04.ps1",
+        "tests/ad/user/Test.AD-USER-05.md",
+        "tests/ad/user/Test.AD-USER-05.ps1",
+        "tests/ad/user/Test.AD-USER-06.md",
+        "tests/ad/user/Test.AD-USER-06.ps1",
+        "tests/ad/user/Test.AD-USER-07.md",
+        "tests/ad/user/Test.AD-USER-07.ps1",
+        "tests/ad/user/Test.AD-USER-08.md",
+        "tests/ad/user/Test.AD-USER-08.ps1",
+        "tests/ad/user/Test.AD-USER-09.md",
+        "tests/ad/user/Test.AD-USER-09.ps1",
+        "tests/ad/user/Test.AD-USER-10.md",
+        "tests/ad/user/Test.AD-USER-10.ps1",
+        "tests/ad/user/Test.AD-USER-11.md",
+        "tests/ad/user/Test.AD-USER-11.ps1",
+        "tests/ad/user/Test.AD-USER-12.md",
+        "tests/ad/user/Test.AD-USER-12.ps1",
+        "tests/ad/user/Test.AD-USER-13.md",
+        "tests/ad/user/Test.AD-USER-13.ps1",
+        "tests/ad/user/Test.AD-USER-14.md",
+        "tests/ad/user/Test.AD-USER-14.ps1",
+        "tests/ad/user/Test.AD-USER-15.md",
+        "tests/ad/user/Test.AD-USER-15.ps1",
+        "tests/ad/user/Test.AD-USER-16.md",
+        "tests/ad/user/Test.AD-USER-16.ps1",
+        "tests/ad/user/Test.AD-USER-17.md",
+        "tests/ad/user/Test.AD-USER-17.ps1",
+        "tests/ad/user/Test.AD-USER-18.md",
+        "tests/ad/user/Test.AD-USER-18.ps1",
+        "tests/ad/user/Test.AD-USER-19.md",
+        "tests/ad/user/Test.AD-USER-19.ps1",
+        "tests/ad/user/Test.AD-USER-20.md",
+        "tests/ad/user/Test.AD-USER-20.ps1",
+        "tests/ad/user/Test.AD-USER-21.md",
+        "tests/ad/user/Test.AD-USER-21.ps1",
+        "tests/ad/user/Test.AD-USER-22.md",
+        "tests/ad/user/Test.AD-USER-22.ps1",
+        "tests/ad/user/Test.AD-USER-23.md",
+        "tests/ad/user/Test.AD-USER-23.ps1",
+        "tests/ad/user/Test.AD-USER-24.md",
+        "tests/ad/user/Test.AD-USER-24.ps1",
+        "tests/ad/user/Test.AD-USER-25.md",
+        "tests/ad/user/Test.AD-USER-25.ps1",
+        "tests/ad/user/Test.AD-USER-26.md",
+        "tests/ad/user/Test.AD-USER-26.ps1",
+        "tests/ad/user/Test.AD-USER-27.md",
+        "tests/ad/user/Test.AD-USER-27.ps1",
+        "tests/ad/user/Test.AD-USER-28.md",
+        "tests/ad/user/Test.AD-USER-28.ps1",
+        "tests/ad/user/Test.AD-USER-29.md",
+        "tests/ad/user/Test.AD-USER-29.ps1"
+      ],
+      "patchOnly": false,
+      "retiredMappings": {
+        "MT1060": "MT.1060",
+        "AD-GMC-03": "AD-GMC-02",
+        "AD-GMC-05": "AD-GMC-04",
+        "AD-GMC-07": "AD-GMC-06",
+        "AD-GMC-09": "AD-GMC-08",
+        "AD-GMC-11": "AD-GMC-10",
+        "AD-GRP-07": "AD-GRP-06",
+        "AD-GRP-09": "AD-GRP-08",
+        "AD-GRP-10": "AD-GRP-08",
+        "AD-SPN-02": "AD-SPN-01",
+        "AD-SPN-04": "AD-SPN-03",
+        "AD-SPN-08": "AD-SPN-07",
+        "AD-SPN-10": "AD-SPN-09",
+        "AD-SPN-13": "AD-SPN-12",
+        "AD-USER-14": "AD-SPN-06",
+        "AD-FGPP-02": "AD-FGPP-01",
+        "AD-FGPP-03": "AD-FGPP-01",
+        "AD-FGPP-04": "AD-FGPP-01",
+        "AD-PWDPOL-02": "AD-PWDPOL-01",
+        "AD-PWDPOL-03": "AD-PWDPOL-01",
+        "AD-PWDPOL-04": "AD-PWDPOL-01",
+        "AD-PWDPOL-05": "AD-PWDPOL-01",
+        "AD-PWDPOL-06": "AD-PWDPOL-01",
+        "AD-PWDPOL-07": "AD-PWDPOL-01",
+        "AD-USER-17": "AD-USER-16",
+        "AD-USER-18": "AD-USER-16",
+        "AD-USER-21": "AD-USER-20",
+        "AD-USER-23": "AD-USER-22",
+        "AD-USER-24": "AD-USER-22",
+        "AD-USER-25": "AD-USER-22",
+        "AD-USER-27": "AD-USER-26",
+        "AD-USER-28": "AD-USER-05",
+        "AD-USER-29": "AD-USER-05"
+      },
+      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/03-users-passwords",
+      "commits": [
+        "9806b0fd755f1639cba4eb81406fe8e78abadf7c",
+        "b78ad480758d9d25bc85ac01bbf5cd25f4907ea6",
+        "83d6dbd72201075305ffacf08c6d095d6da80e57",
+        "a3c87c6297b044eb2e6f5c9f8d42e53bf9c4a514"
+      ],
+      "compare": "https://github.com/soulemike/maester/compare/split/ad-02-groups-spns...split/ad-03-users-passwords?expand=1",
+      "changedPaths": [
+        "build/golden/native-test-replacements.psd1",
+        "powershell/assets/Maester.LegacyTags.json",
+        "powershell/internal/checks/ad/ad/Get-MtAdPasswordPolicyUsage.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdUserPathFindings.ps1",
+        "powershell/internal/checks/ad/ad/Test-MtAdPasswordPolicyConfiguration.ps1",
+        "powershell/internal/checks/ad/ad/Test-MtAdUserOrdinaryIdentity.ps1",
+        "powershell/tests/functions/ADPasswordPolicyBatch.Tests.ps1",
+        "powershell/tests/functions/ADUserSecurityBatch.Tests.ps1",
+        "tests/ad/delegation/Test.AD-USER-05.md",
+        "tests/ad/delegation/Test.AD-USER-05.ps1",
+        "tests/ad/password-policy/Test.AD-FGPP-01.md",
+        "tests/ad/password-policy/Test.AD-FGPP-01.ps1",
+        "tests/ad/password-policy/Test.AD-FGPP-02.md",
+        "tests/ad/password-policy/Test.AD-FGPP-02.ps1",
+        "tests/ad/password-policy/Test.AD-FGPP-03.md",
+        "tests/ad/password-policy/Test.AD-FGPP-03.ps1",
+        "tests/ad/password-policy/Test.AD-FGPP-04.md",
+        "tests/ad/password-policy/Test.AD-FGPP-04.ps1",
+        "tests/ad/password-policy/Test.AD-PWDPOL-01.md",
+        "tests/ad/password-policy/Test.AD-PWDPOL-01.ps1",
+        "tests/ad/password-policy/Test.AD-PWDPOL-02.md",
+        "tests/ad/password-policy/Test.AD-PWDPOL-02.ps1",
+        "tests/ad/password-policy/Test.AD-PWDPOL-03.md",
+        "tests/ad/password-policy/Test.AD-PWDPOL-03.ps1",
+        "tests/ad/password-policy/Test.AD-PWDPOL-04.md",
+        "tests/ad/password-policy/Test.AD-PWDPOL-04.ps1",
+        "tests/ad/password-policy/Test.AD-PWDPOL-05.md",
+        "tests/ad/password-policy/Test.AD-PWDPOL-05.ps1",
+        "tests/ad/password-policy/Test.AD-PWDPOL-06.md",
+        "tests/ad/password-policy/Test.AD-PWDPOL-06.ps1",
+        "tests/ad/password-policy/Test.AD-PWDPOL-07.md",
+        "tests/ad/password-policy/Test.AD-PWDPOL-07.ps1",
+        "tests/ad/security/Test.AD-MSA-01.md",
+        "tests/ad/security/Test.AD-MSA-01.ps1",
+        "tests/ad/user/Test.AD-USER-01.md",
+        "tests/ad/user/Test.AD-USER-01.ps1",
+        "tests/ad/user/Test.AD-USER-03.md",
+        "tests/ad/user/Test.AD-USER-03.ps1",
+        "tests/ad/user/Test.AD-USER-04.md",
+        "tests/ad/user/Test.AD-USER-04.ps1",
+        "tests/ad/user/Test.AD-USER-05.md",
+        "tests/ad/user/Test.AD-USER-05.ps1",
+        "tests/ad/user/Test.AD-USER-06.md",
+        "tests/ad/user/Test.AD-USER-06.ps1",
+        "tests/ad/user/Test.AD-USER-07.md",
+        "tests/ad/user/Test.AD-USER-07.ps1",
+        "tests/ad/user/Test.AD-USER-08.md",
+        "tests/ad/user/Test.AD-USER-08.ps1",
+        "tests/ad/user/Test.AD-USER-09.md",
+        "tests/ad/user/Test.AD-USER-09.ps1",
+        "tests/ad/user/Test.AD-USER-10.md",
+        "tests/ad/user/Test.AD-USER-10.ps1",
+        "tests/ad/user/Test.AD-USER-11.md",
+        "tests/ad/user/Test.AD-USER-11.ps1",
+        "tests/ad/user/Test.AD-USER-12.md",
+        "tests/ad/user/Test.AD-USER-12.ps1",
+        "tests/ad/user/Test.AD-USER-13.md",
+        "tests/ad/user/Test.AD-USER-13.ps1",
+        "tests/ad/user/Test.AD-USER-14.md",
+        "tests/ad/user/Test.AD-USER-14.ps1",
+        "tests/ad/user/Test.AD-USER-15.md",
+        "tests/ad/user/Test.AD-USER-15.ps1",
+        "tests/ad/user/Test.AD-USER-16.md",
+        "tests/ad/user/Test.AD-USER-16.ps1",
+        "tests/ad/user/Test.AD-USER-17.md",
+        "tests/ad/user/Test.AD-USER-17.ps1",
+        "tests/ad/user/Test.AD-USER-18.md",
+        "tests/ad/user/Test.AD-USER-18.ps1",
+        "tests/ad/user/Test.AD-USER-19.md",
+        "tests/ad/user/Test.AD-USER-19.ps1",
+        "tests/ad/user/Test.AD-USER-20.md",
+        "tests/ad/user/Test.AD-USER-20.ps1",
+        "tests/ad/user/Test.AD-USER-21.md",
+        "tests/ad/user/Test.AD-USER-21.ps1",
+        "tests/ad/user/Test.AD-USER-22.md",
+        "tests/ad/user/Test.AD-USER-22.ps1",
+        "tests/ad/user/Test.AD-USER-23.md",
+        "tests/ad/user/Test.AD-USER-23.ps1",
+        "tests/ad/user/Test.AD-USER-24.md",
+        "tests/ad/user/Test.AD-USER-24.ps1",
+        "tests/ad/user/Test.AD-USER-25.md",
+        "tests/ad/user/Test.AD-USER-25.ps1",
+        "tests/ad/user/Test.AD-USER-26.md",
+        "tests/ad/user/Test.AD-USER-26.ps1",
+        "tests/ad/user/Test.AD-USER-27.md",
+        "tests/ad/user/Test.AD-USER-27.ps1",
+        "tests/ad/user/Test.AD-USER-28.md",
+        "tests/ad/user/Test.AD-USER-28.ps1",
+        "tests/ad/user/Test.AD-USER-29.md",
+        "tests/ad/user/Test.AD-USER-29.ps1"
+      ],
+      "sessionID": "ses_e10c61be0ffeo68iwrF1dalihl"
+    },
+    {
+      "name": "04-computers",
+      "branch": "split/ad-04-computers",
+      "parent": "split/ad-03-users-passwords",
+      "paths": [
+        "powershell/tests/functions/ADComputerChecks.Tests.ps1",
+        "tests/ad/computer/Test.AD-COMP-01.md",
+        "tests/ad/computer/Test.AD-COMP-01.ps1",
+        "tests/ad/computer/Test.AD-COMP-03.md",
+        "tests/ad/computer/Test.AD-COMP-03.ps1",
+        "tests/ad/computer/Test.AD-COMP-04.md",
+        "tests/ad/computer/Test.AD-COMP-04.ps1",
+        "tests/ad/computer/Test.AD-COMP-05.md",
+        "tests/ad/computer/Test.AD-COMP-05.ps1",
+        "tests/ad/computer/Test.AD-COMP-06.md",
+        "tests/ad/computer/Test.AD-COMP-06.ps1",
+        "tests/ad/computer/Test.AD-COMP-07.md",
+        "tests/ad/computer/Test.AD-COMP-07.ps1",
+        "tests/ad/computer/Test.AD-COMP-08.md",
+        "tests/ad/computer/Test.AD-COMP-08.ps1",
+        "tests/ad/computer/Test.AD-COMP-09.md",
+        "tests/ad/computer/Test.AD-COMP-09.ps1",
+        "tests/ad/computer/Test.AD-COMP-10.md",
+        "tests/ad/computer/Test.AD-COMP-10.ps1",
+        "tests/ad/security/Test.AD-DCOMP-01.md",
+        "tests/ad/security/Test.AD-DCOMP-01.ps1",
+        "tests/ad/security/Test.AD-DCOMP-02.md",
+        "tests/ad/security/Test.AD-DCOMP-02.ps1",
+        "tests/ad/security/Test.AD-DCOMP-03.md",
+        "tests/ad/security/Test.AD-DCOMP-03.ps1",
+        "tests/ad/security/Test.AD-DCOMP-04.md",
+        "tests/ad/security/Test.AD-DCOMP-04.ps1",
+        "tests/ad/security/Test.AD-DCOMP-05.md",
+        "tests/ad/security/Test.AD-DCOMP-05.ps1",
+        "tests/ad/security/Test.AD-DCOMP-07.md",
+        "tests/ad/security/Test.AD-DCOMP-07.ps1",
+        "tests/ad/security/Test.AD-DCOMP-08.md",
+        "tests/ad/security/Test.AD-DCOMP-08.ps1",
+        "tests/ad/security/Test.AD-DCOMP-09.md",
+        "tests/ad/security/Test.AD-DCOMP-09.ps1"
+      ],
+      "patchOnly": false,
+      "retiredMappings": {
+        "MT1060": "MT.1060",
+        "AD-COMP-09": "AD-DCOMP-01",
+        "AD-COMP-10": "AD-DCOMP-03",
+        "AD-DCOMP-02": "AD-DCOMP-01",
+        "AD-DCOMP-05": "AD-DCOMP-04",
+        "AD-DCOMP-09": "AD-DCOMP-08",
+        "AD-GMC-03": "AD-GMC-02",
+        "AD-GMC-05": "AD-GMC-04",
+        "AD-GMC-07": "AD-GMC-06",
+        "AD-GMC-09": "AD-GMC-08",
+        "AD-GMC-11": "AD-GMC-10",
+        "AD-GRP-07": "AD-GRP-06",
+        "AD-GRP-09": "AD-GRP-08",
+        "AD-GRP-10": "AD-GRP-08",
+        "AD-SPN-02": "AD-SPN-01",
+        "AD-SPN-04": "AD-SPN-03",
+        "AD-SPN-08": "AD-SPN-07",
+        "AD-SPN-10": "AD-SPN-09",
+        "AD-SPN-13": "AD-SPN-12",
+        "AD-USER-14": "AD-SPN-06",
+        "AD-FGPP-02": "AD-FGPP-01",
+        "AD-FGPP-03": "AD-FGPP-01",
+        "AD-FGPP-04": "AD-FGPP-01",
+        "AD-PWDPOL-02": "AD-PWDPOL-01",
+        "AD-PWDPOL-03": "AD-PWDPOL-01",
+        "AD-PWDPOL-04": "AD-PWDPOL-01",
+        "AD-PWDPOL-05": "AD-PWDPOL-01",
+        "AD-PWDPOL-06": "AD-PWDPOL-01",
+        "AD-PWDPOL-07": "AD-PWDPOL-01",
+        "AD-USER-17": "AD-USER-16",
+        "AD-USER-18": "AD-USER-16",
+        "AD-USER-21": "AD-USER-20",
+        "AD-USER-23": "AD-USER-22",
+        "AD-USER-24": "AD-USER-22",
+        "AD-USER-25": "AD-USER-22",
+        "AD-USER-27": "AD-USER-26",
+        "AD-USER-28": "AD-USER-05",
+        "AD-USER-29": "AD-USER-05"
+      },
+      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/04-computers",
+      "commits": [
+        "406d6029da22ff73a22f91992bc3359a665f5ef4",
+        "ee0e7f2bcce6f9366558cc3ff4433f43f92604d7"
+      ],
+      "compare": "https://github.com/soulemike/maester/compare/split/ad-03-users-passwords...split/ad-04-computers?expand=1",
+      "changedPaths": [
+        "build/golden/native-test-replacements.psd1",
+        "powershell/assets/Maester.LegacyTags.json",
+        "powershell/tests/functions/ADComputerChecks.Tests.ps1",
+        "tests/ad/computer/Test.AD-COMP-01.md",
+        "tests/ad/computer/Test.AD-COMP-01.ps1",
+        "tests/ad/computer/Test.AD-COMP-03.md",
+        "tests/ad/computer/Test.AD-COMP-03.ps1",
+        "tests/ad/computer/Test.AD-COMP-04.md",
+        "tests/ad/computer/Test.AD-COMP-04.ps1",
+        "tests/ad/computer/Test.AD-COMP-05.md",
+        "tests/ad/computer/Test.AD-COMP-05.ps1",
+        "tests/ad/computer/Test.AD-COMP-06.md",
+        "tests/ad/computer/Test.AD-COMP-06.ps1",
+        "tests/ad/computer/Test.AD-COMP-07.md",
+        "tests/ad/computer/Test.AD-COMP-07.ps1",
+        "tests/ad/computer/Test.AD-COMP-08.md",
+        "tests/ad/computer/Test.AD-COMP-08.ps1",
+        "tests/ad/computer/Test.AD-COMP-09.md",
+        "tests/ad/computer/Test.AD-COMP-09.ps1",
+        "tests/ad/computer/Test.AD-COMP-10.md",
+        "tests/ad/computer/Test.AD-COMP-10.ps1",
+        "tests/ad/security/Test.AD-DCOMP-01.md",
+        "tests/ad/security/Test.AD-DCOMP-01.ps1",
+        "tests/ad/security/Test.AD-DCOMP-02.md",
+        "tests/ad/security/Test.AD-DCOMP-02.ps1",
+        "tests/ad/security/Test.AD-DCOMP-03.md",
+        "tests/ad/security/Test.AD-DCOMP-03.ps1",
+        "tests/ad/security/Test.AD-DCOMP-04.md",
+        "tests/ad/security/Test.AD-DCOMP-04.ps1",
+        "tests/ad/security/Test.AD-DCOMP-05.md",
+        "tests/ad/security/Test.AD-DCOMP-05.ps1",
+        "tests/ad/security/Test.AD-DCOMP-07.md",
+        "tests/ad/security/Test.AD-DCOMP-07.ps1",
+        "tests/ad/security/Test.AD-DCOMP-08.md",
+        "tests/ad/security/Test.AD-DCOMP-08.ps1",
+        "tests/ad/security/Test.AD-DCOMP-09.md",
+        "tests/ad/security/Test.AD-DCOMP-09.ps1"
+      ],
+      "sessionID": "ses_e10c60f63ffeEpwkrGXlSSAjEj"
+    },
+    {
+      "name": "05-domains-controllers",
+      "branch": "split/ad-05-domains-controllers",
+      "parent": "split/ad-04-computers",
+      "paths": [
+        "powershell/internal/checks/ad/ad/Get-MtAdDomainControllerRelease.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdDomainControllersInScope.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdDomainNameFindings.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdFsmoPlacement.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdFunctionalLevelAssessment.ps1",
+        "powershell/tests/functions/ADDomainForestBatch.Tests.ps1",
+        "tests/ad/domain-controller/Test.AD-DC-01.md",
+        "tests/ad/domain-controller/Test.AD-DC-01.ps1",
+        "tests/ad/domain-controller/Test.AD-DC-02.md",
+        "tests/ad/domain-controller/Test.AD-DC-03.md",
+        "tests/ad/domain-controller/Test.AD-DC-04.md",
+        "tests/ad/domain-controller/Test.AD-DC-05.md",
+        "tests/ad/domain-controller/Test.AD-DC-05.ps1",
+        "tests/ad/domain-controller/Test.AD-DC-06.md",
+        "tests/ad/domain-controller/Test.AD-DC-06.ps1",
+        "tests/ad/domain-controller/Test.AD-DC-07.md",
+        "tests/ad/domain-controller/Test.AD-DC-07.ps1",
+        "tests/ad/domain-controller/Test.AD-DC-08.md",
+        "tests/ad/domain-controller/Test.AD-DC-08.ps1",
+        "tests/ad/domain-controller/Test.AD-DCD-01.md",
+        "tests/ad/domain-controller/Test.AD-DCD-01.ps1",
+        "tests/ad/domain-controller/Test.AD-DCD-02.md",
+        "tests/ad/domain-controller/Test.AD-DCD-02.ps1",
+        "tests/ad/domain-controller/Test.AD-DCD-03.md",
+        "tests/ad/domain-controller/Test.AD-DCD-03.ps1",
+        "tests/ad/domain-controller/Test.AD-DCD-04.md",
+        "tests/ad/domain-controller/Test.AD-DCD-04.ps1",
+        "tests/ad/domain/Test.AD-DOM-01.md",
+        "tests/ad/domain/Test.AD-DOM-01.ps1",
+        "tests/ad/domain/Test.AD-DOM-02.md",
+        "tests/ad/domain/Test.AD-DOM-02.ps1",
+        "tests/ad/domain/Test.AD-DOM-03.md",
+        "tests/ad/domain/Test.AD-DOM-03.ps1",
+        "tests/ad/domain/Test.AD-DOM-04.md",
+        "tests/ad/domain/Test.AD-DOM-04.ps1",
+        "tests/ad/domain/Test.AD-DOM-05.md",
+        "tests/ad/domain/Test.AD-DOM-05.ps1",
+        "tests/ad/domain/Test.AD-DOM-06.md",
+        "tests/ad/domain/Test.AD-DOM-06.ps1",
+        "tests/ad/domain/Test.AD-DOM-07.md",
+        "tests/ad/domain/Test.AD-DOM-07.ps1",
+        "tests/ad/domain/Test.AD-DOM-08.md",
+        "tests/ad/domain/Test.AD-DOM-08.ps1",
+        "tests/ad/domain/Test.AD-DOMS-01.md",
+        "tests/ad/domain/Test.AD-DOMS-01.ps1",
+        "tests/ad/domain/Test.AD-FOR-01.md",
+        "tests/ad/domain/Test.AD-FOR-01.ps1",
+        "tests/ad/domain/Test.AD-FOR-02.md",
+        "tests/ad/domain/Test.AD-FOR-02.ps1",
+        "tests/ad/domain/Test.AD-FOR-04.md",
+        "tests/ad/domain/Test.AD-FOR-04.ps1",
+        "tests/ad/domain/Test.AD-FORS-01.md",
+        "tests/ad/domain/Test.AD-FORS-01.ps1",
+        "tests/ad/domain/Test.AD-FORS-02.md",
+        "tests/ad/domain/Test.AD-FORS-02.ps1",
+        "tests/ad/domain/Test.AD-FORS-03.md",
+        "tests/ad/domain/Test.AD-FORS-03.ps1",
+        "tests/ad/domain/Test.AD-FORS-04.md",
+        "tests/ad/domain/Test.AD-FORS-04.ps1"
+      ],
+      "patchOnly": false,
+      "retiredMappings": {
+        "MT1060": "MT.1060",
+        "AD-COMP-09": "AD-DCOMP-01",
+        "AD-COMP-10": "AD-DCOMP-03",
+        "AD-DCOMP-02": "AD-DCOMP-01",
+        "AD-DCOMP-05": "AD-DCOMP-04",
+        "AD-DCOMP-09": "AD-DCOMP-08",
+        "AD-GMC-03": "AD-GMC-02",
+        "AD-GMC-05": "AD-GMC-04",
+        "AD-GMC-07": "AD-GMC-06",
+        "AD-GMC-09": "AD-GMC-08",
+        "AD-GMC-11": "AD-GMC-10",
+        "AD-GRP-07": "AD-GRP-06",
+        "AD-GRP-09": "AD-GRP-08",
+        "AD-GRP-10": "AD-GRP-08",
+        "AD-SPN-02": "AD-SPN-01",
+        "AD-SPN-04": "AD-SPN-03",
+        "AD-SPN-08": "AD-SPN-07",
+        "AD-SPN-10": "AD-SPN-09",
+        "AD-SPN-13": "AD-SPN-12",
+        "AD-USER-14": "AD-SPN-06",
+        "AD-FGPP-02": "AD-FGPP-01",
+        "AD-FGPP-03": "AD-FGPP-01",
+        "AD-FGPP-04": "AD-FGPP-01",
+        "AD-PWDPOL-02": "AD-PWDPOL-01",
+        "AD-PWDPOL-03": "AD-PWDPOL-01",
+        "AD-PWDPOL-04": "AD-PWDPOL-01",
+        "AD-PWDPOL-05": "AD-PWDPOL-01",
+        "AD-PWDPOL-06": "AD-PWDPOL-01",
+        "AD-PWDPOL-07": "AD-PWDPOL-01",
+        "AD-USER-17": "AD-USER-16",
+        "AD-USER-18": "AD-USER-16",
+        "AD-USER-21": "AD-USER-20",
+        "AD-USER-23": "AD-USER-22",
+        "AD-USER-24": "AD-USER-22",
+        "AD-USER-25": "AD-USER-22",
+        "AD-USER-27": "AD-USER-26",
+        "AD-USER-28": "AD-USER-05",
+        "AD-USER-29": "AD-USER-05",
+        "AD-DC-06": "AD-DC-05",
+        "AD-DC-08": "AD-DC-07",
+        "AD-DCD-02": "AD-DCD-01",
+        "AD-DOM-06": "AD-DOM-05",
+        "AD-DOM-08": "AD-DOM-07",
+        "AD-FORS-02": "AD-FORS-01"
+      },
+      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/05-domains-controllers",
+      "commits": [
+        "63aefcdf4fce619fcb63050fcaff774ae70f7023",
+        "308d9d3a47cc2d2ac598a792e6d5093af33d8787",
+        "ae25fe7e62803e8c68368a567609d0c21f68712f"
+      ],
+      "compare": "https://github.com/soulemike/maester/compare/split/ad-04-computers...split/ad-05-domains-controllers?expand=1",
+      "changedPaths": [
+        "build/golden/native-test-replacements.psd1",
+        "powershell/assets/Maester.LegacyTags.json",
+        "powershell/internal/checks/ad/ad/Get-MtAdDomainControllerRelease.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdDomainControllersInScope.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdDomainNameFindings.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdFsmoPlacement.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdFunctionalLevelAssessment.ps1",
+        "powershell/tests/functions/ADDomainForestBatch.Tests.ps1",
+        "tests/ad/domain-controller/Test.AD-DC-01.md",
+        "tests/ad/domain-controller/Test.AD-DC-01.ps1",
+        "tests/ad/domain-controller/Test.AD-DC-02.md",
+        "tests/ad/domain-controller/Test.AD-DC-03.md",
+        "tests/ad/domain-controller/Test.AD-DC-04.md",
+        "tests/ad/domain-controller/Test.AD-DC-05.md",
+        "tests/ad/domain-controller/Test.AD-DC-05.ps1",
+        "tests/ad/domain-controller/Test.AD-DC-06.md",
+        "tests/ad/domain-controller/Test.AD-DC-06.ps1",
+        "tests/ad/domain-controller/Test.AD-DC-07.md",
+        "tests/ad/domain-controller/Test.AD-DC-07.ps1",
+        "tests/ad/domain-controller/Test.AD-DC-08.md",
+        "tests/ad/domain-controller/Test.AD-DC-08.ps1",
+        "tests/ad/domain-controller/Test.AD-DCD-01.md",
+        "tests/ad/domain-controller/Test.AD-DCD-01.ps1",
+        "tests/ad/domain-controller/Test.AD-DCD-02.md",
+        "tests/ad/domain-controller/Test.AD-DCD-02.ps1",
+        "tests/ad/domain-controller/Test.AD-DCD-03.md",
+        "tests/ad/domain-controller/Test.AD-DCD-03.ps1",
+        "tests/ad/domain-controller/Test.AD-DCD-04.md",
+        "tests/ad/domain-controller/Test.AD-DCD-04.ps1",
+        "tests/ad/domain/Test.AD-DOM-01.md",
+        "tests/ad/domain/Test.AD-DOM-01.ps1",
+        "tests/ad/domain/Test.AD-DOM-02.md",
+        "tests/ad/domain/Test.AD-DOM-02.ps1",
+        "tests/ad/domain/Test.AD-DOM-03.md",
+        "tests/ad/domain/Test.AD-DOM-03.ps1",
+        "tests/ad/domain/Test.AD-DOM-04.md",
+        "tests/ad/domain/Test.AD-DOM-04.ps1",
+        "tests/ad/domain/Test.AD-DOM-05.md",
+        "tests/ad/domain/Test.AD-DOM-05.ps1",
+        "tests/ad/domain/Test.AD-DOM-06.md",
+        "tests/ad/domain/Test.AD-DOM-06.ps1",
+        "tests/ad/domain/Test.AD-DOM-07.md",
+        "tests/ad/domain/Test.AD-DOM-07.ps1",
+        "tests/ad/domain/Test.AD-DOM-08.md",
+        "tests/ad/domain/Test.AD-DOM-08.ps1",
+        "tests/ad/domain/Test.AD-DOMS-01.md",
+        "tests/ad/domain/Test.AD-DOMS-01.ps1",
+        "tests/ad/domain/Test.AD-FOR-01.md",
+        "tests/ad/domain/Test.AD-FOR-01.ps1",
+        "tests/ad/domain/Test.AD-FOR-02.md",
+        "tests/ad/domain/Test.AD-FOR-02.ps1",
+        "tests/ad/domain/Test.AD-FOR-04.md",
+        "tests/ad/domain/Test.AD-FOR-04.ps1",
+        "tests/ad/domain/Test.AD-FORS-01.md",
+        "tests/ad/domain/Test.AD-FORS-01.ps1",
+        "tests/ad/domain/Test.AD-FORS-02.md",
+        "tests/ad/domain/Test.AD-FORS-02.ps1",
+        "tests/ad/domain/Test.AD-FORS-03.md",
+        "tests/ad/domain/Test.AD-FORS-03.ps1",
+        "tests/ad/domain/Test.AD-FORS-04.md",
+        "tests/ad/domain/Test.AD-FORS-04.ps1"
+      ],
+      "sessionID": "ses_e10c600fbffeWYzoUwL2nM1NCz"
+    },
+    {
+      "name": "06-tombstone-overlap",
+      "branch": "split/ad-06-tombstone-overlap",
+      "parent": "split/ad-05-domains-controllers",
+      "paths": [
+        "tests/ad/domain/Test.AD-FOR-03.md",
+        "tests/ad/domain/Test.AD-FOR-03.ps1"
+      ],
+      "patchOnly": false,
+      "retiredMappings": {
+        "MT1060": "MT.1060",
+        "AD-COMP-09": "AD-DCOMP-01",
+        "AD-COMP-10": "AD-DCOMP-03",
+        "AD-DCOMP-02": "AD-DCOMP-01",
+        "AD-DCOMP-05": "AD-DCOMP-04",
+        "AD-DCOMP-09": "AD-DCOMP-08",
+        "AD-GMC-03": "AD-GMC-02",
+        "AD-GMC-05": "AD-GMC-04",
+        "AD-GMC-07": "AD-GMC-06",
+        "AD-GMC-09": "AD-GMC-08",
+        "AD-GMC-11": "AD-GMC-10",
+        "AD-GRP-07": "AD-GRP-06",
+        "AD-GRP-09": "AD-GRP-08",
+        "AD-GRP-10": "AD-GRP-08",
+        "AD-SPN-02": "AD-SPN-01",
+        "AD-SPN-04": "AD-SPN-03",
+        "AD-SPN-08": "AD-SPN-07",
+        "AD-SPN-10": "AD-SPN-09",
+        "AD-SPN-13": "AD-SPN-12",
+        "AD-USER-14": "AD-SPN-06",
+        "AD-FGPP-02": "AD-FGPP-01",
+        "AD-FGPP-03": "AD-FGPP-01",
+        "AD-FGPP-04": "AD-FGPP-01",
+        "AD-PWDPOL-02": "AD-PWDPOL-01",
+        "AD-PWDPOL-03": "AD-PWDPOL-01",
+        "AD-PWDPOL-04": "AD-PWDPOL-01",
+        "AD-PWDPOL-05": "AD-PWDPOL-01",
+        "AD-PWDPOL-06": "AD-PWDPOL-01",
+        "AD-PWDPOL-07": "AD-PWDPOL-01",
+        "AD-USER-17": "AD-USER-16",
+        "AD-USER-18": "AD-USER-16",
+        "AD-USER-21": "AD-USER-20",
+        "AD-USER-23": "AD-USER-22",
+        "AD-USER-24": "AD-USER-22",
+        "AD-USER-25": "AD-USER-22",
+        "AD-USER-27": "AD-USER-26",
+        "AD-USER-28": "AD-USER-05",
+        "AD-USER-29": "AD-USER-05",
+        "AD-DC-06": "AD-DC-05",
+        "AD-DC-08": "AD-DC-07",
+        "AD-DCD-02": "AD-DCD-01",
+        "AD-DOM-06": "AD-DOM-05",
+        "AD-DOM-08": "AD-DOM-07",
+        "AD-FORS-02": "AD-FORS-01"
+      },
+      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/06-tombstone-overlap",
+      "commits": [
+        "016b33b3d42b952c935c62792c289272d85b00bd"
+      ],
+      "compare": "https://github.com/soulemike/maester/compare/split/ad-05-domains-controllers...split/ad-06-tombstone-overlap?expand=1",
+      "changedPaths": [
+        "tests/ad/domain/Test.AD-FOR-03.md",
+        "tests/ad/domain/Test.AD-FOR-03.ps1"
+      ],
+      "sessionID": "ses_e10c5f342ffePq3YIcmk2JOYId"
+    },
+    {
+      "name": "07-topology",
+      "branch": "split/ad-07-topology",
+      "parent": "split/ad-06-tombstone-overlap",
+      "paths": [
+        "powershell/internal/checks/ad/ad/Get-MtAdOrganizationalUnitOverview.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdSiteSubnetOverview.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdSubnetInventory.ps1",
+        "powershell/tests/functions/ADSiteOuBatch.Tests.ps1",
+        "tests/ad/ou/Test.AD-OU-01.md",
+        "tests/ad/ou/Test.AD-OU-01.ps1",
+        "tests/ad/ou/Test.AD-OU-02.md",
+        "tests/ad/ou/Test.AD-OU-02.ps1",
+        "tests/ad/ou/Test.AD-OU-03.md",
+        "tests/ad/ou/Test.AD-OU-03.ps1",
+        "tests/ad/ou/Test.AD-OU-04.md",
+        "tests/ad/ou/Test.AD-OU-04.ps1",
+        "tests/ad/ou/Test.AD-OU-05.md",
+        "tests/ad/ou/Test.AD-OU-05.ps1",
+        "tests/ad/printer/Test.AD-PRINT-01.md",
+        "tests/ad/printer/Test.AD-PRINT-01.ps1",
+        "tests/ad/replication/Test.AD-DFSR-01.md",
+        "tests/ad/replication/Test.AD-FEAT-01.md",
+        "tests/ad/replication/Test.AD-FEAT-01.ps1",
+        "tests/ad/replication/Test.AD-FEAT-02.md",
+        "tests/ad/replication/Test.AD-FEAT-02.ps1",
+        "tests/ad/replication/Test.AD-REPL-01.md",
+        "tests/ad/replication/Test.AD-REPL-02.md",
+        "tests/ad/replication/Test.AD-ROOTDSE-01.md",
+        "tests/ad/replication/Test.AD-ROOTDSE-01.ps1",
+        "tests/ad/replication/Test.AD-ROOTDSE-02.md",
+        "tests/ad/replication/Test.AD-ROOTDSE-02.ps1",
+        "tests/ad/replication/Test.AD-ROOTDSE-03.md",
+        "tests/ad/site/Test.AD-SITE-01.md",
+        "tests/ad/site/Test.AD-SITE-01.ps1",
+        "tests/ad/site/Test.AD-SITE-02.md",
+        "tests/ad/site/Test.AD-SITE-02.ps1",
+        "tests/ad/site/Test.AD-SITE-03.md",
+        "tests/ad/site/Test.AD-SITE-03.ps1",
+        "tests/ad/site/Test.AD-SITE-04.md",
+        "tests/ad/site/Test.AD-SITE-04.ps1",
+        "tests/ad/site/Test.AD-SITE-05.md",
+        "tests/ad/site/Test.AD-SITE-05.ps1",
+        "tests/ad/site/Test.AD-SUB-01.md",
+        "tests/ad/site/Test.AD-SUB-01.ps1",
+        "tests/ad/site/Test.AD-SUB-02.md",
+        "tests/ad/site/Test.AD-SUB-02.ps1",
+        "tests/ad/site/Test.AD-SUB-03.md",
+        "tests/ad/site/Test.AD-SUB-03.ps1",
+        "tests/ad/site/Test.AD-SUB-04.md",
+        "tests/ad/site/Test.AD-SUB-04.ps1",
+        "tests/ad/site/Test.AD-SUB-05.md",
+        "tests/ad/site/Test.AD-SUB-05.ps1",
+        "tests/ad/site/Test.AD-SUB-06.md",
+        "tests/ad/site/Test.AD-SUB-06.ps1",
+        "tests/ad/site/Test.AD-SUB-07.md",
+        "tests/ad/site/Test.AD-SUB-07.ps1",
+        "tests/ad/site/Test.AD-SUB-08.md",
+        "tests/ad/site/Test.AD-SUB-08.ps1",
+        "tests/ad/site/Test.AD-SUB-09.md",
+        "tests/ad/site/Test.AD-SUB-09.ps1",
+        "tests/ad/site/Test.AD-SUB-10.md",
+        "tests/ad/site/Test.AD-SUB-10.ps1",
+        "tests/ad/site/Test.AD-SUB-11.md",
+        "tests/ad/site/Test.AD-SUB-11.ps1"
+      ],
+      "patchOnly": false,
+      "retiredMappings": {
+        "MT1060": "MT.1060",
+        "AD-COMP-09": "AD-DCOMP-01",
+        "AD-COMP-10": "AD-DCOMP-03",
+        "AD-DCOMP-02": "AD-DCOMP-01",
+        "AD-DCOMP-05": "AD-DCOMP-04",
+        "AD-DCOMP-09": "AD-DCOMP-08",
+        "AD-FEAT-02": "AD-FEAT-01",
+        "AD-GMC-03": "AD-GMC-02",
+        "AD-GMC-05": "AD-GMC-04",
+        "AD-GMC-07": "AD-GMC-06",
+        "AD-GMC-09": "AD-GMC-08",
+        "AD-GMC-11": "AD-GMC-10",
+        "AD-GRP-07": "AD-GRP-06",
+        "AD-GRP-09": "AD-GRP-08",
+        "AD-GRP-10": "AD-GRP-08",
+        "AD-ROOTDSE-02": "AD-ROOTDSE-01",
+        "AD-SPN-02": "AD-SPN-01",
+        "AD-SPN-04": "AD-SPN-03",
+        "AD-SPN-08": "AD-SPN-07",
+        "AD-SPN-10": "AD-SPN-09",
+        "AD-SPN-13": "AD-SPN-12",
+        "AD-USER-14": "AD-SPN-06",
+        "AD-FGPP-02": "AD-FGPP-01",
+        "AD-FGPP-03": "AD-FGPP-01",
+        "AD-FGPP-04": "AD-FGPP-01",
+        "AD-PWDPOL-02": "AD-PWDPOL-01",
+        "AD-PWDPOL-03": "AD-PWDPOL-01",
+        "AD-PWDPOL-04": "AD-PWDPOL-01",
+        "AD-PWDPOL-05": "AD-PWDPOL-01",
+        "AD-PWDPOL-06": "AD-PWDPOL-01",
+        "AD-PWDPOL-07": "AD-PWDPOL-01",
+        "AD-SITE-03": "AD-SITE-02",
+        "AD-SITE-05": "AD-SITE-04",
+        "AD-SUB-01": "AD-SITE-04",
+        "AD-SUB-02": "AD-SITE-04",
+        "AD-SUB-05": "AD-SUB-04",
+        "AD-SUB-07": "AD-SUB-06",
+        "AD-SUB-09": "AD-SUB-08",
+        "AD-SUB-10": "AD-SUB-08",
+        "AD-SUB-11": "AD-SITE-04",
+        "AD-OU-05": "AD-OU-04",
+        "AD-USER-17": "AD-USER-16",
+        "AD-USER-18": "AD-USER-16",
+        "AD-USER-21": "AD-USER-20",
+        "AD-USER-23": "AD-USER-22",
+        "AD-USER-24": "AD-USER-22",
+        "AD-USER-25": "AD-USER-22",
+        "AD-USER-27": "AD-USER-26",
+        "AD-USER-28": "AD-USER-05",
+        "AD-USER-29": "AD-USER-05",
+        "AD-DC-06": "AD-DC-05",
+        "AD-DC-08": "AD-DC-07",
+        "AD-DCD-02": "AD-DCD-01",
+        "AD-DOM-06": "AD-DOM-05",
+        "AD-DOM-08": "AD-DOM-07",
+        "AD-FORS-02": "AD-FORS-01"
+      },
+      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/07-topology",
+      "commits": [
+        "7c2755ad42b86795c9b21292e65a71c9a96cf37b",
+        "a9fe9686f20e83933b35daa16ec81b9e7d68f34f",
+        "55cefa5af1ce0bc61d8bc3a92dcc2d37f5a3fc7a"
+      ],
+      "compare": "https://github.com/soulemike/maester/compare/split/ad-06-tombstone-overlap...split/ad-07-topology?expand=1",
+      "changedPaths": [
+        "build/golden/native-test-replacements.psd1",
+        "powershell/assets/Maester.LegacyTags.json",
+        "powershell/internal/checks/ad/ad/Get-MtAdOrganizationalUnitOverview.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdSiteSubnetOverview.ps1",
+        "powershell/internal/checks/ad/ad/Get-MtAdSubnetInventory.ps1",
+        "powershell/tests/functions/ADSiteOuBatch.Tests.ps1",
+        "tests/ad/ou/Test.AD-OU-01.md",
+        "tests/ad/ou/Test.AD-OU-01.ps1",
+        "tests/ad/ou/Test.AD-OU-02.md",
+        "tests/ad/ou/Test.AD-OU-02.ps1",
+        "tests/ad/ou/Test.AD-OU-03.md",
+        "tests/ad/ou/Test.AD-OU-03.ps1",
+        "tests/ad/ou/Test.AD-OU-04.md",
+        "tests/ad/ou/Test.AD-OU-04.ps1",
+        "tests/ad/ou/Test.AD-OU-05.md",
+        "tests/ad/ou/Test.AD-OU-05.ps1",
+        "tests/ad/printer/Test.AD-PRINT-01.md",
+        "tests/ad/printer/Test.AD-PRINT-01.ps1",
+        "tests/ad/replication/Test.AD-DFSR-01.md",
+        "tests/ad/replication/Test.AD-FEAT-01.md",
+        "tests/ad/replication/Test.AD-FEAT-01.ps1",
+        "tests/ad/replication/Test.AD-FEAT-02.md",
+        "tests/ad/replication/Test.AD-FEAT-02.ps1",
+        "tests/ad/replication/Test.AD-REPL-01.md",
+        "tests/ad/replication/Test.AD-REPL-02.md",
+        "tests/ad/replication/Test.AD-ROOTDSE-01.md",
+        "tests/ad/replication/Test.AD-ROOTDSE-01.ps1",
+        "tests/ad/replication/Test.AD-ROOTDSE-02.md",
+        "tests/ad/replication/Test.AD-ROOTDSE-02.ps1",
+        "tests/ad/replication/Test.AD-ROOTDSE-03.md",
+        "tests/ad/site/Test.AD-SITE-01.md",
+        "tests/ad/site/Test.AD-SITE-01.ps1",
+        "tests/ad/site/Test.AD-SITE-02.md",
+        "tests/ad/site/Test.AD-SITE-02.ps1",
+        "tests/ad/site/Test.AD-SITE-03.md",
+        "tests/ad/site/Test.AD-SITE-03.ps1",
+        "tests/ad/site/Test.AD-SITE-04.md",
+        "tests/ad/site/Test.AD-SITE-04.ps1",
+        "tests/ad/site/Test.AD-SITE-05.md",
+        "tests/ad/site/Test.AD-SITE-05.ps1",
+        "tests/ad/site/Test.AD-SUB-01.md",
+        "tests/ad/site/Test.AD-SUB-01.ps1",
+        "tests/ad/site/Test.AD-SUB-02.md",
+        "tests/ad/site/Test.AD-SUB-02.ps1",
+        "tests/ad/site/Test.AD-SUB-03.md",
+        "tests/ad/site/Test.AD-SUB-03.ps1",
+        "tests/ad/site/Test.AD-SUB-04.md",
+        "tests/ad/site/Test.AD-SUB-04.ps1",
+        "tests/ad/site/Test.AD-SUB-05.md",
+        "tests/ad/site/Test.AD-SUB-05.ps1",
+        "tests/ad/site/Test.AD-SUB-06.md",
+        "tests/ad/site/Test.AD-SUB-06.ps1",
+        "tests/ad/site/Test.AD-SUB-07.md",
+        "tests/ad/site/Test.AD-SUB-07.ps1",
+        "tests/ad/site/Test.AD-SUB-08.md",
+        "tests/ad/site/Test.AD-SUB-08.ps1",
+        "tests/ad/site/Test.AD-SUB-09.md",
+        "tests/ad/site/Test.AD-SUB-09.ps1",
+        "tests/ad/site/Test.AD-SUB-10.md",
+        "tests/ad/site/Test.AD-SUB-10.ps1",
+        "tests/ad/site/Test.AD-SUB-11.md",
+        "tests/ad/site/Test.AD-SUB-11.ps1"
+      ],
+      "sessionID": "ses_e10c5e63bffeL2YgY67q2M41hf"
+    },
+    {
+      "name": "08-directory-config",
+      "branch": "split/ad-08-directory-config",
+      "parent": "split/ad-07-topology",
+      "paths": [
+        "tests/ad/config/Test.AD-CFG-01.md",
+        "tests/ad/config/Test.AD-CFG-01.ps1",
+        "tests/ad/config/Test.AD-CFG-02.md",
+        "tests/ad/config/Test.AD-CFG-02.ps1",
+        "tests/ad/config/Test.AD-CFG-03.md",
+        "tests/ad/config/Test.AD-CFG-03.ps1",
+        "tests/ad/config/Test.AD-CFG-04.md",
+        "tests/ad/config/Test.AD-CFG-04.ps1",
+        "tests/ad/config/Test.AD-CFG-05.md",
+        "tests/ad/config/Test.AD-CFG-05.ps1",
+        "tests/ad/config/Test.AD-CFG-06.md",
+        "tests/ad/config/Test.AD-CFG-06.ps1",
+        "tests/ad/config/Test.AD-CFG-07.md",
+        "tests/ad/config/Test.AD-CFG-07.ps1",
+        "tests/ad/config/Test.AD-CFG-09.md",
+        "tests/ad/config/Test.AD-CFG-09.ps1",
+        "tests/ad/config/Test.AD-CFG-10.md",
+        "tests/ad/config/Test.AD-CFG-10.ps1",
+        "tests/ad/config/Test.AD-CFG-11.md",
+        "tests/ad/config/Test.AD-CFG-11.ps1",
+        "tests/ad/config/Test.AD-CFG-22.md",
+        "tests/ad/config/Test.AD-CFG-22.ps1",
+        "tests/ad/config/Test.AD-CFG-23.md",
+        "tests/ad/config/Test.AD-CFG-23.ps1",
+        "tests/ad/config/Test.AD-CFG-24.md",
+        "tests/ad/config/Test.AD-CFG-24.ps1"
+      ],
+      "patchOnly": false,
+      "retiredMappings": {
+        "MT1060": "MT.1060",
+        "AD-CFG-01": "AD-FOR-03",
+        "AD-CFG-04": "AD-FEAT-01",
+        "AD-CFG-05": "AD-FOR-04",
+        "AD-COMP-09": "AD-DCOMP-01",
+        "AD-COMP-10": "AD-DCOMP-03",
+        "AD-DCOMP-02": "AD-DCOMP-01",
+        "AD-DCOMP-05": "AD-DCOMP-04",
+        "AD-DCOMP-09": "AD-DCOMP-08",
+        "AD-FEAT-02": "AD-FEAT-01",
+        "AD-GMC-03": "AD-GMC-02",
+        "AD-GMC-05": "AD-GMC-04",
+        "AD-GMC-07": "AD-GMC-06",
+        "AD-GMC-09": "AD-GMC-08",
+        "AD-GMC-11": "AD-GMC-10",
+        "AD-GRP-07": "AD-GRP-06",
+        "AD-GRP-09": "AD-GRP-08",
+        "AD-GRP-10": "AD-GRP-08",
+        "AD-ROOTDSE-02": "AD-ROOTDSE-01",
+        "AD-SPN-02": "AD-SPN-01",
+        "AD-SPN-04": "AD-SPN-03",
+        "AD-SPN-08": "AD-SPN-07",
+        "AD-SPN-10": "AD-SPN-09",
+        "AD-SPN-13": "AD-SPN-12",
+        "AD-USER-14": "AD-SPN-06",
+        "AD-CFG-24": "AD-CFG-23",
+        "AD-FGPP-02": "AD-FGPP-01",
+        "AD-FGPP-03": "AD-FGPP-01",
+        "AD-FGPP-04": "AD-FGPP-01",
+        "AD-PWDPOL-02": "AD-PWDPOL-01",
+        "AD-PWDPOL-03": "AD-PWDPOL-01",
+        "AD-PWDPOL-04": "AD-PWDPOL-01",
+        "AD-PWDPOL-05": "AD-PWDPOL-01",
+        "AD-PWDPOL-06": "AD-PWDPOL-01",
+        "AD-PWDPOL-07": "AD-PWDPOL-01",
+        "AD-SITE-03": "AD-SITE-02",
+        "AD-SITE-05": "AD-SITE-04",
+        "AD-SUB-01": "AD-SITE-04",
+        "AD-SUB-02": "AD-SITE-04",
+        "AD-SUB-05": "AD-SUB-04",
+        "AD-SUB-07": "AD-SUB-06",
+        "AD-SUB-09": "AD-SUB-08",
+        "AD-SUB-10": "AD-SUB-08",
+        "AD-SUB-11": "AD-SITE-04",
+        "AD-OU-05": "AD-OU-04",
+        "AD-USER-17": "AD-USER-16",
+        "AD-USER-18": "AD-USER-16",
+        "AD-USER-21": "AD-USER-20",
+        "AD-USER-23": "AD-USER-22",
+        "AD-USER-24": "AD-USER-22",
+        "AD-USER-25": "AD-USER-22",
+        "AD-USER-27": "AD-USER-26",
+        "AD-USER-28": "AD-USER-05",
+        "AD-USER-29": "AD-USER-05",
+        "AD-DC-06": "AD-DC-05",
+        "AD-DC-08": "AD-DC-07",
+        "AD-DCD-02": "AD-DCD-01",
+        "AD-DOM-06": "AD-DOM-05",
+        "AD-DOM-08": "AD-DOM-07",
+        "AD-FORS-02": "AD-FORS-01"
+      },
+      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/08-directory-config",
+      "commits": [
+        "0f8fdbf3c15b8769a9ff36e0440d037a3343890c",
+        "2dc34ee42d3d655c2927102d9b8f1a2223e0b55e"
+      ],
+      "compare": "https://github.com/soulemike/maester/compare/split/ad-07-topology...split/ad-08-directory-config?expand=1",
+      "changedPaths": [
+        "build/golden/native-test-replacements.psd1",
+        "powershell/assets/Maester.LegacyTags.json",
+        "tests/ad/config/Test.AD-CFG-01.md",
+        "tests/ad/config/Test.AD-CFG-01.ps1",
+        "tests/ad/config/Test.AD-CFG-02.md",
+        "tests/ad/config/Test.AD-CFG-02.ps1",
+        "tests/ad/config/Test.AD-CFG-03.md",
+        "tests/ad/config/Test.AD-CFG-03.ps1",
+        "tests/ad/config/Test.AD-CFG-04.md",
+        "tests/ad/config/Test.AD-CFG-04.ps1",
+        "tests/ad/config/Test.AD-CFG-05.md",
+        "tests/ad/config/Test.AD-CFG-05.ps1",
+        "tests/ad/config/Test.AD-CFG-06.md",
+        "tests/ad/config/Test.AD-CFG-06.ps1",
+        "tests/ad/config/Test.AD-CFG-07.md",
+        "tests/ad/config/Test.AD-CFG-07.ps1",
+        "tests/ad/config/Test.AD-CFG-09.md",
+        "tests/ad/config/Test.AD-CFG-09.ps1",
+        "tests/ad/config/Test.AD-CFG-10.md",
+        "tests/ad/config/Test.AD-CFG-10.ps1",
+        "tests/ad/config/Test.AD-CFG-11.md",
+        "tests/ad/config/Test.AD-CFG-11.ps1",
+        "tests/ad/config/Test.AD-CFG-22.md",
+        "tests/ad/config/Test.AD-CFG-22.ps1",
+        "tests/ad/config/Test.AD-CFG-23.md",
+        "tests/ad/config/Test.AD-CFG-23.ps1",
+        "tests/ad/config/Test.AD-CFG-24.md",
+        "tests/ad/config/Test.AD-CFG-24.ps1"
+      ],
+      "sessionID": "ses_e10c5db16ffeloGxL0plCa6015"
+    },
+    {
+      "name": "09-auth-policy-overlap",
+      "branch": "split/ad-09-auth-policy-overlap",
+      "parent": "split/ad-08-directory-config",
+      "paths": [
+        "tests/ad/config/Test.AD-CFG-08.md",
+        "tests/ad/config/Test.AD-CFG-08.ps1"
+      ],
+      "patchOnly": false,
+      "retiredMappings": {
+        "MT1060": "MT.1060",
+        "AD-CFG-01": "AD-FOR-03",
+        "AD-CFG-04": "AD-FEAT-01",
+        "AD-CFG-05": "AD-FOR-04",
+        "AD-COMP-09": "AD-DCOMP-01",
+        "AD-COMP-10": "AD-DCOMP-03",
+        "AD-DCOMP-02": "AD-DCOMP-01",
+        "AD-DCOMP-05": "AD-DCOMP-04",
+        "AD-DCOMP-09": "AD-DCOMP-08",
+        "AD-FEAT-02": "AD-FEAT-01",
+        "AD-GMC-03": "AD-GMC-02",
+        "AD-GMC-05": "AD-GMC-04",
+        "AD-GMC-07": "AD-GMC-06",
+        "AD-GMC-09": "AD-GMC-08",
+        "AD-GMC-11": "AD-GMC-10",
+        "AD-GRP-07": "AD-GRP-06",
+        "AD-GRP-09": "AD-GRP-08",
+        "AD-GRP-10": "AD-GRP-08",
+        "AD-ROOTDSE-02": "AD-ROOTDSE-01",
+        "AD-SPN-02": "AD-SPN-01",
+        "AD-SPN-04": "AD-SPN-03",
+        "AD-SPN-08": "AD-SPN-07",
+        "AD-SPN-10": "AD-SPN-09",
+        "AD-SPN-13": "AD-SPN-12",
+        "AD-USER-14": "AD-SPN-06",
+        "AD-CFG-24": "AD-CFG-23",
+        "AD-FGPP-02": "AD-FGPP-01",
+        "AD-FGPP-03": "AD-FGPP-01",
+        "AD-FGPP-04": "AD-FGPP-01",
+        "AD-PWDPOL-02": "AD-PWDPOL-01",
+        "AD-PWDPOL-03": "AD-PWDPOL-01",
+        "AD-PWDPOL-04": "AD-PWDPOL-01",
+        "AD-PWDPOL-05": "AD-PWDPOL-01",
+        "AD-PWDPOL-06": "AD-PWDPOL-01",
+        "AD-PWDPOL-07": "AD-PWDPOL-01",
+        "AD-SITE-03": "AD-SITE-02",
+        "AD-SITE-05": "AD-SITE-04",
+        "AD-SUB-01": "AD-SITE-04",
+        "AD-SUB-02": "AD-SITE-04",
+        "AD-SUB-05": "AD-SUB-04",
+        "AD-SUB-07": "AD-SUB-06",
+        "AD-SUB-09": "AD-SUB-08",
+        "AD-SUB-10": "AD-SUB-08",
+        "AD-SUB-11": "AD-SITE-04",
+        "AD-OU-05": "AD-OU-04",
+        "AD-USER-17": "AD-USER-16",
+        "AD-USER-18": "AD-USER-16",
+        "AD-USER-21": "AD-USER-20",
+        "AD-USER-23": "AD-USER-22",
+        "AD-USER-24": "AD-USER-22",
+        "AD-USER-25": "AD-USER-22",
+        "AD-USER-27": "AD-USER-26",
+        "AD-USER-28": "AD-USER-05",
+        "AD-USER-29": "AD-USER-05",
+        "AD-DC-06": "AD-DC-05",
+        "AD-DC-08": "AD-DC-07",
+        "AD-DCD-02": "AD-DCD-01",
+        "AD-DOM-06": "AD-DOM-05",
+        "AD-DOM-08": "AD-DOM-07",
+        "AD-FORS-02": "AD-FORS-01"
+      },
+      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/09-auth-policy-overlap",
+      "commits": [
+        "77bb02db2f449e54946225fccd23abee02d20ba0"
+      ],
+      "compare": "https://github.com/soulemike/maester/compare/split/ad-08-directory-config...split/ad-09-auth-policy-overlap?expand=1",
+      "changedPaths": [
+        "tests/ad/config/Test.AD-CFG-08.md",
+        "tests/ad/config/Test.AD-CFG-08.ps1"
+      ],
+      "sessionID": "ses_e10c5cf47ffeNLi3i4Zokkekdn"
+    },
+    {
+      "name": "10-adcs",
+      "branch": "split/ad-10-adcs",
+      "parent": "split/ad-09-auth-policy-overlap",
+      "paths": [
+        "powershell/tests/functions/ADCertificateInventoryBatch.Tests.ps1",
+        "tests/ad/config/Test.AD-CFG-12.md",
+        "tests/ad/config/Test.AD-CFG-12.ps1",
+        "tests/ad/config/Test.AD-CFG-13.md",
+        "tests/ad/config/Test.AD-CFG-13.ps1",
+        "tests/ad/config/Test.AD-CFG-14.md",
+        "tests/ad/config/Test.AD-CFG-14.ps1",
+        "tests/ad/config/Test.AD-CFG-15.md",
+        "tests/ad/config/Test.AD-CFG-15.ps1",
+        "tests/ad/config/Test.AD-CFG-16.md",
+        "tests/ad/config/Test.AD-CFG-16.ps1",
+        "tests/ad/config/Test.AD-CFG-17.md",
+        "tests/ad/config/Test.AD-CFG-17.ps1",
+        "tests/ad/config/Test.AD-CFG-18.md",
+        "tests/ad/config/Test.AD-CFG-18.ps1",
+        "tests/ad/config/Test.AD-CFG-19.md",
+        "tests/ad/config/Test.AD-CFG-19.ps1",
+        "tests/ad/config/Test.AD-CFG-20.md",
+        "tests/ad/config/Test.AD-CFG-20.ps1",
+        "tests/ad/config/Test.AD-CFG-21.md",
+        "tests/ad/config/Test.AD-CFG-21.ps1"
+      ],
+      "patchOnly": false,
+      "retiredMappings": {
+        "MT1060": "MT.1060",
+        "AD-CFG-01": "AD-FOR-03",
+        "AD-CFG-04": "AD-FEAT-01",
+        "AD-CFG-05": "AD-FOR-04",
+        "AD-COMP-09": "AD-DCOMP-01",
+        "AD-COMP-10": "AD-DCOMP-03",
+        "AD-DCOMP-02": "AD-DCOMP-01",
+        "AD-DCOMP-05": "AD-DCOMP-04",
+        "AD-DCOMP-09": "AD-DCOMP-08",
+        "AD-FEAT-02": "AD-FEAT-01",
+        "AD-GMC-03": "AD-GMC-02",
+        "AD-GMC-05": "AD-GMC-04",
+        "AD-GMC-07": "AD-GMC-06",
+        "AD-GMC-09": "AD-GMC-08",
+        "AD-GMC-11": "AD-GMC-10",
+        "AD-GRP-07": "AD-GRP-06",
+        "AD-GRP-09": "AD-GRP-08",
+        "AD-GRP-10": "AD-GRP-08",
+        "AD-ROOTDSE-02": "AD-ROOTDSE-01",
+        "AD-SPN-02": "AD-SPN-01",
+        "AD-SPN-04": "AD-SPN-03",
+        "AD-SPN-08": "AD-SPN-07",
+        "AD-SPN-10": "AD-SPN-09",
+        "AD-SPN-13": "AD-SPN-12",
+        "AD-USER-14": "AD-SPN-06",
+        "AD-CFG-14": "AD-CFG-13",
+        "AD-CFG-16": "AD-CFG-15",
+        "AD-CFG-17": "AD-CFG-15",
+        "AD-CFG-18": "AD-CFG-15",
+        "AD-CFG-19": "AD-CFG-15",
+        "AD-CFG-24": "AD-CFG-23",
+        "AD-FGPP-02": "AD-FGPP-01",
+        "AD-FGPP-03": "AD-FGPP-01",
+        "AD-FGPP-04": "AD-FGPP-01",
+        "AD-PWDPOL-02": "AD-PWDPOL-01",
+        "AD-PWDPOL-03": "AD-PWDPOL-01",
+        "AD-PWDPOL-04": "AD-PWDPOL-01",
+        "AD-PWDPOL-05": "AD-PWDPOL-01",
+        "AD-PWDPOL-06": "AD-PWDPOL-01",
+        "AD-PWDPOL-07": "AD-PWDPOL-01",
+        "AD-SITE-03": "AD-SITE-02",
+        "AD-SITE-05": "AD-SITE-04",
+        "AD-SUB-01": "AD-SITE-04",
+        "AD-SUB-02": "AD-SITE-04",
+        "AD-SUB-05": "AD-SUB-04",
+        "AD-SUB-07": "AD-SUB-06",
+        "AD-SUB-09": "AD-SUB-08",
+        "AD-SUB-10": "AD-SUB-08",
+        "AD-SUB-11": "AD-SITE-04",
+        "AD-OU-05": "AD-OU-04",
+        "AD-USER-17": "AD-USER-16",
+        "AD-USER-18": "AD-USER-16",
+        "AD-USER-21": "AD-USER-20",
+        "AD-USER-23": "AD-USER-22",
+        "AD-USER-24": "AD-USER-22",
+        "AD-USER-25": "AD-USER-22",
+        "AD-USER-27": "AD-USER-26",
+        "AD-USER-28": "AD-USER-05",
+        "AD-USER-29": "AD-USER-05",
+        "AD-DC-06": "AD-DC-05",
+        "AD-DC-08": "AD-DC-07",
+        "AD-DCD-02": "AD-DCD-01",
+        "AD-DOM-06": "AD-DOM-05",
+        "AD-DOM-08": "AD-DOM-07",
+        "AD-FORS-02": "AD-FORS-01"
+      },
+      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/10-adcs",
+      "commits": [
+        "35dbf8bd663211439a26d5d56f97802431dad8b2"
+      ],
+      "compare": "https://github.com/soulemike/maester/compare/split/ad-09-auth-policy-overlap...split/ad-10-adcs?expand=1",
+      "changedPaths": [
+        "build/golden/native-test-replacements.psd1",
+        "powershell/assets/Maester.LegacyTags.json",
+        "powershell/tests/functions/ADCertificateInventoryBatch.Tests.ps1",
+        "tests/ad/config/Test.AD-CFG-12.md",
+        "tests/ad/config/Test.AD-CFG-12.ps1",
+        "tests/ad/config/Test.AD-CFG-13.md",
+        "tests/ad/config/Test.AD-CFG-13.ps1",
+        "tests/ad/config/Test.AD-CFG-14.md",
+        "tests/ad/config/Test.AD-CFG-14.ps1",
+        "tests/ad/config/Test.AD-CFG-15.md",
+        "tests/ad/config/Test.AD-CFG-15.ps1",
+        "tests/ad/config/Test.AD-CFG-16.md",
+        "tests/ad/config/Test.AD-CFG-16.ps1",
+        "tests/ad/config/Test.AD-CFG-17.md",
+        "tests/ad/config/Test.AD-CFG-17.ps1",
+        "tests/ad/config/Test.AD-CFG-18.md",
+        "tests/ad/config/Test.AD-CFG-18.ps1",
+        "tests/ad/config/Test.AD-CFG-19.md",
+        "tests/ad/config/Test.AD-CFG-19.ps1",
+        "tests/ad/config/Test.AD-CFG-20.md",
+        "tests/ad/config/Test.AD-CFG-20.ps1",
+        "tests/ad/config/Test.AD-CFG-21.md",
+        "tests/ad/config/Test.AD-CFG-21.ps1"
+      ],
+      "sessionID": "ses_e10c5c2e0ffeTcTUcmCOHjr2ra"
+    },
+    {
+      "name": "11-gpo",
+      "branch": "split/ad-11-gpo",
+      "parent": "split/ad-10-adcs",
+      "paths": [
+        "powershell/internal/services/ad/transport/Get-MtSysvolContent.ps1",
+        "powershell/public/services/ad/Get-MtADGpoState.ps1",
+        "powershell/tests/ad/transport/Get-MtSysvolContent.Tests.ps1",
+        "powershell/tests/functions/ADGpoInventory.Tests.ps1",
+        "powershell/tests/functions/ADGpoReports.Tests.ps1",
+        "powershell/tests/functions/ActiveDirectoryGpoPermissions.Tests.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-01.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-01.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-02.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-02.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-03.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-03.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-04.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-04.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-05.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-06.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-07.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-07.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-08.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-08.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-09.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-10.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-10.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-11.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-11.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-12.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-12.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-13.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-13.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-14.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-15.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-15.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-16.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-16.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-17.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-17.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-18.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-18.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-19.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-19.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-20.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-20.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOS-01.md",
+        "tests/ad/gpo-state/Test.AD-GPOS-02.md",
+        "tests/ad/gpo-state/Test.AD-GPOS-03.md",
+        "tests/ad/gpo-state/Test.AD-GPOS-04.md",
+        "tests/ad/gpo-state/Test.AD-GPOS-05.md",
+        "tests/ad/gpo-state/Test.AD-GPOS-06.md",
+        "tests/ad/gpo-state/Test.AD-GPOS-07.md",
+        "tests/ad/gpo-state/Test.AD-GPOS-08.md",
+        "tests/ad/gpo-state/Test.AD-GPOS-09.md",
+        "tests/ad/gpo/Test.AD-GPO-01.md",
+        "tests/ad/gpo/Test.AD-GPO-01.ps1",
+        "tests/ad/gpo/Test.AD-GPO-02.md",
+        "tests/ad/gpo/Test.AD-GPO-02.ps1",
+        "tests/ad/gpo/Test.AD-GPO-03.md",
+        "tests/ad/gpo/Test.AD-GPO-03.ps1",
+        "tests/ad/gpo/Test.AD-GPO-04.md",
+        "tests/ad/gpo/Test.AD-GPO-04.ps1",
+        "tests/ad/gpo/Test.AD-GPO-05.md",
+        "tests/ad/gpo/Test.AD-GPO-05.ps1",
+        "tests/ad/gpo/Test.AD-GPOL-01.md",
+        "tests/ad/gpo/Test.AD-GPOL-02.md",
+        "tests/ad/gpo/Test.AD-GPOL-02.ps1",
+        "tests/ad/gpo/Test.AD-GPOL-03.md",
+        "tests/ad/gpo/Test.AD-GPOL-03.ps1",
+        "tests/ad/gpo/Test.AD-GPOL-04.md",
+        "tests/ad/gpo/Test.AD-GPOL-04.ps1",
+        "tests/ad/gpo/Test.AD-GPOL-05.md",
+        "tests/ad/gpo/Test.AD-GPOL-05.ps1",
+        "tests/ad/gpo/Test.AD-GPOL-06.md",
+        "tests/ad/gpo/Test.AD-GPOL-06.ps1"
+      ],
+      "patchOnly": false,
+      "retiredMappings": {
+        "MT1060": "MT.1060",
+        "AD-CFG-01": "AD-FOR-03",
+        "AD-CFG-04": "AD-FEAT-01",
+        "AD-CFG-05": "AD-FOR-04",
+        "AD-COMP-09": "AD-DCOMP-01",
+        "AD-COMP-10": "AD-DCOMP-03",
+        "AD-DCOMP-02": "AD-DCOMP-01",
+        "AD-DCOMP-05": "AD-DCOMP-04",
+        "AD-DCOMP-09": "AD-DCOMP-08",
+        "AD-FEAT-02": "AD-FEAT-01",
+        "AD-GMC-03": "AD-GMC-02",
+        "AD-GMC-05": "AD-GMC-04",
+        "AD-GMC-07": "AD-GMC-06",
+        "AD-GMC-09": "AD-GMC-08",
+        "AD-GMC-11": "AD-GMC-10",
+        "AD-GPO-03": "AD-GPO-02",
+        "AD-GPO-05": "AD-GPO-04",
+        "AD-GPOL-06": "AD-GPOL-03",
+        "AD-GPOREP-02": "AD-GPOREP-01",
+        "AD-GPOREP-04": "AD-GPOREP-03",
+        "AD-GPOREP-08": "AD-GPOREP-07",
+        "AD-GPOREP-11": "AD-GPOREP-10",
+        "AD-GPOREP-13": "AD-GPOREP-12",
+        "AD-GPOREP-16": "AD-GPOREP-15",
+        "AD-GPOREP-18": "AD-GPOREP-17",
+        "AD-GPOREP-19": "AD-GPOREP-17",
+        "AD-GPOREP-20": "AD-GPOREP-17",
+        "AD-GRP-07": "AD-GRP-06",
+        "AD-GRP-09": "AD-GRP-08",
+        "AD-GRP-10": "AD-GRP-08",
+        "AD-ROOTDSE-02": "AD-ROOTDSE-01",
+        "AD-SPN-02": "AD-SPN-01",
+        "AD-SPN-04": "AD-SPN-03",
+        "AD-SPN-08": "AD-SPN-07",
+        "AD-SPN-10": "AD-SPN-09",
+        "AD-SPN-13": "AD-SPN-12",
+        "AD-USER-14": "AD-SPN-06",
+        "AD-CFG-14": "AD-CFG-13",
+        "AD-CFG-16": "AD-CFG-15",
+        "AD-CFG-17": "AD-CFG-15",
+        "AD-CFG-18": "AD-CFG-15",
+        "AD-CFG-19": "AD-CFG-15",
+        "AD-CFG-24": "AD-CFG-23",
+        "AD-FGPP-02": "AD-FGPP-01",
+        "AD-FGPP-03": "AD-FGPP-01",
+        "AD-FGPP-04": "AD-FGPP-01",
+        "AD-PWDPOL-02": "AD-PWDPOL-01",
+        "AD-PWDPOL-03": "AD-PWDPOL-01",
+        "AD-PWDPOL-04": "AD-PWDPOL-01",
+        "AD-PWDPOL-05": "AD-PWDPOL-01",
+        "AD-PWDPOL-06": "AD-PWDPOL-01",
+        "AD-PWDPOL-07": "AD-PWDPOL-01",
+        "AD-SITE-03": "AD-SITE-02",
+        "AD-SITE-05": "AD-SITE-04",
+        "AD-SUB-01": "AD-SITE-04",
+        "AD-SUB-02": "AD-SITE-04",
+        "AD-SUB-05": "AD-SUB-04",
+        "AD-SUB-07": "AD-SUB-06",
+        "AD-SUB-09": "AD-SUB-08",
+        "AD-SUB-10": "AD-SUB-08",
+        "AD-SUB-11": "AD-SITE-04",
+        "AD-OU-05": "AD-OU-04",
+        "AD-USER-17": "AD-USER-16",
+        "AD-USER-18": "AD-USER-16",
+        "AD-USER-21": "AD-USER-20",
+        "AD-USER-23": "AD-USER-22",
+        "AD-USER-24": "AD-USER-22",
+        "AD-USER-25": "AD-USER-22",
+        "AD-USER-27": "AD-USER-26",
+        "AD-USER-28": "AD-USER-05",
+        "AD-USER-29": "AD-USER-05",
+        "AD-DC-06": "AD-DC-05",
+        "AD-DC-08": "AD-DC-07",
+        "AD-DCD-02": "AD-DCD-01",
+        "AD-DOM-06": "AD-DOM-05",
+        "AD-DOM-08": "AD-DOM-07",
+        "AD-FORS-02": "AD-FORS-01"
+      },
+      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/11-gpo",
+      "commits": [
+        "a639394b04e762d5b47bc7ed73651b0e03f6ffed",
+        "bc2d8fa823f7a706e5a15962986b67207caa28ba",
+        "52ad5641fa84d7c227cc5b6ade984b94ab83e18f",
+        "96ccbe6a2f9a8b3129aaf5b0a68004dc96cd0f76"
+      ],
+      "compare": "https://github.com/soulemike/maester/compare/split/ad-10-adcs...split/ad-11-gpo?expand=1",
+      "changedPaths": [
+        "build/golden/native-test-replacements.psd1",
+        "powershell/assets/Maester.LegacyTags.json",
+        "powershell/internal/services/ad/transport/Get-MtSysvolContent.ps1",
+        "powershell/public/services/ad/Get-MtADGpoState.ps1",
+        "powershell/tests/ad/transport/Get-MtSysvolContent.Tests.ps1",
+        "powershell/tests/functions/ADGpoInventory.Tests.ps1",
+        "powershell/tests/functions/ADGpoReports.Tests.ps1",
+        "powershell/tests/functions/ActiveDirectoryGpoPermissions.Tests.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-01.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-01.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-02.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-02.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-03.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-03.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-04.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-04.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-05.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-06.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-07.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-07.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-08.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-08.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-09.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-10.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-10.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-11.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-11.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-12.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-12.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-13.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-13.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-14.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-15.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-15.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-16.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-16.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-17.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-17.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-18.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-18.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-19.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-19.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOREP-20.md",
+        "tests/ad/gpo-state/Test.AD-GPOREP-20.ps1",
+        "tests/ad/gpo-state/Test.AD-GPOS-01.md",
+        "tests/ad/gpo-state/Test.AD-GPOS-02.md",
+        "tests/ad/gpo-state/Test.AD-GPOS-03.md",
+        "tests/ad/gpo-state/Test.AD-GPOS-04.md",
+        "tests/ad/gpo-state/Test.AD-GPOS-05.md",
+        "tests/ad/gpo-state/Test.AD-GPOS-06.md",
+        "tests/ad/gpo-state/Test.AD-GPOS-07.md",
+        "tests/ad/gpo-state/Test.AD-GPOS-08.md",
+        "tests/ad/gpo-state/Test.AD-GPOS-09.md",
+        "tests/ad/gpo/Test.AD-GPO-01.md",
+        "tests/ad/gpo/Test.AD-GPO-01.ps1",
+        "tests/ad/gpo/Test.AD-GPO-02.md",
+        "tests/ad/gpo/Test.AD-GPO-02.ps1",
+        "tests/ad/gpo/Test.AD-GPO-03.md",
+        "tests/ad/gpo/Test.AD-GPO-03.ps1",
+        "tests/ad/gpo/Test.AD-GPO-04.md",
+        "tests/ad/gpo/Test.AD-GPO-04.ps1",
+        "tests/ad/gpo/Test.AD-GPO-05.md",
+        "tests/ad/gpo/Test.AD-GPO-05.ps1",
+        "tests/ad/gpo/Test.AD-GPOL-01.md",
+        "tests/ad/gpo/Test.AD-GPOL-02.md",
+        "tests/ad/gpo/Test.AD-GPOL-02.ps1",
+        "tests/ad/gpo/Test.AD-GPOL-03.md",
+        "tests/ad/gpo/Test.AD-GPOL-03.ps1",
+        "tests/ad/gpo/Test.AD-GPOL-04.md",
+        "tests/ad/gpo/Test.AD-GPOL-04.ps1",
+        "tests/ad/gpo/Test.AD-GPOL-05.md",
+        "tests/ad/gpo/Test.AD-GPOL-05.ps1",
+        "tests/ad/gpo/Test.AD-GPOL-06.md",
+        "tests/ad/gpo/Test.AD-GPOL-06.ps1"
+      ],
+      "sessionID": "ses_e10c5b010ffevX7BYtYcAb68Pt"
+    },
+    {
+      "name": "12-schema-trust",
+      "branch": "split/ad-12-schema-trust",
+      "parent": "split/ad-11-gpo",
+      "paths": [
+        "tests/ad/schema/Test.AD-SCH-01.md",
+        "tests/ad/schema/Test.AD-SCH-01.ps1",
+        "tests/ad/schema/Test.AD-SCH-02.md",
+        "tests/ad/schema/Test.AD-SCH-02.ps1",
+        "tests/ad/schema/Test.AD-SCH-03.md",
+        "tests/ad/schema/Test.AD-SCH-03.ps1",
+        "tests/ad/schema/Test.AD-SCH-04.md",
+        "tests/ad/schema/Test.AD-SCH-04.ps1",
+        "tests/ad/schema/Test.AD-SCH-05.md",
+        "tests/ad/schema/Test.AD-SCH-05.ps1",
+        "tests/ad/trust/Test.AD-TRUST-01.md",
+        "tests/ad/trust/Test.AD-TRUST-01.ps1",
+        "tests/ad/trust/Test.AD-TRUST-02.md",
+        "tests/ad/trust/Test.AD-TRUST-02.ps1",
+        "tests/ad/trust/Test.AD-TRUST-03.md",
+        "tests/ad/trust/Test.AD-TRUST-03.ps1",
+        "tests/ad/trust/Test.AD-TRUST-04.md",
+        "tests/ad/trust/Test.AD-TRUST-04.ps1",
+        "tests/ad/trust/Test.AD-TRUST-05.md",
+        "tests/ad/trust/Test.AD-TRUST-05.ps1"
+      ],
+      "patchOnly": false,
+      "retiredMappings": {
+        "MT1060": "MT.1060",
+        "AD-CFG-01": "AD-FOR-03",
+        "AD-CFG-04": "AD-FEAT-01",
+        "AD-CFG-05": "AD-FOR-04",
+        "AD-COMP-09": "AD-DCOMP-01",
+        "AD-COMP-10": "AD-DCOMP-03",
+        "AD-DCOMP-02": "AD-DCOMP-01",
+        "AD-DCOMP-05": "AD-DCOMP-04",
+        "AD-DCOMP-09": "AD-DCOMP-08",
+        "AD-FEAT-02": "AD-FEAT-01",
+        "AD-GMC-03": "AD-GMC-02",
+        "AD-GMC-05": "AD-GMC-04",
+        "AD-GMC-07": "AD-GMC-06",
+        "AD-GMC-09": "AD-GMC-08",
+        "AD-GMC-11": "AD-GMC-10",
+        "AD-GPO-03": "AD-GPO-02",
+        "AD-GPO-05": "AD-GPO-04",
+        "AD-GPOL-06": "AD-GPOL-03",
+        "AD-GPOREP-02": "AD-GPOREP-01",
+        "AD-GPOREP-04": "AD-GPOREP-03",
+        "AD-GPOREP-08": "AD-GPOREP-07",
+        "AD-GPOREP-11": "AD-GPOREP-10",
+        "AD-GPOREP-13": "AD-GPOREP-12",
+        "AD-GPOREP-16": "AD-GPOREP-15",
+        "AD-GPOREP-18": "AD-GPOREP-17",
+        "AD-GPOREP-19": "AD-GPOREP-17",
+        "AD-GPOREP-20": "AD-GPOREP-17",
+        "AD-GRP-07": "AD-GRP-06",
+        "AD-GRP-09": "AD-GRP-08",
+        "AD-GRP-10": "AD-GRP-08",
+        "AD-ROOTDSE-02": "AD-ROOTDSE-01",
+        "AD-SCH-02": "AD-SCH-01",
+        "AD-SCH-04": "AD-SCH-03",
+        "AD-SPN-02": "AD-SPN-01",
+        "AD-SPN-04": "AD-SPN-03",
+        "AD-SPN-08": "AD-SPN-07",
+        "AD-SPN-10": "AD-SPN-09",
+        "AD-SPN-13": "AD-SPN-12",
+        "AD-TRUST-04": "AD-TRUST-03",
+        "AD-TRUST-05": "AD-TRUST-01",
+        "AD-USER-14": "AD-SPN-06",
+        "AD-CFG-14": "AD-CFG-13",
+        "AD-CFG-16": "AD-CFG-15",
+        "AD-CFG-17": "AD-CFG-15",
+        "AD-CFG-18": "AD-CFG-15",
+        "AD-CFG-19": "AD-CFG-15",
+        "AD-CFG-24": "AD-CFG-23",
+        "AD-FGPP-02": "AD-FGPP-01",
+        "AD-FGPP-03": "AD-FGPP-01",
+        "AD-FGPP-04": "AD-FGPP-01",
+        "AD-PWDPOL-02": "AD-PWDPOL-01",
+        "AD-PWDPOL-03": "AD-PWDPOL-01",
+        "AD-PWDPOL-04": "AD-PWDPOL-01",
+        "AD-PWDPOL-05": "AD-PWDPOL-01",
+        "AD-PWDPOL-06": "AD-PWDPOL-01",
+        "AD-PWDPOL-07": "AD-PWDPOL-01",
+        "AD-SITE-03": "AD-SITE-02",
+        "AD-SITE-05": "AD-SITE-04",
+        "AD-SUB-01": "AD-SITE-04",
+        "AD-SUB-02": "AD-SITE-04",
+        "AD-SUB-05": "AD-SUB-04",
+        "AD-SUB-07": "AD-SUB-06",
+        "AD-SUB-09": "AD-SUB-08",
+        "AD-SUB-10": "AD-SUB-08",
+        "AD-SUB-11": "AD-SITE-04",
+        "AD-OU-05": "AD-OU-04",
+        "AD-USER-17": "AD-USER-16",
+        "AD-USER-18": "AD-USER-16",
+        "AD-USER-21": "AD-USER-20",
+        "AD-USER-23": "AD-USER-22",
+        "AD-USER-24": "AD-USER-22",
+        "AD-USER-25": "AD-USER-22",
+        "AD-USER-27": "AD-USER-26",
+        "AD-USER-28": "AD-USER-05",
+        "AD-USER-29": "AD-USER-05",
+        "AD-DC-06": "AD-DC-05",
+        "AD-DC-08": "AD-DC-07",
+        "AD-DCD-02": "AD-DCD-01",
+        "AD-DOM-06": "AD-DOM-05",
+        "AD-DOM-08": "AD-DOM-07",
+        "AD-FORS-02": "AD-FORS-01"
+      },
+      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/12-schema-trust",
+      "commits": [
+        "0d7d4d444dae153c17091f6ffb8200efd8b04e0a"
+      ],
+      "compare": "https://github.com/soulemike/maester/compare/split/ad-11-gpo...split/ad-12-schema-trust?expand=1",
+      "changedPaths": [
+        "build/golden/native-test-replacements.psd1",
+        "powershell/assets/Maester.LegacyTags.json",
+        "tests/ad/schema/Test.AD-SCH-01.md",
+        "tests/ad/schema/Test.AD-SCH-01.ps1",
+        "tests/ad/schema/Test.AD-SCH-02.md",
+        "tests/ad/schema/Test.AD-SCH-02.ps1",
+        "tests/ad/schema/Test.AD-SCH-03.md",
+        "tests/ad/schema/Test.AD-SCH-03.ps1",
+        "tests/ad/schema/Test.AD-SCH-04.md",
+        "tests/ad/schema/Test.AD-SCH-04.ps1",
+        "tests/ad/schema/Test.AD-SCH-05.md",
+        "tests/ad/schema/Test.AD-SCH-05.ps1",
+        "tests/ad/trust/Test.AD-TRUST-01.md",
+        "tests/ad/trust/Test.AD-TRUST-01.ps1",
+        "tests/ad/trust/Test.AD-TRUST-02.md",
+        "tests/ad/trust/Test.AD-TRUST-02.ps1",
+        "tests/ad/trust/Test.AD-TRUST-03.md",
+        "tests/ad/trust/Test.AD-TRUST-03.ps1",
+        "tests/ad/trust/Test.AD-TRUST-04.md",
+        "tests/ad/trust/Test.AD-TRUST-04.ps1",
+        "tests/ad/trust/Test.AD-TRUST-05.md",
+        "tests/ad/trust/Test.AD-TRUST-05.ps1"
+      ],
+      "sessionID": "ses_e10c5a4a9ffe6w9vGr9chhJ4aI"
+    },
+    {
+      "name": "13-dacl",
+      "branch": "split/ad-13-dacl",
+      "parent": "split/ad-12-schema-trust",
+      "paths": [
+        "powershell/tests/functions/ADDaclConsolidation.Tests.ps1",
+        "powershell/tests/functions/ActiveDirectoryDacl.Tests.ps1",
+        "tests/ad/dacl/Test.AD-DACL-01.md",
+        "tests/ad/dacl/Test.AD-DACL-02.md",
+        "tests/ad/dacl/Test.AD-DACL-03.md",
+        "tests/ad/dacl/Test.AD-DACL-03.ps1",
+        "tests/ad/dacl/Test.AD-DACL-04.md",
+        "tests/ad/dacl/Test.AD-DACL-04.ps1",
+        "tests/ad/dacl/Test.AD-DACL-05.md",
+        "tests/ad/dacl/Test.AD-DACL-05.ps1",
+        "tests/ad/dacl/Test.AD-DACL-06.md",
+        "tests/ad/dacl/Test.AD-DACL-06.ps1",
+        "tests/ad/dacl/Test.AD-DACL-07.md",
+        "tests/ad/dacl/Test.AD-DACL-07.ps1",
+        "tests/ad/dacl/Test.AD-DACL-08.md",
+        "tests/ad/dacl/Test.AD-DACL-08.ps1",
+        "tests/ad/dacl/Test.AD-DACL-09.md",
+        "tests/ad/dacl/Test.AD-DACL-09.ps1",
+        "tests/ad/dacl/Test.AD-DACL-10.md",
+        "tests/ad/dacl/Test.AD-DACL-10.ps1",
+        "tests/ad/dacl/Test.AD-DACL-11.md",
+        "tests/ad/dacl/Test.AD-DACL-11.ps1",
+        "tests/ad/dacl/Test.AD-DACL-12.md",
+        "tests/ad/dacl/Test.AD-DACL-12.ps1",
+        "tests/ad/dacl/Test.AD-DACL-13.md",
+        "tests/ad/dacl/Test.AD-DACL-13.ps1",
+        "tests/ad/dacl/Test.AD-DACL-14.md",
+        "tests/ad/dacl/Test.AD-DACL-15.md",
+        "tests/ad/dacl/Test.AD-DACL-15.ps1",
+        "tests/ad/dacl/Test.AD-DACL-16.md",
+        "tests/ad/dacl/Test.AD-DACL-16.ps1",
+        "tests/ad/dacl/Test.AD-DACL-17.md",
+        "tests/ad/dacl/Test.AD-DACL-17.ps1",
+        "tests/ad/dacl/Test.AD-DACL-18.md",
+        "tests/ad/dacl/Test.AD-DACL-18.ps1"
+      ],
+      "patchOnly": false,
+      "retiredMappings": {
+        "MT1060": "MT.1060",
+        "AD-CFG-01": "AD-FOR-03",
+        "AD-CFG-04": "AD-FEAT-01",
+        "AD-CFG-05": "AD-FOR-04",
+        "AD-COMP-09": "AD-DCOMP-01",
+        "AD-COMP-10": "AD-DCOMP-03",
+        "AD-DACL-04": "AD-DACL-03",
+        "AD-DACL-06": "AD-DACL-05",
+        "AD-DACL-08": "AD-DACL-07",
+        "AD-DACL-10": "AD-DACL-09",
+        "AD-DACL-12": "AD-DACL-11",
+        "AD-DACL-13": "AD-DACL-11",
+        "AD-DACL-16": "AD-DACL-15",
+        "AD-DACL-18": "AD-DACL-17",
+        "AD-DCOMP-02": "AD-DCOMP-01",
+        "AD-DCOMP-05": "AD-DCOMP-04",
+        "AD-DCOMP-09": "AD-DCOMP-08",
+        "AD-FEAT-02": "AD-FEAT-01",
+        "AD-GMC-03": "AD-GMC-02",
+        "AD-GMC-05": "AD-GMC-04",
+        "AD-GMC-07": "AD-GMC-06",
+        "AD-GMC-09": "AD-GMC-08",
+        "AD-GMC-11": "AD-GMC-10",
+        "AD-GPO-03": "AD-GPO-02",
+        "AD-GPO-05": "AD-GPO-04",
+        "AD-GPOL-06": "AD-GPOL-03",
+        "AD-GPOREP-02": "AD-GPOREP-01",
+        "AD-GPOREP-04": "AD-GPOREP-03",
+        "AD-GPOREP-08": "AD-GPOREP-07",
+        "AD-GPOREP-11": "AD-GPOREP-10",
+        "AD-GPOREP-13": "AD-GPOREP-12",
+        "AD-GPOREP-16": "AD-GPOREP-15",
+        "AD-GPOREP-18": "AD-GPOREP-17",
+        "AD-GPOREP-19": "AD-GPOREP-17",
+        "AD-GPOREP-20": "AD-GPOREP-17",
+        "AD-GRP-07": "AD-GRP-06",
+        "AD-GRP-09": "AD-GRP-08",
+        "AD-GRP-10": "AD-GRP-08",
+        "AD-ROOTDSE-02": "AD-ROOTDSE-01",
+        "AD-SCH-02": "AD-SCH-01",
+        "AD-SCH-04": "AD-SCH-03",
+        "AD-SPN-02": "AD-SPN-01",
+        "AD-SPN-04": "AD-SPN-03",
+        "AD-SPN-08": "AD-SPN-07",
+        "AD-SPN-10": "AD-SPN-09",
+        "AD-SPN-13": "AD-SPN-12",
+        "AD-TRUST-04": "AD-TRUST-03",
+        "AD-TRUST-05": "AD-TRUST-01",
+        "AD-USER-14": "AD-SPN-06",
+        "AD-CFG-14": "AD-CFG-13",
+        "AD-CFG-16": "AD-CFG-15",
+        "AD-CFG-17": "AD-CFG-15",
+        "AD-CFG-18": "AD-CFG-15",
+        "AD-CFG-19": "AD-CFG-15",
+        "AD-CFG-24": "AD-CFG-23",
+        "AD-FGPP-02": "AD-FGPP-01",
+        "AD-FGPP-03": "AD-FGPP-01",
+        "AD-FGPP-04": "AD-FGPP-01",
+        "AD-PWDPOL-02": "AD-PWDPOL-01",
+        "AD-PWDPOL-03": "AD-PWDPOL-01",
+        "AD-PWDPOL-04": "AD-PWDPOL-01",
+        "AD-PWDPOL-05": "AD-PWDPOL-01",
+        "AD-PWDPOL-06": "AD-PWDPOL-01",
+        "AD-PWDPOL-07": "AD-PWDPOL-01",
+        "AD-SITE-03": "AD-SITE-02",
+        "AD-SITE-05": "AD-SITE-04",
+        "AD-SUB-01": "AD-SITE-04",
+        "AD-SUB-02": "AD-SITE-04",
+        "AD-SUB-05": "AD-SUB-04",
+        "AD-SUB-07": "AD-SUB-06",
+        "AD-SUB-09": "AD-SUB-08",
+        "AD-SUB-10": "AD-SUB-08",
+        "AD-SUB-11": "AD-SITE-04",
+        "AD-OU-05": "AD-OU-04",
+        "AD-USER-17": "AD-USER-16",
+        "AD-USER-18": "AD-USER-16",
+        "AD-USER-21": "AD-USER-20",
+        "AD-USER-23": "AD-USER-22",
+        "AD-USER-24": "AD-USER-22",
+        "AD-USER-25": "AD-USER-22",
+        "AD-USER-27": "AD-USER-26",
+        "AD-USER-28": "AD-USER-05",
+        "AD-USER-29": "AD-USER-05",
+        "AD-DC-06": "AD-DC-05",
+        "AD-DC-08": "AD-DC-07",
+        "AD-DCD-02": "AD-DCD-01",
+        "AD-DOM-06": "AD-DOM-05",
+        "AD-DOM-08": "AD-DOM-07",
+        "AD-FORS-02": "AD-FORS-01"
+      },
+      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/13-dacl",
+      "commits": [
+        "fc262733d7108774708d6618e0be047f4fd0dd7a",
+        "1a6597c7ec7cdc62185ba129e8784d73b94edba3"
+      ],
+      "compare": "https://github.com/soulemike/maester/compare/split/ad-12-schema-trust...split/ad-13-dacl?expand=1",
+      "changedPaths": [
+        "build/golden/native-test-replacements.psd1",
+        "powershell/assets/Maester.LegacyTags.json",
+        "powershell/tests/functions/ADDaclConsolidation.Tests.ps1",
+        "powershell/tests/functions/ActiveDirectoryDacl.Tests.ps1",
+        "tests/ad/dacl/Test.AD-DACL-01.md",
+        "tests/ad/dacl/Test.AD-DACL-02.md",
+        "tests/ad/dacl/Test.AD-DACL-03.md",
+        "tests/ad/dacl/Test.AD-DACL-03.ps1",
+        "tests/ad/dacl/Test.AD-DACL-04.md",
+        "tests/ad/dacl/Test.AD-DACL-04.ps1",
+        "tests/ad/dacl/Test.AD-DACL-05.md",
+        "tests/ad/dacl/Test.AD-DACL-05.ps1",
+        "tests/ad/dacl/Test.AD-DACL-06.md",
+        "tests/ad/dacl/Test.AD-DACL-06.ps1",
+        "tests/ad/dacl/Test.AD-DACL-07.md",
+        "tests/ad/dacl/Test.AD-DACL-07.ps1",
+        "tests/ad/dacl/Test.AD-DACL-08.md",
+        "tests/ad/dacl/Test.AD-DACL-08.ps1",
+        "tests/ad/dacl/Test.AD-DACL-09.md",
+        "tests/ad/dacl/Test.AD-DACL-09.ps1",
+        "tests/ad/dacl/Test.AD-DACL-10.md",
+        "tests/ad/dacl/Test.AD-DACL-10.ps1",
+        "tests/ad/dacl/Test.AD-DACL-11.md",
+        "tests/ad/dacl/Test.AD-DACL-11.ps1",
+        "tests/ad/dacl/Test.AD-DACL-12.md",
+        "tests/ad/dacl/Test.AD-DACL-12.ps1",
+        "tests/ad/dacl/Test.AD-DACL-13.md",
+        "tests/ad/dacl/Test.AD-DACL-13.ps1",
+        "tests/ad/dacl/Test.AD-DACL-14.md",
+        "tests/ad/dacl/Test.AD-DACL-15.md",
+        "tests/ad/dacl/Test.AD-DACL-15.ps1",
+        "tests/ad/dacl/Test.AD-DACL-16.md",
+        "tests/ad/dacl/Test.AD-DACL-16.ps1",
+        "tests/ad/dacl/Test.AD-DACL-17.md",
+        "tests/ad/dacl/Test.AD-DACL-17.ps1",
+        "tests/ad/dacl/Test.AD-DACL-18.md",
+        "tests/ad/dacl/Test.AD-DACL-18.ps1"
+      ],
+      "sessionID": "ses_e10c59876ffeUQ6StoRMnA7Z9O"
+    },
+    {
+      "name": "14-dns",
+      "branch": "split/ad-14-dns",
+      "parent": "split/ad-13-dacl",
+      "paths": [
+        "tests/ad/dns/Test.AD-DNS-01.md",
+        "tests/ad/dns/Test.AD-DNS-02.md",
+        "tests/ad/dns/Test.AD-DNS-03.md",
+        "tests/ad/dns/Test.AD-DNS-04.md",
+        "tests/ad/dns/Test.AD-DNS-05.md",
+        "tests/ad/dns/Test.AD-DNS-06.md",
+        "tests/ad/dns/Test.AD-DNS-07.md",
+        "tests/ad/dns/Test.AD-DNS-08.md",
+        "tests/ad/dns/Test.AD-DNS-09.md",
+        "tests/ad/dns/Test.AD-DNS-10.md",
+        "tests/ad/dns/Test.AD-DNS-11.md",
+        "tests/ad/dns/Test.AD-DNS-12.md",
+        "tests/ad/dns/Test.AD-DNS-14.md",
+        "tests/ad/dns/Test.AD-DNS-16.md",
+        "tests/ad/dns/Test.AD-DNS-18.md",
+        "tests/ad/dns/Test.AD-DNS-19.md"
+      ],
+      "patchOnly": false,
+      "retiredMappings": {
+        "MT1060": "MT.1060",
+        "AD-CFG-01": "AD-FOR-03",
+        "AD-CFG-04": "AD-FEAT-01",
+        "AD-CFG-05": "AD-FOR-04",
+        "AD-COMP-09": "AD-DCOMP-01",
+        "AD-COMP-10": "AD-DCOMP-03",
+        "AD-DACL-04": "AD-DACL-03",
+        "AD-DACL-06": "AD-DACL-05",
+        "AD-DACL-08": "AD-DACL-07",
+        "AD-DACL-10": "AD-DACL-09",
+        "AD-DACL-12": "AD-DACL-11",
+        "AD-DACL-13": "AD-DACL-11",
+        "AD-DACL-16": "AD-DACL-15",
+        "AD-DACL-18": "AD-DACL-17",
+        "AD-DCOMP-02": "AD-DCOMP-01",
+        "AD-DCOMP-05": "AD-DCOMP-04",
+        "AD-DCOMP-09": "AD-DCOMP-08",
+        "AD-FEAT-02": "AD-FEAT-01",
+        "AD-GMC-03": "AD-GMC-02",
+        "AD-GMC-05": "AD-GMC-04",
+        "AD-GMC-07": "AD-GMC-06",
+        "AD-GMC-09": "AD-GMC-08",
+        "AD-GMC-11": "AD-GMC-10",
+        "AD-GPO-03": "AD-GPO-02",
+        "AD-GPO-05": "AD-GPO-04",
+        "AD-GPOL-06": "AD-GPOL-03",
+        "AD-GPOREP-02": "AD-GPOREP-01",
+        "AD-GPOREP-04": "AD-GPOREP-03",
+        "AD-GPOREP-08": "AD-GPOREP-07",
+        "AD-GPOREP-11": "AD-GPOREP-10",
+        "AD-GPOREP-13": "AD-GPOREP-12",
+        "AD-GPOREP-16": "AD-GPOREP-15",
+        "AD-GPOREP-18": "AD-GPOREP-17",
+        "AD-GPOREP-19": "AD-GPOREP-17",
+        "AD-GPOREP-20": "AD-GPOREP-17",
+        "AD-GRP-07": "AD-GRP-06",
+        "AD-GRP-09": "AD-GRP-08",
+        "AD-GRP-10": "AD-GRP-08",
+        "AD-ROOTDSE-02": "AD-ROOTDSE-01",
+        "AD-SCH-02": "AD-SCH-01",
+        "AD-SCH-04": "AD-SCH-03",
+        "AD-SPN-02": "AD-SPN-01",
+        "AD-SPN-04": "AD-SPN-03",
+        "AD-SPN-08": "AD-SPN-07",
+        "AD-SPN-10": "AD-SPN-09",
+        "AD-SPN-13": "AD-SPN-12",
+        "AD-TRUST-04": "AD-TRUST-03",
+        "AD-TRUST-05": "AD-TRUST-01",
+        "AD-USER-14": "AD-SPN-06",
+        "AD-CFG-14": "AD-CFG-13",
+        "AD-CFG-16": "AD-CFG-15",
+        "AD-CFG-17": "AD-CFG-15",
+        "AD-CFG-18": "AD-CFG-15",
+        "AD-CFG-19": "AD-CFG-15",
+        "AD-CFG-24": "AD-CFG-23",
+        "AD-FGPP-02": "AD-FGPP-01",
+        "AD-FGPP-03": "AD-FGPP-01",
+        "AD-FGPP-04": "AD-FGPP-01",
+        "AD-PWDPOL-02": "AD-PWDPOL-01",
+        "AD-PWDPOL-03": "AD-PWDPOL-01",
+        "AD-PWDPOL-04": "AD-PWDPOL-01",
+        "AD-PWDPOL-05": "AD-PWDPOL-01",
+        "AD-PWDPOL-06": "AD-PWDPOL-01",
+        "AD-PWDPOL-07": "AD-PWDPOL-01",
+        "AD-SITE-03": "AD-SITE-02",
+        "AD-SITE-05": "AD-SITE-04",
+        "AD-SUB-01": "AD-SITE-04",
+        "AD-SUB-02": "AD-SITE-04",
+        "AD-SUB-05": "AD-SUB-04",
+        "AD-SUB-07": "AD-SUB-06",
+        "AD-SUB-09": "AD-SUB-08",
+        "AD-SUB-10": "AD-SUB-08",
+        "AD-SUB-11": "AD-SITE-04",
+        "AD-OU-05": "AD-OU-04",
+        "AD-USER-17": "AD-USER-16",
+        "AD-USER-18": "AD-USER-16",
+        "AD-USER-21": "AD-USER-20",
+        "AD-USER-23": "AD-USER-22",
+        "AD-USER-24": "AD-USER-22",
+        "AD-USER-25": "AD-USER-22",
+        "AD-USER-27": "AD-USER-26",
+        "AD-USER-28": "AD-USER-05",
+        "AD-USER-29": "AD-USER-05",
+        "AD-DC-06": "AD-DC-05",
+        "AD-DC-08": "AD-DC-07",
+        "AD-DCD-02": "AD-DCD-01",
+        "AD-DOM-06": "AD-DOM-05",
+        "AD-DOM-08": "AD-DOM-07",
+        "AD-FORS-02": "AD-FORS-01"
+      },
+      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/14-dns",
+      "commits": [
+        "d8b399e6dd4e22c17be53a707296ef2a325befae"
+      ],
+      "compare": "https://github.com/soulemike/maester/compare/split/ad-13-dacl...split/ad-14-dns?expand=1",
+      "changedPaths": [
+        "tests/ad/dns/Test.AD-DNS-01.md",
+        "tests/ad/dns/Test.AD-DNS-02.md",
+        "tests/ad/dns/Test.AD-DNS-03.md",
+        "tests/ad/dns/Test.AD-DNS-04.md",
+        "tests/ad/dns/Test.AD-DNS-05.md",
+        "tests/ad/dns/Test.AD-DNS-06.md",
+        "tests/ad/dns/Test.AD-DNS-07.md",
+        "tests/ad/dns/Test.AD-DNS-08.md",
+        "tests/ad/dns/Test.AD-DNS-09.md",
+        "tests/ad/dns/Test.AD-DNS-10.md",
+        "tests/ad/dns/Test.AD-DNS-11.md",
+        "tests/ad/dns/Test.AD-DNS-12.md",
+        "tests/ad/dns/Test.AD-DNS-14.md",
+        "tests/ad/dns/Test.AD-DNS-16.md",
+        "tests/ad/dns/Test.AD-DNS-18.md",
+        "tests/ad/dns/Test.AD-DNS-19.md"
+      ],
+      "sessionID": "ses_e10c58aa5ffeDpwxWrnFnJBEa4"
+    },
+    {
+      "name": "15-catalog-docs",
+      "branch": "split/ad-15-catalog-docs",
+      "parent": "split/ad-14-dns",
+      "paths": [
+        "powershell/tests/functions/ADConfigurationChecks.Tests.ps1",
+        "powershell/tests/functions/ADGuideContent.Tests.ps1",
+        "powershell/tests/functions/ADResultPresentation.Tests.ps1",
+        "powershell/tests/functions/ADReviewCorrections.Tests.ps1",
+        "powershell/tests/functions/ADSchemaTrustChecks.Tests.ps1",
+        "powershell/tests/functions/ActiveDirectoryIssues.Tests.ps1",
+        "powershell/tests/functions/ActiveDirectoryOptIn.Tests.ps1",
+        "website/docs/advanced/active-directory.md",
+        "website/docs/upgrading-from-2x.md",
+        "website/scripts/test-retired-test-redirects.mjs",
+        "website/src/lib/redirects.mjs"
+      ],
+      "patchOnly": false,
+      "retiredMappings": {
+        "MT1060": "MT.1060",
+        "AD-CFG-01": "AD-FOR-03",
+        "AD-CFG-04": "AD-FEAT-01",
+        "AD-CFG-05": "AD-FOR-04",
+        "AD-COMP-09": "AD-DCOMP-01",
+        "AD-COMP-10": "AD-DCOMP-03",
+        "AD-DACL-04": "AD-DACL-03",
+        "AD-DACL-06": "AD-DACL-05",
+        "AD-DACL-08": "AD-DACL-07",
+        "AD-DACL-10": "AD-DACL-09",
+        "AD-DACL-12": "AD-DACL-11",
+        "AD-DACL-13": "AD-DACL-11",
+        "AD-DACL-16": "AD-DACL-15",
+        "AD-DACL-18": "AD-DACL-17",
+        "AD-DCOMP-02": "AD-DCOMP-01",
+        "AD-DCOMP-05": "AD-DCOMP-04",
+        "AD-DCOMP-09": "AD-DCOMP-08",
+        "AD-FEAT-02": "AD-FEAT-01",
+        "AD-GMC-03": "AD-GMC-02",
+        "AD-GMC-05": "AD-GMC-04",
+        "AD-GMC-07": "AD-GMC-06",
+        "AD-GMC-09": "AD-GMC-08",
+        "AD-GMC-11": "AD-GMC-10",
+        "AD-GPO-03": "AD-GPO-02",
+        "AD-GPO-05": "AD-GPO-04",
+        "AD-GPOL-06": "AD-GPOL-03",
+        "AD-GPOREP-02": "AD-GPOREP-01",
+        "AD-GPOREP-04": "AD-GPOREP-03",
+        "AD-GPOREP-08": "AD-GPOREP-07",
+        "AD-GPOREP-11": "AD-GPOREP-10",
+        "AD-GPOREP-13": "AD-GPOREP-12",
+        "AD-GPOREP-16": "AD-GPOREP-15",
+        "AD-GPOREP-18": "AD-GPOREP-17",
+        "AD-GPOREP-19": "AD-GPOREP-17",
+        "AD-GPOREP-20": "AD-GPOREP-17",
+        "AD-GRP-07": "AD-GRP-06",
+        "AD-GRP-09": "AD-GRP-08",
+        "AD-GRP-10": "AD-GRP-08",
+        "AD-ROOTDSE-02": "AD-ROOTDSE-01",
+        "AD-SCH-02": "AD-SCH-01",
+        "AD-SCH-04": "AD-SCH-03",
+        "AD-SPN-02": "AD-SPN-01",
+        "AD-SPN-04": "AD-SPN-03",
+        "AD-SPN-08": "AD-SPN-07",
+        "AD-SPN-10": "AD-SPN-09",
+        "AD-SPN-13": "AD-SPN-12",
+        "AD-TRUST-04": "AD-TRUST-03",
+        "AD-TRUST-05": "AD-TRUST-01",
+        "AD-USER-14": "AD-SPN-06",
+        "AD-CFG-14": "AD-CFG-13",
+        "AD-CFG-16": "AD-CFG-15",
+        "AD-CFG-17": "AD-CFG-15",
+        "AD-CFG-18": "AD-CFG-15",
+        "AD-CFG-19": "AD-CFG-15",
+        "AD-CFG-24": "AD-CFG-23",
+        "AD-FGPP-02": "AD-FGPP-01",
+        "AD-FGPP-03": "AD-FGPP-01",
+        "AD-FGPP-04": "AD-FGPP-01",
+        "AD-PWDPOL-02": "AD-PWDPOL-01",
+        "AD-PWDPOL-03": "AD-PWDPOL-01",
+        "AD-PWDPOL-04": "AD-PWDPOL-01",
+        "AD-PWDPOL-05": "AD-PWDPOL-01",
+        "AD-PWDPOL-06": "AD-PWDPOL-01",
+        "AD-PWDPOL-07": "AD-PWDPOL-01",
+        "AD-SITE-03": "AD-SITE-02",
+        "AD-SITE-05": "AD-SITE-04",
+        "AD-SUB-01": "AD-SITE-04",
+        "AD-SUB-02": "AD-SITE-04",
+        "AD-SUB-05": "AD-SUB-04",
+        "AD-SUB-07": "AD-SUB-06",
+        "AD-SUB-09": "AD-SUB-08",
+        "AD-SUB-10": "AD-SUB-08",
+        "AD-SUB-11": "AD-SITE-04",
+        "AD-OU-05": "AD-OU-04",
+        "AD-USER-17": "AD-USER-16",
+        "AD-USER-18": "AD-USER-16",
+        "AD-USER-21": "AD-USER-20",
+        "AD-USER-23": "AD-USER-22",
+        "AD-USER-24": "AD-USER-22",
+        "AD-USER-25": "AD-USER-22",
+        "AD-USER-27": "AD-USER-26",
+        "AD-USER-28": "AD-USER-05",
+        "AD-USER-29": "AD-USER-05",
+        "AD-DC-06": "AD-DC-05",
+        "AD-DC-08": "AD-DC-07",
+        "AD-DCD-02": "AD-DCD-01",
+        "AD-DOM-06": "AD-DOM-05",
+        "AD-DOM-08": "AD-DOM-07",
+        "AD-FORS-02": "AD-FORS-01"
+      },
+      "worktree": "/home/azureuser/.local/share/opencode-v2/profile/tmp/opencode/ad-feature-split/15-catalog-docs",
+      "commits": [
+        "cee38e90b1fed703a1a525d3dc1f219ac9f0a18c"
+      ],
+      "compare": "https://github.com/soulemike/maester/compare/split/ad-14-dns...split/ad-15-catalog-docs?expand=1",
+      "changedPaths": [
+        "powershell/tests/functions/ADConfigurationChecks.Tests.ps1",
+        "powershell/tests/functions/ADGuideContent.Tests.ps1",
+        "powershell/tests/functions/ADResultPresentation.Tests.ps1",
+        "powershell/tests/functions/ADReviewCorrections.Tests.ps1",
+        "powershell/tests/functions/ADSchemaTrustChecks.Tests.ps1",
+        "powershell/tests/functions/ActiveDirectoryIssues.Tests.ps1",
+        "powershell/tests/functions/ActiveDirectoryOptIn.Tests.ps1",
+        "website/docs/advanced/active-directory.md",
+        "website/docs/upgrading-from-2x.md",
+        "website/scripts/test-retired-test-redirects.mjs",
+        "website/src/lib/redirects.mjs"
+      ],
+      "sessionID": "ses_e10c57ee0ffe10xjBCUiPqlC0h"
+    },
+    {
+      "name": "16-main-reconciliation",
+      "branch": "split/ad-16-main-reconciliation",
+      "parent": "upstream/main",
+      "paths": [
+        "powershell/tests/functions/engine/Frameworks.Tests.ps1",
+        "tests/ad/computer/Test.AD-COMP-02.md",
+        "tests/ad/computer/Test.AD-COMP-02.ps1",
+        "tests/ad/security/Test.AD-DCOMP-06.md",
+        "tests/ad/security/Test.AD-DCOMP-06.ps1",
+        "tests/ad/security/Test.AD-KRBTGT-01.md",
+        "tests/ad/security/Test.AD-KRBTGT-01.ps1",
+        "tests/ad/security/Test.AD-KRBTGT-02.md",
+        "tests/ad/security/Test.AD-KRBTGT-03.md",
+        "tests/ad/trust/Test.AD-TRUST-06.md",
+        "tests/ad/trust/Test.AD-TRUST-06.ps1",
+        "tests/ad/trust/Test.AD-TRUST-07.md",
+        "tests/ad/trust/Test.AD-TRUST-07.ps1",
+        "tests/ad/user/Test.AD-USER-02.md",
+        "tests/ad/user/Test.AD-USER-02.ps1"
+      ],
+      "patchOnly": true
+    }
+  ],
+  "replacements": {
+    "MT1060": "MT.1060",
+    "AD-CFG-01": "AD-FOR-03",
+    "AD-CFG-04": "AD-FEAT-01",
+    "AD-CFG-05": "AD-FOR-04",
+    "AD-COMP-02": "AD-DCOMP-06",
+    "AD-COMP-09": "AD-DCOMP-01",
+    "AD-COMP-10": "AD-DCOMP-03",
+    "AD-DACL-04": "AD-DACL-03",
+    "AD-DACL-06": "AD-DACL-05",
+    "AD-DACL-08": "AD-DACL-07",
+    "AD-DACL-10": "AD-DACL-09",
+    "AD-DACL-12": "AD-DACL-11",
+    "AD-DACL-13": "AD-DACL-11",
+    "AD-DACL-16": "AD-DACL-15",
+    "AD-DACL-18": "AD-DACL-17",
+    "AD-DCOMP-02": "AD-DCOMP-01",
+    "AD-DCOMP-05": "AD-DCOMP-04",
+    "AD-DCOMP-09": "AD-DCOMP-08",
+    "AD-FEAT-02": "AD-FEAT-01",
+    "AD-GMC-03": "AD-GMC-02",
+    "AD-GMC-05": "AD-GMC-04",
+    "AD-GMC-07": "AD-GMC-06",
+    "AD-GMC-09": "AD-GMC-08",
+    "AD-GMC-11": "AD-GMC-10",
+    "AD-GPO-03": "AD-GPO-02",
+    "AD-GPO-05": "AD-GPO-04",
+    "AD-GPOL-06": "AD-GPOL-03",
+    "AD-GPOREP-02": "AD-GPOREP-01",
+    "AD-GPOREP-04": "AD-GPOREP-03",
+    "AD-GPOREP-08": "AD-GPOREP-07",
+    "AD-GPOREP-11": "AD-GPOREP-10",
+    "AD-GPOREP-13": "AD-GPOREP-12",
+    "AD-GPOREP-16": "AD-GPOREP-15",
+    "AD-GPOREP-18": "AD-GPOREP-17",
+    "AD-GPOREP-19": "AD-GPOREP-17",
+    "AD-GPOREP-20": "AD-GPOREP-17",
+    "AD-GRP-07": "AD-GRP-06",
+    "AD-GRP-09": "AD-GRP-08",
+    "AD-GRP-10": "AD-GRP-08",
+    "AD-ROOTDSE-02": "AD-ROOTDSE-01",
+    "AD-SCH-02": "AD-SCH-01",
+    "AD-SCH-04": "AD-SCH-03",
+    "AD-SPN-02": "AD-SPN-01",
+    "AD-SPN-04": "AD-SPN-03",
+    "AD-SPN-08": "AD-SPN-07",
+    "AD-SPN-10": "AD-SPN-09",
+    "AD-SPN-13": "AD-SPN-12",
+    "AD-TRUST-04": "AD-TRUST-03",
+    "AD-TRUST-05": "AD-TRUST-01",
+    "AD-TRUST-07": "AD-TRUST-06",
+    "AD-USER-14": "AD-SPN-06",
+    "AD-CFG-14": "AD-CFG-13",
+    "AD-CFG-16": "AD-CFG-15",
+    "AD-CFG-17": "AD-CFG-15",
+    "AD-CFG-18": "AD-CFG-15",
+    "AD-CFG-19": "AD-CFG-15",
+    "AD-CFG-24": "AD-CFG-23",
+    "AD-FGPP-02": "AD-FGPP-01",
+    "AD-FGPP-03": "AD-FGPP-01",
+    "AD-FGPP-04": "AD-FGPP-01",
+    "AD-PWDPOL-02": "AD-PWDPOL-01",
+    "AD-PWDPOL-03": "AD-PWDPOL-01",
+    "AD-PWDPOL-04": "AD-PWDPOL-01",
+    "AD-PWDPOL-05": "AD-PWDPOL-01",
+    "AD-PWDPOL-06": "AD-PWDPOL-01",
+    "AD-PWDPOL-07": "AD-PWDPOL-01",
+    "AD-SITE-03": "AD-SITE-02",
+    "AD-SITE-05": "AD-SITE-04",
+    "AD-SUB-01": "AD-SITE-04",
+    "AD-SUB-02": "AD-SITE-04",
+    "AD-SUB-05": "AD-SUB-04",
+    "AD-SUB-07": "AD-SUB-06",
+    "AD-SUB-09": "AD-SUB-08",
+    "AD-SUB-10": "AD-SUB-08",
+    "AD-SUB-11": "AD-SITE-04",
+    "AD-OU-05": "AD-OU-04",
+    "AD-USER-17": "AD-USER-16",
+    "AD-USER-18": "AD-USER-16",
+    "AD-USER-21": "AD-USER-20",
+    "AD-USER-23": "AD-USER-22",
+    "AD-USER-24": "AD-USER-22",
+    "AD-USER-25": "AD-USER-22",
+    "AD-USER-27": "AD-USER-26",
+    "AD-USER-28": "AD-USER-05",
+    "AD-USER-29": "AD-USER-05",
+    "AD-DC-06": "AD-DC-05",
+    "AD-DC-08": "AD-DC-07",
+    "AD-DCD-02": "AD-DCD-01",
+    "AD-DOM-06": "AD-DOM-05",
+    "AD-DOM-08": "AD-DOM-07",
+    "AD-FORS-02": "AD-FORS-01"
+  },
+  "quarantineIds": [
+    "AD-COMP-02",
+    "AD-DCOMP-06",
+    "AD-KRBTGT-01",
+    "AD-KRBTGT-02",
+    "AD-KRBTGT-03",
+    "AD-TRUST-06",
+    "AD-TRUST-07",
+    "AD-USER-02"
+  ],
+  "mergedTree": "6bb8a87136005d2d6cdaad34ffe72584b5fb2d20"
+}

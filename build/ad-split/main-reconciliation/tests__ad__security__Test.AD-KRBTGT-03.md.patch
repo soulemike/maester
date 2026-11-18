@@ -1,0 +1,15 @@
+diff --git a/tests/ad/security/Test.AD-KRBTGT-03.md b/tests/ad/security/Test.AD-KRBTGT-03.md
+index 99fa50a769a6352d0b04bb24a23e20a41ea71ef7..3867d44f7941fa1c7ff933bd2a1afbaef262cc34 100644
+--- a/tests/ad/security/Test.AD-KRBTGT-03.md
++++ b/tests/ad/security/Test.AD-KRBTGT-03.md
+@@ -39,8 +39,8 @@ This test retrieves the KRBTGT account and:
+ 
+ #### Related Tests
+ 
+-- `Test-MtAdKrbtgtPasswordLastSet` - Checks KRBTGT password age
+-- `Test-MtAdKrbtgtLastLogon` - Verifies no interactive logons
++- **AD-KRBTGT-01 — KRBTGT password age should not exceed the configured maximum** — `Test-MtAdKrbtgtPasswordLastSet` — Checks KRBTGT password age.
++- **AD-KRBTGT-02 — KRBTGT last logon should be investigated** — `Test-MtAdKrbtgtLastLogon` — Investigates the KRBTGT last-logon value; this alone does not verify absence of interactive logons.
+ 
+ <!--- Results --->
+ %TestResult%
