@@ -42,21 +42,13 @@
         "AD-DACL-01",
         "AD-DACL-02",
         "AD-DACL-03",
-        "AD-DACL-04",
         "AD-DACL-05",
-        "AD-DACL-06",
         "AD-DACL-07",
-        "AD-DACL-08",
         "AD-DACL-09",
-        "AD-DACL-10",
         "AD-DACL-11",
-        "AD-DACL-12",
-        "AD-DACL-13",
         "AD-DACL-14",
         "AD-DACL-15",
-        "AD-DACL-16",
         "AD-DACL-17",
-        "AD-DACL-18",
         "AD-DC-01",
         "AD-DC-02",
         "AD-DC-03",
@@ -272,6 +264,54 @@
       "Tag": "AD-COMP-10",
       "Tests": [
         "AD-DCOMP-03"
+      ]
+    },
+    {
+      "Tag": "AD-DACL-04",
+      "Tests": [
+        "AD-DACL-03"
+      ]
+    },
+    {
+      "Tag": "AD-DACL-06",
+      "Tests": [
+        "AD-DACL-05"
+      ]
+    },
+    {
+      "Tag": "AD-DACL-08",
+      "Tests": [
+        "AD-DACL-07"
+      ]
+    },
+    {
+      "Tag": "AD-DACL-10",
+      "Tests": [
+        "AD-DACL-09"
+      ]
+    },
+    {
+      "Tag": "AD-DACL-12",
+      "Tests": [
+        "AD-DACL-11"
+      ]
+    },
+    {
+      "Tag": "AD-DACL-13",
+      "Tests": [
+        "AD-DACL-11"
+      ]
+    },
+    {
+      "Tag": "AD-DACL-16",
+      "Tests": [
+        "AD-DACL-15"
+      ]
+    },
+    {
+      "Tag": "AD-DACL-18",
+      "Tests": [
+        "AD-DACL-17"
       ]
     },
     {
@@ -732,21 +772,13 @@
         "AD-DACL-01",
         "AD-DACL-02",
         "AD-DACL-03",
-        "AD-DACL-04",
         "AD-DACL-05",
-        "AD-DACL-06",
         "AD-DACL-07",
-        "AD-DACL-08",
         "AD-DACL-09",
-        "AD-DACL-10",
         "AD-DACL-11",
-        "AD-DACL-12",
-        "AD-DACL-13",
         "AD-DACL-14",
         "AD-DACL-15",
-        "AD-DACL-16",
-        "AD-DACL-17",
-        "AD-DACL-18"
+        "AD-DACL-17"
       ]
     },
     {
