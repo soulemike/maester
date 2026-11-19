@@ -170,11 +170,7 @@
         "AD-GPOREP-13",
         "AD-GPOREP-14",
         "AD-GPOREP-15",
-        "AD-GPOREP-16",
         "AD-GPOREP-17",
-        "AD-GPOREP-18",
-        "AD-GPOREP-19",
-        "AD-GPOREP-20",
         "AD-GPOS-01",
         "AD-GPOS-02",
         "AD-GPOS-03",
@@ -286,6 +282,30 @@
         "AD-USER-27",
         "AD-USER-28",
         "AD-USER-29"
+      ]
+    },
+    {
+      "Tag": "AD-GPOREP-16",
+      "Tests": [
+        "AD-GPOREP-15"
+      ]
+    },
+    {
+      "Tag": "AD-GPOREP-18",
+      "Tests": [
+        "AD-GPOREP-17"
+      ]
+    },
+    {
+      "Tag": "AD-GPOREP-19",
+      "Tests": [
+        "AD-GPOREP-17"
+      ]
+    },
+    {
+      "Tag": "AD-GPOREP-20",
+      "Tests": [
+        "AD-GPOREP-17"
       ]
     },
     {
@@ -473,11 +493,7 @@
         "AD-GPOREP-13",
         "AD-GPOREP-14",
         "AD-GPOREP-15",
-        "AD-GPOREP-16",
         "AD-GPOREP-17",
-        "AD-GPOREP-18",
-        "AD-GPOREP-19",
-        "AD-GPOREP-20",
         "AD-GPOS-01",
         "AD-GPOS-02",
         "AD-GPOS-03",
