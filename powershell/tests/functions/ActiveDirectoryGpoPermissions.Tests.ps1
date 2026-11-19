@@ -2,10 +2,7 @@
     # The native tests that read the permission summary of Get-MtADGpoState. Finding is the GPO permission
     # profile (see New-TestGpo) that the test must flag.
     $script:permissionTests = @(
-        @{ Id = 'AD-GPOREP-01'; Command = 'Test-MtAdGpoNoPermissionsCount'; Finding = 'EmptyDacl' }
-        @{ Id = 'AD-GPOREP-02'; Command = 'Test-MtAdGpoNoPermissionsDetails'; Finding = 'EmptyDacl' }
-        @{ Id = 'AD-GPOREP-03'; Command = 'Test-MtAdGpoNoAuthenticatedUsersCount'; Finding = 'DomainComputers' }
-        @{ Id = 'AD-GPOREP-04'; Command = 'Test-MtAdGpoNoAuthenticatedUsersDetails'; Finding = 'DomainComputers' }
+        # The consolidated 01/03 checks are covered by ADGpoReports.Tests.ps1.
         @{ Id = 'AD-GPOREP-05'; Command = 'Test-MtAdGpoNoEnterpriseDcCount'; Finding = 'NoEnterpriseDc' }
         @{ Id = 'AD-GPOREP-06'; Command = 'Test-MtAdGpoNoDomainComputersCount'; Finding = 'NoComputerAccess' }
         @{ Id = 'AD-GPOREP-09'; Command = 'Test-MtAdGpoInheritedPermissionsCount'; Finding = 'Inherited' }
@@ -14,10 +11,10 @@
 
 BeforeAll {
     Import-Module "$PSScriptRoot/../../Maester.psd1" -Force
+    $script:realSysvolContent = InModuleScope Maester { (Get-Command Get-MtSysvolContent).ScriptBlock }
     . "$PSScriptRoot/../helpers/Use-MtModuleFunction.ps1"
     # Check functions that became native tests are not exported.
-    Use-MtModuleFunction -Name Test-MtAdGpoNoPermissionsCount, Test-MtAdGpoNoPermissionsDetails,
-    Test-MtAdGpoNoAuthenticatedUsersCount, Test-MtAdGpoNoAuthenticatedUsersDetails, Test-MtAdGpoNoEnterpriseDcCount,
+    Use-MtModuleFunction -Name Test-MtAdGpoNoEnterpriseDcCount,
     Test-MtAdGpoNoDomainComputersCount, Test-MtAdGpoInheritedPermissionsCount
 
     $script:domainSid = 'S-1-5-21-1111111111-2222222222-3333333333'
@@ -94,6 +91,7 @@ Describe 'Active Directory GPO permissions' {
                 Connected         = $true
                 ProtocolValidated = $true
                 ResolvedDomain    = 'contoso.com'
+                ResolvedServer    = 'dc01.contoso.com'
                 RequestedAuthMode = 'Negotiate'
                 RequestedTlsMode  = 'Auto'
                 RequestedServer   = 'dc01.contoso.com'
@@ -127,6 +125,123 @@ Describe 'Active Directory GPO permissions' {
     }
 
     Context 'Get-MtADGpoState permission summary' {
+        It 'keeps failed site-link collection unknown for link consumers' {
+            $script:testGpos = @(New-TestGpo -PermissionProfile 'Default')
+            Mock Get-MtLdapSiteContainer -ModuleName Maester -RemoveParameterType Connection { throw 'site links unavailable' }
+            $state = Get-MtADGpoState
+            $null -eq $state.SiteContainers | Should -BeTrue
+            $null -eq $state.GPOLinks | Should -BeTrue
+            $null -eq $state.GPOReports[0].DisabledLinks | Should -BeTrue
+            $null -eq $state.GPOReports[0].EnforcementEnabled | Should -BeTrue
+            InModuleScope Maester {
+                { Test-MtAdGpoUnlinkedCount } | Should -Throw '*links*'
+                { Test-MtCheckADGPOREP12 } | Should -Throw '*links*'
+            }
+        }
+
+        It 'keeps failed metadata and report collection distinct from completed empty collections' {
+            Mock Get-MtLdapGpo -ModuleName Maester -RemoveParameterType Connection { throw 'metadata unavailable' }
+            $state = Get-MtADGpoState
+            $null -eq $state.GPOs | Should -BeTrue
+            $null -eq $state.GPOReports | Should -BeTrue
+        }
+
+        It 'returns empty arrays after a completed empty metadata collection' {
+            $state = Get-MtADGpoState
+            $null -eq $state.GPOs | Should -BeFalse
+            @($state.GPOs) | Should -HaveCount 0
+            $null -eq $state.GPOReports | Should -BeFalse
+            @($state.GPOReports) | Should -HaveCount 0
+        }
+
+        It 'keeps report-building failure unknown rather than returning an empty report list' {
+            $script:testGpos = @(New-TestGpo -PermissionProfile 'Default')
+            $script:testGpos[0].ntSecurityDescriptor = [byte[]]@(1, 2, 3)
+            Mock ConvertFrom-MtLdapSecurityDescriptor -ModuleName Maester { throw 'descriptor unavailable' }
+            $state = Get-MtADGpoState
+            @($state.GPOs) | Should -HaveCount 1
+            $null -eq $state.GPOReports | Should -BeTrue
+        }
+
+        It 'interprets Apply Group Policy ACE evidence for <Rights> / <ObjectType> / <Flags>' -ForEach @(
+            @{ Rights = 'GenericAll'; ObjectType = '00000000-0000-0000-0000-000000000000'; Flags = 'ContainerInherit'; Access = 'Allow'; Expected = $true }
+            @{ Rights = 'ExtendedRight'; ObjectType = '00000000-0000-0000-0000-000000000000'; Flags = 'ContainerInherit'; Access = 'Allow'; Expected = $true }
+            @{ Rights = 'ExtendedRight'; ObjectType = 'edacfd8f-ffb3-11d1-b41d-00a0c968f939'; Flags = 'ContainerInherit'; Access = 'Allow'; Expected = $true }
+            @{ Rights = 'ReadProperty'; ObjectType = 'edacfd8f-ffb3-11d1-b41d-00a0c968f939'; Flags = 'ContainerInherit'; Access = 'Allow'; Expected = $false }
+            @{ Rights = 'GenericAll'; ObjectType = '00000000-0000-0000-0000-000000000000'; Flags = 'ContainerInherit, InheritOnly'; Access = 'Allow'; Expected = $false }
+            @{ Rights = 'ExtendedRight'; ObjectType = 'edacfd8f-ffb3-11d1-b41d-00a0c968f939'; Flags = 'ContainerInherit'; Access = 'Deny'; Expected = $false }
+            @{ Rights = 'ExtendedRight'; ObjectType = '11111111-1111-1111-1111-111111111111'; Flags = 'ContainerInherit'; Access = 'Allow'; Expected = $false }
+        ) {
+            $gpo = New-TestGpo -PermissionProfile 'EmptyDacl'
+            $gpo.ntSecurityDescriptor.Access = @(New-TestAce -Sid 'S-1-5-11' -ActiveDirectoryRights $Rights -ObjectType $ObjectType -AceFlags $Flags -AccessControlType $Access)
+            $script:testGpos = @($gpo)
+            $report = @((Get-MtADGpoState).GPOReports)[0]
+            $report.HasApplyGroupPolicyAce | Should -Be $Expected
+        }
+
+        It 'records observed versions independently of missing GPT.INI' -ForEach @(
+            @{ SysvolVersion = 65538; ExpectedMismatch = $false }
+            @{ SysvolVersion = 65539; ExpectedMismatch = $true }
+            @{ SysvolVersion = $null; ExpectedMismatch = $null }
+        ) {
+            $script:testGpos = @(New-TestGpo -PermissionProfile 'Default')
+            $script:testGpos[0].VersionNumber = 65538
+            $script:observedSysvolVersion = $SysvolVersion
+            Mock Get-MtSysvolContent -ModuleName Maester {
+                [pscustomobject]@{ GptIni = if ($null -eq $script:observedSysvolVersion) { $null } else { [pscustomobject]@{ Version = $script:observedSysvolVersion } }; CpasswordFound = $false; DefaultPasswordFound = $false }
+            }
+            $report = @((Get-MtADGpoState).GPOReports)[0]
+            $report.DirectoryVersion | Should -Be 65538
+            $report.SysvolVersion | Should -Be $SysvolVersion
+            $report.HasVersionMismatch | Should -Be $ExpectedMismatch
+        }
+
+        It 'records failed SYSVOL scans as unknown flags and explicit errors' {
+            $script:testGpos = @(New-TestGpo -PermissionProfile 'Default')
+            Mock Get-MtSysvolContent -ModuleName Maester { throw 'scan incomplete' }
+            $report = @((Get-MtADGpoState).GPOReports)[0]
+            $null -eq $report.CpasswordFound | Should -BeTrue
+            $null -eq $report.DefaultPasswordFound | Should -BeTrue
+            $null -eq $report.SysvolVersion | Should -BeTrue
+            $null -eq $report.HasVersionMismatch | Should -BeTrue
+            @($report.Errors) | Should -HaveCount 1
+        }
+
+        It 'does not pass password or version checks after a readable password XML and an unreadable XML' -ForEach @(
+            @{ ReadFailure = $true }
+            @{ ReadFailure = $false }
+        ) {
+            $script:testGpos = @(New-TestGpo -PermissionProfile 'Default')
+            $script:testGpos[0].VersionNumber = 65538
+            $script:xmlReadFailure = $ReadFailure
+            Mock Get-MtSysvolContent -ModuleName Maester { & $script:realSysvolContent -Operation $Operation -GpoGuid $GpoGuid }
+            Mock Test-MtSysvolWindowsPlatform -ModuleName Maester { $true }
+            Mock Invoke-MtSysvolWindowsAdapter -ModuleName Maester {
+                if ($Operation -eq 'List') {
+                    return @(
+                        [pscustomobject]@{ RelativePath = 'GPT.INI'; Name = 'GPT.INI'; Length = 25 }
+                        [pscustomobject]@{ RelativePath = 'Machine/Preferences/Groups/Groups.xml'; Name = 'Groups.xml'; Length = 100 }
+                        [pscustomobject]@{ RelativePath = 'Machine/Preferences/Drives/Drives.xml'; Name = 'Drives.xml'; Length = 100 }
+                    )
+                }
+                if ($Operation -eq 'ReadText') {
+                    if ($RelativePath -eq 'GPT.INI') { return "[General]`nVersion=65539" }
+                    if ($RelativePath -like '*Groups.xml') { return '<Groups><User cpassword="SECRET-MUST-NOT-PRINT" /></Groups>' }
+                    if ($script:xmlReadFailure) { throw 'read failed SECRET-MUST-NOT-PRINT' }
+                    return '<Drives><Drive cpassword="SECRET-MUST-NOT-PRINT"'
+                }
+                return $true
+            }
+            $state = Get-MtADGpoState
+            @($state.GPOReports[0].Errors) | Should -HaveCount 1
+            $state.GPOReports[0].Errors.Message | Should -Match 'password scan is incomplete'
+            $state.GPOReports[0].Errors.Message | Should -Not -Match 'SECRET-MUST-NOT-PRINT'
+            InModuleScope Maester {
+                { Test-MtAdGpoCpasswordFoundCount } | Should -Throw '*incomplete*'
+                { Test-MtAdGpoVersionMismatchCount } | Should -Throw '*incomplete*'
+            }
+        }
+
         It 'Reports the permissions of a GPO with <PermissionProfile> permissions' -ForEach @(
             @{ PermissionProfile = 'Default'; PermissionsPresent = $true; HasAuthenticatedUsers = $true; HasEnterpriseDomainControllers = $true; HasDomainComputers = $false; HasInheritedPermissions = $false }
             @{ PermissionProfile = 'DomainComputers'; PermissionsPresent = $true; HasAuthenticatedUsers = $false; HasEnterpriseDomainControllers = $true; HasDomainComputers = $true; HasInheritedPermissions = $false }

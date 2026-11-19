@@ -1,14 +1,18 @@
 ﻿function Test-MtCheckADGPOREP12 {
     <#
     .SYNOPSIS
-    GPO disabled link count should be retrievable
-
+    Inventories disabled GPO links.
     .DESCRIPTION
-    Runs the shared check Test-MtAdGpoDisabledLinkCount.
+    Counts disabled links and lists their target policies and containers for review.
+    .EXAMPLE
+    Invoke-MtTest -Id AD-GPOREP-12
+    Review disabled GPO links and their target containers manually.
+    .LINK
+    https://maester.dev/docs/tests/AD-GPOREP-12
     #>
     [MaesterTest(
         Id = 'AD-GPOREP-12',
-        Title = 'GPO disabled link count should be retrievable',
+        Title = 'Review disabled GPO links',
         Product = 'ad',
         Feature = 'group-policy',
         Area = 'infrastructure',
@@ -23,7 +27,5 @@
     [OutputType([bool])]
     param()
 
-    $result = Test-MtAdGpoDisabledLinkCount
-    if ($null -eq $result) { return $null }
-    return $result
+    return Test-MtAdGpoDisabledLinkCount
 }
