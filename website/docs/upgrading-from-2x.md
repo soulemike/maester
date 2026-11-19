@@ -11,6 +11,35 @@ Maester 3.0 gives Maester its own test engine. The built-in tests are no longer 
 folder: they ship inside the module and run from there. Most runs need no change at all, but the way tests are
 installed, selected, configured and written has moved on. This page lists every change that can affect you.
 
+## Active Directory GPO consolidation
+
+The GPO area consolidates 12 redundant checks while retaining the surviving IDs. Historical inclusion and exclusion tags select the survivor, and retired test URLs redirect to its guide.
+
+| Retired ID | Surviving ID |
+| --- | --- |
+| AD-GPO-03 | AD-GPO-02 |
+| AD-GPO-05 | AD-GPO-04 |
+| AD-GPOL-06 | AD-GPOL-03 |
+| AD-GPOREP-02 | AD-GPOREP-01 |
+| AD-GPOREP-04 | AD-GPOREP-03 |
+| AD-GPOREP-08 | AD-GPOREP-07 |
+| AD-GPOREP-11 | AD-GPOREP-10 |
+| AD-GPOREP-13 | AD-GPOREP-12 |
+| AD-GPOREP-16 | AD-GPOREP-15 |
+| AD-GPOREP-18 | AD-GPOREP-17 |
+| AD-GPOREP-19 | AD-GPOREP-17 |
+| AD-GPOREP-20 | AD-GPOREP-17 |
+
+Audit old exclusions: excluding `AD-GPOREP-19` now excludes the combined **Critical AD-GPOREP-17** check, including both cpassword and security-template default-password detection. Replace broad legacy exclusions with an intentional selection of the surviving check.
+
+`AD-GPO-02` uses last-modification age, configurable through `MaximumAgeYears` (five calendar years by default), not a fixed creation-before-2020 rule. An old creation date alone does not fail it.
+
+`AD-GPOREP-01` fails observed empty ACLs, investigates unreadable ACLs, and errors on unavailable/empty reports. `AD-GPOREP-03` is an investigation inventory: alternative filtering without Authenticated Users can be intentional. Apply Group Policy evidence includes GenericAll and unrestricted ExtendedRight, excludes inherit-only ACEs, and does not treat a matching GUID with unrelated rights as authorization.
+
+Version and password checks error on incomplete SYSVOL evidence instead of claiming clean results. Custom consumers of `Get-MtADGpoState` must distinguish a completed empty array from `$null` collection failure, and inspect nullable scan/version fields and report `Errors`. No credential values are reported.
+
+Because version and password assessments share a bounded SYSVOL scan, one malformed, unreadable or oversized file makes both assessments incomplete. Descriptor-based AD-GPOREP-01/03/07/10 declare Windows because the existing security-descriptor parser cannot evaluate ACLs on Linux/macOS; password/version transport remains cross-platform. AD-GPOL-02 and AD-GPOREP-12 share the same normalized disabled-link inventory rather than producing separate answers.
+
 ## Requirements
 
 - **PowerShell 7.4 or later** (the `Core` edition) on Linux, macOS, or Windows. The module no longer loads in Windows PowerShell 5.1.
