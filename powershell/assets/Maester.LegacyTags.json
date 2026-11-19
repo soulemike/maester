@@ -146,15 +146,12 @@
         "AD-GMC-11",
         "AD-GPO-01",
         "AD-GPO-02",
-        "AD-GPO-03",
         "AD-GPO-04",
-        "AD-GPO-05",
         "AD-GPOL-01",
         "AD-GPOL-02",
         "AD-GPOL-03",
         "AD-GPOL-04",
         "AD-GPOL-05",
-        "AD-GPOL-06",
         "AD-GPOREP-01",
         "AD-GPOREP-03",
         "AD-GPOREP-05",
@@ -277,6 +274,24 @@
         "AD-USER-27",
         "AD-USER-28",
         "AD-USER-29"
+      ]
+    },
+    {
+      "Tag": "AD-GPO-03",
+      "Tests": [
+        "AD-GPO-02"
+      ]
+    },
+    {
+      "Tag": "AD-GPO-05",
+      "Tests": [
+        "AD-GPO-04"
+      ]
+    },
+    {
+      "Tag": "AD-GPOL-06",
+      "Tests": [
+        "AD-GPOL-03"
       ]
     },
     {
@@ -489,15 +504,12 @@
       "Tests": [
         "AD-GPO-01",
         "AD-GPO-02",
-        "AD-GPO-03",
         "AD-GPO-04",
-        "AD-GPO-05",
         "AD-GPOL-01",
         "AD-GPOL-02",
         "AD-GPOL-03",
         "AD-GPOL-04",
-        "AD-GPOL-05",
-        "AD-GPOL-06"
+        "AD-GPOL-05"
       ]
     },
     {

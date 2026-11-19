@@ -1,6 +1,9 @@
 # Explicit native replacements preserve historical inclusion and exclusion selections.
 @{
     'MT1060' = 'MT.1060'
+    'AD-GPO-03' = 'AD-GPO-02'
+    'AD-GPO-05' = 'AD-GPO-04'
+    'AD-GPOL-06' = 'AD-GPOL-03'
     'AD-GPOREP-02' = 'AD-GPOREP-01'
     'AD-GPOREP-04' = 'AD-GPOREP-03'
     'AD-GPOREP-08' = 'AD-GPOREP-07'
