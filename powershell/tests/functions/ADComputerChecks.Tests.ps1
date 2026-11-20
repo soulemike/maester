@@ -85,7 +85,38 @@
         Test-MtAdComputerOperatingSystemCount | Should -BeTrue
         $script:Details.Investigate | Should -BeTrue
         $script:Details.Text | Should -BeLike '*| Computers with Unknown OS | 1 |*'
-        $script:Details.Text | Should -BeLike '*| Unknown OS | 1 | 33.33% of all computers |*'
+        $script:Details.Text | Should -BeLike '*| Percentage of All Computers |*'
+        $script:Details.Text | Should -BeLike '*| Server | 1 | 33.33% |*'
+        $script:Details.Text | Should -BeLike '*| Client | 1 | 33.33% |*'
+        $script:Details.Text | Should -BeLike '*| Unknown OS | 1 | 33.33% |*'
+    }
+
+    It 'puts undefined OS values in the in-use table even when no known OS exists' {
+        $script:AdComputerState.Computers[0].OperatingSystem = $null
+        $script:AdComputerState.Computers[1].OperatingSystem = ''
+        $script:AdComputerState.Computers[2].OperatingSystem = " `t "
+        Test-MtAdComputerOperatingSystemCount | Should -BeTrue
+        $script:Details.Investigate | Should -BeTrue
+        $script:Details.Text | Should -BeLike '*| Distinct Operating Systems | 0 |*'
+        $script:Details.Text | Should -BeLike '*| Computers with Unknown OS | 3 |*'
+        $script:Details.Text | Should -Match '(?s)\*\*Operating Systems in Use:\*\*\s+\| Operating System \| Count \| Percentage of All Computers \|\s+\| --- \| --- \| --- \|\s+\| Unknown OS \| 3 \| 100% \|'
+    }
+
+    It 'reports an empty computer OS inventory without a detached table row or division by zero' {
+        $script:AdComputerState.Computers = @()
+        Test-MtAdComputerOperatingSystemCount | Should -BeTrue
+        $script:Details.Investigate | Should -BeTrue
+        $script:Details.Text | Should -BeLike '*| Total Computers | 0 |*'
+        $script:Details.Text | Should -Not -Match 'Operating Systems in Use|\| Unknown OS \|'
+    }
+
+    It 'treats an absent OS property as unknown and escapes known OS table cells' {
+        $script:AdComputerState.Computers[0].PSObject.Properties.Remove('OperatingSystem')
+        $script:AdComputerState.Computers[1].OperatingSystem = "Server|Core`nEdition"
+        Test-MtAdComputerOperatingSystemCount | Should -BeTrue
+        $script:Details.Investigate | Should -BeTrue
+        $script:Details.Text | Should -BeLike '*| Unknown OS | 1 | 33.33% |*'
+        $script:Details.Text | Should -BeLike '*| Server\|Core Edition | 1 | 33.33% |*'
     }
 
     It 'escapes container cells and supplies a heading for the top five table' {

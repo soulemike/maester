@@ -51,11 +51,11 @@
 
     $computers = $adState.Computers
 
-    # Group by operating system
-    $osGroups = $computers | Where-Object { $_.operatingSystem } | Group-Object -Property operatingSystem
+    # Blank and whitespace-only values are undefined, not distinct operating systems.
+    $osGroups = $computers | Where-Object { -not [string]::IsNullOrWhiteSpace($_.operatingSystem) } | Group-Object -Property operatingSystem
     $osCount = ($osGroups | Measure-Object).Count
     $totalComputers = ($computers | Measure-Object).Count
-    $computersWithOs = ($computers | Where-Object { $_.operatingSystem } | Measure-Object).Count
+    $computersWithOs = ($computers | Where-Object { -not [string]::IsNullOrWhiteSpace($_.operatingSystem) } | Measure-Object).Count
     $computersWithoutOs = $totalComputers - $computersWithOs
 
     $testResult = $true
@@ -65,24 +65,23 @@
     $result += "| Total Computers | $totalComputers |" + "`n"
     $result += "| Distinct Operating Systems | $osCount |" + "`n"
     $result += "| Computers with OS Data | $computersWithOs |" + "`n"
-    $result += "| Computers without OS Data | $computersWithoutOs |" + "`n"
     $result += "| Computers with Unknown OS | $computersWithoutOs |" + "`n"
 
-    if ($osCount -gt 0) {
+    if ($totalComputers -gt 0) {
         $result += "`n**Operating Systems in Use:**" + "`n" + "`n"
-        $result += "| Operating System | Count | Percentage |" + "`n"
+        $result += "| Operating System | Count | Percentage of All Computers |" + "`n"
         $result += "| --- | --- | --- |" + "`n"
 
         $sortedGroups = $osGroups | Sort-Object -Property Count -Descending
         foreach ($group in $sortedGroups) {
-            $percentage = if ($computersWithOs -gt 0) { [Math]::Round(($group.Count / $computersWithOs) * 100, 2) } else { 0 }
+            $percentage = [Math]::Round(($group.Count / $totalComputers) * 100, 2)
             $osName = [string]$group.Name -replace '\|', '\|' -replace '[\r\n]', ' '
             $result += "| $osName | $($group.Count) | $percentage% |" + "`n"
         }
-    }
-    if ($computersWithoutOs -gt 0) {
-        $unknownPercentage = if ($totalComputers -gt 0) { [Math]::Round(($computersWithoutOs / $totalComputers) * 100, 2) } else { 0 }
-        $result += "| Unknown OS | $computersWithoutOs | $unknownPercentage% of all computers |`n"
+        if ($computersWithoutOs -gt 0) {
+            $unknownPercentage = [Math]::Round(($computersWithoutOs / $totalComputers) * 100, 2)
+            $result += "| Unknown OS | $computersWithoutOs | $unknownPercentage% |`n"
+        }
     }
     Write-Verbose "Counts computed"
 
